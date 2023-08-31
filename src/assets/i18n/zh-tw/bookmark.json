@@ -1,0 +1,24 @@
+{
+    "BOOK_MARK": {
+        "COMMON": {
+        },
+        "DEFAULT_RANGE": {
+            "TODAY": "今天",
+            "7D": "一週",
+            "1M": "近1月",
+            "CUSTOM": "自訂"
+        },
+        "DEFAULT_LONG_RANGE": {
+            "12M": "今年",
+            "-12M": "前年",
+            "-24M": "前兩年",
+            "CUSTOM": "自訂"
+        },
+        "FUND": {
+            "SINGLE_ONE": "單筆",
+            "REGULAR": "定期",
+            "REGULAR_QUOTA": "定期定額",
+            "REGULAR_NOT_QUOTA": "定期不定額"
+        }
+    }
+}

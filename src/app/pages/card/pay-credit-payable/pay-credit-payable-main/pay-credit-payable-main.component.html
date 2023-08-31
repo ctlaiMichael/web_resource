@@ -1,0 +1,157 @@
+<ng-container [ngSwitch]="nowPage">
+    <!-- 編輯頁 START -->
+    <ng-container *ngSwitchCase="'edit'">
+        <ng-container *ngIf="!!hasCardData">
+            <section class="section_area section_hasbtn">
+                <!-- 步驟列 Start -->
+                <app-step-bar [setData]="stepMenuData" [setKey]="nowStep"></app-step-bar>
+                <!-- 步驟列 End -->
+
+                <div class="content_group content_credit_3_2 flex_col">
+                    <div class="content_credit_1_w1">
+                
+                        <div class="content_credit_li content_credit_title_tag flex_row">
+                            <p class="content_p1">{{ payBillInfo | objectField: ['apMonth'] }}{{ 'PAYABLE.EDIT.MONTH' | translate }} <span>| {{ 'PAYABLE.EDIT.CURBAL' | translate }}</span></p>
+                        </div>
+                
+                        <div class="content_credit_li content_credit_title">
+                            <p class="content_p2">{{ payBillInfo | objectField: ['curBal', 'htMoney', 'TWD'] }}</p>
+                        </div>
+                
+                        <div class="content_credit_li flex_row">
+                            <div class="content_invest_li_p1">{{ 'PAYABLE.EDIT.MINPAY' | translate }}</div>
+                            <div class="content_invest_li_p2">{{ payBillInfo | objectField: ['minPay', 'htMoney', 'TWD'] }}</div>
+                        </div>
+                
+                        <div class="content_credit_li flex_row">
+                            <div class="content_invest_li_p1">{{ 'PAYABLE.EDIT.PREPAY' | translate }}</div>
+                            <div class="content_invest_li_p2">{{ payBillInfo | objectField: ['prevPay', 'htMoney', 'TWD'] }}</div>
+                        </div>
+                
+                        <div class="content_credit_li content_credit_li_big flex_row">
+                            <div class="content_invest_li_p1">{{ 'PAYABLE.EDIT.DUEDATE' | translate }}</div>
+                            <div class="content_invest_li_p2">{{ payBillInfo | objectField: ['dueDate', 'htDate' ,'yyyy-MM-dd'] }}</div>
+                        </div>
+                
+                    </div>
+                </div>
+
+                <!-- <div class="content_group content_credit_2 mar_btm15">
+                    <div class="flex_row content_credit_2_li content_credit2_li_2">
+                        <p class="content_credit2_txt2">{{ 'PAYABLE.EDIT.CURBAL' | translate }}</p>
+                        <p class="content_credit2_txt2">{{ payBillInfo | objectField: ['curBal', 'htMoney', 'TWD'] }}
+                        </p>
+                    </div>
+
+                    <div class="flex_row content_credit_2_li content_credit2_li_3">
+                        <p class="content_credit2_txt3">{{ 'PAYABLE.EDIT.MINPAY' | translate }}</p>
+                        <p class="content_credit2_txt3 txt_bold">
+                            {{ payBillInfo | objectField: ['minPay', 'htMoney', 'TWD'] }}</p>
+                    </div>
+
+                    <div class="flex_row content_credit_2_li content_credit2_li_4">
+                        <p class="content_credit2_txt3">{{ 'PAYABLE.EDIT.PREPAY' | translate }}</p>
+                        <p class="content_credit2_txt3 txt_bold">
+                            {{ payBillInfo | objectField: ['prevPay', 'htMoney', 'TWD'] }}</p>
+                    </div>
+
+                    <div class="content_credit2_txt4">{{ 'PAYABLE.EDIT.DUEDATE' | translate }}:
+                        {{ payBillInfo | objectField: ['dueDate', 'htDate' ,'yyyy-MM-dd'] }}
+                    </div>
+                </div> -->
+
+                <div class="row_single row_bg">
+                    <div class="form_group form_group_w100 form_select_2">
+                        <div class="select_group flex_col">
+                            <div class="form_label">{{ 'PAYABLE.EDIT.ACCOUNTID' | translate }}</div>
+                            <div class="select_inner_group">
+                                <div class="form_select_pop_2 flex_row" (click)="onSelectAcct(showAcct)">
+                                    <p class="select_pop_content">{{ showAcct }}</p>
+                                    <div class="select_pop_i_down"></div>
+                                </div>
+                                <div class="select_pop_info">{{ 'PAYABLE.EDIT.BALANCE' | translate }} NT$
+                                    {{ showBalance | htMoney:'TWD' }}</div>
+                                <div class="form_error">{{ errorMsg.accountId | translate }}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form_group form_radio_2_2">
+                        <div class="radio_group flex_col">
+                            <div class="form_label">{{ 'PAYABLE.EDIT.INPUT_AMOUNT' | translate }}</div>
+                            <div class="radio_inner_group flex_row radio_inner_group_set3">
+                                <div class="radio_btn flex_row" [ngClass]="{ 'active':payType == 'all' }"
+                                    (click)="onAll()">
+                                    {{ 'PAYABLE.EDIT.TYPE_ALL' | translate }}</div>
+                                <div class="radio_btn flex_row" [ngClass]="{ 'active':payType == 'lowest' }"
+                                    (click)="onLowest()">{{ 'PAYABLE.EDIT.TYPE_LOWEST' | translate }}
+                                </div>
+                                <div class="radio_btn flex_row" [ngClass]="{ 'active':payType == 'custom' }"
+                                    (click)="onCustom()">{{ 'PAYABLE.EDIT.TYPE_CUSTOM' | translate }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form_group form_group_w100 form_input_2">
+                        <ng-container *ngIf="payType == 'all' || payType == 'lowest'">
+                            <div class="input_group flex_col">
+                                <div class="input_inner_group status_disabled">
+                                    <input type="text" class="input_inner" placeholder="請輸入繳款金額"
+                                        [(ngModel)]="payAmount">
+                                    <div class="form_error">{{ errorMsg.payAmount | translate }}</div>
+                                </div>
+                            </div>
+                        </ng-container>
+
+                        <ng-container *ngIf="payType == 'custom'">
+                            <div class="input_group flex_col">
+                                <div class="input_inner_group" [ngClass]="{ 'active_error': errorMsg.payAmount != '' }">
+                                    <input type="tel" class="input_inner" placeholder="請輸入繳款金額" [(ngModel)]="payAmount">
+                                    <div class="form_error">{{ errorMsg.payAmount | translate }}</div>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+
+                <div class="row_single">
+                    <div class="content_btn_group flex_row content_btn1">
+                        <button class="content_btn"
+                            (click)="onEbill()">{{ 'PAYABLE.EDIT.EBILL_PAY' | translate }}</button>
+                    </div>
+                </div>
+
+                <!-- 注意資訊 Start -->
+                <app-note [options]="noteData"></app-note>
+                <!-- 注意資訊 End -->
+                <!-- 謹慎理財 -->
+                <app-card-notice></app-card-notice>
+                <!-- 謹慎理財 End -->
+            </section>
+
+            <div class="btn_group flex_row">
+                <button class="btn_l btn_secondary btn_w25"
+                    (click)="onCancel()">{{ 'PAYABLE.EDIT.BTN_CANCEL' | translate }}</button>
+                <button class="btn_r btn_primary btn_w70"
+                    (click)="onNext()">{{ 'PAYABLE.EDIT.BTN_NEXT' | translate }}</button>
+            </div>
+        </ng-container>
+    </ng-container>
+    <!-- 編輯頁 END -->
+
+    <!-- 確認頁 START -->
+    <ng-container *ngSwitchCase="'confirm'">
+        <app-payable-confirm-result [setData]="reqData" (backPageEmit)="onPageBackEvent($event)"
+            (errorPageEmit)="onErrorBackEvent($event)"></app-payable-confirm-result>
+    </ng-container>
+    <!-- 確認頁 END -->
+
+    <!-- 顯示錯誤白箱 START -->
+    <ng-container *ngSwitchCase="'errorBox'">
+        <section class="section_area section_hasbtn">
+            <app-error-box [errorMsg]="errorBoxMsg"></app-error-box>
+        </section>
+    </ng-container>
+    <!-- 顯示錯誤白箱 END -->
+</ng-container>

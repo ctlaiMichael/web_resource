@@ -1,0 +1,13 @@
+<div class="flex_row card_inner_list_li">
+    <p>{{title | translate}}</p>
+    <ng-container *ngIf="showSign == 'Y'; else notShowSign">
+        <p *ngIf="!see_amount;">********</p>
+        <p *ngIf="see_amount;" depositAmountResult [data]="amount" [currency]="currency">{{amount}}</p>
+    </ng-container>
+
+    <ng-template #notShowSign>
+        <p *ngIf="!see_amount;">********</p>
+        <p *ngIf="see_amount;">{{amount | currencyMoney: currency}}</p>
+    </ng-template>
+    <div class="{{see_amount?'i_view':'i_view_off'}}" (click)="switchSee()"></div>
+</div>

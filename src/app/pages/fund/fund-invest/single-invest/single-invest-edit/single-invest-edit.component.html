@@ -1,0 +1,121 @@
+<ng-container [ngSwitch]="nowPage">
+    <!-- 編輯頁 START -->
+    <ng-container *ngSwitchCase="'edit'">
+        <ng-container *ngIf="!!hasAcct">
+            <section class="section_area section_hasbtn">
+                <!-- 步驟列 Start -->
+                <app-step-bar [setData]="stepMenuData" [setKey]="nowStep"></app-step-bar>
+                <!-- 步驟列 End -->
+                <trans-note [showType]="'edit'"></trans-note>
+
+                <div class="content_group content_invest_4 flex_row">
+                    <div class="content_invest_1_w1">
+                        <div class="content_invest_li content_invest_title">
+                            {{ setData.formateName }}
+                        </div>
+                        <div class="content_invest_li invest_li_tag flex_row">
+                            <div class="content_invest_li_p1">{{ 'FUND_INVEST.EDIT.INVEST_TYPE' | translate }}</div>
+                            <div class="content_invest_li_p2">{{ 'FUND_INVEST.EDIT.SINGLE' | translate }}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row_single row_bg">
+                    <div class="form_group form_group_w100 form_select_2">
+                        <div class="select_group flex_col">
+                            <div class="form_label">{{ 'FUND_INVEST.EDIT.ACCOUNTID' | translate }}</div>
+                            <div class="select_inner_group"
+                                [ngClass]="{ 'active_error': errorMsg.investAccount != '' }">
+                                <div class="form_select_pop_2 flex_row" (click)="onSelectAcct()">
+                                    <p class="select_pop_content" *ngIf="showData.accountID != ''; else acctEmpty">
+                                        {{ showData.accountID }}</p>
+                                    <ng-template #acctEmpty>
+                                        <p class="select_pop_content" style="color:#D8D8D8;">
+                                            {{ 'ERROR.PLEASE_SELECT_ACCT' | translate }}
+                                        </p>
+                                    </ng-template>
+                                    <div class="select_pop_i_down"></div>
+                                </div>
+                                <div class="select_pop_info">{{ 'FUND_INVEST.EDIT.BALANCE' | translate }}
+                                    <ng-container *ngIf="currencyType == 'twd'; else foreignAmtBox">
+                                        <!-- {{ showData | objectField: ['avlBalance', 'currencyMoney' , 'TWD'] }} -->
+                                        NT$ {{ showData.avlBalance | htMoney: 'TWD' }}
+                                    </ng-container>
+                                    <ng-template #foreignAmtBox>
+                                        <!-- {{ showData | objectField: ['avlBalance', 'currencyMoney', showData.fundEngCcy] }} -->
+                                        {{ acctCcy }} {{ showData.avlBalance | htMoney: acctCcy }}
+                                    </ng-template>
+                                </div>
+                                <div class="form_error">{{ errorMsg.investAccount | translate }}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form_group form_group_w100 form_input_10_2">
+                        <!-- 信託金額 -->
+                        <div class="form_label">{{ 'FUND_INVEST.EDIT.INVEST_MONEY' | translate }}</div>
+                        <div class="input_group flex_row">
+                            <div class="input_inner_group" [ngClass]="{ 'active_error': errorMsg.investMoney != '' }">
+                                <div class="input_has_text flex_row">
+                                    <ng-container *ngIf="currencyType == 'twd'; else foreignBox">
+                                        <div class="form_label">NT$</div>
+                                    </ng-container>
+                                    <ng-template #foreignBox>
+                                        <div class="form_label">{{ showData.fundEngCcy }}</div>
+                                    </ng-template>
+                                    <input type="tel" class="input_inner"
+                                        placeholder=">= {{ showData.limitMinAmt | htMoney: 'notDecimal' }}"
+                                        [(ngModel)]="showData.investMoney">
+                                </div>
+                                <div class="form_error">{{ errorMsg.investMoney | translate }}</div>
+                            </div>
+                        </div>
+                        <div class="input_pop_info"></div>
+                    </div>
+
+                    <ng-container *ngIf="!!showProfit">
+                        <div class="form_group form_group_w100 form_select_2">
+                            <div class="select_group flex_col">
+                                <div class="form_label">{{ 'FUND_INVEST.EDIT.PROFIT_ACCT' | translate }}</div>
+                                <div class="select_inner_group"
+                                    [ngClass]="{ 'active_error': errorMsg.profitAccount != '' }">
+                                    <div class="form_select_pop_2 flex_row" (click)="onSelectProfitAcct()">
+                                        <p class="select_pop_content"
+                                            *ngIf="showData.profitAcct != ''; else profitEmpty">
+                                            {{ showData.profitAcct }}</p>
+                                        <ng-template #profitEmpty>
+                                            <p class="select_pop_content" style="color:#D8D8D8;">
+                                                {{ 'ERROR.PLEASE_SELECT_ACCT' | translate }}
+                                            </p>
+                                        </ng-template>
+                                        <div class="select_pop_i_down"></div>
+                                    </div>
+                                    <div class="select_pop_info"></div>
+                                    <div class="form_error">{{ errorMsg.profitAccount | translate }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+            </section>
+
+            <!-- 雙按鈕 -->
+            <div class="btn_group flex_row">
+                <button class="btn_l btn_secondary btn_w25"
+                    (click)="onCancel()">{{ 'FUND_INVEST.EDIT.BTN.CANCEL' | translate }}</button>
+                <button class="btn_r btn_primary btn_w70"
+                    (click)="onNext()">{{ 'FUND_INVEST.EDIT.BTN.NEXT' | translate }}</button>
+            </div>
+            <!-- 雙按鈕 //End -->
+        </ng-container>
+    </ng-container>
+    <!-- 編輯頁 END -->
+
+    <!-- 錯誤頁面 START -->
+    <ng-container *ngSwitchCase="'errorBox'">
+        <section class="section_area section_hasbtn">
+            <app-error-box [errorMsg]="errorBoxMsg"></app-error-box>
+        </section>
+    </ng-container>
+    <!-- 錯誤頁面 END -->
+</ng-container>

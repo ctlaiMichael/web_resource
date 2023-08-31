@@ -1,0 +1,25 @@
+<!-- 廣告底部蓋屏 -->
+<div class="shadow" [ngClass]="{'show': openFlag}"></div>
+<div class="beforeLogin_event_container flex_col row_center" [ngClass]="{'mini': !openFlag}">
+    <!-- 下方活動廣告區塊 - 拖曳handler-->
+    <div class="beforeLogin_event_handler flex_row row_center" (click)="onClick()">
+        <div class="beforeLogin_event_handler_icon"></div>
+    </div>
+    <div class="pop_group pop_title pop_title_1 flex_row">
+        <div class="simple_title">{{ 'FUNC.HOME.RECOMMEND' | translate }}</div>
+        <div class="i_close" (click)="onClick()"></div>
+    </div>
+
+    <!-- 下方活動廣告區塊 - 拖曳handler End -->
+
+    <!-- 下方活動廣告區塊 - 廣告內容 -->
+    <div class="beforeLogin_event_wrapper" #mainAdBox>
+        <ng-container *ngFor="let ad of advertData;let adindex = index;">
+            <div class="beforeLogin_event login_event_1">
+                <app-advert-txt [data]="ad" [allow]="openFlag" [showPageType]="'home'" (backPageEmit)="onClick()"></app-advert-txt>
+            </div>
+        </ng-container>
+    </div>
+    <!-- 下方活動廣告區塊 - 廣告內容 End-->
+
+</div>

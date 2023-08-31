@@ -1,0 +1,28 @@
+{
+    "STEP_BAR": {
+        "COMMON": {
+            "EDIT": "Input Data",
+            "CHECK": "Check Data",
+            "RESULT": "Result"
+        },
+        "OTP_SERVICE": {
+            "STEP0": "申請約定條款",
+            "STEP1": "填寫資料",
+            "STEP2": "填寫憑證保護密碼",
+            "STEP3": "Result"
+        },
+        "DEVICE_BIND": {
+            "STEP1": "確認條款",
+            "STEP2": "認證資料",
+            "UPDATE": "修改資料",
+            "CHECK": "確認資料",
+            "RESULT": "Result"
+        },
+        "EPAY": {
+            "RECOMMEND": {
+                "STEP1": "填寫資料",
+                "STEP2": "Result"
+            }
+        }
+    }
+}

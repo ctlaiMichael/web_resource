@@ -1,0 +1,88 @@
+/* LOADING VERSION 2 */
+.ht-c-wrapper{
+    width:200px;
+    height:60px;
+    position: absolute;
+    left:50%;
+    /* top:50%; */
+    top:45%;
+    transform: translate(-50%, -50%);
+}
+.ht-c-circle-point{
+    width:25px;
+    height:25px;
+    position: absolute;
+    border-radius: 50%;
+    background-color: #FFF;
+    left:15%;
+    transform-origin: 50%;
+    /* animation: circleAnimate .5s alternate infinite ease; */
+    animation: circleAnimate .7s alternate infinite ease;
+
+    /* text */
+    color: #FFF;
+    text-align: center;
+    font-size: 18px;
+}
+
+
+@keyframes circleAnimate{
+    0%{
+        top:60px;
+        height:5px;
+        border-radius: 50px 50px 25px 25px;
+        transform: scaleX(1.7);
+        font-size: 0px;
+    }
+    30%{
+        font-size: 5px;
+    }
+    40%{
+        height:20px;
+        border-radius: 50%;
+        transform: scaleX(1);
+        font-size: 10px;
+    }
+    100%{
+        top:0%;
+    }
+}
+.ht-c-circle-point:nth-child(1){
+    left:0%;
+    background-color: #E7373C;
+}
+.ht-c-circle-point:nth-child(2){
+    left:28%;
+    animation-delay: .2s;
+    background-color: #D15B9C;
+}
+.ht-c-circle-point:nth-child(3){
+    left:auto;
+    right:28%;
+    animation-delay: .3s;
+    background-color: #E95504;
+}
+.ht-c-circle-point:nth-child(4){
+    left:auto;
+    right:0%;
+    animation-delay: .4s;
+    background-color: #F9BE00;
+}
+
+.ht-c-wrapper span{
+    position: absolute;
+    top:75px;
+    font-family: '微軟正黑體', 'Microsoft JhengHei', Arial;
+    font-size: 20px;
+    letter-spacing: 12px;
+    color: #fff;
+    left:15%;
+    /* 文字漸層色 */
+    /* background-image: linear-gradient(137deg, #E7373C 0%, #D15B9C 36%, #E95504 70%, #F9BE00 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    text-shadow: none;
+    font-weight: 700; */
+}

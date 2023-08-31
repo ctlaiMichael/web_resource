@@ -1,0 +1,13 @@
+{
+    "DEPOSIT_DETAIL": {
+            "DEPOSIT": "存入",
+            "DRAWAL": "支出",
+            "UNFOLD": "展開",
+            "TRADING_SUMMARY": "交易摘要",
+            "DATE": "日期",
+            "BALANCE": "餘額",
+            "REMARK": "備註",
+            "COUNT": "筆",
+            "WARNING": "注意資訊"
+    }
+}

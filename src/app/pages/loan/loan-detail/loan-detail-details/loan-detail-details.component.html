@@ -1,0 +1,20 @@
+<ng-container *ngIf="showData">
+    <ng-container *ngFor="let item of listData">
+        <div class="table_group">
+            <div class="table_list_set">
+                <div class="table_list_set_wrap flex_row">
+                    <div class="table_list_set_ul flex_row">
+                        <div class="table_list_set_li table_list_set_li_l">
+                            <p>{{ item | objectField: ['date', 'htDate' ,'yyyy-MM-dd'] }}</p>
+                        </div>
+                        <div class="table_list_set_li table_list_set_li_r">
+                            <p class="table_list_3set_li_p txt_bold">
+                                {{ item | objectField: ['crAmt', 'currencyMoney' , 'TWD'] }}</p>
+                            <p>{{ item | objectField: ['balAmt', 'currencyMoney' , 'TWD'] }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</ng-container>

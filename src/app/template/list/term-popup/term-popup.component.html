@@ -1,0 +1,50 @@
+<ng-container [ngSwitch]="nowPage">
+    <!-- 條款頁 START -->
+    <div class="popup_content_area zIndex_level_2">
+        <div class="popup_content_wrap">
+            <!-- 標題 & 關閉按鈕 Start -->
+            <div class="pop_group pop_title pop_title_1 flex_row">
+                <div class="simple_title">{{ title | translate }}</div>
+                <div class="i_close" (click)="onCancleEvent()"></div>
+            </div>
+            <!-- 標題 & 關閉按鈕 End -->
+
+            <ng-container *ngSwitchCase="'termPage'">
+                <!-- 注意資訊內容 Start -->
+                <div class="popup_inner_content popup_hasbtn">
+                    <div class="pop_group pop_content pop_content_1 flex_row">
+                        <div class="pop_content_txt">
+                            <ol>
+                                <ng-container *ngIf="!hasSend">
+                                    <li [innerHtml]="(content | translate) | safeHtml"></li>
+                                </ng-container>
+                                <ng-container *ngIf="!!hasSend">
+                                    <li *ngFor="let item of data" [innerHtml]="(item.terms | translate) | safeHtml">
+                                    </li>
+                                </ng-container>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <!-- 注意資訊內容 End -->
+            </ng-container>
+        </div>
+        <ng-container *ngSwitchCase="'termPage'">
+            <div class="btn_group flex_row">
+                <button class="btn_l btn_secondary btn_w25"
+                    (click)="onNotAgree()">{{ 'FUND_INVEST.TERM.BTN.NOT_AGREE' | translate }}</button>
+                <button class="btn_r btn_primary btn_w70"
+                    (click)="onClickEvent()">{{ 'FUND_INVEST.TERM.BTN.AGREE' | translate }}</button>
+            </div>
+        </ng-container>
+
+        <!-- 錯誤頁面 START -->
+        <ng-container *ngSwitchCase="'errorBox'">
+            <section class="section_area section_hasbtn">
+                <app-error-box [errorMsg]="errorBoxMsg"></app-error-box>
+            </section>
+        </ng-container>
+        <!-- 錯誤頁面 END -->
+    </div>
+    <!-- 條款頁 END -->
+</ng-container>

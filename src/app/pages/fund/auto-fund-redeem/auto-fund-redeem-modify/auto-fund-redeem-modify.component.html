@@ -1,0 +1,118 @@
+  <ng-container [ngSwitch]="nowPage">
+      <!-- 修改頁 START -->
+      <ng-container *ngSwitchCase="'edit'">
+          <section class="section_area section_hasbtn">
+              <!-- 步驟列 Start -->
+              <app-step-bar [setData]="'default'" [setKey]="'edit'"></app-step-bar>
+              <!-- 步驟列 End -->
+              <div class="content_group content_invest_4 flex_row">
+                  <div class="content_invest_1_w1">
+                      <div class="content_invest_li content_invest_title">
+                          {{ showData.fundName }}
+                      </div>
+                      <div class="content_invest_li invest_li_tag flex_row">
+                          <div class="content_invest_li_p1">{{ 'AUTO_REDEEM_MODIFY.MODIFY.LICENSE' | translate }}</div>
+                          <div class="content_invest_li_p2">{{ showData.license }}</div>
+                      </div>
+                      <div class="content_invest_li invest_li_tag flex_row">
+                          <div class="content_invest_li_p1">{{ 'AUTO_REDEEM_MODIFY.MODIFY.AMOUNT' | translate }}</div>
+                          <div class="content_invest_li_p2">
+                              {{ showData | objectField: ['amount', 'currencyMoney' , showData.currency] }}</div>
+                      </div>
+                  </div>
+              </div>
+              <div class="row_single row_bg">
+                  <div class="form_group form_group_w100 form_input_12">
+                    <div class="input_group flex_col">
+                      <div class="flex_row">
+                        <div class="form_label">{{ 'AUTO_REDEEM_MODIFY.MODIFY.BENE' | translate }}</div>
+                        <div class="inner_checkbox form_label_select" [ngClass]="{ 'disabled': hasdisabled.hasNotUseBene }">
+                          <input type="checkbox" name="inner_checkbox_2" [(ngModel)]="checkedSet.inputBene">
+                          <label for="inner_checkbox_2_01"  (click)="closeEvent('inputBene')">
+                            <span>
+                              <i></i>
+                            </span>
+                            <b class="inner_checkbox_txt">{{ 'AUTO_REDEEM_MODIFY.MODIFY.NOT_SET' | translate }}</b>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="input_inner_group_12" [ngClass]="{ 'active_error': errorMsg.inputBene !='' }">
+                        <div class="input_inner_set_12 flex_row">
+                          <div class="input_i_less flex_row" [ngClass]="{ 'disabled': !!hasdisabled.inputBeneless, 'cantUse': hasdisabled.hasNotUseBene }" (click)="onModifyLossBene('less','inputBene')"></div>
+                          <div class="input_inner_12_txt flex_row"
+                          *ngIf="showData.inputBene !=''; else beneEmpty">{{ showData.inputBene | translate }}</div>
+                      <ng-template #beneEmpty>
+                          <div class="input_inner_12_txt flex_row" style="color:#D8D8D8;">{{ 'AUTO_REDEEM_MODIFY.MODIFY.HAS_NOT_SET' | translate }}</div>
+                      </ng-template>
+                          <div class="input_i_plus flex_row" [ngClass]="{ 'disabled': !!hasdisabled.inputBeneplus, 'cantUse': hasdisabled.hasNotUseBene }" (click)="onModifyLossBene('plus','inputBene')"></div>
+                        </div>
+                        <div class="form_error">{{ errorMsg.inputBene | translate }}</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="form_group form_group_w100 form_input_12">
+                    <div class="input_group flex_col">
+                      <div class="flex_row">
+                        <div class="form_label">{{ 'AUTO_REDEEM_MODIFY.MODIFY.LOSS' | translate }}</div>
+                        <div class="inner_checkbox form_label_select" [ngClass]="{ 'disabled': hasdisabled.hasNotUseLoss }">
+                          <input type="checkbox" name="inner_checkbox_2" [(ngModel)]="checkedSet.inputLoss">
+                          <label for="inner_checkbox_2_02"  (click)="closeEvent('inputLoss')">
+                            <span>
+                              <i></i>
+                            </span>
+                            <b class="inner_checkbox_txt">{{ 'AUTO_REDEEM_MODIFY.MODIFY.NOT_SET' | translate }}</b>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="input_inner_group_12" [ngClass]="{ 'active_error': errorMsg.inputLoss !='' }">
+                        <div class="input_inner_set_12 flex_row">
+                          <div class="input_i_less flex_row" [ngClass]="{ 'disabled': !!hasdisabled.inputLossless, 'cantUse': hasdisabled.hasNotUseLoss }" (click)="onModifyLossBene('less', 'inputLoss')"></div>
+                          <div class="input_inner_12_txt flex_row"
+                          *ngIf="showData.inputBene !=''; else beneEmpty">{{ showData.inputLoss | translate }}</div>
+                      <ng-template #beneEmpty>
+                          <div class="input_inner_12_txt flex_row" style="color:#D8D8D8;">{{ 'AUTO_REDEEM_MODIFY.MODIFY.HAS_NOT_SET' | translate }}</div>
+                      </ng-template>
+                          <div class="input_i_plus flex_row" [ngClass]="{ 'disabled': !!hasdisabled.inputLossplus, 'cantUse': hasdisabled.hasNotUseLoss }" (click)="onModifyLossBene('plus','inputLoss')"></div>
+                        </div>
+                        <div class="form_error">{{ errorMsg.inputLoss | translate }}</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form_group form_group_w100 form_select_2">
+                      <div class="select_group flex_col">
+                          <div class="form_label">{{ 'AUTO_REDEEM_MODIFY.MODIFY.INACCT' | translate }}</div>
+                          <div class="select_inner_group" (click)="onSelectInAcct()">
+                              <div class="form_select_pop_2 flex_row">
+                                  <p class="select_pop_content" *ngIf="showData.accountID != ''; else acctEmpty">
+                                      {{ showData.accountID }}</p>
+                                  <ng-template #acctEmpty>
+                                      <p class="select_pop_content" style="color:#D8D8D8;">
+                                          {{ 'ERROR.PLEASE_SELECT_ACCT' | translate }}
+                                      </p>
+                                  </ng-template>
+                                  <div class="select_pop_i_down"></div>
+                              </div>
+                              <div class="form_error">{{ 'AUTO_REDEEM_MODIFY.MODIFY.MUST_DO' | translate }}</div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </section>
+          <div class="btn_group flex_row" bottomBtn>
+              <button class="btn_l btn_secondary btn_w25" (click)="onCancel()">{{ 'AUTO_REDEEM_MODIFY.MODIFY.CANCEL' | translate }}</button>
+              <button class="btn_r btn_primary btn_w70" (click)="onNext()">{{ 'AUTO_REDEEM_MODIFY.MODIFY.NEXT' | translate }}</button>
+          </div>
+      </ng-container>
+
+      <!-- 顯示錯誤白箱 START -->
+      <ng-container *ngSwitchCase="'errorBox'">
+          <app-error-box [errorMsg]="errorBoxMsg"></app-error-box>
+      </ng-container>
+      <!-- 顯示錯誤白箱 END -->
+
+      <ng-container *ngSwitchCase="'confirm'">
+          <app-auto-modify-confirm-result [setReq]="confirmReq" (backPageEmit)="onPageBackEvent($event)"
+              (errorPageEmit)="onErrorBackEvent($event)"></app-auto-modify-confirm-result>
+      </ng-container>
+  </ng-container>

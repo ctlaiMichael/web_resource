@@ -1,0 +1,113 @@
+<!-- 帳號 Start-->
+<app-select-account [defaultAcct]="defaultAcct" [type]="'current'" (backPageEmit)="onAcctBackEvent($event)" (errorPageEmit)="onAcctErrorEvent($event)"></app-select-account>
+<!-- 帳號 End-->
+
+<!-- 頁籤 Start -->
+<app-bookmark [setData]="bookmarkData" [defaultKey]="'today'" (backPageEmit)="onBookMarkBack($event)">
+</app-bookmark>
+<!-- 頁籤 End -->
+
+<!-- 顯示查詢結果 START -->
+<ng-container [ngSwitch]="reqData.show">
+    <ng-container *ngSwitchCase="'resultBox'">
+        <section paginatorCtrl class="section_area section_hasbtn section_tabL1_select1" [nowPage]="pageCounter" [totalPages]="totalPages"
+            (scrollEvent)="onScrollEvent($event)">
+            <!-- 查詢區間(全部) START -->
+            <div class="info_group flex_col info_time_range">
+                <div class="info_time_range_li li_border">
+                    <p>{{ 'FIELD.SEARCH_RANGE' | translate }}&nbsp;:&nbsp;
+                        <span>{{ 'FIELD.SEARCH_RANGE_DATA' | translate:reqData }}</span>
+                    </p>
+                </div>
+                <!-- 查詢按鈕區塊 -->
+                <div class="info_time_range_btn_group flex_row">
+                    <button class="btn_transparent_icon btn_transparent_l btn_transparent_txt" (click)="onOpen()" [ngClass]="{'btn_all_open': !expandFlag, 'btn_all_close': expandFlag}">{{ expandStr | translate }}</button>
+                    <button class="btn_transparent_icon btn_turn" [ngClass]="{ 'btn_turn_reverse':(sort === 'ASC') }" (click)="onSort()" sortBtn
+                        [sort]="sort">{{ 'BTN.ORDER' | translate }}</button>
+                </div>
+            </div>
+            <!-- 查詢區間區塊 END -->
+
+            <ng-container *ngIf="!!showTotal">
+                <!-- 支出筆數&存入筆數 -->
+                <div class="row_single">
+                    <div class="info_group info_total">
+                        <div class="flex_row info_total_li">
+                            <!-- 暫時隱藏筆數 -->
+                            <!-- <p>{{ 'DEPOSIT_DETAIL.DRAWAL' | translate }} : {{ totalData | objectField: ['totalDramtCount'] }}{{'DEPOSIT_DETAIL.COUNT'
+                                | translate }}</p> -->
+                            <p>{{ 'DEPOSIT_DETAIL.DRAWAL' | translate }} :</p>
+                            <p>{{ totalData | objectField: ['totalDramt', 'currencyMoney', reqData.currencyCode] }}</p>
+                        </div>
+                        <div class="flex_row info_total_li">
+                                <!-- 暫時隱藏筆數 -->
+                            <!-- <p>{{ 'DEPOSIT_DETAIL.DEPOSIT' | translate }} : {{ totalData | objectField: ['totalCramtCount']
+                                }}{{'DEPOSIT_DETAIL.COUNT' | translate }}</p> -->
+                            <p>{{ 'DEPOSIT_DETAIL.DEPOSIT' | translate }} :</p>
+                            <p>{{totalData | objectField: ['totalCramt', 'currencyMoney', reqData.currencyCode] }}</p>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+
+            <!-- 查詢結果區塊 START-->
+            <ng-container [ngSwitch]="nowPageType">
+                <div class="account_detail_group">
+                    <!-- 今天 -->
+                    <ng-container *ngSwitchCase="'today'">
+                        <app-account-detail [setData]="reqData" [sort]="sort" [page]="'1'" (backPageEmit)="onPageBackEvent($event)" (errorPageEmit)="onErrorBackEvent($event)"></app-account-detail>
+                        <ng-container #pageBoxToday></ng-container>
+                    </ng-container>
+                    <!-- 一週 -->
+                    <ng-container *ngSwitchCase="'7D'">
+                        <app-account-detail [setData]="reqData" [sort]="sort" [page]="'1'" (backPageEmit)="onPageBackEvent($event)" (errorPageEmit)="onErrorBackEvent($event)"></app-account-detail>
+                        <ng-container #pageBox7D></ng-container>
+                    </ng-container>
+                    <!-- 一個月 -->
+                    <ng-container *ngSwitchCase="'1M'">
+                        <app-account-detail [setData]="reqData" [sort]="sort" [page]="'1'" (backPageEmit)="onPageBackEvent($event)" (errorPageEmit)="onErrorBackEvent($event)"></app-account-detail>
+                        <ng-container #pageBox1M></ng-container>
+                    </ng-container>
+                    <!-- 自訂 -->
+                    <ng-container *ngSwitchCase="'custom'">
+                        <app-account-detail [setData]="reqData" [sort]="sort" [page]="'1'" (backPageEmit)="onPageBackEvent($event)" (errorPageEmit)="onErrorBackEvent($event)"></app-account-detail>
+                        <ng-container #pageBox></ng-container>
+                    </ng-container>
+                </div>
+            </ng-container>
+            <!-- 查詢結果區塊 END-->
+            <!-- 查詢區間(全部) END -->
+            <app-note [options]="noteData"></app-note>
+        </section>
+        <!-- 重新查詢(自訂) START 放至section外 -->
+        <ng-container *ngIf="nowPageType == 'custom'">
+            <div class="btn_group flex_row" bottomBtn>
+                <button class="btn_primary btn_w100" (click)="onReStartQuery()">{{ 'BTN.RESEARCH' | translate }}</button>
+            </div>
+        </ng-container>
+        <!-- 重新查詢(自訂) END 放至section外 -->
+    </ng-container>
+
+    <!-- 自訂搜尋 START-->
+    <ng-container *ngSwitchCase="'customBox'">
+        <app-date-range-search [show]="showSearchBox" [dateObj]="searchBoxRule" [noteData]="noteData" [doubleTag]="'1'" (backPageEmit)="onSearchBack($event)"
+            (errorPageEmit)="onSearchErrorBack($event)"></app-date-range-search>
+    </ng-container>
+    <!-- 自訂搜尋 END-->
+
+    <!-- 顯示錯誤白箱 START -->
+    <ng-container *ngSwitchCase="'errorBox'">
+        <section class="section_area section_tabL1_select1">
+            <app-error-box [errorMsg]="errorMsg"></app-error-box>
+        </section>
+        <!-- 查詢錯誤且為自訂查詢(重新查詢) START -->
+        <ng-container *ngIf="nowPageType=='custom'">
+            <div class="btn_group flex_row" bottomBtn>
+                <button class="btn_primary btn_w100" (click)="onReStartQuery()">{{ 'BTN.RESEARCH' | translate }}</button>
+            </div>
+        </ng-container>
+        <!-- 查詢錯誤且為自訂查詢(重新查詢) END -->
+    </ng-container>
+    <!-- 顯示錯誤白箱 END -->
+</ng-container>
+<!-- 顯示查詢結果 END -->

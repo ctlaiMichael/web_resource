@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="171" height="116" viewBox="0 0 171 116">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Oval_16" data-name="Oval 16" d="M52.729,105A52.5,52.5,0,1,0,0,52.729,52.4,52.4,0,0,0,52.729,105Z" fill="#999"/>
+    </clipPath>
+    <clipPath id="clip-account_overview2">
+      <rect width="171" height="116"/>
+    </clipPath>
+  </defs>
+  <g id="account_overview2" clip-path="url(#clip-account_overview2)">
+    <g id="pie" transform="translate(0 5)">
+      <g id="Group_2" data-name="Group 2" transform="translate(32.791)">
+        <path id="Oval_16-2" data-name="Oval 16" d="M52.729,105A52.5,52.5,0,1,0,0,52.729,52.4,52.4,0,0,0,52.729,105Z" fill="#999"/>
+      </g>
+      <path id="Oval_15" data-name="Oval 15" d="M40.891,79.835a56.411,56.411,0,0,1-22.568-4.663A56.9,56.9,0,0,1,0,62.479L40.914,22.407,32.683,0c5.041,10.788,9.792,19.43,9.84,19.516L62.872,75.422c-.378.159-.744.308-1.089.444A56.521,56.521,0,0,1,40.891,79.835Z" transform="matrix(0.545, 0.839, -0.839, 0.545, 80.196, 5.564)" fill="#585858"/>
+      <path id="Oval_15-2" data-name="Oval 15" d="M35.983,102.8,18.274,52.907,0,3.249A52.8,52.8,0,0,1,70.924,52.943a52.735,52.735,0,0,1-9.833,30.8A53.068,53.068,0,0,1,50.035,95.153,52.46,52.46,0,0,1,35.984,102.8h0Z" transform="matrix(0.545, 0.839, -0.839, 0.545, 119.896, 9.155)" fill="#717988"/>
+      <path id="Oval_15-3" data-name="Oval 15" d="M12.74,105A53.424,53.424,0,0,1,0,103.466L12.74,52.5,11.922.006C12.23,0,12.5,0,12.74,0a51.526,51.526,0,0,1,20.3,4.129A52.111,52.111,0,0,1,49.655,15.406,52.532,52.532,0,0,1,60.879,32.161,52.812,52.812,0,0,1,65,52.729a51.677,51.677,0,0,1-4.121,20.3,52.729,52.729,0,0,1-27.84,27.846A51.647,51.647,0,0,1,12.74,105Z" transform="translate(72.791)" fill="#717988"/>
+      <text id="_60_" data-name="60%" transform="translate(141 46)" fill="#313742" font-size="13" font-family="SegoeUI, Segoe UI" letter-spacing="-0.006em"><tspan x="2.751" y="14">60%</tspan></text>
+      <text id="_25_" data-name="25%" transform="translate(13 9)" fill="#313742" font-size="13" font-family="SegoeUI, Segoe UI" letter-spacing="-0.006em"><tspan x="1.251" y="14">25%</tspan></text>
+      <text id="_15_" data-name="15%" transform="translate(0 64)" fill="#313742" font-size="13" font-family="SegoeUI, Segoe UI" letter-spacing="-0.006em"><tspan x="1.251" y="14">15%</tspan></text>
+      <circle id="Oval_16-3" data-name="Oval 16" cx="30.5" cy="30.5" r="30.5" transform="translate(54.791 22)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

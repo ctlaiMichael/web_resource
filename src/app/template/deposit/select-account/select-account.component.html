@@ -1,0 +1,15 @@
+<div class="form_group form_group_w100 form_select_1" [ngClass]="{'form_bk_transparent': closeBg}" (click)="onSelect()">
+    <div class="select_group flex_col">
+        <div class="select_inner_group flex_col">
+            <div class="form_select_pop_1 flex_row">
+                <p class="select_pop_content" *ngIf="showAcct != ''; else emptyAct">{{showAcct}}</p>
+                <div class="select_pop_i_down"></div>
+                <ng-template #emptyAct>
+                    <p class="select_pop_content" style="color:#D8D8D8;">
+                        {{ 'ERROR.PLEASE_SELECT_ACCT' | translate }}</p>
+                </ng-template>
+            </div>
+            <div class="form_error">{{ 'ERROR.NO_INPUT' | translate }}</div>
+        </div>
+    </div>
+</div>

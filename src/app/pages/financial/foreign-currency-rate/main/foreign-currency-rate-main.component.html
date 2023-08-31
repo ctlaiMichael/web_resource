@@ -1,0 +1,74 @@
+<section class="section_area section_hasbtn">
+  <!-- 僅供參考文案 Start -->
+  <div class="info_group info_8_3">
+    <p>{{'FINANCIAL.INTEREST_RATE_INFO' | translate}}</p>
+    <p>{{'FINANCIAL.DATATIME' | translate}}：{{ (dataTime ? dataTime : '--') }} &nbsp;
+      &nbsp;{{'FINANCIAL.UNIT' | translate}}</p>
+  </div>
+  <!-- 僅供參考文案 End -->
+
+  <ng-container *ngIf="haveData; else noDataBox">
+    <!-- 幣別選單 Start -->
+    <div class="form_group form_group_w100 form_select_1_2 mar_btm15">
+      <div class="select_group flex_col">
+        <div class="select_inner_group flex_col">
+          <!-- 未選擇幣別顯示 Start -->
+          <div class="form_select_pop_1_2 flex_row" (click)="popOpen()" *ngIf="!chooseCurrencyObj['currencyCode'];">
+            <p class="select_pop_content">{{'FINANCIAL.PLEASE_SELECT_CURRENCY' | translate}}</p>
+            <div class="select_pop_i_down"></div>
+          </div>
+          <!-- 未選擇幣別顯示 End -->
+
+          <!-- 已選擇幣別顯示 Start -->
+          <div class="form_select_pop_1_2 flex_row" (click)="popOpen()" *ngIf="!!chooseCurrencyObj['currencyCode'];">
+            <div class="select_national_flag_wrap">
+              <div class="national_flag {{chooseCurrencyObj['currencyCode'] | iconFlag}}"></div>
+            </div>
+            <p class="select_pop_content">
+              {{chooseCurrencyObj['currencyCode'] | currencyName: chooseCurrencyObj['currencyName']}}</p>
+            <div class="select_pop_i_down"></div>
+          </div>
+          <!-- 已選擇幣別顯示 End -->
+
+          <!-- 錯誤提示 Start -->
+          <div class="form_error">{{'FINANCIAL.ERROR' | translate}}</div>
+          <!-- 錯誤提示 End -->
+        </div>
+      </div>
+    </div>
+    <!-- 幣別選單 End -->
+
+    <!-- 資料 Start -->
+    <div class="rate_table">
+      <!-- 標題 Start -->
+      <div class="table_group table_title table_title_2set_1">
+        <div class="flex_row table_title_2set_li">
+          <!--  -->
+          <p class="table_2set_p1">{{'FINANCIAL.PERIOD' | translate}}</p>
+          <!--  -->
+          <p class="table_2set_p2">{{'FINANCIAL.INTEREST_RATES' | translate}}</p>
+        </div>
+      </div>
+      <!-- 標題 End -->
+
+      <!-- 明細 Start -->
+      <div class="table_group table_list table_list_2set_1" *ngFor="let item of chooseCurrencyObj['data'];">
+        <div class="flex_row table_list_2set_li">
+          <p class="table_2set_p1">{{ item.category }}</p>
+          <p class="table_2set_p2">{{ item | objectField: ['rate', 'htFinancial', 'undefined', 'zero_ok'] }}</p>
+        </div>
+      </div>
+      <!-- 明細 End -->
+    </div>
+    <!-- 資料 End -->
+  </ng-container>
+
+  <!-- 無資料畫面 Start -->
+  <ng-template #noDataBox>
+    <!-- 顯示錯誤白箱 START -->
+    <app-error-box [errorMsg]="errorMsg"></app-error-box>
+    <!-- 顯示錯誤白箱 END -->
+  </ng-template>
+  <!-- 無資料畫面 End -->
+
+</section>

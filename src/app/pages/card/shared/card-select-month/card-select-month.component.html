@@ -1,0 +1,17 @@
+<div class="form_group form_group_w100 form_select_1 form_bk_transparent" (click)="onSelect()">
+    <div class="select_group flex_col">
+        <div class="select_inner_group flex_col">
+            <div class="form_select_pop_1 flex_row">
+                <ng-container *ngIf="defaultMonth == 'unPaid'; else monthBox">
+                    <!-- 未出帳消費 -->
+                    <p class="select_pop_content">{{ 'CARD_OVERVIEW.MAIN.UNPAID' | translate }}</p>
+                </ng-container>
+                <ng-template #monthBox>
+                    <p class="select_pop_content">{{defaultMonth}}</p>
+                </ng-template>
+                <div class="select_pop_i_down"></div>
+            </div>
+            <div class="form_error">{{ 'ERROR.NO_INPUT' | translate }}</div>
+        </div>
+    </div>
+</div>

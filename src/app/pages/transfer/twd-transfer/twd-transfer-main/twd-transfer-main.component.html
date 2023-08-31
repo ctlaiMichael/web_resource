@@ -1,0 +1,276 @@
+<ng-container [ngSwitch]="nowPage">
+    <!-- 編輯頁 START -->
+    <ng-container *ngSwitchCase="'edit'">
+        <!-- 頁籤 Start -->
+        <app-bookmark [setData]="bookmarkData" [defaultKey]="bookDefault" (backPageEmit)="onBookMarkBack($event)">
+        </app-bookmark>
+        <!-- 頁籤 End -->
+
+        <!-- 有轉出帳號才顯示畫面 START -->
+        <ng-container *ngIf="hasGetDefaultAcct.notAgreed || hasGetDefaultAcct.agreement">
+            <section class="section_area section_hasbtn section_tabL1">
+
+                <!-- 步驟列 Start -->
+                <app-step-bar [setData]="'default'" [setKey]="'edit'"></app-step-bar>
+                <!-- 步驟列 End -->
+                <div class="row_single row_bg">
+                    <div class="form_group form_group_w100 form_group_border form_select_2">
+                        <div class="select_group flex_col">
+                            <div class="form_label">{{ 'TWD_TRANSFER.EDIT.OUT_ACCOUNT' | translate }}</div>
+                            <!-- 轉出帳號 -->
+                            <div class="select_inner_group" [ngClass]="{ 'active_error': errorMsg.outAccount != '' }">
+                                <div class="form_select_pop_2 flex_row" (click)="onSelectTransOut()">
+                                    <p class="select_pop_content" *ngIf="showOutData.accountId != ''; else emptyAct;">
+                                        {{ showOutData.accountId | accountFormate }}</p>
+                                    <ng-template #emptyAct>
+                                        <p class="select_pop_content" style="color:#D8D8D8;">
+                                            {{ 'TWD_TRANSFER.BTN.INT_TRANSOUTACCT' | translate }}</p>
+                                    </ng-template>
+                                    <div class="select_pop_i_down"></div>
+                                </div>
+                                <!-- <div class="select_pop_info">可用餘額
+                                    {{ showOutData | objectField: ['avlAmount', 'currencyMoney' , 'TWD'] }}</div> -->
+                                <div class="select_pop_info">{{ 'TWD_TRANSFER.EDIT.AVL_AMOUNT' | translate }}
+                                    <!-- 可用餘額 -->
+                                    {{ showOutData.avlAmount | htMoney: 'TWD' }}</div>
+                                <div class="form_error">{{ errorMsg.outAccount | translate }}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 非約轉 START -->
+                    <ng-container *ngIf="payType == 'notAgreed'">
+                        <!-- <div class="row_single row_bg"> -->
+                        <div class="form_group form_group_w100 form_group_border form_input_7_2">
+                            <!-- 掃描先註解 -->
+                            <!-- <div class="btn_scanning_wrap flex_row">
+                                <button class="form_btn btn_scanning">掃描</button>
+                            </div> -->
+                            <div class="input_group flex_col">
+                                <div class="form_label">{{ 'TWD_TRANSFER.EDIT.IN_ACCOUNT' | translate }}</div>
+                                <!-- 轉入帳號 -->
+                                <div class="input_inner_group"
+                                    [ngClass]="{ 'active_error': errorMsg.bankCode_not != '' }">
+                                    <div class="input_has_icon flex_row" (click)="onFindBank()">
+                                        <ng-container *ngIf="inAcctNotAgreed.showBankCode != ''; else emptyBankCode;">
+                                            <div class="input_inner">{{inAcctNotAgreed.showBankCode}}</div>
+                                            <!-- <input type="text" class="input_inner"
+                                                [(ngModel)]="inAcctNotAgreed.showBankCode"> -->
+                                        </ng-container>
+                                        <ng-template #emptyBankCode>
+                                            <div class="input_inner" style="color:#D8D8D8;">
+                                                {{ 'TWD_TRANSFER.BTN.INT_BANKCODE' | translate }}</div>
+                                            <!-- <input type="text" class="input_inner"
+                                                placeholder="{{ 'TWD_TRANSFER.BTN.INT_BANKCODE' | translate }}"> -->
+                                        </ng-template>
+                                        <div class="form_error">{{  errorMsg.bankCode_not | translate }}</div>
+                                        <div class="i_view"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row_single"></div>
+                                <div class="input_group flex_col">
+                                <div class="input_inner_group"
+                                    [ngClass]="{ 'active_error': errorMsg.inAccount_not != '' }">
+                                    <input type="tel" class="input_inner" placeholder="輸入帳號" maxlength="16"
+                                        [(ngModel)]="inAcctNotAgreed.showInAcct">
+                                    <div class="form_error">{{ errorMsg.inAccount_not | translate }}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- </div> -->
+                    </ng-container>
+                    <!-- 非約轉 END -->
+
+                    <!-- 約定 START -->
+                    <ng-container *ngIf="payType == 'agreement'">
+                        <div class="form_group form_group_w100 form_group_border form_select_5">
+                            <div class="select_group flex_col">
+                                <div class="form_label">{{ 'TWD_TRANSFER.EDIT.IN_ACCOUNT' | translate }}</div>
+                                <!-- 轉入帳號 -->
+                                <div class="select_inner_group flex_row"
+                                    [ngClass]="{ 'active_error': errorMsg.inAccount != '' && errorMsg.bankCode != '' }"
+                                    (click)="onSelectTransIn()">
+                                    <!-- <div class="form_select_pop_2 flex_row"> -->
+                                    <div class="form_img_l">
+                                        <!-- <ng-container *ngIf="!!showInAcctImg"> -->
+                                            <div class="form_img" [imageCtrl]="tranInAcctImg"
+                                                [imageType]="'background-image'">
+                                            </div>
+                                        <!-- </ng-container> -->
+                                    </div>
+                                    <ng-container *ngIf="inAcctAgreed.showInAcct != ''; else emptyInAcctAgreed">
+                                        <div class="form_select_pop_3_wrap flex_col">
+                                            <div class="form_select_pop_3 flex_row">
+                                                <div class="select_accont_info "
+                                                    [ngClass]="{ 'active': inAcctAgreed.showInAcct != '' }">
+                                                    <div class="select_accont_info_li select_accont_info_name">
+                                                        {{ inAcctAgreed.showInAcct }}
+                                                        <div class="select_i_right"></div>
+                                                    </div>
+                                                    <div class="select_accont_info_li select_accont_info_bank">
+                                                        {{ inAcctAgreed.showBankCode }}
+                                                    </div>
+                                                    <div class="select_accont_info_li select_accont_info_num">
+                                                        {{ inAcctAgreed.nickName }}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </ng-container>
+                                    <ng-template #emptyInAcctAgreed>
+                                        <div class="form_select_pop_3_wrap flex_col">
+                                            <div class="form_select_pop_3 flex_row">
+                                                <!-- select_account_info 細項呈現，在後面加 actvie -->
+                                                <div class="select_accont_info">
+                                                    <div class="select_accont_info_li select_accont_info_name">
+                                                        {{ 'TWD_TRANSFER.BTN.INT_TRANSINACCT' | translate }} <div
+                                                            class="select_i_right"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </ng-template>
+                                    <!-- </div> -->
+                                    <div class="form_error">{{  errorMsg.inAccount | translate }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                    <!-- 約定 END -->
+
+                    <div class="form_group form_group_w100 form_input_5">
+                        <div class="input_group flex_col">
+                            <div class="form_label">{{ 'TWD_TRANSFER.EDIT.AMOUNT' | translate }}</div> <!-- 轉帳金額 -->
+                            <div class="input_inner_group" [ngClass]="{ 'active_error': errorMsg.amount != '' }">
+                                <input type="tel" class="input_inner" placeholder="<= {{ showMaxAmt | htMoney: 'TWD' }}"
+                                    [(ngModel)]="showAmount">
+                                <div class="form_error">{{ errorMsg.amount | translate }}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="list_group list_group_form_1" [ngClass]="{ 'data_open': openMemo }">
+                    <div class="list_data2">
+                        <div class="flex_row list_data_li sub_open" (click)="onOpenMemo()">
+                            <div class="form_gorup_title_txt">{{ 'TWD_TRANSFER.EDIT.MEMO_NOTICE' | translate }}
+                            </div> <!-- 填寫備註 / 通知 -->
+                            <div class="list_icon"></div>
+                        </div>
+                        <!-- 細項 list_data_inner裡面放form_group元件 -->
+                        <ng-container *ngIf="!!openMemo">
+                            <div class="list_data_inner list_data_inner_4 sub_open_info_frame"
+                                style="overflow: hidden; display: block;">
+                                <!-- 存摺備註(給自己) -->
+                                <div class="form_group form_group_w100 form_input_5">
+                                    <div class="input_group flex_col">
+                                        <div class="form_label">{{ 'TWD_TRANSFER.EDIT.MYNOTE' | translate }}<span
+                                                class="txt_small">({{ 'TWD_TRANSFER.EDIT.NOT_REQUIRED' | translate }})</span>
+                                        </div>
+                                        <div class="input_inner_group"
+                                            [ngClass]="{ 'active_error': errorMsg.myNote != '' }">
+                                            <input type="text" class="input_inner"
+                                                placeholder="{{ 'TWD_TRANSFER.EDIT.MYNOTE_MSG' | translate }}"
+                                                [(ngModel)]="showMyNote">
+                                            <div class="form_error">{{ errorMsg.myNote | translate }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 轉存附言(給對方) -->
+                                <div class="form_group form_group_w100 form_input_5">
+                                    <div class="input_group flex_col">
+                                        <div class="form_label">{{ 'TWD_TRANSFER.EDIT.FORNOTE' | translate }}<span
+                                                class="txt_small">({{ 'TWD_TRANSFER.EDIT.NOT_REQUIRED' | translate }})</span>
+                                        </div>
+                                        <div class="input_inner_group"
+                                            [ngClass]="{ 'active_error': errorMsg.forNote != '' }">
+                                            <input type="text" class="input_inner"
+                                                placeholder="{{ 'TWD_TRANSFER.EDIT.FORNOTE_MSG' | translate }}"
+                                                [(ngModel)]="showForNote">
+                                            <div class="form_error">{{ errorMsg.forNote | translate }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- input 5 End-->
+                            </div>
+                        </ng-container>
+                        <!-- 細項 list_data_inner裡面放form_group元件 End -->
+                    </div>
+                </div>
+
+
+                <div class="row_single row_bg">
+                    <div class="form_group_title form_group_title_1">
+                        <div class="form_gorup_title_txt">{{ 'TWD_TRANSFER.EDIT.TRANS_NOTICE' | translate }}</div>
+                        <!-- 轉帳通知 -->
+                    </div>
+                    <div class="form_group form_group_w100 form_input_9">
+                        <div class="flex_row">
+                            <div class="form_label">{{ 'TWD_TRANSFER.EDIT.MY_EMAIL' | translate }}</div> <!-- 本人郵件 -->
+                            <div class="form_txt">{{ eMailData | objectField: ['myMail'] }}</div>
+                        </div>
+
+                        <div class="form_group form_group_w100 form_input_5">
+                            <div class="input_group flex_col" [ngClass]="{ 'active_error': errorMsg.eMail != '' }">
+                                <div class="form_label">{{ 'TWD_TRANSFER.EDIT.OTHER_EMAIL' | translate }}</div>
+                                <div class="input_inner_group">
+                                    <input class="input_inner" [(ngModel)]="eMailData.otherMail">
+                                    <div class="form_error">{{ errorMsg.eMail | translate }}</div>
+                                </div>
+                                <!-- 開啟聯絡人 先註解 2020/09/30 -->
+                                <!-- 人物圖案先註解 -->
+                                <!-- <div class="btn_form_input_6_wrap">
+                                            <div class="i_add"></div>
+                                        <button
+                                            class="form_btn btn_form_input_6">{{ 'TWD_TRANSFER.EDIT.OPEN_CONTACT' | translate }}</button>
+                                    </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 注意資訊 Start -->
+                <app-note [options]="noteData"></app-note>
+                <!-- 注意資訊 End -->
+
+            </section>
+
+            <div class="btn_group flex_row" bottomBtn>
+                <button class="btn_l btn_secondary btn_w25"
+                    (click)="onCancel()">{{ 'TWD_TRANSFER.BTN.CANCEL' | translate }}</button>
+                <button class="btn_r btn_primary btn_w70"
+                    (click)="onNext()">{{ 'TWD_TRANSFER.BTN.NEXT' | translate }}</button>
+            </div>
+        </ng-container>
+        <!-- 有轉出帳號才顯示畫面 END -->
+    </ng-container>
+    <!-- 編輯頁 END -->
+
+    <!-- 確認頁 START -->
+    <ng-container *ngSwitchCase="'confirm'">
+        <app-twd-transfer-confirm-result [setData]="confirmData" [eMailData]="eMailData"
+            [secutityNameType]="secutityNameType" [idFlag]="idFlag"
+            (backPageEmit)="onPageBackEvent($event)" (errorPageEmit)="onErrorBackEvent($event)">
+        </app-twd-transfer-confirm-result>
+    </ng-container>
+    <!-- 確認頁 END -->
+
+    <!-- 約定轉入帳號 && 常用帳號 popup START -->
+    <ng-container *ngSwitchCase="'tranint-popup'">
+        <app-twd-tran-in-popup [chooseType]="chooseType" [select]="inAcctAgreed.showInAcct"
+            [compareAcct]="showOutData.accountId" [deviceTrust]="notAgreeStatus.deviceTrust" 
+            (backPageEmit)="onPageBackEvent($event)" (errorPageEmit)="onErrorBackEvent($event)">
+        </app-twd-tran-in-popup>
+    </ng-container>
+    <!--  約定轉入帳號 && 常用帳號 popup END -->
+
+    <!-- 顯示錯誤白箱 START -->
+    <ng-container *ngSwitchCase="'errorBox'">
+        <section class="section_area section_hasbtn">
+            <app-error-box [errorMsg]="errorBoxMsg"></app-error-box>
+        </section>
+    </ng-container>
+    <!-- 顯示錯誤白箱 END -->
+</ng-container>

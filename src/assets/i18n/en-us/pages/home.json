@@ -1,0 +1,64 @@
+{
+    "HOME": {
+        "MSG": {
+            "DEAR": "Hello!!",
+            "NOLOGIN": "登入後享有更多服務"
+        },
+        "INFO": {
+            "LOADING": "Loading",
+            "ERROR_AD_PARM": "找不到廣告資訊"
+        },
+        "START_HOME": {
+            "LEFT": "Account Opening",
+            "RIGHT": "Login",
+            "BTN1": "Account Overview",
+            "BTN2": "Transfer To Account",
+            "BTN3": "Exchange Rate",
+            "BTN4": "Customer Service",
+            "BTN_MORE": "More"
+        },
+        "DEPOSIT": {
+            "TITLE": "TWD Account",
+            "FIELD1": "NT$",
+            "ERROR": "目前暫不提供查詢功能",
+            "MORE": "Account Overview",
+            "APPLY": "Account Opening"
+        },
+        "CARDS": {
+            "TITLE": "Credit Cards",
+            "FIELD1": "Currency",
+            "FIELD2": "Buy Rate",
+            "FIELD3": "Bonus Points",
+            "BONUS": "{{ points }} Points",
+            "ERROR": "目前暫不提供查詢功能",
+            "APPLY": "Apply Cards",
+            "NOCARD": "您目前無使用中的卡片"
+        },
+        "FUND": {
+            "TITLE": "基金/集合",
+            "FIELD1": "About",
+            "FIELD2": "Rate",
+            "FIELD3": "Reference Rate",
+            "ERROR": "目前資料結算處理中，暫不提供查詢功能",
+            "MORE": "More",
+            "INVEST": "Buy Funds",
+            "MORE_FINANCE": "得獎基金",
+            "APPLY": "Apply",
+            "EMPTY": "小叮嚀：您目前無庫存資料。<br>得獎基金手續費3.8折起！",
+            "NOFUND": "小叮嚀：您尚未完成信託開戶，新開戶首次下單，基金申購手續費2.8折。",
+            "NOFUND_INFO": "小叮嚀：您尚未完成信託開戶，新開戶首次下單，基金申購手續費2.8折。"
+        },
+        "FINANCIAL": {
+            "TITLE": "Rate",
+            "DATATIME": "Data Time",
+            "FIELD1": "Currency",
+            "FIELD2": "Buy Rate",
+            "FIELD3": "Sell Rate",
+            "ERROR": "目前暫不提供查詢功能"
+        },
+        "HOMEPAGEAGREE": {
+            "NO": "不同意",
+            "YES": "同意"
+        }
+    }
+}

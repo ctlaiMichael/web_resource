@@ -1,0 +1,114 @@
+    <!-- 流程 nowPage: main-page => xxxx-edit => xxxx-term => xxxx-confirm-result -->
+
+    <ng-container [ngSwitch]="nowPage">
+        <!-- 1.主控頁(標的) START -->
+        <ng-container *ngSwitchCase="'main-page'">
+            <!-- 頁籤(切換申購方式) Start -->
+            <app-bookmark [setData]="bookmarkData" [defaultKey]="bookDefault" (backPageEmit)="onBookMarkBack($event)">
+            </app-bookmark>
+            <!-- 頁籤(切換申購方式) End -->
+            <section class="section_area section_hasbtn section_tabL1">
+                <!-- 步驟列 Start -->
+                <app-step-bar [setData]="stepMenuData" [setKey]="nowStep"></app-step-bar>
+                <!-- 步驟列 End -->
+                <div class="row_single row_bg">
+                    <div class="form_group form_radio_1">
+                        <div class="radio_group flex_col">
+                            <div class="form_label">{{ 'FUND_INVEST.MAIN.INVEST_CURRENCY' | translate }}</div>
+                            <div class="radio_inner_group flex_row radio_inner_group_set2">
+                                <div class="radio_btn flex_row" [ngClass]="{ 'active': currencyType == 'twd' }"
+                                    (click)="onSelectCurrency('twd')">{{ 'FUND_INVEST.MAIN.FOR_TWD' | translate }}</div>
+                                <div class="radio_btn flex_row" [ngClass]="{ 'active': currencyType == 'foreign' }"
+                                    (click)="onSelectCurrency('foreign')">
+                                    {{ 'FUND_INVEST.MAIN.FOR_FOREIGN' | translate }}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form_group form_group_w100 form_select_12">
+                        <div class="select_group flex_col">
+                            <div class="form_label">{{ 'FUND_INVEST.MAIN.INVEST_FUND' | translate }}</div>
+                            <!-- 僅呈現符合您 風險數性: xxx 的商品 -->
+                            <div class="select_pop_info_2">{{ 'FUND_INVEST.MAIN.RISK.FIRST' | translate }}
+                                <span>{{ 'FUND_INVEST.MAIN.RISK.RISK_TYPE' | translate }}
+                                    <ng-container *ngIf="showData.riskName != ''; else riskNameEmpty">
+                                        {{ showData.riskName | translate }}</ng-container>
+                                    <ng-template #riskNameEmpty>--</ng-template>
+                                </span>{{ 'FUND_INVEST.MAIN.RISK.LAST' | translate }}</div>
+                            <!-- 您目前選擇為 xxx 的商品 -->
+                            <div class="select_pop_info_2">{{ 'FUND_INVEST.MAIN.RISK.ITEM_FIRST' | translate }}
+                                <span>
+                                    <ng-container *ngIf="showData.fundRiskName != ''; else fundRiskEmpty">
+                                        {{ showData.fundRiskName | translate }}</ng-container>
+                                    <ng-template #fundRiskEmpty>--</ng-template>
+                                </span>
+                                {{ 'FUND_INVEST.MAIN.RISK.ITEM_LAST' | translate }}
+                            </div>
+                            <div class="select_inner_group" [ngClass]="{ 'active_error': errorMsg.fundCode!='' }"
+                                (click)="onSelectFundCode()">
+                                <div class="form_select_pop_2 flex_row">
+                                    <p class="select_pop_content" *ngIf="showData.fundCode != ''; else fundEmpty">
+                                        {{ showData.formateName | translate }}</p>
+                                    <ng-template #fundEmpty>
+                                        <p class="select_pop_content" style="color:#D8D8D8;">
+                                            <!-- {{ 'ERROR.PLEASE_SELECT_ACCT' | translate }} -->
+                                            {{ 'FUND_INVEST.MAIN.PLEASE_SELECT_FUND' | translate }}
+                                        </p>
+                                    </ng-template>
+                                    <div class="select_pop_i_down"></div>
+                                </div>
+                                <div class="form_error">{{ errorMsg.fundCode | translate }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 注意資訊 Start -->
+                <app-note [options]="noteData"></app-note>
+                <!-- 注意資訊 End -->
+            </section>
+            <div class="btn_group flex_row">
+                <button class="btn_l btn_secondary btn_w25"
+                    (click)="onCancel()">{{ 'FUND_INVEST.MAIN.BTN.CANCEL' | translate }}</button>
+                <button class="btn_r btn_primary btn_w70"
+                    (click)="onNext()">{{ 'FUND_INVEST.MAIN.BTN.NEXT' | translate }}</button>
+            </div>
+        </ng-container>
+        <!-- 1.主控頁(標的) END -->
+
+        <!-- 2.單筆申購 START -->
+        <ng-container *ngSwitchCase="'single-edit'">
+            <app-single-invest-edit [type]="type" [currencyType]="currencyType" [setData]="showData"
+                (backPageEmit)="onPageBackEvent($event)" (errorPageEmit)="onErrorBackEvent($event)">
+            </app-single-invest-edit>
+        </ng-container>
+        <!-- 2.單筆申購 END -->
+
+        <!-- 2.定期定額 START -->
+        <ng-container *ngSwitchCase="'regular-edit'">
+            <app-regular-invest-edit [type]="type" [currencyType]="currencyType" [setData]="showData"
+                (backPageEmit)="onPageBackEvent($event)" (errorPageEmit)="onErrorBackEvent($event)">
+            </app-regular-invest-edit>
+        </ng-container>
+        <!-- 2.定期定額 END -->
+
+        <!-- 3.條款頁面 START -->
+        <ng-container *ngSwitchCase="'invest-term'">
+            <app-invest-term [type]="type" [nextData]="nextData" (backPageEmit)="onPageBackEvent($event)"
+                (errorPageEmit)="onErrorBackEvent($event)">
+            </app-invest-term>
+        </ng-container>
+        <!-- 3.條款頁面 END -->
+
+        <!-- 4.單筆申購-確認頁-結果頁 START -->
+        <ng-container *ngSwitchCase="'single-confirm'">
+            <app-single-confirm-result [type]="type" [nextData]="nextData" (backPageEmit)="onPageBackEvent($event)"
+                (errorPageEmit)="onErrorBackEvent($event)"></app-single-confirm-result>
+        </ng-container>
+        <!-- 4.單筆申購-確認頁-結果頁 END -->
+
+        <!-- 4.定期定額-確認頁-結果頁 START -->
+        <ng-container *ngSwitchCase="'regular-confirm'">
+            <app-regular-confirm-result [type]="type" [nextData]="nextData" (backPageEmit)="onPageBackEvent($event)"
+                (errorPageEmit)="onErrorBackEvent($event)"></app-regular-confirm-result>
+        </ng-container>
+        <!-- 4.定期定額-確認頁-結果頁 END -->
+    </ng-container>

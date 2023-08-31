@@ -1,0 +1,32 @@
+/* 背景 */
+.patt-holder {
+    -ms-touch-action: none;
+    margin: auto;
+    height: 280px !important;
+}
+  /* 線 */
+.patt-lines {
+    position: absolute;
+    height: 8px;
+    /* background: rgba(228, 94, 0, 0.75); */
+    /* background: rgba(228, 94, 0, 0.75); */
+    background :#E7373C  !important;
+    background-color: #E7373C  !important;
+    -webkit-transform-origin: 5px 5px;
+    -ms-transform-origin: 5px 5px;
+    transform-origin: 5px 5px;
+    border-radius: 20px;
+}
+  /* 點選過後的圓 變顏色 */
+.patt-circ.hovered .patt-dots {
+    /* background: linear-gradient(90deg, #C7000B 0%, #E45E00 51%, #F1BC00 100%); */
+    /* background: linear-gradient(90deg, #C7000B 0%, #E45E00 51%, #F1BC00 100%); */
+    background:#E7373C  !important;
+    background-color: #E7373C  !important;
+}
+.popup_content_wrap_patternlock .popup_inner_content {
+  min-height: 0vh !important;
+}
+.patt-wrap{
+  padding: 0 20px !important;
+}

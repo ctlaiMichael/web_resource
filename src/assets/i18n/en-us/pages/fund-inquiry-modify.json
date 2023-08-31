@@ -1,0 +1,108 @@
+{
+    "FUND-INQUIRY-MODIFY": {
+        "LICENSE": "Certificate Number",
+        "APPLYDATE": "Apply Date",
+        "TYPE": "Purchase Method",
+        "STATUS": "Status",
+        "STATUS2": "Status",
+        "AMT": "Amount",
+        "CHGDATE": "Fixed Investment Dates",
+        "ACTNO": "Account Number",
+        "MODIFY": "Modify",
+        "MEMO": "Memo",
+        "SUSPENDDEDUCTIONS": "Suspended",
+        "CHANGE_PAYSTATUS": "變更扣款狀態"
+    },
+    "FUND_INQUIRY_STATUS_CHANGE": {
+        "stepMenuData": {
+            "EDIT": "輸入資料",
+            "CONFIRM": "確認資料",
+            "RESULT": "修改結果"
+        },
+        "EDIT": {
+            "LICENSE": "憑證號碼",
+            "SETTYPE": "約定方式",
+            "STATUS": "扣款狀態",
+            "CHOICE_STATUS_TITLE": "選擇扣款狀態(擇一)",
+            "REMIND": "請注意！！定期(不)定額之約定變更，應於指定扣款日前一個銀行營業日15:15前完成修改，始生效力。"
+        },
+        "CONFIRM": {
+            "FUNDNAME": "投資標的",
+            "LICENSE": "憑證號碼",
+            "STATUS": "扣款狀態",
+            "AMOUNT": "信託金額",
+            "PAYDATE": "扣款日期",
+            "PAYACCOUNT": "扣款帳號",
+            "REMIND": "請注意！！定期(不)定額之約定變更，應於指定扣款日前一個銀行營業日15:15前完成修改，始生效力。",
+            "RESTORE": "恢復扣款",
+            "PAUSE": "暫停扣款",
+            "ONCONFIRM": "確認",
+            "ONCANCEL": "取消"
+        },
+        "RESULT": {
+            "AMOUNT": "信託金額",
+            "FUNDNAME": "投資標的",
+            "LICENSE": "憑證號碼",
+            "STATUS": "扣款狀態",
+            "PAYACCOUNT": "扣款帳號",
+            "PAYDATE": "扣款日期",
+            "NOTICE": "為配合金管會要求銀行建置「銀行網路基金交易即時確認或通知機制」，本交易通知至電子信箱:ritachen@scsb.com.tw",
+            "REMIND": "請注意！！定期(不)定額之約定變更，應於指定扣款日前一個銀行營業日15:15前完成修改，始生效力。",
+            "RESTORE": "恢復扣款",
+            "ISFOREIGNOLDID": "您的ID為舊外國人ID，請至分行辦理變更ID為統一證號形式"
+        }
+    },
+    "FUND_INQUERY_CHANGE_EDIT": {
+        "EDIT": {
+            "LICENSE": "憑證號碼",
+            "PROMISE_TYPE": "約定方式",
+            "PAYTYPE": "扣款狀態",
+            "PAYACCOUNT": "扣款帳號",
+            "BALANCE": "可用餘額",
+            "NEWPAYAMOUNT": "信託金額",
+            "PAYTDATE_CHOICE": "扣款日期(可複選)",
+            "HAS_CHOICE": "已選擇",
+            "SOME_PAYDATE": "天扣款日",
+            "PAYDATE_OF_MONTH": "每月扣款日期：",
+            "REMIND": "請注意! ! 定期(不)定額之約定變更，應於指定扣款日前一個銀行營業日15:15前完成修改，始生效力。",
+            "CANCEL": "取消",
+            "NEXT": "下一步"
+        },
+        "CONFIRM": {
+            "TRANS_REMIND": "提醒您：交易送出後無法修改或刪除",
+            "AMOUNT": "信託金額",
+            "FUNDNAME": "投資標的",
+            "LICENSE": "憑證號碼",
+            "PAYSTATUS": "扣款狀態",
+            "PAYACCOUNT": "扣款帳號",
+            "PAYDATE": "扣款日期",
+            "REMIND": "請注意！！定期(不)定額之約定變更，應於指定扣款日前一個銀行營業日15:15前完成修改，始生效力。",
+            "CANCEL": "取消",
+            "CONFIRM": "確認資料"
+        },
+        "RESULT": {
+            "AMOUNT": "信託金額",
+            "FUNDNAME": "投資標的",
+            "LICENSE": "憑證號碼",
+            "PAYSTATUS": "扣款狀態",
+            "PAYACCOUNT": "扣款帳號",
+            "PAYDATE": "扣款日期",
+            "NOTICE": "為配合金管會要求銀行建置「銀行網路基金交易即時確認或通知機制」，本交易通知至電子信箱:ritachen@scsb.com.tw",
+            "REMIND": "請注意！！定期(不)定額之約定變更，應於指定扣款日前一個銀行營業日15:15前完成修改，始生效力。",
+            "RESTORE": "恢復扣款",
+            "MODIFY": "修改"
+        }
+    },
+    "ERROR": {
+        "HASNOT_SETDATE": "尚未選擇扣款日期",
+        "BALANCE_NOTEOUUGH": "可用餘額不足，不可進行修改",
+        "SELECT_STATUSTYPE": "請選擇扣款狀態"
+    },
+    "STATUS_TYPE": {
+        "STATUS01": "恢復扣款",
+        "STATUS02": "暫停扣款",
+        "STATUS03": "延長扣款投資期限至終止扣款為止",
+        "STATUS04": "終止扣款",
+        "STATUS05": "取消暫停扣款投資期限約定"
+    }
+}

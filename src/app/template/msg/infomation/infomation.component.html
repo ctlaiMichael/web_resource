@@ -1,0 +1,23 @@
+<div class="popup_content_area_alert zIndex_level_2">
+  <div class="i_error3"></div>
+  <div class="popup_content_wrap_alert">
+    <!-- 標題 Start -->
+    <div class="pop_group pop_title_4 flex_row">
+      <div class="simple_title">{{title|translate}}</div>
+    </div>
+    <!-- 標題 End -->
+    <!-- 內容 Start -->
+    <div class="popup_inner_content">
+      <div class="pop_group pop_content pop_content_3_alert flex_row">
+        <div class="pop_content_txt" [innerHtml]="content | translate | safeHtml">
+        </div>
+      </div>
+    </div>
+    <!-- 內容 End -->
+    <!-- 按鈕 Start -->
+    <div class="btn_group btn_popup flex_row">
+      <button class="btn_primary btn_w100" (click)="onClickEvent()">{{btnTitle|translate}}</button>
+    </div>
+    <!-- 按鈕 End -->
+  </div>
+</div>

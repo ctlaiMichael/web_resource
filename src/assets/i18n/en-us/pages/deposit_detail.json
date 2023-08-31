@@ -1,0 +1,13 @@
+{
+    "DEPOSIT_DETAIL": {
+            "DEPOSIT": "Deposit",
+            "DRAWAL": "WithDrawal",
+            "UNFOLD": "Unfold",
+            "TRADING_SUMMARY": "Trading Summary",
+            "DATE": "Date",
+            "BALANCE": "Balance",
+            "REMARK": "Remark",
+            "COUNT": "Count",
+            "WARNING": "warning"
+    }
+}

@@ -1,0 +1,44 @@
+<ng-container *ngFor="let item of listData">
+    <div class="table_group">
+        <div class="table_list_set">
+            <div class="table_list_set_wrap sub_open flex_row" expandList (click)="onClickDetial(item)"
+                [waitClickFlag]="'1'" [showData]="item._haveData" [special]="true">
+                <div class="table_list_set_ul">
+                    <div class="flex_row table_list_set_li table_list_4set_li">
+                        <div class="national_flag  {{item.currencyCode | iconFlag}}"></div>
+                        <p class="txt_bold">{{ item | objectField: ['currencyCode'] }}</p>
+                        <p>{{ item | objectField: ['amount', 'htMoney' , item.currencyCode] }}</p>
+                    </div>
+                    <div class="flex_row table_list_set_li table_list_4set_li">
+                        <p>{{ item | objectField: ['paidDate', 'htDate' ,'yyyy-MM-dd'] }}</p>
+                        <p>{{ item | objectField: ['remitId'] }}</p>
+                    </div>
+                </div>
+                <div class="list_icon"></div>
+            </div>
+            <!-- 細項 -->
+            <div class="list_data_inner sub_open_info_frame">
+                <div class="flex_row list_data_inner_li">
+                    <p>{{'DEPOSIT.DETAIL.ADVDT' | translate}}</p>
+                    <p>{{ detailData[item.remitId] | objectField: ['notifyDate', 'htDate' ,'yyyy-MM-dd'] }}</p>
+                </div>
+                <div class="flex_row list_data_inner_li">
+                    <p>{{'DEPOSIT.DETAIL.REMITTER_NAME' | translate}}</p>
+                    <p>{{ detailData[item.remitId] | objectField: ['remitterName'] }}</p>
+                </div>
+                <div class="flex_row list_data_inner_li">
+                    <p>{{'DEPOSIT.DETAIL.BKN' | translate}}</p>
+                    <p>{{ detailData[item.remitId] | objectField: ['bankName'] }}</p>
+                </div>
+                <div class="flex_row list_data_inner_li">
+                    <p>{{'DEPOSIT.DETAIL.RT_IRNO' | translate}}</p>
+                    <p>{{ detailData[item.remitId] | objectField: ['referenceId'] }}</p>
+                </div>
+                <div class="flex_row list_data_inner_li">
+                    <p>{{'DEPOSIT.DETAIL.RTMG1' | translate}}</p>
+                    <p>{{ detailData[item.remitId] | objectField: ['remitterMessage'] }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>

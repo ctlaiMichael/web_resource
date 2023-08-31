@@ -1,0 +1,115 @@
+  <ng-container [ngSwitch]="nowPage">
+      <!-- 確認頁 START -->
+      <ng-container *ngSwitchCase="'confirm'">
+          <section class="section_area section_hasbtn">
+              <!-- 步驟列 Start -->
+              <app-step-bar [setData]="stepMenuData" [setKey]="nowStep"></app-step-bar>
+              <!-- 步驟列 End -->
+              <div class="confirm_notice">{{ 'FUND_INQUERY_CHANGE_EDIT.CONFIRM.TRANS_REMIND' | translate }}</div>
+              <div class="confirm_group confirm_list_bg">
+                  <div class="card_inner_list_group inner_list_bk_yellow">
+                      <div class="card_inner_list_li_5">
+                          <p>{{ showData | objectField: ['status'] | translate }}</p>
+                      </div>
+                  </div>
+                  <div class="card_inner_list_group">
+                      <div class="flex_row card_inner_list_li">
+                          <p>{{ 'FUND_INQUERY_CHANGE_EDIT.CONFIRM.FUNDNAME' | translate }}</p>
+                          <p>{{ showData | objectField: ['showFundName'] | translate }}</p>
+                      </div>
+                  </div>
+                  <div class="card_inner_list_group">
+                      <div class="flex_row card_inner_list_li">
+                          <p>{{ 'FUND_INQUERY_CHANGE_EDIT.CONFIRM.LICENSE' | translate }}</p>
+                          <p>{{ showData | objectField: ['license'] | translate }}</p>
+                      </div>
+                  </div>
+                  <div class="card_inner_list_group">
+                      <div class="flex_row card_inner_list_li">
+                          <p>{{ 'FUND_INQUERY_CHANGE_EDIT.CONFIRM.PAYSTATUS' | translate }}</p>
+                          <p>{{ showData | objectField: ['oldStatus'] | translate }}&nbsp;→&nbsp;{{ showData | objectField: ['status'] | translate }}
+                          </p>
+                      </div>
+                  </div>
+                  <div class="result_notice_down">
+                      {{ 'FUND_INQUERY_CHANGE_EDIT.CONFIRM.REMIND' | translate }}
+                  </div>
+              </div>
+              <app-security-interface [securityAction]="securityAction" [setSecurity]="setSecurity"
+                  (bakSecurityObj)="submitSecurity($event)">
+              </app-security-interface>
+          </section>
+
+          <div class="btn_group flex_row" bottomBtn>
+              <button class="btn_l btn_secondary btn_w25"
+                  (click)="onCancel()">{{ 'FUND_INQUERY_CHANGE_EDIT.CONFIRM.CANCEL' | translate }}</button>
+              <button class="btn_r btn_primary btn_w70"
+                  (click)="submitSecurity()">{{ 'FUND_INQUERY_CHANGE_EDIT.CONFIRM.CONFIRM' | translate }}</button>
+          </div>
+      </ng-container>
+      <!-- 確認頁 END -->
+
+      <!-- 結果頁 START -->
+      <ng-container *ngSwitchCase="'result'">
+          <section class="section_area">
+              <div class="result_list_bg result_group">
+
+                  <!-- 成功失敗標題 Start -->
+                  <app-result-status-temp [setData]="statusObj"></app-result-status-temp>
+                  <!-- 成功失敗標題 End -->
+
+                  <ng-container *ngIf="resStatus;">
+                      <div class="card_inner_list_group inner_list_bk_yellow">
+                          <div class="card_inner_list_li_5">
+                              <p>{{ showData | objectField: ['status'] | translate }}</p>
+                          </div>
+                      </div>
+                      <div class="card_inner_list_group">
+                          <div class="flex_row card_inner_list_li">
+                              <p>{{ 'FUND_INQUERY_CHANGE_EDIT.RESULT.FUNDNAME' | translate }}</p>
+                              <p>{{ showData | objectField: ['showFundName'] | translate }}</p>
+                          </div>
+                      </div>
+                      <div class="card_inner_list_group ">
+                          <div class="flex_row card_inner_list_li">
+                              <p>{{ 'FUND_INQUERY_CHANGE_EDIT.RESULT.LICENSE' | translate }}</p>
+                              <p>{{ showData | objectField: ['license'] | translate }}</p>
+                          </div>
+                      </div>
+                      <div class="card_inner_list_group">
+                          <div class="flex_row card_inner_list_li">
+                              <p>{{ 'FUND_INQUERY_CHANGE_EDIT.RESULT.PAYSTATUS' | translate }}</p>
+                              <p>{{ showData | objectField: ['status'] | translate }}</p>
+                          </div>
+                      </div>
+                      <div class="result_notice_down">
+                          {{ 'FUND_INQUERY_CHANGE_EDIT.RESULT.NOTICE' | translate }}
+                      </div>
+                      <div class="dashed_inner"></div>
+                      <div class="result_notice_down">
+                          {{ 'FUND_INQUERY_CHANGE_EDIT.RESULT.REMIND' | translate }}
+                      </div>
+                      <ng-container *ngIf="!!showIsForeignOldID">
+                          <div class="dashed_inner"></div>
+                          <div class="result_notice_down">
+                              {{ 'FUND_INQUIRY_STATUS_CHANGE.RESULT.ISFOREIGNOLDID' | translate }}
+                          </div>
+                      </ng-container>
+                  </ng-container>
+              </div>
+              <ng-container *ngIf="resStatus;">
+              <div class="result_function_group" bottomBtn>
+                  <div class="result_function_wrap">
+                      <div class="result_btn_group flex_row">
+                          <div class="result_btn" (click)="onResultBtn()">
+                              <div class="i_transfer"></div>
+                              <p>{{ 'FUND-INQUIRY-MODIFY.CHANGE_PAYSTATUS' | translate }}</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </ng-container>
+          </section>
+      </ng-container>
+      <!-- 結果頁 END -->
+  </ng-container>

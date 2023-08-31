@@ -1,0 +1,27 @@
+<!-- 自訂查詢 -->
+<ng-container *ngIf="show">
+<section class="section_area section_hasbtn" [ngClass]="{ 'section_tabL1_select1_time':doubleTag == '2', 'section_tabL1_select1':doubleTag == '1',
+'section_tabL1':doubleTag == '0' }">
+    <div class="row_single row_bg_white">
+        <div class="form_group form_group_w100 form_date" [ngClass]="{'active_warnning': showError.error }">
+            <div class="select_group flex_col">
+                <div class="form_label">{{'DEPOSIT.SEARCH.START_DATE' | translate}}</div>
+                <input-date [min]="startDate.min" [max]="startDate.max" [(ngModel)]="startDate.data" [setData]="timeSetData"></input-date>
+            </div>
+        </div>
+        <div class="form_group form_group_w100 form_date" [ngClass]="{'active_warnning': showError.error }">
+            <div class="select_group flex_col">
+                <div class="form_label">{{'DEPOSIT.SEARCH.END_DATE' | translate}}</div>
+                <input-date [min]="endDate.min" [max]="endDate.max" [(ngModel)]="endDate.data" [setData]="timeSetData"></input-date>
+            </div>
+        </div>
+    </div>
+    <app-note [options]="noteData"></app-note>
+</section>
+<div class="btn_group flex_row" bottomBtn>
+    <!-- 取消 -->
+    <button class="btn_l btn_secondary btn_w25" (click)="onClear()">{{ 'BTN.CLEAR' | translate }}</button>
+    <!-- 查詢 -->
+    <button class="btn_r btn_primary btn_w70" (click)="onSearch()">{{ 'BTN.SEARCH' | translate }}</button>
+</div>
+</ng-container>

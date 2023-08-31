@@ -1,0 +1,40 @@
+{
+    "DEPOSIT_OVERVIEW": {
+        "POSITIVE": "Positive",
+        "NEGATIVE": "Negative",
+        "TITLE": {
+            "MAIN": "Account Overview",
+            "PART_TWD": "TWD Account",
+            "PART_FOREIGN": "Foreign Account",
+            "PART_INVEST": "Invest",
+            "PART_INVEST_HEADER": "Invest",
+            "PART_NEGATIVE": "Negative Equity",
+            "ITEM_checkingAcct": "Checking Accounts",
+            "ITEM_savingsAcct": "Savings Accounts",
+            "ITEM_timeAcct": "Time Deposits",
+            "ITEM_otherAcct": "Other",
+            "ITEM_loans": "Loans",
+            "ITEM_cards": "Credit Cards",
+            "ITEM_fund": "基金/集合",
+            "ITEM_gold": "Gold Accounts",
+            "CURRENCY_TWD": "NT$"
+        },
+        "FIELD": {
+            "ACC_AMOUNT": "Account Balance",
+            "ACC_AVL_AMOUNT": "Available Balance",
+            "NEWBLAMT": "Balance",
+            "ENDDATE": "Maturity Date",
+            "BALANCE": "Balance",
+            "GOLD_BAL": "",
+            "GOLD_UNIT": "g",
+            "LOAN_AMOUNT": "Loan Balance",
+            "LOAN_ENDDATE": "Date"
+        },
+        "ERROR": {
+            "SERVER_BUSINESS_ERROR": "目前資料結算處理中，暫不提供查詢功能"
+        },
+        "BTN": {
+            "FOREIGN_ASSETS": "Foreign Assets"
+        }
+    }
+}

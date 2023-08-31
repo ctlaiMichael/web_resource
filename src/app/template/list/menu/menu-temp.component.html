@@ -1,0 +1,41 @@
+<ng-container *ngIf="showData; else noDataBox">
+  <ng-container *ngIf="showType!='2'; else groupBox">
+    <!-- 基本版型 -->
+    <div class="popup_inner_content">
+      <div class="content_group content_3 flex_row" (click)="onGoEvent(menu)" *ngFor="let menu of menuData;">
+        <div class="flex_row content_3_wrap">
+          <div class="content_3_txt">{{menu.name | translate}}</div>
+          <div class="i_check_wrap flex_row">
+            <div class="i_check"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 基本版型 End -->
+  </ng-container>
+  
+  <ng-template #groupBox>
+    <!-- 群組版型 -->
+    <ng-container *ngFor="let main_menu of menuData;">
+      <div class="content_group content_3 flex_row">
+        <h4 class="flex_row content_3_wrap">{{main_menu.titleName | translate}}</h4>
+      </div>
+
+      <div class="popup_inner_content">
+        <div class="content_group content_3 flex_row" (click)="onGoEvent(menu)" *ngFor="let menu of main_menu.content;">
+          <div class="flex_row content_3_wrap">
+            <div class="content_3_txt">{{menu.name | translate}}</div>
+            <div class="i_check_wrap flex_row">
+              <div class="i_check"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 群組版型 End -->
+    </ng-container>
+  </ng-template>
+</ng-container>
+
+<ng-template #noDataBox>
+  <div class="sub_info_subtitle">{{ 'ERROR.EMPTY' | translate}}</div>
+</ng-template>

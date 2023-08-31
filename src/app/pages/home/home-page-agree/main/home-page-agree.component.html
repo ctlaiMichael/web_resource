@@ -1,0 +1,29 @@
+
+<section class="section_area section_hasbtn section_scroll_close">
+    <div class="row_single_avg">
+      <!-- 同意條款 -->
+      <div class="agreement_content agreement_content_full">
+        <p class="txt_bold">上海商業儲蓄銀行「行動網銀」提供完整帳戶查詢、台幣約定轉帳、台幣非約定轉帳、投資理財基金申購/轉換/回贖及修改、信用卡帳單查詢/繳款及紅利商品兌換、條碼掃描、幣別換算小工具、全球匯率資訊查詢服務等.....您可隨時查詢存款明細、輕鬆繳納任何費用、並即時掌握全球匯市動態，除此之外，您也可查詢本行各分行營業據點，以及提/存款/補摺機的相關資訊。<br><br>
+                            上海商業儲蓄銀行「行動銀行」可能具備下列權限：<br>
+                            1、位置：查找各個分行、提款機、優惠商店、合作停車場的所在位置，以及與您的相對位置。<br>
+                            2、電話：撥打客服中心電話。<br>
+                            3、聯絡資訊：台幣(非)約定轉帳交易，可指定您聯絡資訊內的對象發送轉帳交易通知Email。<br>
+                            4、相片、相機：匯入或匯出常用的QRcode圖片，或是使用相機掃描QRcode，來簡化台幣非約轉的交易操作流程。<br>
+                            5、通知中心和裝置ID：如您欲接收各項通知(如帳務金額異動通知、繳款通知等)，以輕鬆掌握帳戶資金動向，可於ＡＰＰ設定接收通知訊息。<br>
+                            6、行動網銀APP可能蒐集您的身分證字號、使用者代號、銀行帳號等敏感性資料，以核實您在本行留存的資料及驗證您具有使用APP相關服務的權限。<br>
+                            7、行動網銀APP也將儲存加密後的身分證字號於裝置中(ex: Keychain)，以提供快速存取使用。<br><br>
+                            提醒您，為確保您的帳務安全，請於您的行動裝置上安裝防毒軟體，以避免資料遭竊或外洩，並建議您將作業系統更新至最新版本。<br><br>
+                            更多資訊請參考本行蒐集、處理及利用個人資料告知書:<span (click)="click1()">(https://www.scsb.com.tw/content/link/src/link09.pdf)</span><br>
+        </p>
+      </div>
+      <!-- 同意條款 //End -->
+    </div>
+  </section>
+  <!-- section End -->
+  <!-- 雙按鈕 -->
+  <div class="btn_group flex_row">
+    <button class="btn_l btn_secondary btn_w25" (click)="onCancelBtnClick()">{{ 'HOME.HOMEPAGEAGREE.NO' | translate }}</button>
+    <button class="btn_r btn_primary btn_w70" (click)="onCommit()">{{ 'HOME.HOMEPAGEAGREE.YES' | translate }}</button>
+  </div>
+  <!-- 雙按鈕 //End -->
+

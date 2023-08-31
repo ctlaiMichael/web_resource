@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="150" height="150" viewBox="0 0 150 150">
+  <defs>
+    <clipPath id="clip-i_daypicker_year_select">
+      <rect width="150" height="150"/>
+    </clipPath>
+  </defs>
+  <g id="i_daypicker_year_select" clip-path="url(#clip-i_daypicker_year_select)">
+    <g id="icon_daypicker_year_select_down" data-name="icon/daypicker_year_select_down" transform="translate(0 -0.002)">
+      <rect id="矩形_11" data-name="矩形 11" width="150" height="150" fill="#3e3e3e" opacity="0"/>
+      <g id="Group" transform="translate(0 122) rotate(-90)">
+        <path id="Path" d="M36.124,113.212V29.169a7.008,7.008,0,1,0-14.016,0V120.22a7.016,7.016,0,0,0,7.008,7.007h91.051a7.008,7.008,0,1,0,0-14.015Z" transform="translate(74.668 -30.928) rotate(45)" fill="#fff" stroke="#fff" stroke-width="1"/>
+      </g>
+    </g>
+  </g>
+</svg>

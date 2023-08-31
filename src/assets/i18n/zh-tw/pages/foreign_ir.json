@@ -1,0 +1,31 @@
+{
+    "DEPOSIT": {
+        "SEARCH":{
+            "TODAY": "今天",
+            "WEEK": "一週",
+            "MONTH": "一個月",
+            "CUSTOM": "自訂",
+            "SEARCH_RANGE": "查詢區間",
+            "START_DATE": "開始日期",
+            "END_DATE": "結束日期",
+            "3MONTH": "三個月"
+        },
+        "LIST":{
+            "CURRENCY": "幣別",
+            "REM_AMOUNT": "匯入金額",
+            "PAID_DATE": "入帳日",
+            "IRNO": "匯款編號"
+        },
+        "DETAIL":{
+            "ADVDT": "通知日",
+            "BKN": "匯款銀行",
+            "RTBKN": "國外匯款銀行",
+            "RTMG1": "附言",
+            "RT_IRNO": "國外匯款編號",
+            "REMITTER_NAME": "匯款人"
+        },
+        "MSG":{
+            "NECESSITY": "必填欄位，請輸入"
+        }
+    }
+}

@@ -1,0 +1,19 @@
+ <ng-container *ngFor="let item of listData; let i = index">
+    <div class="content_group content_invest_1 flex_row" (click)="clickdetail(item)" >
+      <div class="content_invest_1_w1">
+        <div class="content_invest_li content_invest_title">{{item.fundCode}} {{item.fundName}}<div class="select_i_right"></div></div>
+        <div class="content_invest_li flex_row">
+          <div class="content_invest_li_p1">{{ 'FUND-INQUIRY-MODIFY.STATUS' | translate }}</div>
+          <div class="content_invest_li_p2_bold">{{ item | objectField: ['status']}}</div>
+        </div>
+        <div class="content_invest_li flex_row">
+          <div class="content_invest_li_p1">{{ 'FUND-INQUIRY-MODIFY.AMT' | translate }}</div>
+          <div class="content_invest_li_p2">{{ item | objectField: ['amt', 'currencyMoney', item.engCcy]}}</div>
+        </div>
+        <div class="content_invest_li flex_row pad_btm0"> <!-- chgDate處理前之欄位 -->
+          <div class="content_invest_li_p1">{{ 'FUND-INQUIRY-MODIFY.CHGDATE' | translate }}</div>
+          <div class="content_invest_li_p2_bold">{{ item | objectField: ['formateDate']}}</div>
+        </div>
+      </div>
+    </div>
+  </ng-container>

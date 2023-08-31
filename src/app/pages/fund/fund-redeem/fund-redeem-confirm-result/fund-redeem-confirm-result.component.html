@@ -1,0 +1,197 @@
+<ng-container [ngSwitch]="nowPage">
+    <!-- 確認頁 START -->
+    <ng-container *ngSwitchCase="'confirm'">
+        <section class="section_area section_hasbtn">
+            <!-- step_bar START -->
+            <app-step-bar [setData]="'default'" [setKey]="'check'"></app-step-bar>
+            <!-- step_bar END-->
+            <!-- INFO MEMO -->
+            <trans-note [showType]="'confirm'"></trans-note>
+            <div class="confirm_group confirm_list_bg">
+                <!-- 贖回金額 -->
+                <div class="card_inner_list_group inner_list_bk_yellow">
+                    <div class="card_inner_list_li_5">
+                        <p>{{ 'FUND_REDEEM.CONFIRM.REDEEM_AMT' | translate }}</p>
+                        <p>{{ setData | objectField: ['fundAmt', 'currencyMoney' , setData.fundCcy] }}</p>
+                    </div>
+                </div>
+
+                <!-- 標的 -->
+                <div class="card_inner_list_group">
+                    <div class="flex_row card_inner_list_li">
+                        <p>{{ 'FUND_REDEEM.CONFIRM.FUNDCODE' | translate }}</p>
+                        <p>{{ setData | objectField: ['fundCode'] }} {{ setData | objectField: ['fundName'] }}</p>
+                    </div>
+                </div>
+
+                <!-- 憑證號碼 -->
+                <div class="card_inner_list_group">
+                    <div class="flex_row card_inner_list_li">
+                        <p>{{ 'FUND_REDEEM.CONFIRM.LICENSE' | translate }}</p>
+                        <p>{{ setData | objectField: ['license'] }}</p>
+                    </div>
+                </div>
+
+                <!-- 贖回方式 -->
+                <div class="card_inner_list_group">
+                    <div class="flex_row card_inner_list_li">
+                        <p>{{ 'FUND_REDEEM.CONFIRM.REDEEM_TYPE' | translate }}</p>
+                        <ng-container *ngIf="setData.redeemRadio == 'all'">
+                            <p>{{ 'FUND_REDEEM.CONFIRM.REDEEM_ALL' | translate }}</p>
+                        </ng-container>
+                        <ng-container *ngIf="setData.redeemRadio == 'part'">
+                            <p>{{ 'FUND_REDEEM.CONFIRM.REDEEM_PART' | translate }}</p>
+                        </ng-container>
+                    </div>
+                </div>
+
+                <!-- 信託金額: 避免混淆，故不顯示 -->
+                <!-- <div class="card_inner_list_group">
+                    <div class="flex_row card_inner_list_li">
+                        <p>{{ 'FUND_REDEEM.CONFIRM.FUNDAMT' | translate }}</p>
+                        <p>{{ setData | objectField: ['oldFundAmt', 'currencyMoney' , setData.fundCcy] }}</p>
+                    </div>
+                </div> -->
+
+                <div class="card_inner_list_group">
+                    <div class="flex_row card_inner_list_li">
+                        <p>{{ 'FUND_REDEEM.CONFIRM.ACCOUNTID' | translate }}</p>
+                        <p>{{ setData | objectField: ['accountID'] }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <app-security-interface [securityAction]="securityAction" [setSecurity]="setSecurity" [setErrorObj]="setSecurityError"
+                (bakSecurityObj)="submitSecurity($event)">
+            </app-security-interface>
+
+        </section>
+
+        <div class="btn_group flex_row" bottomBtn>
+            <button class="btn_l btn_secondary btn_w25" (click)="onCancel()">{{ 'FUND_REDEEM.BTN.CANCEL' | translate }}</button>
+            <button class="btn_r btn_primary btn_w70" (click)="submitSecurity()">{{ 'FUND_REDEEM.BTN.COMMIT' | translate }}</button>
+        </div>
+    </ng-container>
+    <!-- 確認頁 END -->
+
+    <!-- 結果頁 START -->
+    <ng-container *ngSwitchCase="'result'">
+        <section class="section_area">
+            <div class="result_list_bg result_group">
+                <!-- 成功失敗標題 Start -->
+                <app-result-status-temp [setData]="statusObj"></app-result-status-temp>
+                <!-- 成功失敗標題 End -->
+                <trans-note [showType]="'result'"></trans-note>
+
+                <!-- 結果頁(交易成功) Start -->
+                <ng-container *ngIf="resStatus;">
+                    <div class="card_inner_list_group inner_list_bk_yellow">
+                        <!-- 贖回金額 -->
+                        <div class="card_inner_list_li_5">
+                            <p>{{ 'FUND_REDEEM.CONFIRM.REDEEM_AMT' | translate }}</p>
+                            <p>{{ resultData | objectField: ['redeemAmt', 'currencyMoney' , setData.fundCcy] }}</p>
+                        </div>
+                    </div>
+                    <div class="card_inner_list_group">
+                        <div class="flex_row card_inner_list_li">
+                            <p>{{ 'FUND_REDEEM.RESULT.FUNDCODE' | translate }}</p>
+                            <p>{{ setData | objectField: ['fundCode'] }} {{ setData | objectField: ['fundName'] }}</p>
+                        </div>
+                    </div>
+                    <div class="card_inner_list_group">
+                        <div class="flex_row card_inner_list_li">
+                            <p>{{ 'FUND_REDEEM.CONFIRM.LICENSE' | translate }}</p>
+                            <p>{{ setData | objectField: ['license'] }}</p>
+                        </div>
+                    </div>
+
+                    <!-- 贖回方式 -->
+                    <div class="card_inner_list_group">
+                        <div class="flex_row card_inner_list_li">
+                            <p>{{ 'FUND_REDEEM.CONFIRM.REDEEM_TYPE' | translate }}</p>
+                            <ng-container *ngIf="setData.redeemRadio == 'all'">
+                                <p>{{ 'FUND_REDEEM.CONFIRM.REDEEM_ALL' | translate }}</p>
+                            </ng-container>
+                            <ng-container *ngIf="setData.redeemRadio == 'part'">
+                                <p>{{ 'FUND_REDEEM.CONFIRM.REDEEM_PART' | translate }}</p>
+                            </ng-container>
+                        </div>
+                    </div>
+
+                    <!-- 虛線 -->
+                    <!-- <div class="dashed"></div> -->
+                    <!-- 虛線 End -->
+                    <!-- 信託金額: 避免混淆，故不顯示 -->
+                    <!-- <div class="card_inner_list_group">
+                        <div class="flex_row card_inner_list_li">
+                            <p>{{ 'FUND_REDEEM.RESULT.FUNDAMT' | translate }}</p>
+                            <p>{{ setData | objectField: ['oldFundAmt', 'currencyMoney' , setData.fundCcy] }}</p>
+                        </div>
+                    </div> -->
+                    <!-- 信託餘額 -->
+                    <div class="card_inner_list_group">
+                        <div class="flex_row card_inner_list_li">
+                            <p>{{ 'FUND_REDEEM.RESULT.OSAMT' | translate }}</p>
+                            <p>{{ resultData | objectField: ['lastAmt', 'currencyMoney' , setData.fundCcy] }}</p>
+                        </div>
+                    </div>
+                    <div class="card_inner_list_group">
+                        <div class="flex_row card_inner_list_li">
+                            <p>{{ 'FUND_REDEEM.RESULT.ACCOUNTID' | translate }}</p>
+                            <p>{{ setData | objectField: ['accountID'] }}</p>
+                        </div>
+                    </div>
+                    <!-- 交易通知注意資訊 -->
+                    <after-trans-note></after-trans-note>
+                </ng-container>
+                <!-- 結果頁(交易成功) End -->
+            </div>
+
+            <!-- 結果頁(交易成功) Start -->
+            <ng-container *ngIf="resStatus">
+                <!-- 再做一筆按鈕 Start -->
+                <div class="result_function_group">
+                    <div class="result_function_wrap">
+                        <div class="result_btn_group flex_row">
+                            <div class="result_btn" (click)="onAgainBtnClick()">
+                                <div class="i_transfer"></div>
+                                <p>{{ 'FUND_REDEEM.BTN.RETRY' | translate }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 再做一筆按鈕 End -->
+            </ng-container>
+            <!-- 結果頁(交易成功) End -->
+        </section>
+    </ng-container>
+    <!-- 結果頁 END -->
+
+    <!-- 短線交易確認頁面 START -->
+    <ng-container *ngSwitchCase="'shartTrade'">
+        <section class="section_area section_hasbtn">
+            <div class="confirm_group confirm_list_bg">
+                <div class="card_inner_list_group inner_list_bk_yellow">
+                    <div class="card_inner_list_li_5">
+                        <p>{{ 'FUND_REDEEM.MSG.SHARTRADE_TITLE' | translate }}</p>
+                    </div>
+                </div>
+                <div class="agreement_content agreement_content_100" [innerHtml]=" (shartContent | translate) | safeHtml ">
+                </div>
+            </div>
+        </section>
+        <div class="btn_group flex_row" bottomBtn>
+            <button class="btn_l btn_secondary btn_w25" (click)="onShartCancel()">{{ 'FUND_REDEEM.BTN.NOT_AGREE' | translate }}</button>
+            <button class="btn_r btn_primary btn_w70" (click)="onShartConfirm()">{{ 'FUND_REDEEM.BTN.AGREE' | translate }}</button>
+        </div>
+    </ng-container>
+    <!-- 短線交易確認頁面 END -->
+
+    <!-- 顯示錯誤白箱 START -->
+    <ng-container *ngSwitchCase="'errorBox'">
+        <section class="section_area section_hasbtn">
+            <app-error-box [errorMsg]="errorBoxMsg"></app-error-box>
+        </section>
+    </ng-container>
+    <!-- 顯示錯誤白箱 END -->
+</ng-container>

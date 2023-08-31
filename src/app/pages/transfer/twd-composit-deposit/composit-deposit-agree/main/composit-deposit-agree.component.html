@@ -1,0 +1,69 @@
+<!-- <p>綜存開戶約定composit-deposit-agree</p> -->
+<ng-container [ngSwitch]="nowPage">
+    <!-- 合約頁 Start -->
+    <ng-container *ngSwitchCase="'check'">
+        <section class="section_area section_hasbtn">
+            <!-- 步驟列 Start -->
+            <app-step-bar [setData]="stepMenuData" [setKey]="nowStep"></app-step-bar>
+            <!-- 步驟列 End -->
+
+            <div class="row_single">
+                <!-- 同意條款 -->
+                <div class="agreement_content">
+                    <p class="txt_bold"> {{ contentData | fieldCheck: ['txreTmsg',{zero_type:false, empty_str:''}]}}
+                    </p>
+                </div>
+                <!-- 同意條款 //End -->
+            </div>
+
+            <div class="row_single mar_btm0">
+                <div class="inner_checkbox">
+                    <input type="checkbox" id="inner_checkbox01" name="inner_checkbox" [checked]="tick === '1'"
+                        (click)="clickchang()">
+                    <label for="inner_checkbox01">
+                        <span>
+                            <i></i>
+                        </span>
+                        <b class="inner_checkbox_txt">{{ 'COMPOSITDEPOSITAGREE.AGREE' | translate }}</b>
+                    </label>
+                </div>
+            </div>
+
+        </section>
+        <!-- section End -->
+
+        <!-- 雙按鈕 Start-->
+        <div class="btn_group flex_row">
+            <button class="btn_l btn_secondary btn_w25"
+                (click)="onCancelBtnClick()">{{ 'COMPOSITDEPOSITAGREE.NO' | translate }}</button>
+            <button class="btn_r btn_primary btn_w70"
+                (click)="onCommit()">{{ 'COMPOSITDEPOSITAGREE.YES' | translate }}</button>
+        </div>
+        <!-- 雙按鈕 End -->
+    </ng-container>
+    <!-- 合約頁 End -->
+
+    <!-- 結果頁 Start -->
+    <ng-container *ngSwitchCase="'result'">
+        <section class="section_area">
+            <!-- 交易標題區塊 Start -->
+            <div class="result_list_bg result_group">
+                <app-result-status-temp [setData]="statusObj"></app-result-status-temp>
+                <!-- <div class="result_succeed_notice" *ngIf="resStatus">
+                    {{ infoData | fieldCheck: ['RangData',{zero_type:false, empty_str:'--'}]}}</div> -->
+            </div>
+            <!-- 交易標題區塊 End -->
+        </section>
+    </ng-container>
+    <!-- 結果頁 End -->
+
+    <!-- 無資料畫面 Start -->
+    <ng-container *ngSwitchCase="'empty'">
+        <section class="section_area section_select1">
+            <!-- 顯示錯誤白箱 START -->
+            <app-error-box [errorMsg]="errorMsg"></app-error-box>
+            <!-- 顯示錯誤白箱 END -->
+        </section>
+    </ng-container>
+    <!-- 無資料畫面 End -->
+</ng-container>

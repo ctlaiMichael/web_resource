@@ -1,0 +1,50 @@
+{
+    "FOREIGN_TRANSFER": {
+        "BUY_FOREIGN_CURRENCY": "買外幣",
+        "SELL_FOREIGN_CURRENCY": "賣外幣",
+        "TRANSFER_OUT_ACCOUNT": "轉出帳號",
+        "TRANSFER_IN_ACCOUNT": "轉入帳號",
+        "TRANSFER_AMOUNT": "轉帳金額",
+        "CURRENCY": "幣別",
+        "ERROR": "請輸入",
+        "EMPTY_AMOUNT": "請輸入金額",
+        "ERROR_AMOUNT": "台幣金額須大於1,000且小於500,000",
+        "OVER_BALANCE": "輸入金額超過可用餘額",
+        "EMPTY_CERRENCY": "請選擇幣別",
+        "EXCHANGE_RATE_TABLE": "匯率表",
+        "TRANSFER_TYPE": "結匯性質",
+        "BALANCE": "可用餘額",
+        "REFERENCE_EXCHANGE_RATE": "參考匯率",
+        "EXCHANGE_RATE": "匯率",
+        "EXPIRED_SECOND_EDIT": "更新倒數",
+        "EXPIRED_SECOND_EDIT2": "秒",
+        "EXPIRED_SECOND_CHECK": "請於",
+        "EXPIRED_SECOND_CHECK2": "秒內完成交易",
+        "PLEASE_SELECT": "請選擇",
+        "EXTRA_AMOUNT": "幫您多換",
+        "SELECT_TRANS_OUT_ACC": "轉出帳號選擇",
+        "SELECT_TRANS_IN_ACC": "轉入帳號選擇",
+        "SELECT_TRANS_TYPE": "結匯性質選擇",
+        "TRANS_SUCCESS": "交易成功",
+        "TRANS_ALERT": "提醒您：銀行營業時間已過，此筆將為次一營業日交易。",
+        "DO_ANOTHER_ONE": "再做一筆",
+        "ACC_AMOUNT": "帳上餘額",
+        "ACC_AVL_AMOUNT": "可用餘額",
+        "ACC_BALANCE": "帳戶餘額",
+        "REGET_EXCHANGE_RATE": "匯率已過期，是否重新取得新的匯率，或是離開外幣兌換功能。",
+        "CONFIRM_CONTENT": "切換功能會重新取得新的匯率，是否確認要放棄現在的匯率?",
+        "BACK_TO_EDIT": "匯率已過期，是否返回編輯頁，或是離開外幣兌換功能。",
+        "BTN": {
+            "CONFIRM": "確認",
+            "CANCEL": "取消",
+            "NEXT_STEP": "下一步",
+            "REGET": "重新取得",
+            "LEAVE": "離開"
+        },
+        "ERR": {
+            "INVALID_AMOUNT": "換算金額格式錯誤(整數13位、小數2位)",
+            "INVALID_AMOUNT_TWD": "換算金額格式錯誤(整數13位)"
+        },
+        "WARNING": "提醒您!!如果當日您在本行或其他網路平台或分行櫃檯，結匯金額累計得等值新臺幣50萬元時，本行將以買、賣匯水單媒體資料報送中央銀行，並以該媒體資料視同申報義務人向中央銀行申報。"
+    }
+}

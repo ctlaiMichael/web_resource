@@ -1,0 +1,189 @@
+/**
+ * 頁面控制CSS
+ */
+/* level 1: wifi未開啟 */
+.zIndex_level_1 { z-index: 2147483647; } 
+/* level 2: confirm */
+.zIndex_level_2 { z-index: 2147482000; }
+/* level 2_1: dialog */
+.zIndex_level_2_1 { z-index: 2147482010; }
+/* level 2_2: progressBar, autologout */
+.zIndex_level_2_2 { z-index: 2147482020; }
+/* level 3: 假首頁 */
+.zIndex_level_3 { z-index: 2147481000; }
+/* level 4: 轉場假畫面 */
+.zIndex_level_4 { z-index: 2147480000; }
+/* level 5: loading */
+.zIndex_level_5 { z-index: 2147479000; }
+.zIndex_level_5_1 { z-index: 2147479010; }
+/* level 6: popup */
+.zIndex_level_6 { z-index: 2147478000; }
+/* level 7: footer */
+.zIndex_level_7 { z-index: 2147477000; }
+/* level 7_1: footer other btn */
+.zIndex_level_7_1 { z-index: 2147477010; }
+/* level 8: menu  */
+.zIndex_level_8 { z-index: 2147476000; }
+.container_side_menu::before {
+    z-index: 2147476000;
+}
+/* level 8: menu-header  */
+.zIndex_level_8_1 { z-index: 2147476010; }
+/* level 9 */
+.zIndex_level_9 { z-index: 2147475000; }
+/* level 10 */
+.zIndex_level_10 { z-index: 2147474000; }
+
+/* popup box control with: zIndex_level_6 ~ zIndex_level_7 */
+.cdk-overlay-container { z-index: 2147478000; }
+
+/* --------------------------- 頁面控制使用 --------------------------- */
+/* 啟動頁面控制 */
+.initial_page #initPageBox {
+    display: block;
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -ms-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    transition: all .5s ease;
+}
+.initial_page #initPageBox.hiddenBox {
+    visibility: hidden;
+}
+.initial_page #initPageBox.removeBox {
+    display: none;
+}
+/* APP業務邏輯控制畫面使用(htShow) */
+.pageCtrlHiddenBox {
+    display: none;
+}
+/* popup-base使用 控制section滾動 */
+.pageCtrlFixOverflow {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+/* 金額太長樣式 */
+.over_amount {
+    /* font-size: 12px; */
+}
+
+/* @status-bar [safe-area共用] 需搭配 global.css 裡 @status-bar [safe-area 版面共用設定]---------------------------------------*/
+/* 先放在global.css內，後續再整合 */
+/* .container::before {
+    content: '';
+    height: env(safe-area-inset-top);
+    width: 100%;
+    display: block;
+    background: linear-gradient(135deg, #e7373c, #d15b9c 35%, #e95504 67%, #f9be00);
+    position: absolute;
+    top: 0;
+    left: 0;
+} */
+  
+/* .container {
+    width: 100%;
+    display: block;
+    position: relative;
+    height: 100%; */
+    /* Status bar height on iOS 11.0 */
+    /* padding-top: constant(safe-area-inset-top);
+    padding-bottom: constant(safe-area-inset-bottom); */
+    /* Status bar height on iOS 11+ */
+    /* padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    background-color: #f5f6f8; */
+/* } */
+  
+/* End @status-bar [safe-area共用] 需搭配 global.css 裡 @status-bar [safe-area 版面共用設定] -----------------------------------*/
+  
+
+/* @chart顏色表 ---------------------------------------*/
+
+/* chart顏色 */
+.chart_color_1{ background-color: #B82B22;}
+.chart_color_2{ background-color: #D15B9C;}
+.chart_color_3{ background-color: #E95504;}
+.chart_color_4{ background-color: #F9BE00;}
+.chart_color_5{ background-color: #A9B833;}
+.chart_color_6{ background-color: #46B8B5;}
+.chart_color_7{ background-color: #137CEC;}
+.chart_color_8{ background-color: #7653DF;}
+.chart_color_9{ background-color: #9622C7;}
+.chart_color_10{ background-color: #9F2D6C;}
+.chart_color_11{ background-color: #F6665C;}
+.chart_color_12{ background-color: #F684C3;}
+.chart_color_13{ background-color: #FF955C;}
+.chart_color_14{ background-color: #FFD755;}
+.chart_color_15{ background-color: #D6E467;}
+.chart_color_16{ background-color: #94EBE8;}
+.chart_color_17{ background-color: #92C6FF;}
+.chart_color_18{ background-color: #C5B2FF;}
+.chart_color_19{ background-color: #E09CFF;}
+.chart_color_20{ background-color: #F9A9D5;}
+
+
+/* chart示意文字顏色 */
+.chart_font_1{ color: #B82B22;}
+.chart_font_3{ color: #E95504;}
+.chart_font_2{ color: #D15B9C;}
+.chart_font_4{ color: #F9BE00;}
+.chart_font_5{ color: #A9B833;}
+.chart_font_6{ color: #46B8B5;}
+.chart_font_7{ color: #137CEC;}
+.chart_font_8{ color: #7653DF;}
+.chart_font_9{ color: #9622C7;}
+.chart_font_10{ color: #9F2D6C;}
+.chart_font_11{ color: #F6665C;}
+.chart_font_12{ color: #F684C3;}
+.chart_font_13{ color: #FF955C;}
+.chart_font_14{ color: #FFD755;}
+.chart_font_15{ color: #D6E467;}
+.chart_font_16{ color: #94EBE8;}
+.chart_font_17{ color: #92C6FF;}
+.chart_font_18{ color: #C5B2FF;}
+.chart_font_19{ color: #E09CFF;}
+.chart_font_20{ color: #F9A9D5;}
+
+
+/* End @chart顏色表 ---------------------------------------*/
+
+
+/* @tag顏色表 ---------------------------------------*/
+
+.info_tag.tag_color_1 {
+    color: #B82B22;
+    border-color: #B82B22;
+}
+
+.info_tag.tag_color_2 {
+    color: #4DAEB6;
+    border-color: #4DAEB6;
+}
+
+.info_tag.tag_color_3 {
+    color: #CF9245;
+    border-color: #CF9245;
+}
+
+.info_tag.tag_color_4 {
+    color: #2E6DB7;
+    border-color: #2E6DB7;
+}
+
+.info_tag.tag_color_5 {
+    color: #54AB00;
+    border-color: #54AB00;
+}
+
+.info_tag.tag_color_6 {
+    color: #EC3A8F;
+    border-color: #EC3A8F;
+}
+
+.info_tag.i_more_2 {
+    color: #C8C8C8;
+    border-color: #C8C8C8;
+}
+
+
+/* End @tag顏色表 ---------------------------------------*/

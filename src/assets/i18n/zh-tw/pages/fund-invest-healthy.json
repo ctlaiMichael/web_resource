@@ -1,0 +1,17 @@
+{
+    "FUND_HEALTHY": {
+        "TOTAL": {
+            "TITLE": "投資合計",
+            "CURRENCY": "幣別",
+            "TOTAL_TOTOSAMT": "信託金額",
+            "INTRETN": "含息參考報酬率",
+            "BAOCHOU": "報酬率"
+        },
+        "ANALYSIS": {
+            "TITLE": "組合分析",
+            "RISK_TYPE": "風險屬性",
+            "REGION_TYPE": "產品類型",
+            "CURRENCY_TYPE": "幣別類型"
+        }
+    }
+}

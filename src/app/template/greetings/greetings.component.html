@@ -1,0 +1,15 @@
+<ng-container *ngIf="showType">
+    <!-- 目前僅提供首頁版面 -->
+    <ng-container *ngIf="templateType=='user-home'; else wordBox">
+        <div class="row_single">
+            <div class="home_greeting flex_row">
+                <div class="home_greeting_emoji"></div>
+                <p class="home_greeting_txt" [innerHtml]=" word | safeHtml"></p>
+            </div>
+        </div>
+    </ng-container>
+    <!-- 單純顯示文字版面 -->
+    <ng-template #wordBox>
+        <p [innerHtml]=" word | safeHtml"></p>
+    </ng-template>
+</ng-container>

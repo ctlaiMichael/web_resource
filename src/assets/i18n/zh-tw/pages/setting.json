@@ -1,0 +1,73 @@
+{
+    "SETTING": {
+        "MODEL": "手機型號",
+        "OS": "手機作業系統",
+        "VERSION": "行動銀行版本",
+        "UDID": "設備識別碼",
+        "FAST_SETTING": {
+            "TITLE1": "已綁定裝置",
+            "TITLE2": "修改設備綁定",
+            "TITLE3": "解除設備綁定",
+            "TITLE4": "設備綁定",
+            "SUB_TITLE1": "快速登入/交易設定",
+            "FAST_SETTING_NORMAL": "一般(約定)快速交易",
+            "USE_TYPE": "使用模式",
+            "USE_TYPE_SETTING": "使用模式設定",
+            "SUB_TITLE2": "非約定快速交易設定",
+            "FAST_SETTING_NON_AGREE": "非約定快速交易",
+            "SUB_TITLE3": "已綁定裝置清單",
+            "DEVICE_BIND_NUMBER": "設備綁定數量",
+            "FAST_SETTING_README": "開啟快速交易設定代表您同意本行",
+            "SUB_TITLE4": "此裝置",
+            "DEVICE_NAME_SETTING": "裝置名稱設定",
+            "DELETE_CONFIRM": "請確認是否要解除與此裝置的綁定狀態",
+            "DEVICE_NAME": "裝置名稱",
+            "DEVICE_TYPE": "裝置類型",
+            "INFORMATION": "若確認解除綁定此裝置，將一同解除您於此裝置設定之所有快速登入 / 交易相關功能。為了您的使用權益，請務必確認是否要進行解除綁定！",
+            "INFORMATION2": "進行裝置綁定將會進行手機確認碼認證，將會發送簡訊至您於臨櫃申請時之行動手機號碼。",
+            "SUCCESS": "設定成功",
+            "FAIL": "設定失敗",
+            "ERROR": "請輸入",
+            "SETTING": "設定",
+            "UPDATE": "修改",
+            "DELETE": "刪除",
+            "AGREE": "我已同意以上內容",
+            "AGREE_CHECK": "請先勾選同意事項。",
+            "PATTERN": "圖形碼",
+            "FACE_FINGER_PRINT": "臉部/指紋",
+            "OTP_PHONE_NUMBER": "發送OTP驗證碼到",
+            "ENABLE": "啟用",
+            "DISABLE": "關閉",
+            "BTN": {
+                "CANCEL": "取消",
+                "SAVE": "儲存",
+                "CHECK": "確認",
+                "CHANGE_GRAPHIC_CODE": "圖形碼變更",
+                "BIND": "立即綁定",
+                "SEND_OTP": "進行手機確認碼發送",
+                "REPLACE": "取代"
+            },
+            "OTP": {
+                "INFO1": "交易機制：手機確認碼認證",
+                "INFO2": "輸入手機確認碼，以進行認證(確認碼已發送至您的手機)",
+                "INFO3": "有效時間仍有",
+                "SECOND": "秒",
+                "TIME_OUT": "手機認證碼已過期，請重新取得。"
+            },
+            "MSG": {
+                "NO_PHONE": "啟用快速設定，須透過「手機電話」發送簡訊進行認證，請洽分行辦理。",
+                "NO_NORMAL_PHONE": "啟用一般快速設定，須透過「聯絡電話」發送簡訊進行認證，請洽分行辦理。",
+                "NO_OTP_PHONE": "啟用非約定快速設定，須透過「臨櫃約定電話」發送簡訊進行認證，請洽分行辦理",
+                "CLOSE_NORMAL_FAST": "請確認您是否要關閉快速登入與快速交易功能，若您關閉後，將無法使用快速登入與快速交易功能，若要使用須重新進行綁定作業。",
+                "CLOSE_NON_AGREE_FAST": "請確認您是否要關閉快速登入與快速交易功能，若您關閉後，將無法使用快速登入與快速交易功能，若要使用須重新進行綁定作業。",
+                "DEVICE_UNBIND": "很抱歉，您的裝置綁定已被解除，若有疑惑或需要重新綁定，請您進入快速設定功能進行查詢。",
+                "DEVICE_FULL": "您的裝置綁定已超過3台，是否前往設備綁定查詢功能，進行解除綁定。",
+                "ALREADY_OPEN_PATTERN": "您已開啟圖形碼模式，是否切換為臉部/指紋模式?",
+                "ALREADY_OPEN_BIO": "您已開啟臉部/指紋模式，是否切換為圖形碼模式?",
+                "CLOSE_PATTERN": "您是否要關閉圖形碼模式，並切換為臉部/指紋模式?",
+                "CLOSE_BIO": "您是否要關閉臉部/指紋模式，並切換為圖形碼模式?",
+                "ALREADY_BIND": "此設備已經被其他使用者綁定，是否要繼續綁定並取代原綁定的使用者?"
+            }
+        }
+    }
+}

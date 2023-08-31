@@ -1,0 +1,133 @@
+  <ng-container [ngSwitch]="nowPage">
+      <!--  編輯頁 START -->
+      <ng-container *ngSwitchCase="'edit'">
+          <section class="section_area section_hasbtn">
+
+              <!-- 步驟列 Start -->
+              <app-step-bar [setData]="stepMenuData" [setKey]="nowStep"></app-step-bar>
+              <!-- 步驟列 End -->
+
+              <div class="content_group content_invest_4 flex_row">
+                  <div class="content_invest_1_w1">
+                      <div class="content_invest_li content_invest_title">
+                          {{ showData | objectField: ['showFundName'] | translate }}
+                      </div>
+                      <div class="content_invest_li invest_li_tag flex_row">
+                          <div class="content_invest_li_p1">{{ 'FUND_INQUIRY_STATUS_CHANGE.EDIT.LICENSE' | translate }}
+                          </div>
+                          <div class="content_invest_li_p2">{{ showData | objectField: ['license'] | translate }}</div>
+                      </div>
+                      <div class="content_invest_li invest_li_tag flex_row">
+                          <div class="content_invest_li_p1">{{ 'FUND_INQUIRY_STATUS_CHANGE.EDIT.SETTYPE' | translate }}
+                          </div>
+                          <div class="content_invest_li_p2">{{ setData | objectField: ['type'] | translate }}</div>
+                      </div>
+                      <div class="content_invest_li invest_li_tag flex_row">
+                          <div class="content_invest_li_p1">{{ 'FUND_INQUIRY_STATUS_CHANGE.EDIT.STATUS' | translate }}
+                          </div>
+                          <div class="content_invest_li_p2">{{ showData | objectField: ['oldStatus'] | translate }}
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="row_single row_bg">
+                  <div class="form_group form_group_w100 form_input_10">
+                      <div class="form_label">{{ 'FUND_INQUIRY_STATUS_CHANGE.EDIT.CHOICE_STATUS_TITLE' | translate }}
+                      </div>
+                      <ng-container *ngIf="infoData.status01 == 'Y'">
+                          <div class="row_single">
+                              <div class="inner_radio" (click)="onCheckStatus('status01')">
+                                  <input type="radio" name="inner_radio" [checked]="checkedData.status01">
+                                  <label for="inner_radio01">
+                                      <span>
+                                          <i></i>
+                                      </span>
+                                      <b class="inner_radio_txt">{{ 'STATUS_TYPE.STATUS01' | translate }}</b>
+                                  </label>
+                              </div>
+                          </div>
+                      </ng-container>
+                      <ng-container *ngIf="infoData.status02 == 'Y'">
+                          <div class="row_single">
+                              <div class="inner_radio" (click)="onCheckStatus('status02')">
+                                  <input type="radio" name="inner_radio" [checked]="checkedData.status02">
+                                  <label for="inner_radio02">
+                                      <span>
+                                          <i></i>
+                                      </span>
+                                      <b class="inner_radio_txt">{{ 'STATUS_TYPE.STATUS02' | translate }}</b>
+                                  </label>
+                              </div>
+                          </div>
+                      </ng-container>
+                      <ng-container *ngIf="infoData.status03 == 'Y'">
+                          <div class="row_single">
+                              <div class="inner_radio" (click)="onCheckStatus('status03')">
+                                  <input type="radio" name="inner_radio" [checked]="checkedData.status03">
+                                  <label for="inner_radio03">
+                                      <span>
+                                          <i></i>
+                                      </span>
+                                      <b class="inner_radio_txt">{{ 'STATUS_TYPE.STATUS03' | translate }}</b>
+                                  </label>
+                              </div>
+                          </div>
+                      </ng-container>
+                      <ng-container *ngIf="infoData.status04 == 'Y'">
+                          <div class="row_single">
+                              <div class="inner_radio" (click)="onCheckStatus('status04')">
+                                  <input type="radio" name="inner_radio" [checked]="checkedData.status04">
+                                  <label for="inner_radio04">
+                                      <span>
+                                          <i></i>
+                                      </span>
+                                      <b class="inner_radio_txt">{{ 'STATUS_TYPE.STATUS04' | translate }}</b>
+                                  </label>
+                              </div>
+                          </div>
+                      </ng-container>
+                      <ng-container *ngIf="infoData.status05 == 'Y'">
+                          <div class="row_single">
+                              <div class="inner_radio" (click)="onCheckStatus('status05')">
+                                  <input type="radio" name="inner_radio" [checked]="checkedData.status05">
+                                  <label for="inner_radio05">
+                                      <span>
+                                          <i></i>
+                                      </span>
+                                      <b class="inner_radio_txt">{{ 'STATUS_TYPE.STATUS05' | translate }}</b>
+                                  </label>
+                              </div>
+                          </div>
+                      </ng-container>
+                  </div>
+              </div>
+              <div class="row_single">
+                  <div class="memo_info">{{ 'FUND_INQUIRY_STATUS_CHANGE.EDIT.REMIND' | translate }}</div>
+              </div>
+          </section>
+
+          <div class="btn_group flex_row" bottomBtn>
+              <button class="btn_l btn_secondary btn_w25"
+                  (click)="onCancel()">{{ 'FUND_INQUERY_CHANGE_EDIT.EDIT.CANCEL' | translate }}</button>
+              <button class="btn_r btn_primary btn_w70"
+                  (click)="onNext()">{{ 'FUND_INQUERY_CHANGE_EDIT.EDIT.NEXT' | translate }}</button>
+          </div>
+      </ng-container>
+      <!--  編輯頁 END -->
+
+      <!-- 結果頁 START -->
+      <ng-container *ngSwitchCase="'confirm'">
+          <app-fund-inquiry-status-result [showData]="showData" [queryData]="setData" [resultReq]="resultReq"
+              (backPageEmit)="onPageBackEvent($event)" (errorPageEmit)="onErrorPageData($event)">
+          </app-fund-inquiry-status-result>
+      </ng-container>
+      <!-- 結果頁 END -->
+
+      <!-- 錯誤頁面 START -->
+      <ng-container *ngSwitchCase="'errorBox'">
+          <section class="section_area section_hasbtn">
+              <app-error-box [errorMsg]="errorBoxMsg"></app-error-box>
+          </section>
+      </ng-container>
+      <!-- 錯誤頁面 END -->
+  </ng-container>

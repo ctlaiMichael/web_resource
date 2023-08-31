@@ -1,0 +1,75 @@
+<div class="container_side_menu zIndex_level_8" [htShow]="!!is_open">
+    <section class="section_area section_hasbtn section_side_menu zIndex_level_8">
+        <ng-container *ngFor="let menu of menuData;">
+            <!-- 一層樣式menu Start -->
+            <div class="flex_row side_menu_L1_2 sub_open" *ngIf="menu.menuType == '1'" (click)="onGoEvent(menu)">
+                <div class="side_menu_i_1 {{menu.icon_class}}"></div>
+                <div class="side_menu_L1_txt menu_L1_2">{{menu.name | translate}}</div>
+            </div>
+            <!-- 一層樣式menu End -->
+
+            <!-- 二層樣式menu Start -->
+            <div class="side_menu_group" *ngIf="menu.menuType == '2'">
+                <div class="side_menu_wrap">
+                    <!-- 展開/收合 標題 Start -->
+                    <div class="flex_row side_menu_L1_1 sub_open" expandList [special]="true">
+                        <div class="flex_row side_menu_L1_1_inner">
+                            <div class="side_menu_i_1 {{menu.icon_class}}"></div>
+                            <div class="side_menu_L1_txt">{{menu.name | translate}}</div>
+                        </div>
+                        <div class="list_icon"></div>
+                    </div>
+                    <!-- 展開/收合 標題 End -->
+
+                    <!-- 展開/收合 細項 Start -->
+                    <div class="sub_open_info_frame" style="overflow: hidden;display: none;">
+                        <div class="side_menu_L3 flex_row" *ngFor="let subMenu of menu.subMenu;" (click)="onGoEvent(subMenu)">
+                            <div class="side_menu_L3_w1"></div>
+                            <div class="side_menu_L3_txt">{{subMenu.subName | translate}}</div>
+                        </div>
+                    </div>
+                    <!-- 展開/收合 細項 End -->
+                </div>
+            </div>
+            <!-- 二層樣式menu End -->
+
+            <!-- 三層樣式menu Start -->
+            <div class="side_menu_group" *ngIf="menu.menuType == '3'">
+                <div class="side_menu_wrap">
+                    <!-- 展開/收合 標題 Start -->
+                    <div class="flex_row side_menu_L1_1 sub_open" expandList>
+                        <div class="flex_row side_menu_L1_1_inner">
+                            <div class="side_menu_i_1 {{menu.icon_class}}"></div>
+                            <div class="side_menu_L1_txt">{{menu.name | translate}}</div>
+                        </div>
+                        <div class="list_icon"></div>
+                    </div>
+                    <!-- 展開/收合 標題 End -->
+
+                    <!-- 展開/收合 細項 Start -->
+                    <div class="sub_open_info_frame" style="overflow: hidden;display: none;">
+                        <ng-container *ngFor="let subMenu of menu.subMenu;">
+                            <div class="side_menu_L2" *ngIf="subMenu.type == 'title'">
+                                <div class="side_menu_L2_txt">{{subMenu.subTitle | translate}}</div>
+                            </div>
+
+                            <div class="side_menu_L3 flex_row" *ngIf="subMenu.type == 'menu'" (click)="onGoEvent(subMenu)">
+                                <div class="side_menu_L3_w1"></div>
+                                <div class="side_menu_L3_txt">{{subMenu.subName | translate}}</div>
+                            </div>
+                        </ng-container>
+                    </div>
+                    <!-- 展開/收合 細項 End -->
+                </div>
+            </div>
+            <!-- 三層樣式menu End -->
+        </ng-container>
+
+        <!-- 版本資訊 Start -->
+        <div class="content_group content_33 flex_row">
+            <div class="content_33_txt">{{'VERSION' | translate}}：{{appversion}}</div>
+        </div>
+        <!-- 版本資訊 End -->
+    </section>
+
+</div>

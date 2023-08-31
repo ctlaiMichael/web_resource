@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="343px" height="187px" viewBox="0 0 343 187" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>Group 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M88.4972376,-77.671343 L246.497238,-77.671343 C252.020085,-77.671343 256.497238,-73.1941905 256.497238,-67.671343 L256.497238,246.328657 C256.497238,251.851505 252.020085,256.328657 246.497238,256.328657 L88.4972376,256.328657 C82.9743901,256.328657 78.4972376,251.851505 78.4972376,246.328657 L78.4972376,-67.671343 C78.4972376,-73.1941905 82.9743901,-77.671343 88.4972376,-77.671343 Z" id="path-1"></path>
+        <filter x="-3.4%" y="-1.8%" width="106.7%" height="103.6%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.239215686   0 0 0 0 0.28627451   0 0 0 0 0.325490196  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <linearGradient x1="34.0062445%" y1="97.6897158%" x2="67.4461349%" y2="-20.7055682%" id="linearGradient-3">
+            <stop stop-color="#717988" offset="0%"></stop>
+            <stop stop-color="#DFDFDF" offset="100%"></stop>
+        </linearGradient>
+        <path d="M108.412106,-55.2926617 L266.412106,8.47457089 C270.193526,10.0007147 272.669517,13.6700376 272.669517,17.7478136 L272.669517,230.5 C272.669517,236.022847 268.192365,240.5 262.669517,240.5 L104.669517,240.5 C99.1466696,240.5 94.6695171,236.022847 94.6695171,230.5 L94.6695171,-46.019419 C94.6695171,-51.5422665 99.1466696,-56.019419 104.669517,-56.019419 C105.952109,-56.019419 107.222727,-55.7726833 108.412106,-55.2926617 Z" id="path-4"></path>
+        <filter x="-3.4%" y="-0.4%" width="106.7%" height="102.4%" filterUnits="objectBoundingBox" id="filter-5">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.239215686   0 0 0 0 0.28627451   0 0 0 0 0.325490196  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="card_group/credit/1" transform="translate(-16.000000, -11.000000)">
+            <g id="Group-13" transform="translate(20.000000, 15.000000)">
+                <g id="Group-2" transform="translate(0.000000, 0.169517)">
+                    <g id="Rectangle-Copy" transform="translate(167.497238, 89.328657) rotate(-90.000000) translate(-167.497238, -89.328657) ">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                        <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    </g>
+                    <g id="Rectangle-Copy" transform="translate(183.669517, 89.830483) rotate(-90.000000) translate(-183.669517, -89.830483) ">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-5)" xlink:href="#path-4"></use>
+                        <use fill="url(#linearGradient-3)" fill-rule="evenodd" xlink:href="#path-4"></use>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

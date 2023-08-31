@@ -1,0 +1,175 @@
+<!-- 登入後首頁 - 基金卡片 -->
+<ng-container *ngIf="templateType=='user-home'; else allBox;">
+    <ng-container *ngIf="haveFundAllow">
+        <!-- 標題 -->
+        <div class="sub_title_group sub_title_list4 flex_row">
+            <div class="sub_title_list4_txt">{{ 'HOME.FUND.TITLE' | translate }}</div>
+        </div>
+
+        <div class="card_group card_home_group card_home_3 card_home_invest">
+            <div class="card_home_bg card_home_invest_bg">
+                <ng-container *ngIf="showData; else emptyBox;">
+                    <!-- 信託金額 -->
+                    <div class="card_home_title flex_row_cb">
+                        <div class="card_home_title_li flex_row_cb">
+                            <p class="card_home_title_li_txt1">{{ 'HOME.FUND.FIELD1' | translate }}</p>
+                            <p class="card_home_title_li_txt2">{{ mainData.totosamt | currencyMoney: 'TWD' }}</p>
+                        </div>
+                    </div>
+                    <div class="card_home_content">
+                        <!-- 報酬率 -->
+                        <div class="card_home_content_li flex_row_cb">
+                            <p class="card_home_content_li_txt_l">{{ 'HOME.FUND.FIELD2' | translate }}</p>
+                            <p class="card_home_content_li_txt_r" fundProfit [data]="mainData" [type]="'baoChou'"></p>
+                        </div>
+                        <!-- 含息報酬率 -->
+                        <div class="card_home_content_li flex_row_cb">
+                            <p class="card_home_content_li_txt_l">{{ 'HOME.FUND.FIELD3' | translate }}</p>
+                            <p class="card_home_content_li_txt_r" fundProfit [data]="mainData" [type]="'intretn'"></p>
+                        </div>
+
+                    </div>
+                    <div class="content_btn_group content_btn_7 flex_row">
+                        <!-- 看更多 -->
+                        <button class="btn_third btn_w50 flex_row row_center" (click)="onMore()">
+                            <div class="btn_third_txt">{{ 'HOME.FUND.MORE' | translate }}</div>
+                            <div class="i_next_page"></div>
+                        </button>
+                        <!-- 立即申購 -->
+                        <button class="btn_card_event btn_w50 flex_row row_center" (click)="onInvest()">
+                            <div class="btn_card_event_txt">{{ 'HOME.FUND.INVEST' | translate }}</div>
+                            <div class="i_next_page"></div>
+                        </button>
+                    </div>
+                </ng-container>
+                <ng-template #emptyBox>
+                    <!-- 非投資戶 -->
+                    <ng-container *ngIf="!haveFund; else errorBox;">
+                        <div class="card_home_li flex_row_cb">
+                            <p class="" [innerHtml]="(showErrorMsg | translate) | safeHtml"></p>
+                        </div>
+                        <div class="content_btn_group content_btn_6 flex_row" (click)="onApply()">
+                            <button class="btn_card_event btn_w100 flex_row row_center">
+                                <div class="btn_card_event_txt">{{ 'HOME.FUND.APPLY' | translate }}</div>
+                                <div class="i_next_page"></div>
+                            </button>
+                        </div>
+                    </ng-container>
+                    <!-- 投資戶 -->
+                    <ng-template #errorBox>
+                        <div class="card_home_li flex_row_cb">
+                            <p class="" [innerHtml]="(showErrorMsg | translate) | safeHtml"></p>
+                        </div>
+                        <!-- 有信託戶但無庫存呈現 -->
+                        <div class="content_btn_group content_btn_7 flex_row" *ngIf="!!mainData.emptyFund">
+                            <!-- 得獎基金 -->
+                            <button class="btn_third btn_w50 flex_row row_center" (click)="onMore('finance')">
+                                <div class="btn_third_txt">{{ 'HOME.FUND.MORE_FINANCE' | translate }}</div>
+                                <div class="i_next_page"></div>
+                            </button>
+                            <!-- 立即申購 -->
+                            <button class="btn_card_event btn_w50 flex_row row_center" (click)="onInvest()">
+                                <div class="btn_card_event_txt">{{ 'HOME.FUND.INVEST' | translate }}</div>
+                                <div class="i_next_page"></div>
+                            </button>
+                        </div>
+                    </ng-template>
+                </ng-template>
+
+            </div>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="!haveFundAllow">
+       
+
+    </ng-container>
+
+</ng-container>
+<!-- 登入後首頁 - 基金卡片 End -->
+
+
+
+<!-- 完整資產資料 -->
+<ng-template #allBox>
+
+    <div class="card_group card_invest_total_container" *ngIf="haveFundAllow">
+        <div class="card_invest_total_wrapper">
+            <div class="card_home_bg card_invest_total flex_col_cc">
+                <ng-container *ngIf="showData; else emptyBox2;">
+
+                    <!-- <div class="card_home_li flex_row_cb">
+                        <div class="card_home_li_l">信託幣別</div>
+                        <div class="card_home_li_r">新臺幣</div>
+                    </div> -->
+                    <!-- 信託餘額 -->
+                    <div class="card_home_li flex_row_cb">
+                        <div class="card_home_li_l">{{ 'FUND_OVERVIEW.TOTAL_INFO.OSAMT' | translate }}</div>
+                        <div class="card_home_li_r">約當 {{ mainData.totosamt | currencyMoney: 'TWD' }}</div>
+                    </div>
+                    <!-- 參考現值 -->
+                    <div class="card_home_li flex_row_cb">
+                        <div class="card_home_li_l">{{ 'FUND_OVERVIEW.TOTAL_INFO.NOWPRICE' | translate }}</div>
+                        <div class="card_home_li_r">約當 {{ mainData.totPrice | currencyMoney: 'TWD' }}</div>
+                    </div>
+                    <!-- 未實現損益 -->
+                    <div class="card_home_li flex_row_cb">
+                        <div class="card_home_li_l">{{ 'FUND_OVERVIEW.TOTAL_INFO.NOPROC' | translate }}</div>
+                        <div class="card_home_li_r">約當 {{ mainData.noProc | currencyMoney: 'TWD' }}</div>
+                    </div>
+                    <!-- 累積配息 -->
+                    <div class="card_home_li flex_row_cb">
+                        <div class="card_home_li_l">{{ 'FUND_OVERVIEW.TOTAL_INFO.APDINT' | translate }}</div>
+                        <div class="card_home_li_r">約當 {{ mainData.apdint | currencyMoney: 'TWD' }}</div>
+                    </div>
+                    <!-- 報酬率 -->
+                    <div class="card_home_li flex_row_cb">
+                        <div class="card_home_li_l">{{ 'FUND_OVERVIEW.TOTAL_INFO.TOTALBAOCHOU' | translate }}</div>
+                        <div class="card_home_li_r txt_higher" fundProfit [data]="mainData" [type]="'baoChou'"></div>
+                    </div>
+                    <!-- 含息報酬率 -->
+                    <div class="card_home_li flex_row_cb">
+                        <div class="card_home_li_l">{{ 'FUND_OVERVIEW.TOTAL_INFO.INTRETN_STRING' | translate }}</div>
+                        <div class="card_home_li_r txt_higher" fundProfit [data]="mainData" [type]="'intretn'"></div>
+                    </div>
+                </ng-container>
+                <ng-template #emptyBox2>
+                    <!-- 非投資戶 -->
+                    <ng-container *ngIf="!haveFund; else errorBox;">
+                        <div class="card_home_li flex_row_cb">
+                            <p class="" [innerHtml]="(showErrorMsg | translate) | safeHtml"></p>
+                        </div>
+                        <div class="content_btn_group content_btn_6 flex_row" (click)="onApply()">
+                            <button class="btn_card_event btn_w100 flex_row row_center">
+                                <div class="btn_card_event_txt">{{ 'HOME.FUND.APPLY' | translate }}</div>
+                                <div class="i_next_page"></div>
+                            </button>
+                        </div>
+                    </ng-container>
+                    <!-- 投資戶 -->
+                    <ng-template #errorBox>
+                        <div class="card_home_li flex_row_cb">
+                            <p class="" [innerHtml]="(showErrorMsg | translate) | safeHtml"></p>
+                        </div>
+                        <!-- 有信託戶但無庫存呈現 -->
+                        <div class="content_btn_group content_btn_7 flex_row" *ngIf="!!mainData.emptyFund">
+                            <!-- 得獎基金 -->
+                            <button class="btn_third btn_w50 flex_row row_center" (click)="onMore('finance')">
+                                <div class="btn_third_txt">{{ 'HOME.FUND.MORE_FINANCE' | translate }}</div>
+                                <div class="i_next_page"></div>
+                            </button>
+                            <!-- 立即申購 -->
+                            <button class="btn_card_event btn_w50 flex_row row_center" (click)="onInvest()">
+                                <div class="btn_card_event_txt">{{ 'HOME.FUND.INVEST' | translate }}</div>
+                                <div class="i_next_page"></div>
+                            </button>
+                        </div>
+                    </ng-template>
+                </ng-template>
+
+
+            </div>
+        </div>
+    </div>
+</ng-template>
+<!-- 完整資產資料 End -->

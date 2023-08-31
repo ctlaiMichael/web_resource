@@ -1,0 +1,161 @@
+<div class="form_group form_group_w100 form_select_1">
+    <div class="select_group flex_col">
+        <div class="select_inner_group flex_col">
+            <!-- 未選擇帳戶類型顯示 Start -->
+            <div class="form_select_pop_1 flex_row" (click)="popOpen()" *ngIf="!chooseAccTypeObj['id'];">
+                <p class="select_pop_content">{{'FINANCIAL.PLEASE_SELECT' | translate}}</p>
+                <div class="select_pop_i_down"></div>
+            </div>
+            <!-- 未選擇帳戶類型顯示 End -->
+
+            <!-- 已選擇帳戶類型顯示 Start -->
+            <div class="form_select_pop_1 flex_row" (click)="popOpen()" *ngIf="!!chooseAccTypeObj['id'];">
+                <p class="select_pop_content">{{chooseAccTypeObj['name']}}</p>
+                <div class="select_pop_i_down"></div>
+            </div>
+            <!-- 已選擇帳戶類型顯示 Start -->
+            <div class="form_error">{{'FINANCIAL.ERROR' | translate}}</div>
+        </div>
+    </div>
+</div>
+
+<ng-container *ngIf="haveData; else noDataBox">
+    <!-- 頁籤選單 Start -->
+    <app-bookmark [setData]="bookmarkData" [setKey]="nowBookMark" (backPageEmit)="onBookMarkBack($event)"
+        *ngIf="haveBookMark;">
+    </app-bookmark>
+    <!-- 頁籤選單 End -->
+
+    <!-- 有頁籤版型 Start -->
+    <ng-container *ngIf="haveBookMark; else noBookMark">
+        <section class="section_area section_tabL1_select1 section_hasbtn">
+            <!-- 一般頁籤樣式 Start -->
+            <ng-container *ngIf="nowBookMark == 'common-amount'">
+                <!-- 僅供參考文案 Start -->
+                <div class="info_group info_8_3 mar_btm15">
+                    <p>{{'FINANCIAL.INTEREST_RATE_INFO' | translate}}</p>
+                    <p>{{'FINANCIAL.DATATIME' | translate}}：{{ (dataTime ? dataTime : '--') }} &nbsp;
+                        &nbsp;{{'FINANCIAL.UNIT' | translate}}</p>
+                </div>
+                <!-- 僅供參考文案 End -->
+
+                <div class="rate_table" *ngFor="let item of chooseAccTypeObj.data;">
+                    <ng-container *ngIf="item.id == 'common';">
+                        <!-- 標題 Start -->
+                        <div class="table_group table_title table_title_3set_1">
+                            <div class="flex_row table_title_3set_li">
+                                <p class="table_3set_1_p1">{{'FINANCIAL.PERIOD' | translate}}</p>
+                                <p class="table_3set_1_p2">{{'FINANCIAL.FIXED' | translate}}</p>
+                                <p class="table_3set_1_p3">{{'FINANCIAL.VARIABLE' | translate}}</p>
+                            </div>
+                        </div>
+                        <!-- 標題 End -->
+
+                        <!-- 明細 Start -->
+                        <div class="table_group table_list table_list_3set_1" *ngFor="let subItem of item.subData;">
+                            <div class="flex_row table_list_3set_li">
+                                <p class="table_3set_1_p1">{{ subItem | objectField: ['category'] }}</p>
+                                <p class="table_3set_1_p2">{{ subItem | objectField: ['fixed', 'htFinancial', 'undefined', 'zero_ok'] }}</p>
+                                <p class="table_3set_1_p3">{{ subItem | objectField: ['floating', 'htFinancial', 'undefined', 'zero_ok'] }}</p>
+                            </div>
+                        </div>
+                        <!-- 明細 End -->
+                    </ng-container>
+                </div>
+            </ng-container>
+            <!-- 一般頁籤樣式 End -->
+
+            <!-- 大額頁籤樣式 Start -->
+            <ng-container *ngIf="nowBookMark == 'large-amount'">
+                <!-- 僅供參考文案 Start -->
+                <div class="info_group info_8_3 mar_btm5">
+                    <p>{{'FINANCIAL.INTEREST_RATE_INFO' | translate}}</p>
+                    <p>{{'FINANCIAL.DATATIME' | translate}}：{{ (dataTime ? dataTime : '--') }} &nbsp;
+                        &nbsp;{{'FINANCIAL.UNIT' | translate}}</p>
+                </div>
+                <!-- 僅供參考文案 End -->
+
+                <ng-container *ngFor="let item of chooseAccTypeObj.data;">
+                    <ng-container *ngIf="item.id != 'common';">
+                        <!-- 子群組標題 Start -->
+                        <div class="sub_title_group sub_title_list4 flex_row mar_btm5">
+                            <div class="sub_title_line_wrap">
+                                <div class="sub_title_line"></div>
+                            </div>
+                            <div class="sub_title_list4_txt">{{item.subName}}</div>
+                        </div>
+                        <!-- 子群組標題 End -->
+
+                        <div class="rate_table mar_btm5">
+                            <!-- 標題 Start -->
+                            <div class="table_group table_title table_title_3set_1">
+                                <div class="flex_row table_title_3set_li">
+                                    <p class="table_3set_1_p1">{{'FINANCIAL.PERIOD' | translate}}</p>
+                                    <p class="table_3set_1_p2">{{'FINANCIAL.FIXED' | translate}}</p>
+                                    <p class="table_3set_1_p3">{{'FINANCIAL.VARIABLE' | translate}}</p>
+                                </div>
+                            </div>
+                            <!-- 標題 End -->
+
+                            <!-- 明細 Start -->
+                            <div class="table_group table_list table_list_3set_1" *ngFor="let subItem of item.subData;">
+                                <div class="flex_row table_list_3set_li">
+                                    <p class="table_3set_1_p1">{{ subItem | objectField: ['category'] }}</p>
+                                    <p class="table_3set_1_p2">{{ subItem | objectField: ['fixed', 'htFinancial', 'undefined', 'zero_ok'] }}</p>
+                                    <p class="table_3set_1_p3">{{ subItem | objectField: ['floating', 'htFinancial', 'undefined', 'zero_ok'] }}</p>
+                                </div>
+                            </div>
+                            <!-- 明細 End -->
+                        </div>
+                    </ng-container>
+                </ng-container>
+            </ng-container>
+            <!-- 大額頁籤樣式 End -->
+        </section>
+    </ng-container>
+    <!-- 有頁籤版型 End -->
+
+    <!-- 無頁籤版型 Start -->
+    <ng-template #noBookMark>
+        <section class="section_area section_select1 section_hasbtn">
+            <!-- 僅供參考文案 Start -->
+            <div class="info_group info_8_3 mar_btm15">
+                <p>{{'FINANCIAL.INTEREST_RATE_INFO' | translate}}</p>
+                <p>{{'FINANCIAL.DATATIME' | translate}}：{{ (dataTime ? dataTime : '--') }} &nbsp;
+                    &nbsp;{{'FINANCIAL.UNIT' | translate}}</p>
+            </div>
+            <!-- 僅供參考文案 End -->
+
+            <div class="rate_table">
+                <!-- 標題 Start -->
+                <div class="table_group table_title table_title_2set_1">
+                    <div class="flex_row table_title_2set_li">
+                        <p class="table_2set_p1">{{'FINANCIAL.CATEGORY' | translate}}</p>
+                        <p class="table_2set_p2">{{'FINANCIAL.VARIABLE' | translate}}</p>
+                    </div>
+                </div>
+                <!-- 標題 End -->
+
+                <!-- 明細 Start -->
+                <div class="table_group table_list table_list_2set_1" *ngFor="let item of chooseAccTypeObj.data;">
+                    <div class="flex_row table_list_2set_li">
+                        <p class="table_2set_p1">{{ item | objectField: ['category'] }}</p>
+                        <p class="table_2set_p2">{{ item | objectField: ['floating', 'htFinancial', 'undefined', 'zero_ok'] }}</p>
+                    </div>
+                </div>
+                <!-- 明細 End -->
+            </div>
+        </section>
+    </ng-template>
+    <!-- 無頁籤版型 End -->
+</ng-container>
+
+<!-- 無資料畫面 Start -->
+<ng-template #noDataBox>
+    <section class="section_area section_select1">
+        <!-- 顯示錯誤白箱 START -->
+        <app-error-box [errorMsg]="errorMsg"></app-error-box>
+        <!-- 顯示錯誤白箱 END -->
+    </section>
+</ng-template>
+<!-- 無資料畫面 End -->

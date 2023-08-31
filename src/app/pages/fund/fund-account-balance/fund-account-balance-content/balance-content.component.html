@@ -1,0 +1,95 @@
+<!-- 現值查詢內容頁 START -->
+<ng-container *ngIf="!!nowPage.content">
+    <section class="section_area section_hasbtn" [htShow]="!nowPage.redeem">
+        <div class="content_group content_invest_2 bg_d4 ">
+            <div class="content_invest_2_w1">
+                <div class="content_title">{{setData.fundCode}} &nbsp; {{setData.fundName1}}</div>
+                <div class="content_txt">
+                    {{ 'FUND_ACCOUNT_BALANCE.LICENNO1' | translate }}：{{ setData | fieldCheck: ['licenno1',{zero_type:false, empty_str:'--'}]}}
+                </div>
+                <div class="content_txt">
+                    {{ 'FUND_ACCOUNT_BALANCE.DATE' | translate }}：{{ (setData | fieldCheck: ['date',{zero_type:false, empty_str:'--'}])| htDate:'yyyy-MM-dd'}}
+                </div>
+                <div class="content_txt2">
+                    {{ 'FUND_ACCOUNT_BALANCE.FUNDTYPE' | translate }}：{{ setData | fieldCheck: ['fundType',{zero_type:false, empty_str:'--'}]}}
+                </div>
+            </div>
+        </div>
+
+        <div class="card_list_group card_list_1" [htShow]="!nowPage.redeem">
+            <div class="flex_row card_list_li">
+                <p>{{ 'FUND_ACCOUNT_BALANCE.ACCTPRICE' | translate }}</p>
+                <p>{{ (setData | fieldCheck: ['acctPrice',{zero_type:false, empty_str:'--'}]) }}</p>
+            </div>
+        </div>
+
+        <div class="card_list_group card_list_1">
+            <div class="flex_row card_list_li">
+                <p>{{ 'FUND_ACCOUNT_BALANCE.PRICEDATE' | translate }}</p>
+                <p>{{ (setData | fieldCheck: ['priceDate',{zero_type:false, empty_str:'--'}])| htDate:'yyyy-MM-dd'}}
+                </p>
+            </div>
+        </div>
+
+        <div class="card_list_group card_list_1">
+            <div class="flex_row card_list_li">
+                <p>{{ 'FUND_ACCOUNT_BALANCE.totalTotosamt' | translate }}</p>
+                <p>{{ setData | objectField: ['osAmt', 'currencyMoney' , setData.viewCurrencyeng] }}</p>
+            </div>
+        </div>
+
+        <div class="card_list_group card_list_1">
+            <div class="flex_row card_list_li">
+                <p>{{ 'FUND_ACCOUNT_BALANCE.totalTotprice' | translate }}</p>
+                <p>{{ setData | objectField: ['nowPrice', 'currencyMoney' , setData.viewCurrencyeng] }}</p>
+            </div>
+        </div>
+
+        <div class="card_list_group card_list_1">
+            <div class="flex_row card_list_li">
+                <p>{{ 'FUND_ACCOUNT_BALANCE.totalBaochou' | translate }}</p>
+                <p fundProfit [data]="setData" [type]="'roi'">%</p>
+            </div>
+        </div>
+
+        <div class="card_list_group card_list_1">
+            <div class="flex_row card_list_li">
+                <p>{{ 'FUND_ACCOUNT_BALANCE.INTRETN_STRING' | translate }}</p>
+                <p fundProfit [data]="setData" [type]="'intretn'">%</p>
+            </div>
+        </div>
+
+        <div class="card_list_group card_list_1">
+            <div class="flex_row card_list_li">
+                <p>{{ 'FUND_ACCOUNT_BALANCE.APDINT' | translate }}</p>
+                <p>{{ setData | objectField: ['apdint', 'currencyMoney' , setData.viewCurrencyeng] }}</p>
+            </div>
+        </div>
+
+        <div class="card_list_group card_list_1">
+            <div class="flex_row card_list_li">
+                <p>{{ 'FUND_ACCOUNT_BALANCE.REMARK1' | translate }}</p>
+                <p>{{ setData | fieldCheck: ['remark1',{zero_type:false, empty_str:'--'}]}}</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="btn_group flex_row" bottomBtn [ngClass]="{'pageCtrlHiddenBox': nowPage.redeem}">
+        <button class="btn_l btn_secondary btn_w50" (click)="onRedeem()">{{ 'FUND_ACCOUNT_BALANCE.redemption' | translate }}</button>
+        <button class="btn_r btn_primary btn_w50" (click)="onConvert()">{{ 'FUND_ACCOUNT_BALANCE.Conversion' | translate }}</button>
+    </div>
+</ng-container>
+<!-- 現值查詢內容頁 END -->
+
+<!-- 基金贖回 START -->
+<ng-container *ngIf="!!nowPage.redeem">
+    <app-fund-redeem-main [setData]="setData" (backPageEmit)="onPageBackEvent($event)" (errorPageEmit)="onErrorBackEvent($event)"></app-fund-redeem-main>
+</ng-container>
+<!-- 基金贖回 END -->
+
+<!-- 基金轉換 START -->
+<ng-container *ngIf="!!nowPage.convert">
+    <app-fund-convert-main [setData]="setData" (backPageEmit)="onPageBackEvent($event)" (errorPageEmit)="onErrorBackEvent($event)">
+    </app-fund-convert-main>
+</ng-container>
+<!-- 基金轉換 END -->

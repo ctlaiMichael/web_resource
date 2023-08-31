@@ -1,0 +1,32 @@
+<section class="section_area section_hasbtn">
+    <!-- 步驟列 Start -->
+    <app-step-bar [setData]="stepMenuData" [setKey]="nowStep"></app-step-bar>
+    <!-- 步驟列 End -->
+
+    <!-- 定存帳號 Start -->
+    <div class="row_single row_bg">
+        <div class="form_group form_group_w100 form_select_2">
+            <div class="select_group flex_col">
+                <div class="form_label">{{'TIME_DEPOSIT.AUTO_CARRY_OVER.TIME_DEPOSIT_ACCOUNT' | translate}}</div>
+                <div class="select_inner_group" [ngClass]="{'active_error': (!!checkData.errMsgObj['accountId'])}">
+                    <div class="form_select_pop_2 flex_row" (click)="timeDepositAccPopOpen()">
+                        <p class="select_pop_content">{{(!!selectTimeDepositAcc ? chooseTimeDepositAccountObj.accountId : 'TIME_DEPOSIT.AUTO_CARRY_OVER.PLEASE_SELECT' | translate)}}</p>
+                        <div class="select_pop_i_down"></div>
+                    </div>
+                    <div class="select_pop_info">{{'TIME_DEPOSIT.AUTO_CARRY_OVER.TIME_DEPOSIT_AMOUNT' | translate}}
+                        {{chooseTimeDepositAccountObj | objectField: ['principal', 'currencyMoney', 'TWD']}}</div>
+                    <div class="form_error">{{checkData.errMsgObj['accountId'] | translate}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 定存帳號 End -->
+
+</section>
+
+<!-- 取消 & 下一步 按鈕 Start -->
+<div class="btn_group flex_row" bottomBtn>
+    <button class="btn_l btn_secondary btn_w25" (click)="onCancel()">{{'TIME_DEPOSIT.AUTO_CARRY_OVER.BTN.CANCEL' | translate}}</button>
+    <button class="btn_r btn_primary btn_w70" (click)="onNext()">{{'TIME_DEPOSIT.AUTO_CARRY_OVER.BTN.NEXT_STEP' | translate}}</button>
+</div>
+<!-- 取消 & 下一步 按鈕 End -->

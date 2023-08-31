@@ -1,0 +1,97 @@
+<!-- <div class="popup_content_area zIndex_level_6">
+    <div class="popup_content_wrap">
+
+        <div class="pop_group pop_title pop_title_1 flex_row">
+            <div class="simple_title">{{title | translate}}</div>
+            <div class="i_close" (click)="cancleClick()"></div>
+        </div>
+
+        <div class="popup_inner_content">
+            <ng-container *ngFor="let item of data">
+                <div class="content_group content_4 flex_row" (click)="chooseOver(item)">
+                    <div class="flex_row content_4_wrap">
+                        <div class="content_4_txt_wrap">
+                            <div class="content_4_txt_1">{{item.accountId}}</div>
+                            <div class="content_4_txt_2">{{ item | objectField: ['nickName'] }}</div>
+                            <ng-container *ngIf="type == '2'"> 
+                                <div class="content_4_txt_3">TWD{{ item | objectField: ['amount', 'htMoney' , 'TWD'] }}</div>
+                            </ng-container>
+                        </div>
+                        <div class="i_check_wrap flex_row" [ngClass]="{ 'active_i_check':(item.accountId === select) }">
+                            <div class="i_check"></div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div> -->
+
+<ng-container [ngSwitch]="nowPage">
+    <!-- 查詢銀行 START -->
+    <ng-container *ngSwitchCase="'bankCode'">
+        <div class="popup_content_area">
+            <div class="popup_content_wrap">
+
+                <div class="pop_group pop_title pop_title_1 flex_row">
+                    <div class="simple_title">{{ 'TWD_TRANSFER.QUERY.SELECT_BANKCODE' | translate }}</div>
+                    <div class="i_close" (click)="cancleClick()"></div>
+                </div>
+
+                <div class="popup_inner_content">
+                    <div class="form_group form_group_w100 form_input_13">
+                        <div class="input_group flex_col">
+                            <div class="input_inner_group_13 flex_row">
+                                <div class="i_search" (click)="onSearch()"></div>
+                                <input type="text" class="input_inner"
+                                    placeholder="{{ 'TWD_TRANSFER.QUERY.QUERY_BANKCODE' | translate }}"
+                                    [(ngModel)]="searchText" (keyup)="onBankChange()">
+                            </div>
+                            <div class="form_error">{{ 'ERROR.NO_INPUT' | translate }}</div>
+                        </div>
+                    </div>
+
+                    <ng-container *ngFor="let item of data">
+                        <div class="content_group content_3 flex_row" (click)="chooseOver(item)">
+                            <div class="flex_row content_3_wrap">
+                                <div class="content_3_txt">{{ item.bankCode }} {{ item.bankName }}</div>
+                                <div class="i_check_wrap flex_row"
+                                    [ngClass]="{ 'active_i_check':(item.bankCode === select) }">
+                                    <div class="i_check"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    <!-- 查詢銀行 END -->
+
+    <!-- 錯誤頁面 START -->
+    <ng-container *ngSwitchCase="'errorBox'">
+        <div class="popup_content_area zIndex_level_6">
+            <div class="popup_content_wrap">
+                <div class="pop_group pop_title pop_title_1 flex_row">
+                    <div class="simple_title">{{ 'TWD_TRANSFER.QUERY.SELECT_BANKCODE' | translate }}</div>
+                    <div class="i_close" (click)="cancleClick()"></div>
+                </div>
+                <div class="form_group form_group_w100 form_input_13">
+                    <div class="input_group flex_col">
+                            <div class="input_inner_group_13 flex_row">
+                                <div class="i_search" (click)="onSearch()"></div>
+                                <input type="text" class="input_inner"
+                                    placeholder="{{ 'TWD_TRANSFER.QUERY.QUERY_BANKCODE' | translate }}"
+                                    [(ngModel)]="searchText" (keyup)="onBankChange()">
+                            </div>
+                        <div class="form_error">{{ 'ERROR.NO_INPUT' | translate }}</div>
+                    </div>
+                </div>
+                <div class="popup_inner_content">
+                    <app-error-box [errorMsg]="errorBoxMsg"></app-error-box>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    <!-- 錯誤頁面 END -->
+</ng-container>

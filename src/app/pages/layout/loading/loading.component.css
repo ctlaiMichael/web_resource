@@ -1,0 +1,33 @@
+/* LOADING VERSION Pareng */
+/* background-image: linear-gradient(137deg, #E7373C 0%, #D15B9C 36%, #E95504 70%, #F9BE00 100%); */
+.ht-c-spinner {
+    position: absolute;
+    padding: 0px;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    /* z-index: 9998; */
+    /* background: #000;
+    opacity: 0.6; */
+    transition: opacity 0.5s linear;
+}
+
+.ht-c-center {
+    margin: auto;
+    width: 100%;
+}
+.ht-c-visible {
+    visibility: visible;
+}
+.ht-c-hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 0.5s, opacity 0.5s linear;
+}
+.ht-c-spinner .ht-c-background {
+    background: #000;
+    opacity: 0.6;
+    width: 100vw;
+    height: 100vh;
+}

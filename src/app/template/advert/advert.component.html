@@ -1,0 +1,17 @@
+<div class="row_single">
+    <div class="card_group card_11 swiper-container swiper-container_ad">
+        <div class="swiper-wrapper">
+            <!-- 廣告圖 -->
+            <ng-container *ngFor="let ad of advertData; let lastItem = last">
+                <div class="swiper-slide" (click)="onGoEvent(ad)">
+                    <!-- <div class="card_11_advertising credit_banner_01" [imageCtrl]="ad.img" [imageType]="'background-image'"></div> -->
+                    <app-advert-txt [data]="ad" [allow]="'1'" [showPageType]="'onlyimg'"></app-advert-txt>
+                </div>
+                <ng-template swiperCtrl [lastFlag]="lastItem" (backPageEmit)="onSwiperBackEvent($event)"></ng-template>
+            </ng-container>
+            <!-- 廣告圖 End-->
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination swiper-pagination_ad"></div>
+    </div>
+</div>

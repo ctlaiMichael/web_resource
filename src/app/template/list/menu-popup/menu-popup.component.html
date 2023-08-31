@@ -1,0 +1,32 @@
+<div class="popup_content_area zIndex_level_6">
+    <div class="popup_content_wrap">
+        <!-- 標題 & 關閉按鈕 Start -->
+        <div class="pop_group pop_title pop_title_2 flex_row">
+            <!-- <div class="i_select_left"></div> -->
+            <div class="simple_title">{{ title | translate }}</div>
+            <div class="i_close" (click)="onCancleEvent()"></div>
+        </div>
+        <!-- 標題 & 關閉按鈕 End -->
+
+        <ng-container *ngIf="menu.length > 0;">
+            <!-- Menu選單列表 Start -->
+            <div class="popup_inner_content">
+                <div class="content_group content_3 flex_row" (click)="onClickEvent(item)" *ngFor="let item of menu">
+                    <div class="flex_row content_3_wrap">
+                        <div class="content_3_txt">{{ (item | fieldCheck: 'name') | translate }}</div>
+                        <div class="i_check_wrap flex_row" [ngClass]="{'active_i_check': (select == item.id)}">
+                            <div class="i_check"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Menu選單列表 End -->
+        </ng-container>
+
+        <ng-container *ngIf="menu.length < 1;">
+            <!-- 顯示錯誤白箱 START -->
+            <app-error-box [errorMsg]="'ERROR.EMPTY'"></app-error-box>
+            <!-- 顯示錯誤白箱 END -->
+        </ng-container>
+    </div>
+</div>

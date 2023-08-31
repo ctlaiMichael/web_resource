@@ -1,0 +1,292 @@
+/* @group [Guildeline] ----------------------------------------------------------------------------------------*/
+/* Title 1 font => 18, line 22 */
+/* Title 2 font => 16, line 20 */
+/* Body 1 font => 16, line 20 */
+/* Body 2 font => 16, line 24 */
+/* Body 3 font => 14, line 18 */
+/* Body 4 font => 12, line 14 */
+/* Body 5 font => 10, line 12 */
+/* Accent 1 font => 28, line 30 */
+/* Accent 2 font => 22, line 26 */
+
+/* @group [font-size] ----------------------------------------------------------------------------------------*/
+/* @group sub [Default = Body 3] -----------------------------------------------------------------------------*/
+body.bodyLang_en {
+  font-size: 14px;
+  line-height: 18px;
+}
+.bodyLang_en .radio_btn {
+  line-height: normal;
+}
+/* @group sub [Title 1 font => 18, line 22] --------------------------------------------------------------------*/
+.bodyLang_en .login_event_content_h1
+{
+  font-size: 18px;
+}
+.bodyLang_en .header_title
+{
+  font-size: 15px;
+  line-height: 22px;
+}
+/* @group sub [Title 2 font => 16, line 20] --------------------------------------------------------------------*/
+.bodyLang_en .side_menu_greeting p,
+.bodyLang_en .simple_title,
+.bodyLang_en .card_home_total_detail p
+{
+  font-size: 16px;
+}
+/* @group sub [Body 1 font => 16, line 20] --------------------------------------------------------------------*/
+/* @group sub [Body 2 font => 16, line 24] --------------------------------------------------------------------*/
+.bodyLang_en .btn_secondary,
+.bodyLang_en .side_menu_L1_txt,
+.bodyLang_en .side_menu_L3_txt,
+.bodyLang_en .pop_content_txt,
+.bodyLang_en .content_accont_title,
+.bodyLang_en .content_3_txt,
+.bodyLang_en .sub_title_list4_txt,
+.bodyLang_en .sub_title_list4 .sub_title_list2_txt1,
+.bodyLang_en p.content_p1
+{
+  font-size: 16px;
+}
+
+.bodyLang_en .tab_btn_L1 {
+  font-size: 13px;
+}
+/* form */
+.bodyLang_en .input_inner_group .input_inner,
+.bodyLang_en .step_bar_title,
+.bodyLang_en .list_4_txt1,
+.bodyLang_en .form_gorup_title_txt,
+.bodyLang_en .content_11_txt
+{
+  font-size: 16px;
+}
+/* btn */
+.bodyLang_en .btn_primary
+{
+  font-size: 16px;
+}
+
+.bodyLang_en .tab_btn_L2_2{
+  font-size: 13px;
+}
+
+/* @group sub [Body 3 font => 14, line 18] --------------------------------------------------------------------*/
+.bodyLang_en .table_title p, 
+.bodyLang_en .table_title_2 p,
+.bodyLang_en .content_service_1_txt,
+.bodyLang_en .side_menu_L2_txt,
+.bodyLang_en .card_list_li p,
+.bodyLang_en .notice_title,
+.bodyLang_en .content_txt,
+.bodyLang_en .home_greeting_txt
+{
+  font-size: 14px;
+}
+/* form */
+.bodyLang_en .form_label,
+.bodyLang_en b.inner_checkbox_txt,
+.bodyLang_en .select_accont_info .select_accont_info_name,
+.bodyLang_en .form_select_2 .select_pop_content,
+.bodyLang_en .content_label
+{
+  font-size: 14px;
+}
+/* btn */
+.bodyLang_en .btn_card_home,
+.bodyLang_en .btn_card_event,
+.bodyLang_en .content_btn
+{
+  font-size: 14px;
+}
+/* @group sub [Body 4 font => 12, line 14] --------------------------------------------------------------------*/
+.bodyLang_en .shortcut_btn_txt,
+.bodyLang_en .content_33_txt,
+.bodyLang_en .footer_btn_txt,
+.bodyLang_en .sub_title_list4 .sub_title_list2_txt2,
+.bodyLang_en .card_home_rate .currency_tag,
+.bodyLang_en .national_5flag_p.currency_tag
+{
+  font-size: 12px;
+}
+/* form */
+.bodyLang_en .form_error,
+.bodyLang_en .select_pop_info,
+.bodyLang_en .form_foreign_info
+{
+  font-size: 12px;
+}
+/* @group sub [Body 5 font => 10, line 12] --------------------------------------------------------------------*/
+
+/* @group sub [Accent 1 font => 28, line 30] --------------------------------------------------------------------*/
+/* @group sub [Accent 2 font => 22, line 26] --------------------------------------------------------------------*/
+/* End [font-size] ----------------------------------------------------------------------------------------*/
+
+
+/* @group [啟動首頁] ----------------------------------------------------------------------------------------*/
+.bodyLang_en .beforeLogin_event_container.mini {
+  top: 85vh;
+}
+/* 無下方廣告狀態 */
+.bodyLang_en .section_area_beforeLogin.home_noad .btn_group_beforeLogin {
+  top: 71vh;
+}
+.bodyLang_en .section_area_beforeLogin.home_noad .shortcut_btn_group {
+  top: 82vh;
+}
+.bodyLang_en .section_area_beforeLogin.home_noad .shadow, 
+.bodyLang_en .section_area_beforeLogin.home_noad .beforeLogin_event_container {
+  top: 100vh;
+}
+/* End [啟動首頁] ----------------------------------------------------------------------------------------*/
+
+/* @group [按鈕] ----------------------------------------------------------------------------------------*/
+.bodyLang_en .content_btn {
+  min-height: 54px;
+}
+/* End [按鈕] ----------------------------------------------------------------------------------------*/
+/* @group [頁籤] ----------------------------------------------------------------------------------------*/
+.bodyLang_en .tab_group_L2_2 {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+/* End [頁籤] ----------------------------------------------------------------------------------------*/
+
+/*@group[轉帳交易] ----------------------------------------------------------------------------------------*/
+  /* Transfer To Account*/
+
+  .bodyLang_en .form_input_9 .flex_row .form_label{
+    width: 15em;
+  }
+  /* End Transfer To Account*/
+
+  /* Buy/Sell Foreign Currency */
+
+  .bodyLang_en .btn_transparent{
+    min-width: 55%;
+    text-align: right;
+  }
+
+  /* End Buy/Sell Foreign Currency */
+
+/* End [轉帳交易] ----------------------------------------------------------------------------------------*/
+
+/*@group[信用卡] ----------------------------------------------------------------------------------------*/
+
+.list_data .list_data_inner_li p:first-child{
+  width: 15em;
+}
+
+.card_list_li p:first-child{
+  width: 55%;
+}
+
+/* End [信用卡] ----------------------------------------------------------------------------------------*/
+
+
+
+
+/* @group [iphone5] ----------------------------------------------------------------------------------------*/
+@media only screen and (max-width: 320px) {
+
+/* @group sub [header_title] --------------------------------------------------------------------*/
+  .bodyLang_en .header_title
+{
+  font-size: 13px;
+  line-height: 22px;
+}
+
+  /* @group sub [Body 2 font => 12, line 24] --------------------------------------------------------------------*/
+.bodyLang_en .btn_secondary,
+.bodyLang_en .side_menu_L1_txt,
+.bodyLang_en .side_menu_L3_txt,
+.bodyLang_en .tab_btn_L1,
+.bodyLang_en .pop_content_txt,
+.bodyLang_en .content_accont_title,
+.bodyLang_en .content_3_txt,
+.bodyLang_en .sub_title_list4_txt,
+.bodyLang_en .sub_title_list4 .sub_title_list2_txt1,
+.bodyLang_en p.content_p1
+{
+  font-size: 12px;
+}
+
+  /* @group [header] ----------------------------------------------------------------------------------------*/
+  /*[header-登出登入按鈕寬度] ----------------------------------------------------------------------------------------*/
+  .bodyLang_en .side_menu_logout_btn{
+    width: 31%;
+  }
+  /* End [header-登出登入按鈕寬度] ----------------------------------------------------------------------------------------*/
+
+  /* @group [footer] ----------------------------------------------------------------------------------------*/
+  /*footer按鈕圖底下文字 i5文字間距縮小*/
+  .bodyLang_en .footer_btn_txt {
+    letter-spacing: -1px;
+  }
+  /* End [footer] ---------------------------------------------------------------------------------------- */
+
+  /* @group [線上客服] ----------------------------------------------------------------------------------------*/
+  .bodyLang_en .content_service_1_txt {
+    height: 17vw;
+  }
+  /* End [線上客服] ----------------------------------------------------------------------------------------*/
+
+
+  /* @group [啟動首頁] ----------------------------------------------------------------------------------------*/
+  .bodyLang_en .section_area_beforeLogin .beforeLogin_event_container.mini {
+    top: 95vh;
+  }
+  /* End [啟動首頁] ----------------------------------------------------------------------------------------*/
+
+  /*@group[帳戶查詢－台幣帳戶] ----------------------------------------------------------------------------------------*/
+  /*Account Overview*/
+  .bodyLang_en .card_list_account_1 .account_card_list_l{
+    width: 30%;
+  }
+
+  .bodyLang_en .list_4_txt1{
+    width: 30%;
+  }
+  /*End Account Overview*/
+
+  /*Statement*/
+  .bodyLang_en .info_total_li p:first-child{
+    width: 15em;
+  }
+  /*End Statement*/
+
+  /* Inward Remittance*/
+
+  .bodyLang_en .table_list_set .list_data_inner_li p:first-child{
+    width: 10em;
+  }
+  /*End Inward Remittance*/
+  /* End [帳戶查詢－台幣帳戶] ----------------------------------------------------------------------------------------*/
+
+ /*@group[轉帳交易] ----------------------------------------------------------------------------------------*/
+  /*Transfer To Account*/
+
+  .bodyLang_en .card_inner_list_li p:first-child{
+    width: 45%;
+  }
+
+  .bodyLang_en .card_inner_list_li p{
+    font-size: 12px;
+  }
+
+  /*Transfer To Account*/
+/* End [轉帳交易] ----------------------------------------------------------------------------------------*/
+
+
+}
+
+
+/* @group [長度控制 max-height: 736px] (iphone 5,6,7,8,6~8plus) ----------------------------------------------------------------------------------------*/
+@media only screen and (max-height: 736px) {
+  /* @group [啟動首頁] ----------------------------------------------------------------------------------------*/
+  .bodyLang_en .section_area_beforeLogin .beforeLogin_event_container.mini {
+    top: 92vh;
+  }
+  /* End [啟動首頁] ----------------------------------------------------------------------------------------*/
+}

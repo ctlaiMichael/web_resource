@@ -1,0 +1,28 @@
+<div class="popup_content_area zIndex_level_2">
+    <div class="popup_content_wrap">
+        <!-- 標題 & 關閉按鈕 Start -->
+        <div class="pop_group pop_title pop_title_1 flex_row">
+            <div class="simple_title">{{ title | translate }}</div>
+            <div class="i_close" (click)="onCancleEvent()"></div>
+        </div>
+        <!-- 標題 & 關閉按鈕 End -->
+
+        <!-- 注意資訊內容 Start -->
+        <div class="popup_inner_content">
+            <div class="pop_group pop_content pop_content_1 flex_row">
+                <div class="pop_content_txt">
+                    <!-- <ol class="ol_title">
+                        <p>{{"POPUP.NOTICE.TITLE" | translate}} :</p>
+                    </ol> -->
+                    <ol [ngClass]="{'note_ol_content': !!showNumber}" >
+                        <li [innerHtml]="(content | translate) | safeHtml"></li>
+                        <ng-container *ngIf="content_list">
+                            <li *ngFor="let item of content_list" [innerHtml]="(item | translate) | safeHtml"></li>
+                        </ng-container>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <!-- 注意資訊內容 End -->
+    </div>
+</div>

@@ -1,0 +1,17 @@
+{
+    "FUND_HEALTHY": {
+        "TOTAL": {
+            "TITLE": "Investment Summary",
+            "CURRENCY": "Currency",
+            "TOTAL_TOTOSAMT": "Amount",
+            "INTRETN": "Reference Rate",
+            "BAOCHOU": "Rate of Return"
+        },
+        "ANALYSIS": {
+            "TITLE": "Portfolio Analysis",
+            "RISK_TYPE": "Investment Risk",
+            "REGION_TYPE": "product type",
+            "CURRENCY_TYPE": "Currency"
+        }
+    }
+}

@@ -1,0 +1,35 @@
+<ng-container *ngIf="showData">
+    <ng-container *ngFor="let item of listData">
+        <div class="table_group">
+            <div class="table_list_set">
+                <div class="table_list_set_wrap sub_open flex_row" expandList [openFlag]="expandFlag">
+                    <div class="table_list_set_ul flex_row">
+                        <div class="table_list_set_li table_list_set_li_l">
+                            <p>{{ item | objectField: ['intDate', 'htDate' ,'yyyy-MM-dd'] }}</p>
+                        </div>
+                        <div class="table_list_set_li table_list_set_li_r">
+                            <p class="table_list_3set_li_p">{{ item | objectField: ['intRcv', 'currencyMoney' , 'TWD'] }}</p>
+                            <p class="table_list_3set_li_p">{{ item | objectField: ['intRate'] }}%</p>
+                        </div>
+                    </div>
+                    <div class="list_icon"></div>
+                </div>
+                <!-- 細項 -->
+                <div class="list_data_inner sub_open_info_frame">
+                    <div class="flex_row list_data_inner_li">
+                        <p>{{ 'LOAN.INTEREST.STARTDATE' | translate }}</p>
+                        <p>{{ item.intDateRange | objectField: ['start', 'htDate' ,'yyyy-MM-dd'] }}</p>
+                    </div>
+                    <div class="flex_row list_data_inner_li">
+                        <p>{{ 'LOAN.INTEREST.ENDDATE' | translate }}</p>
+                        <p>{{ item.intDateRange | objectField: ['end', 'htDate' ,'yyyy-MM-dd'] }}</p>
+                    </div>
+                    <div class="flex_row list_data_inner_li">
+                        <p>{{ 'LOAN.INTEREST.INTDAY' | translate }}</p>
+                        <p>{{ item | objectField: ['intDay'] }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</ng-container>

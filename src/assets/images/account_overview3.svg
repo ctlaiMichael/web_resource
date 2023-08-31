@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="171" height="116" viewBox="0 0 171 116">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Oval" d="M58.253,116A57.893,57.893,0,0,0,116,58.253C116,25.967,90.033,0,58.253,0A58.109,58.109,0,0,0,0,58.253C0,90.033,25.967,116,58.253,116Z" fill="#313742"/>
+    </clipPath>
+    <clipPath id="clip-account_overview3">
+      <rect width="171" height="116"/>
+    </clipPath>
+  </defs>
+  <g id="account_overview3" clip-path="url(#clip-account_overview3)">
+    <g id="Group_3" data-name="Group 3" transform="translate(28)">
+      <g id="graph_4">
+        <g id="pie">
+          <path id="Oval-2" data-name="Oval" d="M58.253,116A57.893,57.893,0,0,0,116,58.253C116,25.967,90.033,0,58.253,0A58.109,58.109,0,0,0,0,58.253C0,90.033,25.967,116,58.253,116Z" fill="#313742"/>
+          <g id="pie-2" data-name="pie" clip-path="url(#clip-path)">
+            <circle id="Oval-3" data-name="Oval" cx="33.35" cy="33.35" r="33.35" transform="translate(24.608 24.608)" fill="#fff"/>
+          </g>
+        </g>
+      </g>
+      <g id="Group_19" data-name="Group 19" transform="translate(26.1 35.767)">
+        <text id="貸款" transform="translate(0 21.267)" fill="#4a4a4a" font-size="18" font-family="YuGothicUI-Regular, Yu Gothic UI"><tspan x="13.138" y="19">貸款</tspan></text>
+        <text id="_100_" data-name="100%" transform="translate(0.967 0)" fill="#3e3e3e" font-size="16" font-family="MicrosoftJhengHeiBold, Microsoft JhengHei"><tspan x="9.418" y="17">100%</tspan></text>
+      </g>
+    </g>
+  </g>
+</svg>

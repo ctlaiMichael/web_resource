@@ -1,0 +1,95 @@
+    <ng-container [ngSwitch]="nowPage">
+      <!-- 查詢內容 START -->
+        <ng-container *ngSwitchCase="'query-content'">
+            <section class="section_area section_hasbtn">
+                <div class="content_group content_invest_2 bg_d4 ">
+                    <div class="content_invest_2_w1">
+                        <div class="content_title">{{setData.fund1}} {{setData.fundName1}}</div>
+                        <div class="content_txt">
+                            {{ 'AUTO_FUND_REDEEM.LICENNO1' | translate }}：{{ setData | fieldCheck: ['licenno1',{zero_type:false, empty_str:'--'}]}}
+                        </div>
+                        <div class="content_txt">
+                            {{ 'AUTO_FUND_REDEEM.PRICEDATE' | translate }}：{{ (setData | fieldCheck: ['priceDate',{zero_type:false, empty_str:'--'}])| htDate:'yyyy-MM-dd'}}
+                        </div>
+                        <div class="content_txt2">
+                            {{ 'AUTO_FUND_REDEEM.APPOINTDATE' | translate }}：{{ setData | fieldCheck: ['appointDate',{zero_type:false, empty_str:'--'}] | htDate:'yyyy-MM-dd'}}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card_list_group card_list_1">
+                    <div class="flex_row card_list_li">
+                        <p>{{ 'AUTO_FUND_REDEEM.OSAMT' | translate }}</p>
+                        <p>{{ setData | objectField: ['osAmt', 'currencyMoney' , setData.viewEngCurrency] }}</p>
+                    </div>
+                </div>
+
+                <div class="card_list_group card_list_1">
+                    <div class="flex_row card_list_li">
+                        <p>{{ 'AUTO_FUND_REDEEM.NOWPRICE' | translate }}</p>
+                        <p>{{ setData | objectField: ['nowPrice', 'currencyMoney' , setData.viewEngCurrency] }}</p>
+                    </div>
+                </div>
+
+                <div class="card_list_group card_list_1">
+                    <div class="flex_row card_list_li">
+                        <p>{{ 'AUTO_FUND_REDEEM.ACCTPRICE' | translate }}</p>
+                        <p>{{ setData | fieldCheck: ['acctPrice',{zero_type:false, empty_str:'--'}]}}</p>
+                    </div>
+                </div>
+
+                <div class="card_list_group card_list_1">
+                    <div class="flex_row card_list_li">
+                        <p>{{ 'AUTO_FUND_REDEEM.SHOWSTOPBENE' | translate }}</p>
+                    <ng-container *ngIf="setData.showStopBene != ''; else beneNotSet">
+                        <p>{{ setData | fieldCheck: ['showStopBene',{zero_type:false, empty_str:'--'}]}}</p>
+                    </ng-container>
+                    <ng-template #beneNotSet>{{ 'AUTO_FUND_REDEEM.HAS_NOTSET' | translate }}</ng-template>
+                    </div>
+                </div>
+
+                <div class="card_list_group card_list_1">
+                    <div class="flex_row card_list_li">
+                        <p>{{ 'AUTO_FUND_REDEEM.SHOWSTOPLOSS' | translate }}</p>
+                    <ng-container *ngIf="setData.showStopLoss != ''; else stopNotSet">
+                        <p>{{ setData | fieldCheck: ['showStopLoss',{zero_type:false, empty_str:'--'}]}}</p>
+                    </ng-container>
+                    <ng-template #stopNotSet>{{ 'AUTO_FUND_REDEEM.HAS_NOTSET' | translate }}</ng-template>
+                    </div>
+                </div>
+
+                <div class="card_list_group card_list_1">
+                    <div class="flex_row card_list_li">
+                        <p>{{ 'AUTO_FUND_REDEEM.INTRETN' | translate }}</p>
+                        <p fundProfit [data]="setData" [type]="'intretn'">%</p>
+                    </div>
+                </div>
+
+                <div class="card_list_group card_list_1">
+                    <div class="flex_row card_list_li">
+                        <p>{{ 'AUTO_FUND_REDEEM.APDINT' | translate }}</p>
+                        <p>{{ setData | objectField: ['apdint', 'currencyMoney' , setData.viewEngCurrency] }}</p>
+                    </div>
+                </div>
+
+                <div class="card_list_group card_list_1">
+                    <div class="flex_row card_list_li">
+                        <p>{{ 'AUTO_FUND_REDEEM.REFPROC' | translate }}</p>
+                        <p>{{ setData | objectField: ['refProc', 'currencyMoney' , setData.viewEngCurrency] }}</p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="btn_group flex_row" bottomBtn [ngClass]="{'pageCtrlHiddenBox': nowPage == 'modify-page'}">
+                <button class="btn_primary btn_w100"
+                    (click)="onModify()">{{ 'FUNC.WEALTH_INVEST.FUND_MODIFY' | translate }}</button>
+            </div>
+        </ng-container>
+        <!-- 查詢內容 END -->
+
+        <!-- 修改頁面 START -->
+        <ng-container *ngSwitchCase="'modify-page'">
+            <app-auto-fund-redeem-modify [setData]="modifyData" (backPageEmit)="onPageBackEvent($event)"></app-auto-fund-redeem-modify>
+        </ng-container>
+        <!-- 修改頁面 END -->
+    </ng-container>

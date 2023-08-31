@@ -1,0 +1,106 @@
+<div class="container_home">
+    <!-- section -->
+    <section class="section_area section_hasbtn section_area_credit_overview">
+        <!-- 未出帳消費 START -->
+        <app-home-cards [templateType]="'card-overview'"></app-home-cards>
+        <!-- 未出帳消費 END -->
+
+        <div class="white_bk_container">
+            <!-- 3按鈕  -->
+            <div class="row_single">
+                <div class="content_btn_group flex_row content_btn3">
+                    <button *ngFor="let menu1 of menuList.quick" class="{{menu1.class}} content_btn btn_w33" (click)="onGoEvent(menu1)" [innerHtml]="menu1.name | translate"></button>
+                </div>
+            </div>
+            <!-- 3按鈕 End -->
+
+            <!-- 本期(各期)帳單查詢 START -->
+            <div class="content_group content_credit_3 flex_col">
+                <div class="content_credit_1_w1">
+                    <ng-container *ngIf="showData.show_pay">
+                        <div class="content_credit_li content_credit_title_tag flex_row">
+                            <p class="content_p1" [innerHtml]="('CARD_OVERVIEW.MAIN.HAVETOPAID' | translate: {monthStr: showData.monthStr} ) | safeHtml"></p>
+                            <!-- 繳費狀況資訊 -->
+                            <ng-container *ngIf="!!showData.show_bill_status">
+                                <app-payment-status [infoData]="billData" [selectedMonth]="selectMonth"></app-payment-status>
+                            </ng-container>
+                        </div>
+                        <!-- 應繳總金額 -->
+                        <div class="content_credit_li content_credit_title">
+                            <p class="content_p2">{{ showData | objectField: ['curBal', 'currencyMoney', 'TWD'] }}</p>
+                        </div>
+                        <!-- 最低應繳餘額 -->
+                        <div class="content_credit_li flex_row">
+                            <div class="content_invest_li_p1">{{ 'CARD_OVERVIEW.MAIN.MINPAY' | translate }}</div>
+                            <div class="content_invest_li_p2">{{ showData | objectField: ['minPay', 'currencyMoney', 'TWD'] }}</div>
+                        </div>
+                        <!-- 繳款截止日 -->
+                        <div class="content_credit_li flex_row">
+                            <div class="content_invest_li_p1">{{ 'CARD_OVERVIEW.MAIN.DUEDATE' | translate }}</div>
+                            <div class="content_invest_li_p2">{{ showData | objectField: ['dueDate', 'htDate', 'date'] }}</div>
+                        </div>
+                    </ng-container>
+
+                    <!-- 各期帳單查詢 -->
+                    <div class="content_btn_group content_btn_6 flex_row" (click)="onGoEvent('bill')">
+                        <button class="btn_card_event btn_w100 flex_row row_center">
+                            <div class="btn_card_event_txt">{{ 'CARD_OVERVIEW.MAIN.HISTORY_BILL' | translate }}</div>
+                            <div class="i_next_page"></div>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+            <!-- 本期(各期)帳單查詢 END -->
+
+            <!-- 紅利點數 START -->
+            <div class="content_group content_invest_1 flex_row" *ngIf="showData.show_bonus">
+                <div class="content_invest_1_w1">
+                    <!-- 紅利點數 -->
+                    <div class="content_invest_li content_invest_title" (click)="onGoEvent('bonus')">
+                        {{ 'CARD_OVERVIEW.MAIN.BONUS_COUNT' | translate }}
+                        <div class="select_i_right"></div>
+                    </div>
+                    <div class="content_invest_li flex_row">
+                        <!-- 總點數 -->
+                        <div class="content_invest_li_p1">{{ 'CARD_OVERVIEW.MAIN.ALL_COUNT' | translate }}</div>
+                        <div class="content_invest_li_p2">{{ (showData | fieldCheck: ['bonusCount',{zero_type:false, empty_str:'--'}]) | htMoney:'TWD' }} {{
+                            'CARD_OVERVIEW.MAIN.COUNT' | translate }}</div>
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- 紅利點數 END -->
+
+
+            <!-- 其他按鈕 -->
+            <ng-container *ngFor="let menu2 of menuList.menu">
+                <div class="card_group card_credit_4" (click)="onGoEvent(menu2)">
+                    <div class="card_credit_bg flex_row">
+                        <div class="card_credit_ul">
+                            <div class="card_credit_li flex_row">
+                                <div class="card_credit_line_wrap flex_row">
+                                    <div class="sub_title_line"></div>
+                                </div>
+                                <div class="card_credit_4_p1">{{ menu2.name | translate }}</div>
+                            </div>
+                        </div>
+                        <div class="i_next"></div>
+                    </div>
+                </div>
+            </ng-container>
+            <!-- 其他按鈕 End -->
+
+            <!-- 廣告 START -->
+            <app-advert></app-advert>
+            <!-- 廣告 END -->
+
+            <!-- 謹慎理財 -->
+            <app-card-notice></app-card-notice>
+            <!-- 謹慎理財 End -->
+
+        </div>
+    </section>
+    <!-- section End -->
+</div>

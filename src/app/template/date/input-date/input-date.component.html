@@ -1,0 +1,7 @@
+<div class="select_inner_group" [ngClass]="{'active_error':(error_data != '')}">
+    <div class="form_date_pop flex_row" (click)="onDateSelect()">
+        <p class="select_pop_content">{{ inp_data | htDate: setFormate}}</p>
+        <div class="select_pop_i_calendar"></div>
+    </div>
+    <div class="form_error">{{error_data | translate}}</div>
+</div>

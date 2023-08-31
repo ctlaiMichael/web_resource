@@ -1,0 +1,92 @@
+{
+    "HISTORY_BILL": {
+        "MAIN": {
+            "HAVETOPAID": "{{monthStr}}M Total Amount Payable",
+            "CURBAL": "Total Amount Payable",
+            "MONTH": "M",
+            "DUEDATE": "Payment Due Date",
+            "STMTDATE": "Billing Date",
+            "HAS_PAID": "Already Paid",
+            "DETAIL": "Statement",
+            "BILLINFO": "Billing Information"
+        },
+        "STATUS": {
+            "HAS_PAID": "Haspayment",
+            "OVER_PAID": "Overpayment",
+            "PART_PAID": "Part of payment",
+            "NOT_ENOUGH": "Unpaid",
+            "LATE_PAID": "Late payment",
+            "NO_PAID": "Overdue"
+        },
+        "DETAIL": {
+            "ALL_BILL": "All Credit Cards",
+            "CARDLST": "Card Number",
+            "POSTDATE": "Paid Date",
+            "MEMO": "Transaction Summary",
+            "CARDNO": "Card Type",
+            "FOUR_NO": "4 Last Digits",
+            "FOREIGN_AMOUND": "Original Currency Consumption Amount"
+        },
+        "INFO": {
+            "AP_PER": "Auto Payment Rate",
+            "AP_AMT": "Auto Payment Amount",
+            "AP_DAY": "Auto Payment Date",
+            "AP_ACCOUNT": "Auto-Debit Account",
+            "BEGBAL": "Previous Balance",
+            "PREVPAY": "Amount Paid In The Previous Period",
+            "CURAMT": "New Charges And Adjustments",
+            "CURBAL": "New Balance"
+        }
+    },
+    "PROFILE": {
+        "STMTDATE": "This Priod Billing Date",
+        "DUEDATE": "Payment Due Date",
+        "STMAMT": "New Balanc",
+        "MINAMT": "Min. Amount Due",
+        "TOTALAMT": "Cumulative Payment Amount In This Period",
+        "AVALLABLE_BALANCE": "Credit",
+        "OWNER_PERCENT": "Bill Revolving Rate",
+        "AUTO_PAYAMT": "Automatic Withholding Amount",
+        "AUTOPAY_ACCTACCOUNT": "Automatic Deduction Account",
+        "AUTOPAY_RATE": "Automatic Withholding",
+        "CARD_PAY": "Card Fee",
+        "BILL_QUERY": "Bills And Transactions"
+    },
+    "PAYABLE": {
+        "PAGE": {
+            "ENTERDATA": "Input Data",
+            "CONFIRMDATA": "Payment Information",
+            "RESULT": "Result"
+        },
+        "EDIT": {
+            "MONTH": "Month",
+            "CURBAL": "The Balance Of The Current Period",
+            "MINPAY": "Minimum Payable Balance",
+            "PREPAY": "Total Amount Paid In This Period",
+            "DUEDATE": "Payment Due Date",
+            "ACCOUNTID": "Transfer Out Of Account",
+            "BALANCE": "Available Balance",
+            "INPUT_AMOUNT": "Enter The Payment Amount",
+            "TYPE_ALL": "Full Amount",
+            "TYPE_LOWEST": "Lowest",
+            "TYPE_CUSTOM": "Custom",
+            "EBILL_PAY": "e-Bill",
+            "BTN_CANCEL": "Cancel",
+            "BTN_NEXT": "Next Step "
+        },
+        "CONFIRM": {
+            "PAYAMOUNT": "Payment Amount",
+            "ACCOUNTID": "Transfer Out Of Account",
+            "ARREARS": "Amount To Be Paid",
+            "BTN_CANCEL": "Cancel",
+            "BTN_NEXT": "Next Step "
+        },
+        "RESULT": {
+            "MSG": "Note: If you want to check the latest total amount due credit card, in the next business day following the recorded inquiry.",
+            "PAYAMOUNT": "Payment Amount",
+            "ACCOUNTID": "Transfer Out Of Account",
+            "CUSTID": "Positive Cardholder ID Number",
+            "ARREARS": "Amount To Be Paid"
+        }
+    }
+}

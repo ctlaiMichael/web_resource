@@ -1,0 +1,203 @@
+<ng-container [ngSwitch]="nowPage">
+    <!-- 確認頁 Start -->
+    <ng-container *ngSwitchCase="'check'">
+        <section class="section_area section_hasbtn">
+            <!-- 步驟列 Start -->
+            <app-step-bar [setData]="stepMenuData" [setKey]="nowStep"></app-step-bar>
+            <!-- 步驟列 End -->
+
+            <div class="confirm_group confirm_list_bg">
+                <!-- 定存帳號 Start -->
+                <div class="card_inner_list_group inner_list_bk_yellow">
+                    <div class="flex_row card_inner_list_li">
+                        <p>{{'TIME_DEPOSIT.AUTO_CARRY_OVER.TIME_DEPOSIT_ACCOUNT' | translate}}</p>
+                        <p>{{inputData.accountId}}</p>
+                    </div>
+                </div>
+                <!-- 定存帳號 End -->
+
+                <!-- 轉期次數 Start -->
+                <div class="card_inner_list_group card_inner_list_2">
+                    <div class="flex_row card_inner_list_li">
+                        <p>{{'TIME_DEPOSIT.AUTO_CARRY_OVER.ROLLOVER_TIMES' | translate}}</p>
+                        <p>{{inputData.turnCount}}</p>
+                    </div>
+                </div>
+                <!-- 轉期次數 End -->
+
+                <!-- 轉期方式 Start -->
+                <div class="card_inner_list_group">
+                    <div class="flex_row card_inner_list_li">
+                        <p>{{'TIME_DEPOSIT.AUTO_CARRY_OVER.ROLLOVER_METHOD' | translate}}</p>
+                        <p>{{turnTypeStr | translate}}</p>
+                    </div>
+                </div>
+                <!-- 轉期方式 End -->
+
+                <!-- 利息轉入帳號 Start -->
+                <div class="card_inner_list_group" *ngIf="inputData['interestAcc'];">
+                    <div class="flex_row card_inner_list_li">
+                        <p>{{'TIME_DEPOSIT.AUTO_CARRY_OVER.INTEREST_ACCOUNT' | translate}}</p>
+                        <p>{{inputData.interestAcc}}</p>
+                    </div>
+                </div>
+                <!-- 利息轉入帳號 End -->
+            </div>
+
+            <!-- 安控 Start -->
+            <app-security-interface [setSecurity]="setSecurity" [securityAction]="securityAction" (currentType)="currentType($event)" (bakSecurityObj)="bakSecurityObj($event)"></app-security-interface>
+            <!-- 安控 End -->
+        </section>
+
+        <!-- 取消 & 確認 按鈕 Start -->
+        <div class="btn_group flex_row" bottomBtn>
+            <button class="btn_l btn_secondary btn_w25"
+                (click)="onCancel()">{{'TIME_DEPOSIT.AUTO_CARRY_OVER.BTN.CANCEL' | translate}}</button>
+            <button class="btn_r btn_primary btn_w70" *ngIf="inputData.action == 'create';"
+                (click)="onSecurityClick()">{{'TIME_DEPOSIT.AUTO_CARRY_OVER.BTN.CONFIRM' | translate}}</button>
+            <button class="btn_r btn_primary btn_w70" *ngIf="inputData.action == 'delete';"
+                (click)="onSecurityClick()">{{'TIME_DEPOSIT.AUTO_CARRY_OVER.BTN.DELETE' | translate}}</button>
+        </div>
+        <!-- 取消 & 確認 按鈕 End -->
+    </ng-container>
+    <!-- 確認頁 End -->
+
+    <!-- 結果頁 Start -->
+    <ng-container *ngSwitchCase="'result'">
+        <section class="section_area">
+            <!-- 交易標題區塊 Start-->
+            <app-result-status-temp [setData]="statusObj"></app-result-status-temp>
+            <!-- 交易標題區塊 End-->
+
+            <ng-container *ngIf="resStatus;">
+                <!-- 解約結果頁 Start-->
+                <ng-container *ngIf="inputData.action == 'delete';">
+                    <!-- 定存帳號 Start -->
+                    <div class="card_inner_list_group inner_list_bk_yellow">
+                        <div class="flex_row card_inner_list_li">
+                            <p>{{'TIME_DEPOSIT.AUTO_CARRY_OVER.TIME_DEPOSIT_ACCOUNT' | translate}}</p>
+                            <p>{{resData.accountId}}</p>
+                        </div>
+                    </div>
+                    <!-- 定存帳號 End -->
+                </ng-container>
+                <!-- 解約結果頁 End-->
+            
+                <!-- 約定結果頁 Start-->
+                <ng-container *ngIf="inputData.action == 'create';">
+                    <div class="result_list_bg result_group">
+                        <!-- 定存帳號 Start -->
+                        <div class="card_inner_list_group inner_list_bk_yellow">
+                            <div class="flex_row card_inner_list_li">
+                                <p>{{'TIME_DEPOSIT.AUTO_CARRY_OVER.TIME_DEPOSIT_ACCOUNT' | translate}}</p>
+                                <p>{{resData.accountId}}</p>
+                            </div>
+                        </div>
+                        <!-- 定存帳號 End -->
+            
+                        <!-- 存單金額 Start -->
+                        <div class="card_inner_list_group card_inner_list_2">
+                            <div class="flex_row card_inner_list_li">
+                                <p>{{'TIME_DEPOSIT.AUTO_CARRY_OVER.TIME_DEPOSIT_AMOUNT' | translate}}</p>
+                                <p>{{resData | objectField: ['amount', 'currencyMoney', 'TWD']}}</p>
+                            </div>
+                        </div>
+                        <!-- 存單金額 End -->
+            
+                        <!-- 利率方式 Start -->
+                        <div class="card_inner_list_group">
+                            <div class="flex_row card_inner_list_li">
+                                <p>{{'TIME_DEPOSIT.AUTO_CARRY_OVER.RATE_TYPE' | translate}}</p>
+                                <p>{{resData.rateType | translate}}</p>
+                            </div>
+                        </div>
+                        <!-- 利率方式 End -->
+            
+                        <!-- 存單利率 Start -->
+                        <div class="card_inner_list_group">
+                            <div class="flex_row card_inner_list_li">
+                                <p>{{'TIME_DEPOSIT.AUTO_CARRY_OVER.TIME_DEPOSIT_INTEREST_RATE' | translate}}</p>
+                                <p>{{resData | objectField: ['rate', 'htFinancial']}}</p>
+                            </div>
+                        </div>
+                        <!-- 存單利率 End -->
+            
+                        <!-- 存單期間 Start -->
+                        <div class="card_inner_list_group">
+                            <div class="flex_row card_inner_list_li">
+                                <p>{{'TIME_DEPOSIT.AUTO_CARRY_OVER.PERIOD' | translate}}</p>
+                                <p>{{resData.savingsRange}} {{'TIME_DEPOSIT.AUTO_CARRY_OVER.MONTHS' | translate}}</p>
+                            </div>
+                        </div>
+                        <!-- 存單期間 End -->
+            
+                        <!-- 起息日 Start -->
+                        <div class="card_inner_list_group">
+                            <div class="flex_row card_inner_list_li">
+                                <p>{{'TIME_DEPOSIT.AUTO_CARRY_OVER.START_DATE' | translate}}</p>
+                                <p>{{resData.startDate}}</p>
+                            </div>
+                        </div>
+                        <!-- 起息日 End -->
+            
+                        <!-- 到期日 Start -->
+                        <div class="card_inner_list_group">
+                            <div class="flex_row card_inner_list_li">
+                                <p>{{'TIME_DEPOSIT.AUTO_CARRY_OVER.END_DATE' | translate}}</p>
+                                <p>{{resData.endDate}}</p>
+                            </div>
+                        </div>
+                        <!-- 到期日 End -->
+            
+                        <!-- 付息週期 Start -->
+                        <div class="card_inner_list_group">
+                            <div class="flex_row card_inner_list_li">
+                                <p>{{'TIME_DEPOSIT.AUTO_CARRY_OVER.PAY_CYCLE' | translate}}</p>
+                                <p>{{resData.payCycle | translate}}</p>
+                            </div>
+                        </div>
+                        <!-- 付息週期 End -->
+            
+                        <!-- 轉期次數 Start -->
+                        <div class="card_inner_list_group card_inner_list_2">
+                            <div class="flex_row card_inner_list_li">
+                                <p>{{'TIME_DEPOSIT.AUTO_CARRY_OVER.ROLLOVER_TIMES' | translate}}</p>
+                                <p>{{resData.turnCount}} {{'TIME_DEPOSIT.AUTO_CARRY_OVER.TIMES' | translate}}</p>
+                            </div>
+                        </div>
+                        <!-- 轉期次數 End -->
+            
+                        <!-- 轉期後最後到期日 Start -->
+                        <div class="card_inner_list_group">
+                            <div class="flex_row card_inner_list_li">
+                                <p>{{'TIME_DEPOSIT.AUTO_CARRY_OVER.FINAL_END_DATE' | translate}}</p>
+                                <p>{{resData.finalEndDate}}</p>
+                            </div>
+                        </div>
+                        <!-- 轉期後最後到期日 End -->
+            
+                        <!-- 轉期方式 Start -->
+                        <div class="card_inner_list_group mar_btm10">
+                            <div class="flex_row card_inner_list_li">
+                                <p>{{'TIME_DEPOSIT.AUTO_CARRY_OVER.ROLLOVER_METHOD' | translate}}</p>
+                                <p>{{resData.turnType | translate}}</p>
+                            </div>
+                        </div>
+                        <!-- 轉期方式 End -->
+            
+                        <!-- 利息轉入帳號 Start -->
+                        <div class="card_inner_list_group" *ngIf="!!showInterestAcc;">
+                            <div class="flex_row card_inner_list_li">
+                                <p>{{'TIME_DEPOSIT.AUTO_CARRY_OVER.INTEREST_ACCOUNT' | translate}}</p>
+                                <p>{{resData.interestAcc}}</p>
+                            </div>
+                        </div>
+                        <!-- 利息轉入帳號 End -->
+                    </div>
+                </ng-container>
+                <!-- 約定結果頁 End-->
+            </ng-container>
+        </section>
+    </ng-container>
+    <!-- 結果頁 End -->
+</ng-container>

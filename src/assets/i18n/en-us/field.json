@@ -1,0 +1,30 @@
+{
+    "FIELD": {
+        "DATE": "Date",
+        "FINANCIAL_TIME": "掛牌時間",
+        "RATE_DATE": "牌告日期",
+        "SEARCH_TIME": "查詢時間",
+        "SEARCH_DATE": "查詢日期",
+        "SEARCH_RANGE": "查詢區間",
+        "SEARCH_RANGE_DATA": "{{startDate}} ~ {{endDate}}",
+        "SEARCH_START_DATE": "查詢起日",
+        "SEARCH_END_DATE": "查詢迄日",
+        "INFO_TITLE": "Reminder：",
+        "PHONE": "手機號碼",
+        "PHONE_EDIT": "請輸入手機號碼",
+        "EMAIL": "E-MAIL",
+        "EMAIL_EDIT": "Enter your email address",
+        "DATE_EDIT": "請輸入日期",
+        "HAVE_CHOSE": "Have chosen: {{ chose }}/{{ total }} 筆",
+        "SECURITY_SELECT_TITLE": "目前轉帳機制",
+        "INPUT_PLACEHOLDER": "請輸入",
+        "INFO": {
+            "TRANS_CONFIRM_REMIND": "Reminder: After the transaction is sent, it cannot be modified or deleted",
+            "TRANS_NOTE_MAIL": "In line with the FSC requires banks to build「Internet banking fund trading instant confirmation or notification mechanism」,the transaction notification to E-mail: {{mail}}",
+            "TRANS_NOTE_PHONE": "In line with the FSC requires banks to build「Internet banking fund trading instant confirmation or notification mechanism」,the transaction notification to Phone: {{phone}}",
+            "TRANS_NOTE_UNKNOW": "In line with the FSC requires banks to build「Internet banking fund trading instant confirmation or notification mechanism」",
+            "BUSINESS_NEXT": "銀行營業時間已過，此筆將為次一營業日交易。",
+            "BUSINESS_HOLIDAY": "本日非銀行營業日，此筆將為次一營業日交易。"
+        }
+    }
+}

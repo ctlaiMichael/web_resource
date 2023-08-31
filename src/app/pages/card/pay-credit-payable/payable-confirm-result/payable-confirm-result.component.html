@@ -1,0 +1,105 @@
+<ng-container [ngSwitch]="nowPage">
+    <!-- 確認頁 START -->
+    <ng-container *ngSwitchCase="'confirm'">
+        <section class="section_area section_hasbtn">
+            <!-- 步驟列 Start -->
+            <app-step-bar [setData]="stepMenuData" [setKey]="nowStep"></app-step-bar>
+            <!-- 步驟列 End -->
+
+            <div class="confirm_group confirm_list_bg">
+                <div class="card_inner_list_group">
+                    <div class="card_inner_list_li_5">
+                        <p>{{ 'PAYABLE.CONFIRM.PAYAMOUNT' | translate }}</p>
+                        <p>NT$ {{ setData | objectField: ['payAmount', 'htMoney', 'TWD'] }}</p>
+                    </div>
+                </div>
+
+                <div class="card_inner_list_group mar_btm10">
+                    <div class="flex_row card_inner_list_li">
+                        <p>{{ 'PAYABLE.CONFIRM.ACCOUNTID' | translate }}</p>
+                        <p>{{ setData | objectField: ['accountId'] }}</p>
+                    </div>
+                </div>
+
+                <div class="dashed"></div>
+
+                <div class="card_inner_list_group card_inner_list_2">
+                    <div class="flex_row card_inner_list_li">
+                        <p>{{ 'PAYABLE.CONFIRM.ARREARS' | translate }}</p>
+                        <p>NT$ {{ setData | objectField: ['aRrears', 'htMoney', 'TWD'] }}</p>
+                    </div>
+                </div>
+
+            </div>
+            
+            <app-security-interface [securityAction]="securityAction" [setSecurity]="setSecurity"
+                (bakSecurityObj)="submitSecurity($event)">
+            </app-security-interface>
+            <!-- 謹慎理財 -->
+            <app-card-notice></app-card-notice>
+            <!-- 謹慎理財 End -->
+        </section>
+
+        <div class="btn_group flex_row">
+            <button class="btn_l btn_secondary btn_w25"
+                (click)="onCancel()">{{ 'PAYABLE.CONFIRM.BTN_CANCEL' | translate }}</button>
+            <button class="btn_r btn_primary btn_w70"
+                (click)="submitSecurity()">{{ 'PAYABLE.CONFIRM.BTN_NEXT' | translate }}</button>
+        </div>
+    </ng-container>
+    <!-- 確認頁 END -->
+
+    <!-- 結果頁 START -->
+    <ng-container *ngSwitchCase="'result'">
+        <section class="section_area">
+
+            <div class="result_list_bg result_group">
+                <!-- <div class="result_line_bg result_line_succeed"></div>
+                <div class="i_succeed"></div>
+                <div class="transfer_result_title">交易成功</div> -->
+
+                <!-- 成功失敗標題 Start -->
+                <app-result-status-temp [setData]="statusObj"></app-result-status-temp>
+                <!-- 成功失敗標題 End -->
+
+                <ng-container *ngIf="resStatus;">
+                    <!-- <div class="transfer_res ult_time">{{ resultData | objectField: ['infoDate'] }}</div> -->
+                    <div class="result_succeed_notice">{{ 'PAYABLE.RESULT.MSG' | translate }}</div>
+
+                    <div class="card_inner_list_group inner_list_bk_yellow">
+                        <div class="card_inner_list_li_5">
+                            <p>{{ 'PAYABLE.RESULT.PAYAMOUNT' | translate }}</p>
+                            <p>NT$ {{ resultData | objectField: ['payAmount', 'htMoney', 'TWD'] }}</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card_inner_list_group mar_btm10">
+                        <div class="flex_row card_inner_list_li">
+                            <p>{{ 'PAYABLE.RESULT.ACCOUNTID' | translate }}</p>
+                            <p>{{ resultData | objectField: ['accountId'] }}</p>
+                        </div>
+                    </div>
+
+                    <div class="card_inner_list_group">
+                        <div class="flex_row card_inner_list_li">
+                            <p>{{ 'PAYABLE.RESULT.CUSTID' | translate }}</p>
+                            <p>{{ resultData | objectField: ['custId'] }}</p>
+                        </div>
+                    </div>
+
+                    <div class="card_inner_list_group card_inner_list_2">
+                        <div class="flex_row card_inner_list_li">
+                            <p>{{ 'PAYABLE.RESULT.ARREARS' | translate }}</p>
+                            <p>NT$ {{ setData | objectField: ['aRrears', 'htMoney', 'TWD'] }}</p>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+            <!-- 謹慎理財 -->
+            <app-card-notice></app-card-notice>
+            <!-- 謹慎理財 End -->
+        </section>
+    </ng-container>
+    <!-- 結果頁 END -->
+
+</ng-container>

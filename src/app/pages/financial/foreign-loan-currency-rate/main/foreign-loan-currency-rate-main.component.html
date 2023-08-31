@@ -1,0 +1,47 @@
+<section class="section_area section_hasbtn">
+    <!-- 僅供參考文案 Start -->
+    <div class="info_group info_8_3 mar_btm15">
+        <p>{{'FINANCIAL.INTEREST_RATE_INFO' | translate}}</p>
+        <p>{{'FINANCIAL.DATATIME' | translate}}：{{ (dataTime ? dataTime : '--') }} &nbsp;
+            &nbsp;{{'FINANCIAL.UNIT' | translate}}</p>
+    </div>
+    <!-- 僅供參考文案 End -->
+
+    <ng-container *ngIf="haveData; else noDataBox">
+        <!-- 資料 Start -->
+        <div class="rate_table">
+            <!-- 標題 Start -->
+            <div class="table_group table_title table_title_2set_1">
+                <div class="flex_row table_title_2set_li">
+                    <p class="table_2set_p1">{{'FINANCIAL.CURRENCY' | translate}}</p>
+                    <p class="table_2set_p2">{{'FINANCIAL.INTEREST_RATES' | translate}}</p>
+                </div>
+            </div>
+            <!-- 標題 End -->
+
+            <!-- 明細 Start -->
+            <div class="table_group table_list table_list_2set_2flag" *ngFor="let item of currencyData;">
+                <div class="flex_row table_list_2set_2flag_li">
+                    <div class="flex_row table_2flag_wrap table_2set_p1">
+                        <div class="national_2flag_wrap">
+                            <div class="national_flag {{ item.currencyCode | iconFlag }}"></div>
+                        </div>
+                        <p class="national_2flag_p">{{ item['currencyCode'] | currencyName: item['currencyName']}}</p>
+                    </div>
+                    <p class="table_2set_p2">{{ item | objectField: ['rate', 'htFinancial', 'undefined', 'zero_ok']}}</p>
+                </div>
+            </div>
+            <!-- 明細 End -->
+        </div>
+        <!-- 資料 End -->
+    </ng-container>
+
+    <!-- 無資料畫面 Start -->
+    <ng-template #noDataBox>
+        <!-- 顯示錯誤白箱 START -->
+        <app-error-box [errorMsg]="errorMsg"></app-error-box>
+        <!-- 顯示錯誤白箱 END -->
+    </ng-template>
+    <!-- 無資料畫面 End -->
+
+</section>

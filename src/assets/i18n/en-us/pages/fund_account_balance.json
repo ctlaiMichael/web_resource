@@ -1,0 +1,21 @@
+{
+    "FUND_ACCOUNT_BALANCE": {
+        "LICENNO1": "Certificate Number",
+        "OSAMT": "Investment Amount",
+        "NOWPRICE": "Current Value",
+        "NOPROC": "Unrealized Profit/Loss",
+        "TOTALBAOCHOU": "Investment Return Rate",
+        "INTRETN_STRING": "Reference Rate",
+        "DATE": "Investment Date",
+        "FUNDTYPE": "Fund Type",
+        "ACCTPRICE": "Latest Quotation",
+        "PRICEDATE": "Quotation Date",
+        "totalTotosamt": "Investment Amount",
+        "totalTotprice": "Current Value",
+        "INTRETN_STRING2": "Reference Rate",
+        "APDINT": "Cumulative Dividend Amount",
+        "REMARK1": "Note",
+        "redemption": "Redemption (Sale)",
+        "Conversion": "Switching"
+    }
+}

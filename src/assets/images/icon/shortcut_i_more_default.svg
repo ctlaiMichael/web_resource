@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icons/more</title>
+    <g id="Icons/more" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M9,20 C6.791,20 5,21.791 5,24 C5,26.209 6.791,28 9,28 C11.209,28 13,26.209 13,24 C13,21.791 11.209,20 9,20" id="Fill-1" fill="#FFFFFF"></path>
+        <path d="M24,20 C21.791,20 20,21.791 20,24 C20,26.209 21.791,28 24,28 C26.209,28 28,26.209 28,24 C28,21.791 26.209,20 24,20" id="Fill-3" fill="#FFFFFF"></path>
+        <path d="M39,20 C36.791,20 35,21.791 35,24 C35,26.209 36.791,28 39,28 C41.209,28 43,26.209 43,24 C43,21.791 41.209,20 39,20" id="Fill-5" fill="#FFFFFF"></path>
+    </g>
+</svg>

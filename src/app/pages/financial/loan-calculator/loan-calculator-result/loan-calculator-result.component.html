@@ -1,0 +1,109 @@
+<section class="section_area section_hasbtn">
+    <div class="result_list_bg result_group">
+        <app-result-status-temp [setData]="statusObj"></app-result-status-temp>
+
+        <ng-container *ngIf="!!resStatus;">
+            <!-- 貸款金額 Start -->
+            <div class="card_inner_list_group">
+                <div class="card_inner_list_li_5">
+                    <p>{{'FINANCIAL.LOAN_AMOUNT' | translate}}</p>
+                    <p>{{(capitalAmt | fieldCheck: ['capitalAmt', {zero_type: true, empty_str: '--'}]) | currencyMoney: 'TWD'}}</p>
+                </div>
+            </div>
+            <!-- 貸款金額 End -->
+        
+            <!-- 還款方式 Start -->
+            <div class="card_inner_list_group">
+                <div class="flex_row card_inner_list_li">
+                    <p>{{'FINANCIAL.REPAYMENT_METHOD' | translate}}</p>
+                    <p>{{returnAmtType | translate}}</p>
+                </div>
+            </div>
+            <!-- 還款方式 End -->
+        
+            <!-- 期間攤還本息 Start -->
+            <div class="card_inner_list_group">
+                <div class="flex_row card_inner_list_li">
+                    <p>{{'FINANCIAL.TOTAL_PAYMENT' | translate}}</p>
+                    <p>{{(totalPayment | fieldCheck: ['totalPayment', {zero_type: true, empty_str: '--'}]) | currencyMoney: 'TWD'}}</p>
+                </div>
+            </div>
+            <!-- 期間攤還本息 End -->
+        
+            <!-- 期間應付利息 Start -->
+            <div class="card_inner_list_group">
+                <div class="flex_row card_inner_list_li">
+                    <p>{{'FINANCIAL.TOTAL_INTEREST_PAYABLE' | translate}}</p>
+                    <p>{{(totalInterestPayable | fieldCheck: ['totalInterestPayable', {zero_type: true, empty_str: '--'}]) | currencyMoney: 'TWD'}}</p>
+                </div>
+            </div>
+            <!-- 期間應付利息 End -->
+        
+            <!-- 虛線 Start -->
+            <div class="dashed"></div>
+            <!-- 虛線 End -->
+
+            <ng-container *ngFor="let item of loanData">
+                <!-- 明細 Start -->
+                <div class="card_inner_list_group card_inner_list_7" *ngIf="item['duration'] == '1';">
+                    <div class="card_inner_list_7_txt">{{'FINANCIAL.FIRST_DURATION' | translate}}</div>
+                </div>
+                <div class="card_inner_list_group card_inner_list_7" *ngIf="item['duration'] == '2';">
+                    <div class="card_inner_list_7_txt">{{'FINANCIAL.SECOND_DURATION' | translate}}</div>
+                </div>
+                <div class="card_inner_list_group card_inner_list_7" *ngIf="item['duration'] == '3';">
+                    <div class="card_inner_list_7_txt">{{'FINANCIAL.THIRD_DURATION' | translate}}</div>
+                </div>
+        
+                <div class="card_inner_list_group">
+                    <div class="flex_row card_inner_list_li">
+                        <p>{{'FINANCIAL.DURATION' | translate}}</p>
+                        <p>{{item.month}}{{'FINANCIAL.MONTH' | translate}}</p>
+                    </div>
+                </div>
+        
+                <div class="card_inner_list_group">
+                    <div class="flex_row card_inner_list_li">
+                        <p>{{'FINANCIAL.INTEREST_RATES' | translate}}</p>
+                        <p>{{item | objectField: ['rate', 'htFinancial']}}%</p>
+                    </div>
+                </div>
+        
+                <div class="card_inner_list_group">
+                    <div class="flex_row card_inner_list_li">
+                        <p>{{'FINANCIAL.BEGINING_PRINCIPAL' | translate}}</p>
+                        <p>{{(item | fieldCheck: ['principal', {zero_type: true, empty_str: '--'}]) | currencyMoney: 'TWD'}}</p>
+                    </div>
+                </div>
+        
+                <div class="card_inner_list_group">
+                    <div class="flex_row card_inner_list_li">
+                        <p>{{'FINANCIAL.TOTAL_INTEREST_PAYABLE' | translate}}</p>
+                        <p>{{(item | fieldCheck: ['durationInterestPayable', {zero_type: true, empty_str: '--'}]) | currencyMoney: 'TWD'}}</p>
+                    </div>
+                </div>
+        
+                <div class="card_inner_list_group">
+                    <div class="flex_row card_inner_list_li">
+                        <p>{{'FINANCIAL.TOTAL_PAYMENT' | translate}}</p>
+                        <p>{{(item | fieldCheck: ['durationPayment', {zero_type: true, empty_str: '--'}]) | currencyMoney: 'TWD'}}</p>
+                    </div>
+                </div>
+        
+                <div class="card_inner_list_group mar_btm15">
+                    <div class="flex_row card_inner_list_li">
+                        <p>{{'FINANCIAL.MONTHLY_PAYMENT' | translate}}</p>
+                        <p>{{(item | fieldCheck: ['monthlyPayment', {zero_type: true, empty_str: '--'}]) | currencyMoney: 'TWD'}}</p>
+                    </div>
+                </div>
+                <!-- 明細 End -->
+            </ng-container>
+        </ng-container>
+    </div>
+</section>
+
+<!-- 重新試算 按鈕 Start -->
+<div class="btn_group flex_row">
+    <button class="btn_primary btn_w100" (click)="onAgainBtnClick()">{{'FINANCIAL.BTN.CALCULATE_AGAIN' | translate}}</button>
+</div>
+<!-- 重新試算 按鈕 End -->

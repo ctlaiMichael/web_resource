@@ -1,0 +1,69 @@
+<!-- 常用帳號,約定帳號 TAG切換 START -->
+<div class="tab_group_L1 flex_row tab_group_set2">
+    <div class="tab_btn_L1" [ngClass]="{ 'active': chooseType == 'offen' }" (click)="onSelectTag('offen')">常用帳號
+    </div>
+    <div class="tab_btn_L1" [ngClass]="{ 'active': chooseType == 'tranIn' }" (click)="onSelectTag('tranIn')">約定帳號
+    </div>
+</div>
+<!-- 常用帳號,約定帳號 TAG切換 END -->
+
+<section class="section_area section_tabL1">
+
+    <!-- 常用帳號清單 START -->
+    <ng-container *ngIf="nowPage == 'offen'">
+        <ng-container *ngFor="let offenItem of offenData">
+            <div class="content_group content_group_10 flex_row" (click)="chooseOver(offenItem,'offen')">
+                <div class="i_delete"></div>
+                <!-- <ng-container *ngIf="!!offenItem.showImage"> -->
+                    <div class="content_img_l">
+                        <div class="content_img" [imageCtrl]="offenItem.image" [imageType]="'background-image'">
+                        </div>
+                    </div>
+                <!-- </ng-container> -->
+                <div class="content_accont_info">
+                    <div class="content_accont_title">{{ offenItem.nickName }}</div>
+                    <div class="content_txt">({{ offenItem.bankCode }}){{ offenItem.bankName }}</div>
+                    <div class="content_txt">{{ offenItem.accountId }}</div>
+                </div>
+                <div class="i_check_wrap flex_row"
+                    [ngClass]="{ 'active_i_check':(offenItem.accountId === select && initChosse !='tranIn') }">
+                    <div class="i_check"></div>
+                </div>
+                <div class="i_edit"></div>
+            </div>
+        </ng-container>
+    </ng-container>
+    <!-- 常用帳號清單 END -->
+
+    <!-- 約定轉入清單 START -->
+    <ng-container *ngIf="nowPage == 'tranIn'">
+        <ng-container *ngFor="let transItem of traninData">
+            <div class="content_group content_group_10 flex_row" (click)="chooseOver(transItem,'tranIn')">
+                <div class="i_delete"></div>
+                <!-- <ng-container *ngIf="!!transItem.showImage"> -->
+                    <div class="content_img_l">
+                        <div class="content_img" [imageCtrl]="transItem.image" [imageType]="'background-image'">
+                        </div>
+                    </div>
+                <!-- </ng-container> -->
+                <div class="content_accont_info">
+                    <div class="content_accont_title">{{ transItem.nickName }}</div>
+                    <div class="content_txt">({{ transItem.bankCode }}){{ transItem.bankName }}</div>
+                    <div class="content_txt">{{ transItem.accountId }}</div>
+                </div>
+                <div class="i_check_wrap flex_row"
+                    [ngClass]="{ 'active_i_check':(transItem.accountId === select && initChosse =='tranIn') }">
+                    <div class="i_check"></div>
+                </div>
+                <div class="i_edit"></div>
+            </div>
+        </ng-container>
+    </ng-container>
+    <!-- 約定轉入清單 END -->
+
+    <!-- 顯示錯誤白箱 START -->
+    <ng-container *ngIf="nowPage == 'errorPage'">
+        <app-error-box [errorMsg]="errorBoxMsg"></app-error-box>
+    </ng-container>
+    <!-- 顯示錯誤白箱 END -->
+</section>

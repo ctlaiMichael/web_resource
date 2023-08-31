@@ -1,0 +1,34 @@
+<ng-container *ngFor="let item of listData; let i = index">
+  <div class="content_group content_invest_1 flex_row" (click)="clickdetail(item)">
+    <div class="content_invest_1_w1">
+      <div class="content_invest_li content_invest_title">
+          {{item.fundCode}} {{item.fundName1}}<div class="select_i_right"></div></div>
+      <div class="content_invest_li flex_row">
+        <div class="content_invest_li_p1">{{ 'FUND_ACCOUNT_BALANCE.LICENNO1' | translate }}</div>
+        <div class="content_invest_li_p2">{{ item | fieldCheck: ['licenno1',{zero_type:false, empty_str:'--'}]}}</div>
+      </div>
+      <div class="content_invest_li flex_row">
+        <div class="content_invest_li_p1">{{ 'FUND_ACCOUNT_BALANCE.OSAMT' | translate }}</div>
+        <div class="content_invest_li_p2">{{ item | objectField: ['osAmt', 'currencyMoney' , item.viewCurrencyeng] }}</div>
+      </div>
+      <div class="content_invest_li flex_row">
+        <div class="content_invest_li_p1">{{ 'FUND_ACCOUNT_BALANCE.NOWPRICE' | translate }}</div>
+        <div class="content_invest_li_p2">{{ item | objectField: ['nowPrice', 'currencyMoney' , item.viewCurrencyeng] }}</div>
+      </div>
+      <div class="content_invest_li invest_li_tag flex_row">
+        <div class="info_tag_wrap_p1 content_invest_li_p1">
+          {{ 'FUND_ACCOUNT_BALANCE.TOTALBAOCHOU' | translate }}
+        </div>
+        <div class="content_invest_li_p2_bold_tag"><p fundProfit [data]="item" [type]="'roi'">{{ item.roi }}</p></div>
+      </div>
+      <div class="content_invest_li invest_li_tag flex_row pad_btm0">
+        <div class="info_tag_wrap_p1 content_invest_li_p1">
+          {{ 'FUND_ACCOUNT_BALANCE.INTRETN_STRING' | translate }}
+        </div>
+        <div class="content_invest_li_p2_bold_tag"><p fundProfit [data]="item" [type]="'intretn'">{{ item.intretn }}</p></div>
+      </div>
+    </div>
+    <!-- <div class="flex_row content_invest_1_w2">
+    </div> -->
+  </div>
+</ng-container>

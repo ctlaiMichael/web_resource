@@ -1,0 +1,152 @@
+{
+    "FUNC": {
+        "HOME": {
+            "MAIN": "首頁",
+            "LEFT": "首頁",
+            "FOOTER": "首頁",
+            "RECOMMEND": "最新推薦"
+        },
+        "FINANCIAL": {
+            "FINANCIAL": "金融資訊",
+            "CURRENCY_RATE": "台幣利率",
+            "FOREIGN_CURRENCY_RATE": "外幣利率",
+            "FOREIGN_LOAN_CURRENCY_RATE": "外幣放款利率",
+            "OBU_CURRENCY_RATE": "OBU存款利率",
+            "LOAN_CALCULATOR": "貸款本息攤還試算",
+            "EXCHANGE_RATE": "匯率",
+            "EXCHANGE_RATE_HISTORY": "匯率走勢",
+            "CURRENCY_CONVERTER": "幣別換算",
+            "EXCHANGE_RATE_NOTICE": "匯率到價通知",
+            "EXCHANGE_RATE_NOTICE_SETTING": "匯率到價通知設定"
+        },
+        "DEPOSIT": {
+            "ACCOUNT": "帳戶查詢",
+            "ACCOUNT_OVERVIEW": "帳務總覽",
+            "STATEMENT": "帳戶交易明細查詢",
+            "INWARD_REMITTANCE": "國外匯入匯款查詢"
+        },
+        "TRANSFER": {
+            "FOOTER": "轉帳",
+            "TRANSFER": "轉帳交易",
+            "TRANSFER_TO_ACCOUNT": "台幣轉帳",
+            "BUY_SELL_FOREIGN_CURRENCY": "外幣兌換"
+        },
+        "COMPOSITE_ACCOUNT_SERVICES": {
+            "COMPOSITE_ACCOUNT_SERVICES": "綜存與定存",
+            "COMPOSITE_ACCOUNT_AGREE": "綜存開戶約定",
+            "TRANSFER_TO_TIME_DEPOSIT_NOW": "立即轉存定存",
+            "AUTO_TRANSFER_TO_TIME_DEPOSIT": "自動轉存約定",
+            "AUTO_TRANSFER_TO_TIME_DEPOSIT_DEL": "解除自動轉存約定",
+            "TIME_DEPOSITS_BASIC_DETAILS_INQUIRY": "定期存款基本資料",
+            "PRINCIPAL_INTEREST_DETAILS": "本金利息明細查詢",
+            "SCHEDULED_AUTOMATIC_ROLLOVER": "自動轉期約定",
+            "CLOSE_OMNIBUS_TIME_DEPOSITS": "綜存定存結清"
+        },
+        "WEALTH_INVEST": {
+            "FOOTER": "理財資訊",
+            "SUB_TITLE": {
+                "INQUIRIES": "投資理財查詢",
+                "TRANSACTIONS": "投資理財交易",
+                "OTHER": "其他服務"
+            },
+            "WEALTH_INVEST": "投資理財",
+            "OVERVIEW": "投資理財總覽",
+            "MY_INVESTMENT_SUMMARY": "我的投資",
+            "ASSET_ACCOUNT_INQUIRY": "投資現值查詢",
+            "REALIZED_GAINS_AND_LOSSES": "已實現損益查詢",
+            "TRANSACTIONS": "投資交易明細查詢",
+            "BUY_FUNDS": "基金/集合帳戶申購",
+            "REDEMPTION": "基金/集合帳戶贖回",
+            "CONVERT": "轉換",
+            "SWITCHING": "基金轉換",
+            "FIXED_NONFIXED_AMOUNT_INVESTMENTS": "定期定額查詢/修改",
+            "SMART_WEALTH_MANAGER": "理財妙管家查詢/修改",
+            "FUND_WEB": "基金情報",
+            "INVESTMENT_RISK_INFO": "投資風險警語",
+            "MY_INVESTMENT": "我的投資",
+            "FUND_MODIFY": "修改",
+            "SUSPEND_DEDUCTIONS": "扣款"
+
+        },
+        "LOANS": {
+            "LOANS": "貸款",
+            "BASIC_DETAILS_INQUIRY": "基本資料查詢",
+            "PRINCIPAL_INTEREST_DETAILS": "本金利息明細查詢",
+            "LOANS_APPLY": "我要申請信貸"
+        },
+        "CREDIT_CARDS": {
+            "SUB_TITLE": {
+                "PERSONAL": "信用卡帳務",
+                "BONUSES": "信用卡優惠",
+                "APPLY_SETTINGS": "申請與設定",
+                "HISTORY_BILL": "各期帳單查詢",
+                "HISTORY_BILL_UNPAID": "未出帳消費查詢"
+            },
+            "CREDIT_CARDS": "信用卡",
+            "OVERVIEW": "信用卡總覽",
+            "ACCOUNT_OVERVIEW": "信用卡現況查詢",
+            "TRANSACTIONS_NOT_YET_BILLED": "未出帳消費查詢",
+            "BILLS_AND_TRANSACTIONS": "各期帳單查詢",
+            "PAY_BILL": "繳信用卡款",
+            "BONUS_PURCHASE_HISTORY": "信用卡優惠",
+            "PROMOTIONAL_EVENTS": "行銷活動登錄",
+            "APPLY": "線上申請信用卡"
+        },
+        "RATES": {
+            "SUB_TITLE": {
+                "INTEREST": "利率",
+                "EXCHANGE": "匯率"
+            },
+            "RATES": "利匯率查詢",
+            "NTD_INTEREST_RATES": "台幣利率",
+            "FOREIGN_CURRENCY_INTEREST_RATES": "外幣利率",
+            "FOREIGN_CURRENCY_LENDING_RATES": "外幣放款利率",
+            "OBU_DEPOSIT_INTEREST_RATES": "OBU存款利率",
+            "LOAN_CALCULATOR": "貸款本息攤還試算",
+            "EXCHANGE_RATES": "匯率",
+            "TREND_GRAPH": "歷史匯率",
+            "CURRENCY_CONVERTER": "幣別換算",
+            "EXCHANGE_RATE_NOTICE": "匯率到價通知",
+            "EXCHANGE_RATE_NOTICE_SETTING": "匯率到價通知設定"
+        },
+        "ONLINE_SERVICE": {
+            "ONLINE_SERVICE": "線上服務",
+            "CUSTOMER_SERVICE": "線上客服",
+            "FIND_US": "服務據點查詢",
+            "OPENACCOUNT": "線上開立數位存款帳戶"
+        },
+        "MESSAGE_CENTER": "訊息通知",
+        "TIME_DEPOSIT": {
+            "TIME_DEPOSIT_MAIN": "定期存款"
+        },
+        "SETTING": {
+            "SUB_TITLE": {
+                "PERSONAL": "個人設定",
+                "LOGIN_TRANSACTIONS": "登入/交易設定",
+                "MESSAGE": "通知設定",
+                "SYSTEM": "系統設定"
+            },
+            "SETTING": "設定",
+            "ACCOUNT_SETTING": "常用帳號設定",
+            "FAST_LOGIN_TRANSACTIONS_SETTING": "快速登入/交易設定",
+            "MESSAGE_SETTING": "訊息通知設定",
+            "HOMEPAGEAGREE": "首次約定條款",
+            "LANGUAGE": "語言設定",
+            "ABOUT": "關於此系統"
+        },
+        "LINK": {
+            "LINK": "企業其他連結",
+            "ONLINEBANK": "網路銀行",
+            "APPOINTMENTTRANSACTION": "預約交易"
+        },
+        "CARD": {
+            "CARD": "信用卡"
+        },
+        "FUND": {
+            "FUND": "理財資訊"
+        },
+        "MORE": {
+            "MORE": "更多"
+        }
+    }
+}

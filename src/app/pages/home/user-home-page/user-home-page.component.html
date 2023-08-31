@@ -1,0 +1,29 @@
+<div class="container_home">
+    <section class="section_area section_hasbtn section_area_home">
+
+        <!-- 登入後首頁 - 台幣帳戶總覽卡片 -->
+        <app-home-deposit></app-home-deposit>
+        <!-- 登入後首頁 - 台幣帳戶總覽卡片 End-->
+
+        <div class="white_bk_container">
+
+            <!-- 登入後首頁 - 問候語 -->
+            <app-greetings [templateType]="'user-home'"></app-greetings>
+            <!-- 登入後首頁 - 問候語 End-->
+
+            <!-- 登入後首頁 - 信用卡卡片 -->
+            <app-home-cards [templateType]="'user-home'"></app-home-cards>
+            <!-- 登入後首頁 - 信用卡卡片 End-->
+
+            <!-- 登入後首頁 - 基金卡片 -->
+            <app-home-fund [templateType]="'user-home'"></app-home-fund>
+            <!-- 登入後首頁 - 基金卡片 End-->
+            <!-- 登入後首頁 - 匯率卡片 -->
+            <app-home-financial></app-home-financial>
+            <!-- 登入後首頁 - 匯率卡片 End-->
+            <!-- 廣告 START -->
+            <app-advert></app-advert>
+            <!-- 廣告 END -->
+        </div>
+    </section>
+</div>

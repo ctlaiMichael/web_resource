@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="150" height="150" viewBox="0 0 150 150">
+  <defs>
+    <clipPath id="clip-i_select_right">
+      <rect width="150" height="150"/>
+    </clipPath>
+  </defs>
+  <g id="i_select_right" clip-path="url(#clip-i_select_right)">
+    <g id="icon_i_select_right" data-name="icon/i_select_right">
+      <rect id="矩形_1" data-name="矩形 1" width="150" height="150" fill="#fff" opacity="0"/>
+      <path id="Path" d="M28.526,100.917V44.889a4.672,4.672,0,1,0-9.344,0v60.7a4.678,4.678,0,0,0,4.672,4.672h60.7a4.672,4.672,0,1,0,0-9.344Z" transform="translate(39.372 166.751) rotate(-135)" fill="#3e3e3e" stroke="#3e3e3e" stroke-width="1"/>
+    </g>
+  </g>
+</svg>

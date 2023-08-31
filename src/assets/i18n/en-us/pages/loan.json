@@ -1,0 +1,42 @@
+{
+    "LOAN": {
+        "LOAN_DETAIL": {
+            "LOAN_DETAIL_DETAILS": "Loan Detail Details",
+            "LOAN_DETAIL_INTEREST": "Loan Detail Interest"
+        },
+        "DEFAULT_LONG_RANGE": {
+            "toyear": "To Year",
+            "1Y": "1 Year Ago",
+            "2Y": "2 Year Ago",
+            "CUSTOM": "Custom"
+        },
+        "INTEREST": {
+            "STARTDATE": "Interest-Bearing Start Date",
+            "ENDDATE": "Interest-Bearing End Date",
+            "INTDAY": "Length Of Interest-bearing Period (In Days)"
+        },
+        "BASIC": {
+            "REPLAY_AMT": "The Amount Of The Repayment Period",
+            "AMOUNT": "Loan Balance",
+            "INT_RAT": "Lending Rate",
+            "INSTART_DATE": "Loan Commencement Date",
+            "XEND_DATE": "Loan Maturity Date",
+            "XINSTALI": "Repayment Amount Per Installment",
+            "ACCOUNTID": "Auto-Debit Account",
+            "PAYNAM": "Repayment Method",
+            "XPAY_ALW": "Repayment Grace Period",
+            "XINT_DAY": "Interest Payment Day",
+            "QUERY_BTN": "Principal Interest Detailed Breakdown",
+            "DAY": "Day",
+            "MONTH": "Month"
+        },
+        "MAIN": {
+            "DATE": "Date",
+            "PAY_AMOUNT": "Repayment Amount",
+            "LOAN_AMOUNT": "Loan Balance",
+            "REPLAY_DATE": "Interest Payment Day",
+            "PAY_LIAMOUNT": "Amount Of Interest Paid",
+            "RATE": "Interest Rate"
+        }
+    }
+}

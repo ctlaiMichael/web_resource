@@ -1,0 +1,40 @@
+<div class="popup_content_area zIndex_level_2">
+    <div class="popup_content_wrap">
+        <!-- 標題 & 關閉按鈕 Start -->
+        <div class="pop_group pop_title pop_title_1 flex_row">
+            <div class="simple_title">{{ title | translate }}</div>
+            <div class="i_close" (click)="onCancleEvent()"></div>
+        </div>
+        <!-- 標題 & 關閉按鈕 End -->
+
+        <!-- 注意資訊內容 Start -->
+        <div class="popup_inner_content">
+            <!-- 標題 Start -->
+            <div class="content_group content_11_2_title">
+                <div class="content_11_2_title_wrap flex_row">
+                    <div class="content_11_2_w1 content_11_2_txt">{{'POPUP.CURRENCY' | translate}}</div>
+                    <div class="content_11_2_w2 content_11_2_txt">{{'POPUP.BALANCE' | translate}}</div>
+                </div>
+            </div>
+            <!-- 標題 End -->
+        
+            <!-- 明細 Start -->
+            <ng-container *ngFor="let item of data">
+                <div class="content_group content_11_2_list flex_row">
+                    <div class="content_11_2_wrap flex_row">
+                        <div class="content_11_2_w1 flex_row">
+                            <div class="flag_content_11_2">
+                                <div class="national_flag {{ item.currencyCode | iconFlag }}"></div>
+                            </div>
+                            <div class="flag_content_11_2_txt">
+                                {{ item['currencyCode'] | currencyName: item['currencyName']}}</div>
+                        </div>
+                        <div class="content_11_2_w2 content_11_2_txt">{{ item | objectField: ['balanceTwd'] }}</div>
+                    </div>
+                </div>
+            </ng-container>
+            <!-- 明細 End -->
+        </div>
+        <!-- 注意資訊內容 End -->
+    </div>
+</div>

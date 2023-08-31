@@ -1,0 +1,89 @@
+{
+    "TIME_DEPOSIT": {
+        "TIME_DEPOSIT_MAIN": {
+            "TIME_DEPOSIT_BASIC": "Basic Details Inquiry",
+            "TIME_DEPOSIT_DETAIL": "Principal & Interest Details",
+            "NEWBLAMT": "Time Deposit Amount ",
+            "ENDDATE": "Maturity Date",
+            "NEWAPLAMT": "Time Deposit Balance",
+            "INTRAT": "Time Deposit Interest Rate",
+            "STARTDATE": "Starting Date",
+            "RATETYPE": "Interest Type",
+            "TRANACCT":"Designated Accounts",
+            "NEWCONACCT":"Signature Base On Account No.",
+            "NEWPERIOD":"Interest Payment Cycle",
+            "NEWCURAMT":"Every Deposit Installment",
+            "NEWAUTOTRN":"Automatic Rollover Agreement",
+            "MONTH": "M"
+        },
+        "TIME_DEPOSIT_MAIN_CURRENCY": {
+            "INTRAT": "存單利率",
+            "NEWBLAMT": "存單金額",
+            "RATETYPE": "存款期間",
+            "NEWAUTOTRN":"轉期約定",
+            "AUTOTRNTYPE":"轉期方式",
+            "TRANACCT":"利息轉入帳號"
+        },
+        "TIME_DEPOSIT_DETAIL": {
+            "ENDDATE": "Interest Payment End Date",
+            "TAX": "Income Tax",
+            "STAMPTAX": "Stamp Tax",
+            "MEMO": "Transaction Summary",
+            "NEWTRANS": "Transaction Type",
+            "ENDDATE_A": "計息期間",
+            "TAX_A": "所得稅(台幣)",
+            "Rate_A": "利率",
+            "INTFAMT": "原幣給付利息",
+            "INTNTD": "折合台幣給付利息",
+            "INTNETFCY": "扣稅後原幣利息",
+            "EXRATE": "匯率"
+        },
+        "TIME_DEPOSIT_CONTROL": {
+            "TRANSDATE": "Transaction Date",
+            "DEPOSIT_AMT": "Deposit (Interest Payment) Amount",
+            "PRINCIPAL": "Withdraw Principal",
+            "TRANSDATE_A": "付息日",
+            "PRINCIPAL_A": "定存本金"
+            
+        },
+        "BTN": {
+            "NEWAUTOTRN": "Automatic Rollover Agreement",
+            "SETTLE": "Time Deposit Settlement",
+            "TRIAL": "Pledgee Trial Calculation"
+        },
+        "AUTO_CARRY_OVER": {
+            "TIME_DEPOSIT_ACCOUNT": "定存帳號",
+            "TIME_DEPOSIT_AMOUNT": "定存金額",
+            "ROLLOVER_TIMES": "轉期次數",
+            "ROLLOVER_METHOD": "轉期方法",
+            "PRINCIPAL": "本金轉期",
+            "PRINCIPAL_INTEREST": "本金及利息",
+            "INTEREST_ACCOUNT": "利息轉入帳號",
+            "SELECT_TIME_DEPOSIT_ACC": "定存帳號選擇",
+            "SELECT_INTEREST_ACC": "利息轉入帳號選擇",
+            "PLEASE_SELECT": "請選擇",
+            "PLEASE_ENTER": "請輸入",
+            "ERROR_TURNCOUNT": "請輸入1~99",
+            "RATE_TYPE": "利率方式",
+            "FIXED": "固定",
+            "VARIABLE": "機動",
+            "TIME_DEPOSIT_INTEREST_RATE": "定存利率",
+            "PERIOD": "定存期間",
+            "MONTHS": "個月",
+            "TIMES": "次",
+            "START_DATE": "起息日",
+            "END_DATE": "到期日",
+            "PAY_CYCLE": "付息週期",
+            "MATURITY": "到期取息",
+            "MONTHLY": "每個月取息",
+            "FINAL_END_DATE": "轉期後最後到期日",
+            "DELETE": "解約",
+            "BTN": {
+                "CANCEL": "Cancel",
+                "NEXT_STEP": "Next",
+                "CONFIRM": "Confirm",
+                "DELETE": "Delete"
+            }
+        }
+    }
+}

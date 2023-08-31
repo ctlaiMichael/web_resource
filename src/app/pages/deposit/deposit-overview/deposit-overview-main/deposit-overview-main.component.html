@@ -1,0 +1,66 @@
+<ng-container *ngIf="assetsType == ''">
+    <!-- section -->
+    <section class="section_area section_hasbtn ">
+        <div class="content_group content_account_1">
+            <div class="content_account_1_bg" [ngClass]="{'account_overview_1': (!mainChart || !mainChart.status)}">
+                <ng-container *ngIf="!!mainChart && !!mainChart.status">
+                    <app-chart-doughnut [chartType]="'depositOverview'" [setData]="mainChart" [width]="350" [height]="250" (backPageEmit)="onChartBackEvent($event)"></app-chart-doughnut>
+                </ng-container>
+                <div class="account_pie_content_info">
+                    <!-- 資產總覽 -->
+                    <p>{{ 'DEPOSIT_OVERVIEW.TITLE.MAIN' | translate }}</p>
+                </div>
+            </div>
+
+            <div class="info_group flex_row info_acoount_view_1">
+                <div class="info_chart_dot_wrap flex_row_cc">
+                    <div class="list_dot_wrap">
+                        <div class="list_dot chart_color_1"></div>
+                    </div>
+                    <!-- 正資產 -->
+                    <p class="account_view_content">{{ mainData.positiveName | translate }}
+                        <span class="chart_font_1">{{ mainData.positivePercent }}</span>
+                    </p>
+                </div>
+                <div class="info_chart_dot_wrap flex_row_cc">
+                    <div class="list_dot_wrap">
+                        <div class="list_dot chart_color_2"></div>
+                    </div>
+                    <!-- 負資產 -->
+                    <p class="account_view_content">{{ mainData.negativeName | translate }}
+                        <span class="chart_font_2">{{ mainData.negativePercent }}</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <ng-container *ngIf="(!haveLoad || showData); else errorBox">
+            <div class="content_row content_row_account" *ngIf="showData && !!mainList">
+                <!-- 列表區塊 -->
+                <div class="card_list_group card_list_account_1" *ngFor="let list of mainList" (click)="onMore(list)">
+                    <div class="flex_row card_list_li">
+                        <div class="account_card_list_l" [innerHtml]=" (list.title | translate) | safeHtml"></div>
+                        <div class="account_card_list_r flex_row  {{list.classSet}}">
+                            <div class="account_list_r_txt">{{ list.ccyAbout | translate }}{{ list.totalBalance | currencyMoney: list.currency }}</div>
+                            <div class="select_i_right"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+        <ng-template #errorBox>
+            <app-error-box [errorMsg]="showErrorMsg"></app-error-box>
+        </ng-template>
+        <!-- Memo -->
+        <div class="row_single" *ngIf="noteInfo != ''">
+            <div class="memo_info memo_info_3" [innerHtml]="(noteInfo | translate) | safeHtml"></div>
+        </div>
+
+    </section>
+</ng-container>
+<ng-container *ngIf="assetsType != ''">
+    <app-deposit-overview-detail [showTitle]="assetsTitle" [assetsType]="assetsType" (backPageEmit)="onPageBackEvent($event)"
+        (errorPageEmit)="onPageBackEvent($event)"></app-deposit-overview-detail>
+</ng-container>

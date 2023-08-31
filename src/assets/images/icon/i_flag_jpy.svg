@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Flag/i_flag_jpn</title>
+    <defs>
+        <circle id="path-1" cx="24" cy="24" r="24"></circle>
+        <circle id="path-3" cx="24" cy="24" r="24"></circle>
+    </defs>
+    <g id="Flag/i_flag_jpn" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="Oval" fill="#FFFFFF" xlink:href="#path-1"></use>
+        <g id="Group-4" mask="url(#mask-2)">
+            <g transform="translate(-17.000000, 0.000000)">
+                <polygon id="Fill-1" fill="#FFFFFF" points="0 48 82.28352 48 82.28352 0.00096 0 0.00096"></polygon>
+                <path d="M41.143008,9.600192 C49.095648,9.600192 55.543008,16.048512 55.543008,24.000192 C55.543008,31.953792 49.095648,38.401152 41.143008,38.401152 C33.189408,38.401152 26.742048,31.953792 26.742048,24.000192 C26.742048,16.048512 33.189408,9.600192 41.143008,9.600192" id="Fill-2" fill="#EA2200"></path>
+            </g>
+        </g>
+        <mask id="mask-4" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+        <circle stroke="#E3E3E3" cx="24" cy="24" r="23.5"></circle>
+    </g>
+</svg>

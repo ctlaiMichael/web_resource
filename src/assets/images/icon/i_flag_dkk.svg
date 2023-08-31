@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Flag/dk</title>
+    <defs>
+        <circle id="path-1" cx="24" cy="24" r="24"></circle>
+    </defs>
+    <g id="Flag/dk" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="Oval" fill="#186CA3" xlink:href="#path-1"></use>
+        <g id="Group" mask="url(#mask-2)">
+            <g transform="translate(-17.000000, -0.000384)">
+                <polygon id="Fill-1" fill="#E50012" points="4.26325641e-13 48.000384 82.28352 48.000384 82.28352 0.000384 4.26325641e-13 0.000384"></polygon>
+                <polygon id="Fill-2" fill="#FFFFFF" points="31.000192 3.55271368e-15 31.000192 19.2 7.000192 19.2 7.000192 28.79808 31.000192 28.79808 31.000192 48 40.598272 48 40.598272 28.79808 89.283712 28.79808 89.283712 19.2 40.598272 19.2 40.598272 3.55271368e-15"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

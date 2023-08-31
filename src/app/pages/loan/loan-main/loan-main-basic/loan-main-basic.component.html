@@ -1,0 +1,97 @@
+<div class="container_credit">
+
+    <!-- 帳號 Start-->
+    <app-select-account [defaultAcct]="defaultAcct" [type]="'loan'" [setCloseBg]="'1'" (backPageEmit)="onAcctBackEvent($event)" (errorPageEmit)="onAcctErrorEvent($event)"></app-select-account>
+    <!-- 帳號 End-->
+    <ng-container [ngSwitch]="showData">
+        <ng-container *ngSwitchCase="'basic'">
+            <section class="section_area section_select1 section_hasbtn section_loan_overview">
+
+                <div class="content_group content_19 flex_col">
+                    <div class="content_19_w">
+                        <div class="content_19_li content_19_title">
+                            <p class="content_p1">{{ 'LOAN.BASIC.REPLAY_AMT' | translate }}</p> 
+                            <p class="content_p2">{{ basicData | objectField: ['replayAmt', 'currencyMoney' , 'TWD'] }}</p> <!-- 舊api無此欄位 追加 -->
+                        </div>
+                    </div>
+                </div>
+                <div class="content_row row_shadow_up mar_btm15">
+                    <div class="card_list_group card_list_1">
+                        <div class="flex_row card_list_li">
+                            <p>{{ 'LOAN.BASIC.AMOUNT' | translate }}</p>
+                            <p>{{ basicData | objectField: ['amount', 'currencyMoney' , 'TWD'] }}</p>
+                        </div>
+                    </div>
+
+                    <div class="card_list_group card_list_1">
+                        <div class="flex_row card_list_li">
+                            <p>{{ 'LOAN.BASIC.INT_RAT' | translate }}</p>
+                            <p>{{ basicData | objectField: ['intRat'] }}%</p>
+                        </div>
+                    </div>
+
+                    <div class="card_list_group card_list_1">
+                        <div class="flex_row card_list_li">
+                            <p>{{ 'LOAN.BASIC.INSTART_DATE' | translate }}</p>
+                            <p>{{ basicData | objectField: ['lnStartDate', 'htDate' ,'yyyy-MM-dd'] }}</p>
+                        </div>
+                    </div>
+
+                    <div class="card_list_group card_list_1">
+                        <div class="flex_row card_list_li">
+                            <p>{{ 'LOAN.BASIC.XEND_DATE' | translate }}</p>
+                            <p>{{ basicData | objectField: ['xEndDate', 'htDate' ,'yyyy-MM-dd'] }}</p>
+                        </div>
+                    </div>
+
+                    <div class="card_list_group card_list_1">
+                        <div class="flex_row card_list_li">
+                            <p>{{ 'LOAN.BASIC.XINSTALI' | translate }}</p>
+                            <p>{{ basicData | objectField: ['xInstali', 'currencyMoney' , 'TWD'] }}</p>
+                        </div>
+                    </div>
+
+                    <div class="card_list_group card_list_1">
+                        <div class="flex_row card_list_li">
+                            <p>{{ 'LOAN.BASIC.ACCOUNTID' | translate }}</p>
+                            <p>{{ autoPayAccount | objectField: ['accountId'] }}</p>
+                        </div>
+                    </div>
+
+                    <div class="card_list_group card_list_1">
+                        <div class="flex_row card_list_li">
+                            <p>{{ 'LOAN.BASIC.PAYNAM' | translate }}</p>
+                            <p>{{ basicData | objectField: ['payNam'] }}</p>
+                        </div>
+                    </div>
+
+                    <div class="card_list_group card_list_1">
+                        <div class="flex_row card_list_li">
+                            <p>{{ 'LOAN.BASIC.XPAY_ALW' | translate }}</p>
+                            <p>{{ basicData | fieldCheck: ['xPayAlw'] }}{{ 'LOAN.BASIC.MONTH' | translate }}</p>
+                        </div>
+                    </div>
+
+                    <div class="card_list_group card_list_1">
+                        <div class="flex_row card_list_li">
+                            <p>{{ 'LOAN.BASIC.XINT_DAY' | translate }}</p>
+                            <p>{{ basicData | objectField: ['xIntDay'] }}{{ 'LOAN.BASIC.DAY' | translate }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row_single">
+                    <div class="content_btn_group flex_row content_btn1_2" (click)="onGoDetail()">
+                        <button class="content_btn btn_w50">{{ 'LOAN.BASIC.QUERY_BTN' | translate }}</button>
+                    </div>
+                </div>
+            </section>
+        </ng-container>
+
+        <!-- 顯示錯誤白箱 START -->
+        <ng-container *ngSwitchCase="'errorBox'">
+            <app-error-box [errorMsg]="errorMsg"></app-error-box>
+        </ng-container>
+        <!-- 顯示錯誤白箱 END -->
+    </ng-container>
+</div>

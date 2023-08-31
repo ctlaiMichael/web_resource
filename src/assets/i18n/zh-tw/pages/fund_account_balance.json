@@ -1,0 +1,21 @@
+{
+    "FUND_ACCOUNT_BALANCE": {
+        "LICENNO1": "憑證號碼",
+        "OSAMT": "信託餘額",
+        "NOWPRICE": "參考現值",
+        "NOPROC": "未實現損益",
+        "TOTALBAOCHOU": "參考報酬率",
+        "INTRETN_STRING": "含息參考報酬率",
+        "DATE": "投資日期",
+        "FUNDTYPE": "投資性質",
+        "ACCTPRICE": "參考報價",
+        "PRICEDATE": "報價日期",
+        "totalTotosamt": "信託餘額",
+        "totalTotprice": "參考現值",
+        "totalBaochou": "參考報酬率",
+        "APDINT": "累積配息金額",
+        "REMARK1": "備註",
+        "redemption": "贖回",
+        "Conversion": "轉換"
+    }
+}

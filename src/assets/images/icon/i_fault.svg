@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>i_fault</title>
+    <defs>
+        <circle id="path-1" cx="24" cy="24" r="24"></circle>
+        <linearGradient x1="8.59266493%" y1="0%" x2="100%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#E7373C" offset="0%"></stop>
+            <stop stop-color="#D15B9C" offset="36.0800253%"></stop>
+            <stop stop-color="#E95504" offset="69.9403505%"></stop>
+            <stop stop-color="#F9BE00" offset="100%"></stop>
+        </linearGradient>
+        <filter id="filter-4">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="i_fault">
+            <g id="bg">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use fill="#B82B22" xlink:href="#path-1"></use>
+                <g id="Group" mask="url(#mask-2)" fill="url(#linearGradient-3)">
+                    <g id="Color/Gradient/Primary">
+                        <rect id="bg" x="0" y="0" width="48" height="48"></rect>
+                    </g>
+                </g>
+            </g>
+            <g filter="url(#filter-4)" id="color">
+                <g transform="translate(12.000000, 12.000000)" id="Icons/check-bold" fill="#222222">
+                    <path d="M13.413875,11.999875 L20.706875,4.706875 C21.097375,4.316375 21.097375,3.683375 20.706875,3.292875 C20.316375,2.902375 19.683375,2.902375 19.292875,3.292875 L11.999875,10.585875 L4.706875,3.292875 C4.316375,2.902375 3.683375,2.902375 3.292875,3.292875 C2.902375,3.683375 2.902375,4.316375 3.292875,4.706875 L10.585875,11.999875 L3.292875,19.292875 C2.902375,19.683375 2.902375,20.316375 3.292875,20.706875 C3.487875,20.902375 3.743875,20.999875 3.999875,20.999875 C4.255875,20.999875 4.511375,20.902375 4.706875,20.706875 L11.999875,13.413875 L19.292875,20.706875 C19.487875,20.902375 19.743875,20.999875 19.999875,20.999875 C20.255875,20.999875 20.511375,20.902375 20.706875,20.706875 C21.097375,20.316375 21.097375,19.683375 20.706875,19.292875 L13.413875,11.999875 Z" id="Fill-1"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

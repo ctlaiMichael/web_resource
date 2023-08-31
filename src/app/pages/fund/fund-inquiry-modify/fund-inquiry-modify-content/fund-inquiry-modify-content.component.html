@@ -1,0 +1,80 @@
+    <ng-container [ngSwitch]="nowPage">
+        <!-- 查詢內容頁 START -->
+        <ng-container *ngSwitchCase="'content'">
+            <section class="section_area section_hasbtn">
+                <div class="content_group content_invest_2 bg_d4 ">
+                    <div class="content_invest_2_w1">
+                        <div class="content_title">{{setData.fundCode}} {{setData.fundName}}</div>
+                        <div class="content_txt">
+                            {{ 'FUND-INQUIRY-MODIFY.LICENSE' | translate }}：{{ setData | fieldCheck: ['license',{zero_type:false, empty_str:'--'}]}}
+                        </div>
+                        <div class="content_txt">
+                            {{ 'FUND-INQUIRY-MODIFY.APPLYDATE' | translate }}：{{ (setData | fieldCheck: ['applyDate',{zero_type:false, empty_str:'--'}])| htDate:'yyyy-MM-dd'}}
+                        </div>
+                        <div class="content_txt2">
+                            {{ 'FUND-INQUIRY-MODIFY.TYPE' | translate }}：{{ setData | fieldCheck: ['type',{zero_type:false, empty_str:'--'}]}}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card_list_group card_list_1">
+                    <div class="flex_row card_list_li">
+                        <p>{{ 'FUND-INQUIRY-MODIFY.STATUS2' | translate }}</p>
+                        <p>{{ setData | fieldCheck: ['status',{zero_type:false, empty_str:'--'}]}}</p>
+                    </div>
+                </div>
+
+                <div class="card_list_group card_list_1">
+                    <div class="flex_row card_list_li">
+                        <p>{{ 'FUND-INQUIRY-MODIFY.AMT' | translate }}</p>
+                        <p>{{setData.engCcy}}
+                            {{ (setData | fieldCheck: ['amt',{zero_type:false, empty_str:'--'}])| htMoney:setData.engCcy}}
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card_list_group card_list_1">
+                    <div class="flex_row card_list_li"> <!-- chgDate處理前之欄位 -->
+                        <p>{{ 'FUND-INQUIRY-MODIFY.CHGDATE' | translate }}</p>
+                        <p>{{ setData | fieldCheck: ['formateDate',{zero_type:false, empty_str:'--'}]}}</p>
+                    </div>
+                </div>
+
+                <div class="card_list_group card_list_1">
+                    <div class="flex_row card_list_li">
+                        <p>{{ 'FUND-INQUIRY-MODIFY.ACTNO' | translate }}</p>
+                        <p>{{ setData | fieldCheck: ['accountID',{zero_type:false, empty_str:'--'}]}}</p>
+                    </div>
+                </div>
+
+                <div class="card_list_group card_list_1">
+                    <div class="flex_row card_list_li">
+                        <p>{{ 'FUND-INQUIRY-MODIFY.MEMO' | translate }}</p>
+                        <p>{{ setData | fieldCheck: ['memo',{zero_type:false, empty_str:'--'}]}}</p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="btn_group flex_row" bottomBtn>
+                <button class="btn_l btn_secondary btn_w50"
+                    (click)="onChangeStatus()">{{ 'FUND-INQUIRY-MODIFY.CHANGE_PAYSTATUS' | translate }}</button>
+                <button class="btn_r btn_primary btn_w50"
+                    (click)="onModify()">{{ 'FUND-INQUIRY-MODIFY.MODIFY' | translate }}</button>
+            </div>
+        </ng-container>
+        <!-- 查詢內容頁 END -->
+
+        <!-- 暫停,恢復扣款 START -->
+        <ng-container *ngSwitchCase="'changeStatus'">
+            <app-fund-inquiry-change-status [setData]="setData" (backPageEmit)="onPageBackEvent($event)"
+                (errorPageEmit)="onErrorPageData($event)"></app-fund-inquiry-change-status>
+        </ng-container>
+        <!-- 暫停,恢復扣款 END -->
+
+        <!-- 修改帳號,金額,日期 START -->
+        <ng-container *ngSwitchCase="'changeEdit'">
+            <app-fund-inquiry-change-edit [setData]="setData" (backPageEmit)="onPageBackEvent($event)"
+                (errorPageEmit)="onErrorPageData($event)"></app-fund-inquiry-change-edit>
+        </ng-container>
+        <!-- 修改帳號,金額,日期 END -->
+    </ng-container>

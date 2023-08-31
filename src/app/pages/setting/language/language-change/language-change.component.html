@@ -1,0 +1,10 @@
+<section class="section_area">
+    <div class="content_group content_3 flex_row" *ngFor="let item of data;" (click)="onChangeLanguage(item)">
+        <div class="flex_row content_3_wrap">
+            <div class="content_3_txt">{{ item.name }}</div>
+            <div class="i_check_wrap flex_row" [ngClass]="{'active_i_check': (nowLang == item.id)}">
+                <div class="i_check"></div>
+            </div>
+        </div>
+    </div>
+</section>

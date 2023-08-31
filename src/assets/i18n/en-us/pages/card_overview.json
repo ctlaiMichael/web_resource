@@ -1,0 +1,20 @@
+{
+    "CARD_OVERVIEW": {
+        "MAIN": {
+            "SCSB": "SCSB",
+            "NOWRANGE": "Currently Available Credit",
+            "UNPAID": "Transactions Not Yet Billed",
+            "DETAIL": "Detail",
+            "CARD_PROFILE": "Credit Card Status Enquiry",
+            "CARD_PAY": "Payment Card Fees",
+            "CARD_APPLY": "Apply",
+            "HAVETOPAID": "{{monthStr}}M <span>|Total Amount Payable</span>",
+            "MINPAY": "Min. Amount Due",
+            "DUEDATE": "Payment Due Date",
+            "HISTORY_BILL": "Bills And Transactions",
+            "BONUS_COUNT": "Bonus Points",
+            "ALL_COUNT": "All Bonus Points",
+            "COUNT": "Bonus"
+        }
+    }
+}

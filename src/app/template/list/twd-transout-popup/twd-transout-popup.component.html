@@ -1,0 +1,44 @@
+<div class="popup_content_area zIndex_level_6">
+    <div class="popup_content_wrap">
+
+        <div class="pop_group pop_title pop_title_1 flex_row">
+            <div class="simple_title">{{title | translate}}</div>
+            <div class="i_close" (click)="cancelClick()"></div>
+        </div>
+        <ng-container [ngSwitch]="nowPage">
+            <ng-container *ngSwitchCase="'acctPage'">
+                <div class="popup_inner_content">
+                    <ng-container *ngFor="let item of data">
+                        <div class="content_group content_4 flex_row" (click)="chooseOver(item)">
+                            <div class="flex_row content_4_wrap">
+                                <div class="content_4_txt_wrap">
+                                    <div class="content_4_txt_1">{{ item | objectField: ['accountId', 'accountFormate'] }}
+                                        <ng-container *ngIf="!!item.nickName">
+                                            &nbsp;{{ item | objectField: ['nickName'] }}
+                                        </ng-container>
+                                    </div>
+                                    <!-- <ng-container *ngIf="!!item.nickName">
+                                <div class="content_4_txt_2">{{ item | objectField: ['nickName'] }}</div>
+                            </ng-container> -->
+                                    <div class="content_4_txt_2">
+                                        {{ item | objectField: ['avlAmount', 'currencyMoney' , 'TWD'] }}</div>
+                                </div>
+                                <div class="i_check_wrap flex_row"
+                                    [ngClass]="{ 'active_i_check':(checkSelect(item)) }">
+                                    <div class="i_check"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+            </ng-container>
+            <!-- 顯示錯誤白箱 START -->
+            <ng-container *ngSwitchCase="'errorBox'">
+                <section class="section_area section_hasbtn">
+                    <app-error-box [errorMsg]="errorBoxMsg"></app-error-box>
+                </section>
+            </ng-container>
+            <!-- 顯示錯誤白箱 END -->
+        </ng-container>
+    </div>
+</div>

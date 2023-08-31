@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Flag/i_flag_swi</title>
+    <defs>
+        <circle id="path-1" cx="24" cy="24" r="24"></circle>
+    </defs>
+    <g id="Flag/i_flag_swi" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="Oval" fill="#CF332A" xlink:href="#path-1"></use>
+        <polygon id="Fill-2" fill="#FFFFFF" mask="url(#mask-2)" points="9.142048 19.499712 19.641568 19.499712 19.641568 8.998272 28.642528 8.998272 28.642528 19.499712 39.141088 19.499712 39.141088 28.499712 28.642528 28.499712 28.642528 39.000192 19.641568 39.000192 19.641568 28.499712 9.142048 28.499712"></polygon>
+    </g>
+</svg>

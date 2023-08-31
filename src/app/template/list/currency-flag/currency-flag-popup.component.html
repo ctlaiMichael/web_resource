@@ -1,0 +1,59 @@
+<div class="popup_content_area zIndex_level_6">
+    <div class="popup_content_wrap">
+        <!-- 標題 & 關閉按鈕 Start -->
+        <div class="pop_group pop_title pop_title_1 flex_row">
+            <div class="simple_title">{{ title | translate }}</div>
+            <div class="i_close" (click)="cancleClick()"></div>
+        </div>
+        <!-- 標題 & 關閉按鈕 End -->
+
+        <ng-container *ngIf="data.length > 0;">
+            <!-- 幣別選單列表 Start -->
+        <ng-container *ngIf="type == 'normal';">
+            <div class="popup_inner_content">
+                <div class="content_group content_11 flex_row" (click)="chooseOver(item)" *ngFor="let item of data">
+                    <div class="flex_row content_11_wrap">
+                        <div class="flex_row content_11_txt_wrap">
+                            <div class="national_flag_content_11_wrap">
+                                <div class="national_flag {{ item.currencyCode | iconFlag }}"></div>
+                            </div>
+                            <div class="content_11_txt">{{ item['currencyCodeShow'] | currencyName: item['currencyNameShow']}}</div>
+                        </div>
+                        <div class="i_check_wrap flex_row"
+                            [ngClass]="{'active_i_check': (selectCurrency == item.currencyCode)}">
+                            <div class="i_check"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="type == 'foreignTrans';">
+            <div class="popup_inner_content">
+                <ng-container *ngFor="let item of data">
+                    <div class="content_group content_11 flex_row" (click)="chooseOver(item)" *ngIf="item['currencyCode'] != 'TWD';">
+                        <div class="flex_row content_11_wrap">
+                            <div class="flex_row content_11_txt_wrap">
+                                <div class="national_flag_content_11_wrap">
+                                    <div class="national_flag {{ item.currencyCode | iconFlag }}"></div>
+                                </div>
+                                <div class="content_11_txt">{{ item['currencyCodeShow'] | currencyName: item['currencyNameShow']}}</div>
+                            </div>
+                            <div class="i_check_wrap flex_row" [ngClass]="{'active_i_check': (selectCurrency == item.currencyCode)}">
+                                <div class="i_check"></div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </ng-container>
+            <!-- 幣別選單列表 End -->
+        </ng-container>
+
+        <ng-container *ngIf="data.length < 1;">
+            <!-- 顯示錯誤白箱 START -->
+            <app-error-box [errorMsg]="'ERROR.EMPTY'"></app-error-box>
+            <!-- 顯示錯誤白箱 END -->
+        </ng-container>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+{
+    "LOGIN": {
+        "BTN": {
+            "LOGIN": "登入",
+            "FAST_LOGIN": "快速登入"
+        },
+        "CUSTOMER_ID": "身分證字號/統一編號",
+        "USER_ID": "使用者代號",
+        "USER_ID_HINT": "使用者代號[6-12位]",
+        "LOGIN_PSWD": "登入密碼",
+        "LOGIN_PSWD_HINT": "登入密碼[8-12位]",
+        "REMEMBER_MY_ID": "記住我的身分證字號/統一編號",
+        "ERROR": "必填欄位，請輸入",
+        "LOGIN_MSG": "使用者代號請留意英文字母大小寫。",
+        "LOGIN_MSG_PA": "登入密碼請留意英文字母大小寫，並定期更換您的密碼。"
+    }
+}

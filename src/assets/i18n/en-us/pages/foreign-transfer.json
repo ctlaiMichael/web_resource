@@ -1,0 +1,50 @@
+{
+    "FOREIGN_TRANSFER": {
+        "BUY_FOREIGN_CURRENCY": "BUY",
+        "SELL_FOREIGN_CURRENCY": "SELL",
+        "TRANSFER_OUT_ACCOUNT": "Transfer Out Account",
+        "TRANSFER_IN_ACCOUNT": "Transfer In Account",
+        "TRANSFER_AMOUNT": "Amount",
+        "CURRENCY": "Currency",
+        "ERROR": "Invalid",
+        "EMPTY_AMOUNT": "Enter Amount",
+        "ERROR_AMOUNT": "Invalid Amount(1,000 <= NT$ < 500,000)",
+        "OVER_BALANCE": "Must be less than account balance",
+        "EMPTY_CERRENCY": "Select Currency",
+        "EXCHANGE_RATE_TABLE": "Exchange Rate Table",
+        "TRANSFER_TYPE": "Transfer Type",
+        "BALANCE": "Balance",
+        "REFERENCE_EXCHANGE_RATE": "Reference Rate",
+        "EXCHANGE_RATE": "Exchange Rate",
+        "EXPIRED_SECOND_EDIT": "Expired in",
+        "EXPIRED_SECOND_EDIT2": "Sec.",
+        "EXPIRED_SECOND_CHECK": "Expired in",
+        "EXPIRED_SECOND_CHECK2": "Sec.",
+        "PLEASE_SELECT": "Please Select",
+        "EXTRA_AMOUNT": "Extra Amount",
+        "SELECT_TRANS_OUT_ACC": "Select Account",
+        "SELECT_TRANS_IN_ACC": "Select Account",
+        "SELECT_TRANS_TYPE": "Select",
+        "TRANS_SUCCESS": "Success",
+        "TRANS_ALERT": "Notes: banking hours passed, this pen will be the next business day trading.",
+        "DO_ANOTHER_ONE": "Do Another One",
+        "ACC_AMOUNT": "Account Balance",
+        "ACC_AVL_AMOUNT": "Available Balance",
+        "ACC_BALANCE": "Account Balance",
+        "REGET_EXCHANGE_RATE": "Exchange rate has expired, whether to re-acquire the new exchange rate, or leave the currency exchange function.",
+        "CONFIRM_CONTENT": "Handover function obtains a new exchange rate, confirming whether to give up the current exchange rate?",
+        "BACK_TO_EDIT": "Exchange rate has expired, whether to return the edit page, or leave the currency exchange function.",
+        "BTN": {
+            "CONFIRM": "Confirm",
+            "CANCEL": "Cancel",
+            "NEXT_STEP": "Next",
+            "REGET": "Reget",
+            "LEAVE": "Leave"
+        },
+        "ERR": {
+            "INVALID_AMOUNT": "Invalid Amount",
+            "INVALID_AMOUNT_TWD": "Invalid Amount"
+        },
+        "WARNING": "提醒您!!如果當日您在本行或其他網路平台或分行櫃檯，結匯金額累計得等值新臺幣50萬元時，本行將以買、賣匯水單媒體資料報送中央銀行，並以該媒體資料視同申報義務人向中央銀行申報。"
+    }
+}

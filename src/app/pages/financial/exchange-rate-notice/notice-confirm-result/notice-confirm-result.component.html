@@ -1,0 +1,163 @@
+<!-- 確認頁 Start -->
+<ng-container *ngIf="!showResultPage">
+    <section class="section_area section_hasbtn">
+        <!-- 步驟列 Start -->
+        <app-step-bar [setData]="stepMenuData" [setKey]="nowStep"></app-step-bar>
+        <!-- 步驟列 End -->
+
+        <!-- 確認資料明細 Start -->
+        <div class="confirm_group confirm_list_bg">
+            <div class="card_inner_list_group card_inner_list_foreign inner_list_bk_yellow">
+                <div class="list_foreign_txt">
+                    {{'FINANCIAL.SELL_CURRENCY' | translate}}/{{'FINANCIAL.BUY_CURRENCY' | translate}}</div>
+                <div class="flex_row list_foreign_li">
+                    <div class="list_foreign_li_width">
+                        <div class="flex_row list_foreign_li_bg pad_btm0">
+                            <div class="national_flag_wrap">
+                                <div class="national_flag {{inputData.sellCurrencyObj['currencyCode'] | iconFlag}}">
+                                </div>
+                            </div>
+                            <div class="list_currency_txt_wrap">
+                                <div class="list_currency_txt">
+                                    {{inputData.sellCurrencyObj['currencyCodeShow'] | currencyName: inputData.sellCurrencyObj['currencyNameShow']}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="i_foreign_trade"></div>
+                    <div class="list_foreign_li_width">
+                        <div class="flex_row list_foreign_li_bg pad_btm0">
+                            <div class="national_flag_wrap">
+                                <div class="national_flag {{inputData.buyCurrencyObj['currencyCode'] | iconFlag}}">
+                                </div>
+                            </div>
+                            <div class="list_currency_txt_wrap">
+                                <div class="list_currency_txt">
+                                    {{inputData.buyCurrencyObj['currencyCodeShow'] | currencyName: inputData.buyCurrencyObj['currencyNameShow']}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card_inner_list_group">
+                <div class="flex_row card_inner_list_li">
+                    <p>{{'FINANCIAL.TARGET_EXCHANGE_RATE' | translate}}</p>
+                    <p>{{inputData.expectedRate}}</p>
+                </div>
+            </div>
+
+            <div class="card_inner_list_group">
+                <div class="flex_row card_inner_list_li">
+                    <p>{{'FINANCIAL.START_DATE' | translate}}</p>
+                    <p>{{inputData.startDate}}</p>
+                </div>
+            </div>
+
+            <div class="card_inner_list_group">
+                <div class="flex_row card_inner_list_li">
+                    <p>{{'FINANCIAL.END_DATE' | translate}}</p>
+                    <p>{{inputData.endDate}}</p>
+                </div>
+            </div>
+        </div>
+        <!-- 確認資料明細 End -->
+    </section>
+
+    <!-- 取消 & 確認 按鈕 Start -->
+    <div class="btn_group flex_row" bottomBtn>
+        <button class="btn_l btn_secondary btn_w25" (click)="onCancelBtnClick()">{{'FINANCIAL.BTN.CANCEL' | translate}}</button>
+        <button class="btn_r btn_primary btn_w70" (click)="onConfirmBtnClick()">{{(inputData.action == 'delete'?'FINANCIAL.BTN.DELETE':'FINANCIAL.BTN.CONFIRM') | translate}}</button>
+    </div>
+    <!-- 取消 & 確認 按鈕 End -->
+</ng-container>
+<!-- 確認頁 End -->
+
+<!-- 結果頁 Start -->
+<ng-container *ngIf="showResultPage">
+    <section class="section_area">
+        <div class="result_list_bg result_group">
+            <!-- 標題 Start -->
+            <app-result-status-temp [setData]="statusObj"></app-result-status-temp>
+            <!-- 標題 End -->
+
+            <ng-container *ngIf="resStatus;">
+                <!-- 結果資料明細 Start -->
+                <div class="card_inner_list_group card_inner_list_foreign inner_list_bk_yellow">
+                    <div class="list_foreign_txt">
+                        {{'FINANCIAL.SELL_CURRENCY' | translate}}/{{'FINANCIAL.BUY_CURRENCY' | translate}}</div>
+                    <div class="flex_row list_foreign_li">
+                        <div class="list_foreign_li_width">
+                            <div class="flex_row list_foreign_li_bg pad_btm0">
+                                <div class="national_flag_wrap">
+                                    <div class="national_flag {{resData.transOutCurrency['currencyCode'] | iconFlag}}"></div>
+                                </div>
+                                <div class="list_currency_txt_wrap">
+                                    <div class="list_currency_txt">
+                                        {{resData.transOutCurrency['currencyCodeShow'] | currencyName: resData.transOutCurrency['currencyNameShow']}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="i_foreign_trade"></div>
+                        <div class="list_foreign_li_width">
+                            <div class="flex_row list_foreign_li_bg pad_btm0">
+                                <div class="national_flag_wrap">
+                                    <div class="national_flag {{resData.transInCurrency['currencyCode'] | iconFlag}}"></div>
+                                </div>
+                                <div class="list_currency_txt_wrap">
+                                    <div class="list_currency_txt">
+                                        {{resData.transInCurrency['currencyCodeShow'] | currencyName: resData.transInCurrency['currencyNameShow']}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card_inner_list_group">
+                    <div class="flex_row card_inner_list_li">
+                        <p>{{'FINANCIAL.TARGET_EXCHANGE_RATE' | translate}}</p>
+                        <p>{{resData.expectedRate}}</p>
+                    </div>
+                </div>
+
+                <div class="card_inner_list_group">
+                    <div class="flex_row card_inner_list_li">
+                        <p>{{'FINANCIAL.START_DATE' | translate}}</p>
+                        <p>{{resData.startDate}}</p>
+                    </div>
+                </div>
+
+                <div class="card_inner_list_group">
+                    <div class="flex_row card_inner_list_li">
+                        <p>{{'FINANCIAL.END_DATE' | translate}}</p>
+                        <p>{{resData.endDate}}</p>
+                    </div>
+                </div>
+                <!-- 結果資料明細 End -->
+            </ng-container>
+        </div>
+
+
+        <!-- 結果頁(交易成功) Start -->
+        <ng-container *ngIf="resStatus">
+            <!-- 再做一筆按鈕 Start -->
+            <div class="result_function_group">
+                <div class="result_function_wrap">
+                    <div class="result_btn_group flex_row">
+                        <div class="result_btn" (click)="onAgainBtnClick()">
+                            <div class="i_transfer"></div>
+                            <p>{{'FOREIGN_TRANSFER.DO_ANOTHER_ONE' | translate}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 再做一筆按鈕 End -->
+        </ng-container>
+        <!-- 結果頁(交易成功) End -->
+
+    </section>
+</ng-container>
+<!-- 結果頁 End -->

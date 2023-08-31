@@ -1,0 +1,58 @@
+<section class="section_area section_hasbtn">
+  <!-- content_invest_2(三行) -->
+  <div class="content_group content_invest_2 bg_d4">
+    <div class="content_invest_2_w1">
+      <div class="content_title">{{setData.fund}} {{setData.fundName}}</div>
+      <div class="content_txt">{{'FUND_PROFIT_LOSS.TRUSTNO' | translate }}：{{ setData | fieldCheck: ['trustNo',{zero_type:false, empty_str:'--'}]}}</div>
+      <div class="content_txt">{{'FUND_PROFIT_LOSS.BUYDATE' | translate }}：{{ (setData | fieldCheck: ['buyDate',{zero_type:false, empty_str:'--'}])| htDate:'yyyy-MM-dd'}}</div>
+      <div class="content_txt2">{{'FUND_PROFIT_LOSS.APPLYDATE' | translate }}：{{ (setData | fieldCheck: ['applyDate',{zero_type:false, empty_str:'--'}])| htDate:'yyyy-MM-dd'}}</div>
+    </div>    
+  </div>
+  <!-- content_invest_2(三行) //End-->
+
+   <!-- card_list_1 -->
+   <div class="card_list_group card_list_1">
+    <div class="flex_row card_list_li">
+      <p>{{'FUND_PROFIT_LOSS.TOTAMT' | translate }}</p>
+      <p>{{ setData | objectField: ['totAmt', 'currencyMoney' , setData.totCcy] }}</p>
+    </div>
+  </div>
+  <!-- card_list_1 End -->
+
+  <!-- card_list_1 -->
+  <div class="card_list_group card_list_1">
+    <div class="flex_row card_list_li">
+      <p>{{ 'FUND_PROFIT_LOSS.ACCTAMT' | translate }}</p>
+      <p>{{ setData | objectField: ['acctAmt','currencyMoney' , setData.acctCcy]}}</p>
+    </div>
+  </div>
+  <!-- card_list_1 End -->
+
+  <!-- card_list_1 -->
+  <div class="card_list_group card_list_1">
+    <div class="flex_row card_list_li">
+      <p>{{ 'FUND_PROFIT_LOSS.REMUMRATE2' | translate }}</p>
+      <p fundProfit [data]="setData" [type]="'remumRate'"></p>
+    </div>
+  </div>
+  <!-- card_list_1 End -->
+
+  <!-- card_list_1 -->
+  <div class="card_list_group card_list_1">
+    <div class="flex_row card_list_li">
+      <p>{{ 'FUND_PROFIT_LOSS.ADDINT' | translate }}</p>
+      <p>{{ setData | objectField: ['addInt','currencyMoney' , setData.totCcy] }}</p>
+    </div>
+  </div>
+  <!-- card_list_1 End -->
+  
+  <!-- card_list_3 -->
+  <div class="card_list_group card_list_3">
+    <div class="flex_row card_list_li">
+      <p>{{ 'FUND_PROFIT_LOSS.MEMO' | translate }}</p>
+      <p>{{ setData | objectField: ['memo']}}</p>
+    </div>
+  </div>
+  <!-- card_list_3 End -->
+
+</section>

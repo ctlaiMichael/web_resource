@@ -1,0 +1,150 @@
+<ng-container [ngSwitch]="nowPage">
+    <!-- 已綁定裝置清單 頁面 Start -->
+    <ng-container *ngSwitchCase="'device-list'">
+        <section class="section_area">
+            <!-- 此裝置 標題 Start -->
+            <div class="sub_title_group sub_title_list6">
+                {{'SETTING.FAST_SETTING.SUB_TITLE4' | translate}}
+            </div>
+            <!-- 此裝置 標題 End -->
+
+            <!-- 加入「active_edit」後可顯示「刪除按鈕 i_delete及編輯按鈕 i_edit」 -->
+            <!-- 此裝置 Start -->
+            <ng-container *ngFor="let item of deviceData">
+                <div class="content_group content_28 flex_row mar_btm15" *ngIf="item['uuid'] == device_uuid;">
+                    <div class="content_28_wrap flex_row">
+                        <div class="info_tag tag_outline flex_row tag_content_28 {{(item['checkPlatform'] == 'IOS' ? 'tag_color_1' : 'tag_color_2')}}">{{item.platform}}</div>
+                        <div class="content_28_txt">{{item.deviceName}}</div>
+                    </div>
+                    <div class="i_delete" [ngClass]="{'active_edit': (isEditing)}" (click)="onDeleteBtnClick(item)"></div>
+                    <div class="i_edit" [ngClass]="{'active_edit': (isEditing)}" (click)="onModifyBtnClick(item)"></div>
+                </div>
+            </ng-container>
+            <!-- 此裝置 End -->
+
+            <!-- 已綁定裝置清單 標題 Start -->
+            <div class="sub_title_group sub_title_list6">
+                {{'SETTING.FAST_SETTING.SUB_TITLE3' | translate}}
+            </div>
+            <!-- 已綁定裝置清單 標題 End -->
+
+            <!-- 加入「active_edit」後可顯示「刪除按鈕 i_delete及編輯按鈕 i_edit」 -->
+            <!-- 已綁定裝置清單 Start -->
+            <ng-container *ngFor="let item of deviceData">
+                <div class="content_group content_28 flex_row" *ngIf="item['uuid'] != device_uuid;">
+                    <div class="content_28_wrap flex_row">
+                        <div class="info_tag tag_outline flex_row tag_content_28 {{(item['checkPlatform'] == 'IOS' ? 'tag_color_1' : 'tag_color_2')}}">{{item.platform}}</div>
+                        <div class="content_28_txt">{{item.deviceName}}</div>
+                    </div>
+                    <div class="i_delete" [ngClass]="{'active_edit': (isEditing)}" (click)="onDeleteBtnClick(item)"></div>
+                    <div class="i_edit" [ngClass]="{'active_edit': (isEditing)}" (click)="onModifyBtnClick(item)"></div>
+                </div>
+            </ng-container>
+            <!-- 已綁定裝置清單 End -->
+        </section>
+    </ng-container>
+    <!-- 已綁定裝置清單 頁面 End -->
+
+    <!-- 修改綁定裝置 頁面 Start -->
+    <ng-container *ngSwitchCase="'update'">
+        <section class="section_area section_hasbtn">
+            <!-- 步驟列 Start -->
+            <app-step-bar [setData]="stepMenuData_update" [setKey]="nowStep_update"></app-step-bar>
+            <!-- 步驟列 End -->
+    
+            <div class="row_single row_bg">
+                <!-- 在input_inner_group後 加入「active_error」後可顯示「form_error」 -->
+                <!-- 裝置名稱設定 Start -->
+                <div class="form_group form_group_w100 form_input_5">
+                    <div class="input_group flex_col">
+                        <div class="form_label">{{'SETTING.FAST_SETTING.DEVICE_NAME_SETTING' | translate}}</div>
+                        <div class="input_inner_group" [ngClass]="{'active_error': (!!checkData.errMsgObj['deviceName'])}">
+                            <input type="text" class="input_inner" maxlength="10" placeholder="請輸入裝置名稱，限10字" [(ngModel)]="chooseDeviceObj['deviceName']">
+                            <div class="form_error">{{checkData.errMsgObj['deviceName'] | translate}}</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 裝置名稱設定 End -->
+            </div>
+        </section>
+    
+        <!-- 取消 & 儲存 按鈕 Start -->
+        <div class="btn_group flex_row">
+            <button class="btn_l btn_secondary btn_w25" (click)="onCancelBtnClick()">{{'SETTING.FAST_SETTING.BTN.CANCEL' | translate}}</button>
+            <button class="btn_r btn_primary btn_w70" (click)="onSaveBtnClick()">{{'SETTING.FAST_SETTING.BTN.SAVE' | translate}}</button>
+        </div>
+        <!-- 取消 & 儲存 按鈕 End -->
+    </ng-container>
+    <!-- 修改綁定裝置 頁面 End -->
+
+    <!-- 刪除綁定裝置 頁面 Start -->
+    <ng-container *ngSwitchCase="'delete'">
+        <section class="section_area section_hasbtn">
+            <!-- 步驟列 Start -->
+            <app-step-bar [setData]="stepMenuData_delete" [setKey]="nowStep_delete"></app-step-bar>
+            <!-- 步驟列 End -->
+    
+            <!-- 確認頁 Start -->
+            <div class="confirm_group confirm_list_bg mar_btm10">
+    
+                <div class="confirm_notice">{{'SETTING.FAST_SETTING.DELETE_CONFIRM' | translate}}</div>
+    
+                <!-- 裝置名稱 Start -->
+                <div class="card_inner_list_group mar_btm10">
+                    <div class="card_inner_list_li_5">
+                        <p>{{'SETTING.FAST_SETTING.DEVICE_NAME' | translate}}</p>
+                        <p>{{chooseDeviceObj['deviceName']}}</p>
+                    </div>
+                </div>
+                <!-- 裝置名稱 End -->
+    
+                <!-- 虛線 Start -->
+                <!-- <div class="dashed"></div> -->
+                <!-- 虛線 End -->
+    
+                <!-- 裝置類型 Start -->
+                <div class="card_inner_list_group">
+                    <div class="flex_row card_inner_list_li">
+                        <p>{{'SETTING.FAST_SETTING.DEVICE_TYPE' | translate}}</p>
+                        <p>{{chooseDeviceObj['platform']}}</p>
+                    </div>
+                </div>
+                <!-- 裝置類型 End -->
+    
+            </div>
+            <!-- 確認頁 End -->
+    
+            <!-- 提醒資訊 Start -->
+            <div class="row_single">
+                <div class="memo_info">
+                    {{'SETTING.FAST_SETTING.INFORMATION' | translate}}
+                </div>
+            </div>
+            <!-- 提醒資訊 End -->
+        </section>
+    
+        <!-- 取消 & 確認 按鈕 Start -->
+        <div class="btn_group flex_row">
+            <button class="btn_l btn_secondary btn_w25"
+                (click)="onCancelBtnClick()">{{'SETTING.FAST_SETTING.BTN.CANCEL' | translate}}</button>
+            <button class="btn_r btn_primary btn_w70"
+                (click)="onConfirmBtnClick()">{{'SETTING.FAST_SETTING.BTN.CHECK' | translate}}</button>
+        </div>
+        <!-- 取消 & 確認 按鈕 Start -->
+    </ng-container>
+    <!-- 刪除綁定裝置 頁面 End -->
+
+    <!-- 結果頁面 Start -->
+    <ng-container *ngSwitchCase="'result'">
+        <section class="section_area">
+            <!-- 結果頁(設定成功) Start -->
+            <div class="result_list_bg result_group">
+                <!-- 標題 Start -->
+                <app-result-status-temp [setData]="statusObj" [ctrlHeader]="'0'"></app-result-status-temp>
+                <!-- 標題 End -->
+            </div>
+            <!-- 結果頁(設定成功) End -->
+        </section>
+    </ng-container>
+    <!-- 結果頁面 End -->
+</ng-container>

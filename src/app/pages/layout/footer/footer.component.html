@@ -1,0 +1,9 @@
+<ng-container *ngIf="options.displayFooter; then normal_footer"></ng-container>
+<ng-template #normal_footer>
+    <footer class="footer_group flex_row_cb zIndex_level_7">
+        <div class="footer_btn" *ngFor="let menu of footer_menu" (click)="onMenuClick(menu)" [ngClass]="{'active': (showActive == menu.id)}">
+            <div class="{{menu.icon}}"></div>
+            <div class="footer_btn_txt">{{menu.name | translate}}</div>
+        </div>
+    </footer>
+</ng-template>

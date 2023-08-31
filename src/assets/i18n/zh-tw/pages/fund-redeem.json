@@ -1,0 +1,68 @@
+{
+    "FUND_REDEEM": {
+        "EDIT": {
+            "FUNDCODE": "投資標的",
+            "LICENSE": "憑證號碼",
+            "FUNDAMT": "信託金額",
+            "OSAMT": "信託餘額",
+            "REDEEM_TYPE": "贖回方式",
+            "REDEEM_ALL": "全部贖回",
+            "REDEEM_PART": "部分贖回",
+            "REDEEM_AMT": "贖回金額",
+            "NOW_REDEEM_RANGE": "本次可贖回額度：",
+            "HIGH_REDEEM": "最高",
+            "LOWEST_REDEEM": "最低",
+            "ACCOUNTID": "入帳帳號",
+            "FUNGFLAG_TITLE": "全部贖回憑證處理方式：",
+            "LICENSE_BACK": "憑證將寄回",
+            "LICENSE_BACK_CONTENT": "(憑證須繳回本行後贖回款項方可入帳;憑證請繳回原開戶分行或以限時掛號寄至:台北市中正區仁愛路二段16號二樓上海銀行信託部收)",
+            "LICENSE_LOSS": "憑證掛失",
+            "LICENSE_LOSS_CONTENT": "(待本行收訖掛失止付申請書後，贖回款項方可入帳，請洽800-003-111客服中心索取<信託憑證掛失止付申請書>)"
+        },
+        "CONFIRM": {
+            "FUNDAMT": "信託金額",
+            "LICENSE": "憑證號碼",
+            "FUNDCODE": "投資標的",
+            "REDEEM_TYPE": "贖回方式",
+            "REDEEM_ALL": "全部贖回",
+            "REDEEM_PART": "部分贖回",
+            "REDEEM_AMT": "贖回金額",
+            "ACCOUNTID": "入帳帳號"
+        },
+        "RESULT": {
+            "FUNDAMT": "信託金額",
+            "OSAMT": "信託餘額",
+            "FUNDCODE": "投資標的",
+            "REDEEM_AMT": "贖回金額",
+            "ACCOUNTID": "入帳帳號",
+            "LINCESE": "憑證號碼"
+        },
+        "BTN": {
+            "CANCEL": "取消",
+            "NEXT": "下一步",
+            "COMMIT": "確認",
+            "RETRY": "再做一筆",
+            "AGREE": "同意",
+            "NOT_AGREE": "不同意"
+        },
+        "MSG": {
+            "REMIND": "提醒您：交易送出後無法修改或刪除",
+            "REMIND_NOTICE": "為配合金管會要求銀行建置「銀行網路基金交易即時確認或通知機制」，本交易通知至電子信箱:ritachen@scsb.com.tw",
+            "REMIND_SHARTRADE": "台端本筆交易已構成該基金公開說明書所認定之短線交易，請確認是否同意並接受該基金短線交易之範圍 (包括但不限於支付額外之短線交易手續費及相關費用) ，交易確認後，本行將依該基金最新版公開說明書規定辦理。<br><br>基金公開說明書請至本行網站<br>(http://fund.scsb.com.tw)、各該基金公司網站或公開資訊觀測站<br>(http://newmops.tse.com.tw)參閱、下載。<br><br>本人同意並接受本筆交易基金短線交易之規範 (包括但不限於支付額外之短線交易手續費及相關費用)。<br><br>基金公司如有收取短線交易費用者，本行將依基金公司之最新公開說明書規定辦理，{{tradeDate}}起交易將不視為短線交易。",
+            "SHARTRADE_TITLE": "短線交易確認"
+        },
+        "CHECK": {
+            "DEFAULT_MSG": "請輸入正確資料",
+            "HAS_NOT_PART": "不可進行「部分贖回」",
+            "FUNDAMOUNT_LESS_TO_DOUBLE": "您的投資未達各幣別最低申購金額之2倍以上，不可申請「部分贖回」",
+            "INPUT_INTEGER": "請輸入正整數",
+            "FUNDAMOUNT_LESS_TO_LOWEAMOUNT": "您的「投資金額」低於「最低投資金額」，無法進行贖回動作。",
+            "BALANCE_LESS_TO_LOWEAMOUNT": "您的餘額低於「最低投資金額」，無法進行贖回動作",
+            "AMOUNT_LESS_TO_LOWEAMOUNT": "「贖回金額」不可低於「最低投資金額」",
+            "AMOUNT_HIGHER_TO_HIGHAMOUNT": "「贖回金額」不可高於「最高投資金額」",
+            "AMOUNT_RANGE": "輸入金額須符合{{range}}的倍數",
+            "AMOUNT_MINSS": "您的「投資金額」-「贖回金額」，低於「最低投資金額」，無法進行贖回動作",
+            "REDEEM_ONLY_ALL_MSG": "此筆基金僅可做全部贖回"
+        }
+    }
+}

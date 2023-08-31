@@ -1,0 +1,13 @@
+<div class="step_bar_group" [hidden]="hiddenData">
+    <ul class="step_bar_set step_bar_set{{setData.length}}">
+        <ng-container *ngFor="let item of menuData;">
+            <li [ngClass]="{'active' : (item.sort <= showIndex) }"></li>
+        </ng-container>
+    </ul>
+    <div class="step_bar_title">{{ (allData.index[setKey] + 1) + '.' }}{{allData.menuData[setKey].name | translate}}</div>
+</div>
+
+<!-- <div class="step_bar_group step_bar_6step">
+    <p>Q1  <span>/ 共11題</span></p>
+    <p>請核對以下基本資料</p>
+</div> -->

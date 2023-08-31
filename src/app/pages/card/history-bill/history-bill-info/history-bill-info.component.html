@@ -1,0 +1,62 @@
+      <!-- 帳單資訊 START -->
+      <div class="card_list_group card_list_1">
+          <div class="flex_row card_list_li">
+              <p>{{ 'HISTORY_BILL.INFO.AP_PER' | translate }}</p>
+              <p>{{ setData | objectField: ['apPer'] }}</p>
+          </div>
+      </div>
+      <div class="card_list_group card_list_1">
+          <div class="flex_row card_list_li">
+              <p>{{ 'HISTORY_BILL.INFO.AP_AMT' | translate }}</p>
+              <p>{{ setData | objectField: ['apAmt', 'htMoney' , 'TWD'] }}</p>
+          </div>
+      </div>
+      <div class="card_list_group card_list_1">
+          <div class="flex_row card_list_li">
+              <p>{{ 'HISTORY_BILL.INFO.AP_DAY' | translate }}</p>
+              <p>{{ setData | objectField: ['apDay', 'htDate' ,'yyyy-MM-dd'] }}</p>
+          </div>
+      </div>
+      <div class="card_list_group card_list_1 mar_btm15">
+          <div class="flex_row card_list_li">
+              <p>{{ 'HISTORY_BILL.INFO.AP_ACCOUNT' | translate }}</p>
+              <p>{{ setData | objectField: ['apAccount'] }}</p>
+          </div>
+      </div>
+      <div class="content_row row_shadow_down mar_btm15">
+          <div class="card_list_group card_list_4">
+              <div class="flex_row card_list_li">
+                  <p>{{ 'HISTORY_BILL.INFO.BEGBAL' | translate }}</p>
+                  <p>{{ setData | objectField: ['begBal', 'htMoney' , 'TWD'] }}</p>
+              </div>
+          </div>
+          <div class="card_list_group card_list_6">
+              <div class="flex_row card_list_li">
+                  <div class="flex_row l_card_list">
+                      <p>-</p>
+                      <p>{{ 'HISTORY_BILL.INFO.PREVPAY' | translate }}</p>
+                  </div>
+                  <p class="r_card_list">{{ setData | objectField: ['prevPay', 'htMoney' , 'TWD'] }}</p>
+              </div>
+          </div>
+          <div class="card_list_group card_list_6">
+              <div class="flex_row card_list_li">
+                  <div class="flex_row l_card_list">
+                      <p>+</p>
+                      <p>{{ 'HISTORY_BILL.INFO.CURAMT' | translate }}</p>
+                  </div>
+                  <p class="r_card_list">{{ setData | objectField: ['curAmt', 'htMoney' , 'TWD'] }}</p>
+              </div>
+          </div>
+          <div class="list_line"></div>
+          <div class="card_list_group card_list_6">
+              <div class="flex_row card_list_li">
+                  <div class="flex_row l_card_list">
+                      <p>=</p>
+                      <p>{{ 'HISTORY_BILL.INFO.CURBAL' | translate }}</p>
+                  </div>
+                  <p class="r_card_list">{{ setData | objectField: ['curBal', 'htMoney' , 'TWD'] }}</p>
+              </div>
+          </div>
+      </div>
+      <!-- 帳單資訊 END -->

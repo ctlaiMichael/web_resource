@@ -1,0 +1,24 @@
+{
+    "BOOK_MARK": {
+        "COMMON": {
+        },
+        "DEFAULT_RANGE": {
+            "TODAY": "Today",
+            "7D": "7D",
+            "1M": "1M",
+            "CUSTOM": "Custom"
+        },
+        "DEFAULT_LONG_RANGE": {
+            "12M": "Cur. Yr",
+            "-12M": "Prev. Yr",
+            "-24M": "2Y",
+            "CUSTOM": "Custom"
+        },
+        "FUND": {
+            "SINGLE_ONE": "Single One",
+            "REGULAR": "Regular",
+            "REGULAR_QUOTA": "Regular Quota",
+            "REGULAR_NOT_QUOTA": "Regular Not Quota"
+        }
+    }
+}

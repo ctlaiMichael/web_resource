@@ -1,0 +1,163 @@
+<div class="popup_content_area zIndex_level_6">
+    <div class="popup_content_wrap">
+
+        <div class="pop_group pop_title pop_title_1 flex_row">
+            <div class="simple_title">{{title | translate}}</div>
+            <div class="i_close" (click)="cancleClick()"></div>
+        </div>
+
+        <ng-container *ngIf="data.length > 0;">
+            <div class="popup_inner_content">
+        
+                <ng-container *ngFor="let item of data">
+                    <div class="content_group content_4 flex_row" (click)="chooseOver(item)">
+                        <div class="flex_row content_4_wrap">
+                            <ng-container [ngSwitch]="type">
+                                <!-- 信卡繳卡費 Start-->
+                                <ng-container *ngSwitchCase="'2'">
+                                    <div class="content_4_txt_wrap">
+                                        <div class="content_4_txt_1">{{item.accountId}}
+                                            <ng-container *ngIf="item.nickName != ''">
+                                                {{ item | objectField: ['nickName'] }}
+                                            </ng-container>
+                                        </div>
+                                        <div class="content_4_txt_2">
+                                            {{ item | objectField: ['avlAmount', 'currencyMoney' , 'TWD'] }}</div>
+                                    </div>
+                                    <div class="i_check_wrap flex_row"
+                                        [ngClass]="{ 'active_i_check':(item.accountId === select) }">
+                                        <div class="i_check"></div>
+                                    </div>
+                                </ng-container>
+                                <!-- 信卡繳卡費 End-->
+        
+                                <!-- 外幣兌換轉出帳號 Start-->
+                                <ng-container *ngSwitchCase="'3'">
+                                    <div class="flex_row content_4_wrap">
+                                        <div class="content_4_txt_wrap">
+                                            <div class="content_4_txt_1">{{ item | objectField: ['accountId'] }}
+                                                <ng-container *ngIf="!!item.nickName">
+                                                    &nbsp;{{ item | objectField: ['nickName'] }}
+                                                </ng-container>
+                                            </div>
+                                            <ng-container *ngIf="!!item.currencyCode">
+                                                <div class="content_4_txt_2">
+                                                    {{item['balance'] | objectField: ['balance', 'currencyMoney', item['currencyCode']]}}
+                                                </div>
+                                            </ng-container>
+                                        </div>
+                                        <div class="i_check_wrap flex_row"
+                                            [ngClass]="{ 'active_i_check':(checkSelect(item)) }">
+                                            <div class="i_check"></div>
+                                        </div>
+                                    </div>
+                                </ng-container>
+                                <!-- 外幣兌換轉出帳號 End-->
+        
+                                <!-- 外幣兌換轉入帳號 Start-->
+                                <ng-container *ngSwitchCase="'4'">    
+                                    <div class="flex_row content_4_wrap">
+                                        <div class="content_4_txt_wrap">
+                                            <div class="content_4_txt_1">{{ item | objectField: ['accountId'] }}
+                                                <ng-container *ngIf="!!item.nickName">
+                                                    &nbsp;{{ item | objectField: ['nickName'] }}
+                                                </ng-container>
+                                            </div>
+                                        </div>
+                                        <div class="i_check_wrap flex_row"
+                                            [ngClass]="{ 'active_i_check':(item.accountId === select) }">
+                                            <div class="i_check"></div>
+                                        </div>
+                                    </div>
+                                </ng-container>
+                                <!-- 外幣兌換轉入帳號 End-->
+        
+                                <!-- 外幣兌換結匯性質 Start-->
+                                <ng-container *ngSwitchCase="'5'">
+                                    <div class="content_4_txt_wrap">
+                                        <div class="content_4_txt_1">{{ item | objectField: ['type'] }}</div>
+                                    </div>
+                                    <div class="i_check_wrap flex_row" [ngClass]="{ 'active_i_check':(item.type === select) }">
+                                        <div class="i_check"></div>
+                                    </div>
+                                </ng-container>
+                                <!-- 外幣兌換結匯性質 End-->
+        
+        
+                                <!-- 立即轉定存 Start-->
+                                <ng-container *ngSwitchCase="'6'">
+                                    <!-- <div class="content_4_txt_wrap">
+                                    <div class="content_4_txt_1">{{ item | objectField: ['accountId'] }}</div>
+                                    </div>
+                                    <div class="content_4_txt_wrap">
+                                        <div class="content_4_txt_1">{{ item | objectField: ['nickName'] }}</div>
+                                    </div>
+                                    <div class="i_check_wrap flex_row" [ngClass]="{ 'active_i_check':(item.type === select) }">
+                                        <div class="i_check"></div>
+                                    </div> -->
+                                    <div class="flex_row content_4_wrap">
+                                        <div class="content_4_txt_wrap">
+                                            <div class="content_4_txt_1">{{ item | objectField: ['accountId'] }}
+                                                <ng-container *ngIf="!!item.nickName">
+                                                    &nbsp;{{ item | objectField: ['nickName'] }}
+                                                </ng-container>
+                                            </div>
+                                            <ng-container *ngIf="!!item['avlAmount']">
+                                                <div class="content_4_txt_2">
+                                                    {{item | objectField: ['avlAmount', 'currencyMoney', 'TWD']}}
+                                                </div>
+                                            </ng-container>
+                                        </div>
+                                        <div class="i_check_wrap flex_row" [ngClass]="{ 'active_i_check':(item.accountId === select) }">
+                                            <div class="i_check"></div>
+                                        </div>
+                                    </div>
+                                    <!--         
+                                    <div class="content_4_txt_wrap">
+                                        <div class="content_4_txt_1">{{ item | objectField: ['accountId'] }}</div>
+                                        <div class="content_4_txt_2" *ngIf="!!item['nickName']">{{ item | objectField: ['nickName'] }}</div>
+                                    </div>
+                                    <div class="i_check_wrap flex_row"
+                                        [ngClass]="{ 'active_i_check':(item.accountId === select) }">
+                                        <div class="i_check"></div>
+                                    </div>
+                                    -->
+                                </ng-container>
+                                <!-- 立即轉定存 End-->
+
+                                <!-- 定存帳號 Start-->
+                                <ng-container *ngSwitchCase="'7'">
+                                    <div class="flex_row content_4_wrap">
+                                        <div class="content_4_txt_wrap">
+                                            <div class="content_4_txt_1">{{ item | objectField: ['accountId'] }}
+                                                <ng-container *ngIf="!!item.nickName">
+                                                    &nbsp;{{ item | objectField: ['nickName'] }}
+                                                </ng-container>
+                                            </div>
+                                            <ng-container *ngIf="!!item['balance']">
+                                                <div class="content_4_txt_2">
+                                                    {{item | objectField: ['balance', 'currencyMoney', 'TWD']}}
+                                                </div>
+                                            </ng-container>
+                                        </div>
+                                        <div class="i_check_wrap flex_row"
+                                            [ngClass]="{ 'active_i_check':(item.accountId === select) }">
+                                            <div class="i_check"></div>
+                                        </div>
+                                    </div>
+                                </ng-container>
+                                <!-- 定存帳號 End-->
+                            </ng-container>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="data.length < 1;">
+            <!-- 顯示錯誤白箱 START -->
+            <app-error-box [errorMsg]="'ERROR.EMPTY'"></app-error-box>
+            <!-- 顯示錯誤白箱 END -->
+        </ng-container>
+    </div>
+</div>

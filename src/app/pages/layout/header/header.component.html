@@ -1,0 +1,66 @@
+<ng-container [ngSwitch]="headerType">
+    <ng-container *ngSwitchCase="'header_menu'">
+        <!-- Heard Type: 功能選單 -->
+        <header class="header_group header_side_menu header_bg flex_row_cb zIndex_level_8_1">
+            <h2 class=""></h2>
+            <div class="flex_row side_menu_greeting">
+                <!-- 親愛的客戶，您好 -->
+                <p>{{ 'HOME.MSG.DEAR' | translate }}</p>
+                <!-- <p><app-greetings></app-greetings></p> -->
+                <div class="side_menu_logout_btn" (click)="onLogoutBtnClick()">{{ ((is_login) ? 'BTN.LOGOUT' : 'BTN.LOGIN') | translate}}
+                    <div class="i_logout"></div>
+                </div>
+            </div>
+        </header>
+    </ng-container>
+    <ng-container *ngSwitchCase="'header_start_home'">
+        <!-- Heard Type: 未登入前首頁 -->
+        <header class="header_group header_bk_transparent flex_row_cb hidden">
+            <h2 class=""></h2>
+        </header>
+    </ng-container>
+    <ng-container *ngSwitchCase="'user_home'">
+        <!-- Heard Type: 登入後首頁 -->
+        <header class="header_group header_bk_transparent flex_row_cb border_btm_hidden">
+            <!-- header左側按鈕 -->
+            <button class="header_btn_l"></button>
+            <!-- 頁面標題 -->
+            <h2 class="header_logo"></h2>
+            <!-- header右側按鈕: 通知狀態 -->
+            <app-header-notice></app-header-notice>
+        </header>
+    </ng-container>
+    <ng-container *ngSwitchCase="'overview'">
+        <!-- Heard Type: 總覽首頁 -->
+        <header class="header_group header_bk_transparent flex_row_cb border_btm_hidden">
+            <!-- header左側按鈕 -->
+            <button class="header_btn_l"></button>
+            <!-- 頁面標題 -->
+            <h2 class="header_title header_title_w">{{options.title | translate}}</h2>
+            <!-- header右側按鈕: 通知狀態 -->
+            <app-header-notice></app-header-notice>
+        </header>
+    </ng-container>
+    <ng-container *ngSwitchDefault>
+        <!-- Heard Type: 一般功能頁 [header.style=normal] -->
+        <header class="header_group flex_row_cb {{ headerOtherClass }}">
+            <!-- 左側按鈕 -->
+            <button class="header_btn_l {{leftBtnClass}}" *ngIf="options.leftBtnIcon" (click)="leftBtnClick()">{{leftBtnText | translate}}</button>
+            <!-- 左側按鈕 End -->
+
+            <!-- 中間標題:LOGO -->
+            <ng-container *ngIf="headerShowLogo">
+                <h2 class="header_logo_dark"></h2>
+            </ng-container>
+            <!-- 中間標題:預設 -->
+            <ng-container *ngIf="!headerShowLogo">
+                <h2 class="header_title">{{options.title | translate}}</h2>
+            </ng-container>
+            <!-- 中間標題 End -->
+
+            <!-- 右側按鈕 -->
+            <button class="header_btn_r {{rightBtnClass}}" *ngIf="options.rightBtnIcon" (click)="rightBtnClick()">{{rightBtnText | translate}}</button>
+            <!-- 右側按鈕 End -->
+        </header>
+    </ng-container>
+</ng-container>

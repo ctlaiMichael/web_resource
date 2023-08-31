@@ -1,0 +1,99 @@
+<section class="section_area section_hasbtn section_bg_w">
+    <div>
+      <div class="row_single login_content">
+        <div class="form_group form_group_w100 form_input_1">
+            <div class="input_group flex_col">
+                <div class="form_label">{{'LOGIN.CUSTOMER_ID' | translate}}</div>
+                <div class="input_inner_group" [ngClass]="{'active_error': (!!checkData.errMsgObj['custId'])}">
+                    <div class="input_login">
+                        <input type="text" class="input_inner" [(ngModel)]="custId" placeholder="{{'LOGIN.CUSTOMER_ID' | translate}}"
+                            maxlength="11" autocomplete="off" disableautocomplete appNumEnOnly [upperCase]="true" [nonSpace]="true"
+                            (outputMethod)="custIdChange($event)">
+                    </div>
+                    <div class="form_error">{{checkData.errMsgObj['custId'] | translate}}</div>
+                </div>
+            </div>
+        </div>
+        <!-- 身分證字號 End -->
+
+        <!-- 使用者代號 Start -->
+        <div class="form_group form_group_w100 form_input_1_2">
+            <div class="input_group flex_col">
+                <div class="form_label">{{'LOGIN.USER_ID' | translate}}</div>
+                <div class="input_inner_group" [ngClass]="{'active_error': (!!checkData.errMsgObj['userId'])}">
+                    <div class="input_login flex_row">
+                        <input type="text" class="input_inner" [(ngModel)]="userId_model" placeholder="{{'LOGIN.USER_ID_HINT' | translate}}"
+                            maxlength="12" autocomplete="off" disableautocomplete appMaskTool [isMask]="!seeObj.seeuser" [value]="userId"
+                            (outputMethod)="userIdChange($event)">
+                        <div class="{{seeObj.seeuser?'i_view':'i_view_off'}}" (click)="switchSee('seeuser')"></div>
+                    </div>
+                    <div class="form_error">{{checkData.errMsgObj['userId'] | translate}}</div>
+                </div>
+            </div>
+        </div>
+        <!-- [ngClass]="{'input_style_pswd':!seeObj.seeuser}" -->
+        <!-- 使用者代號 End -->
+
+        <!-- 使用者密碼 Start -->
+        <div class="form_group form_group_w100 form_input_1_3">
+            <div class="input_group flex_col">
+                <div class="form_label">{{'LOGIN.LOGIN_PSWD' | translate}}</div>
+                <div class="input_inner_group" [ngClass]="{'active_error': (!!checkData.errMsgObj['pswd'])}">
+                    <div class="input_login flex_row">
+                        <input type="text" class="input_inner" [(ngModel)]="pswd_model" placeholder="{{'LOGIN.LOGIN_PSWD_HINT' | translate}}"
+                            maxlength="12" autocomplete="off" disableautocomplete appMaskTool [isMask]="!seeObj.seepswd" [value]="pswd"
+                            (outputMethod)="pswdChange($event)">
+                        <div class="{{seeObj.seepswd?'i_view':'i_view_off'}}" (click)="switchSee('seepswd')"></div>
+                    </div>
+                    <div class="form_error">{{checkData.errMsgObj['pswd'] | translate}}</div>
+
+                    <!-- Note -->
+                    <div class="form_group flex_row form_notice">
+                        <div class="notice_content">{{'LOGIN.LOGIN_MSG' | translate}}<br>{{'LOGIN.LOGIN_MSG_PA' | translate}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 使用者密碼 End -->
+    </div>
+
+    <!-- 記住我的ID 按鈕 Start -->
+    <div class="row_single">
+        <div class="inner_checkbox">
+            <input type="checkbox" id="inner_checkbox01" name="inner_checkbox" (click)="remember()"
+            [checked]="loginRemember.rememberMe.remcust === '1'">
+            <label for="inner_checkbox01">
+                <span>
+                    <i></i>
+                </span>
+                <b class="inner_checkbox_txt">{{'LOGIN.REMEMBER_MY_ID' | translate}}</b>
+            </label>
+        </div>
+    </div>
+    <!-- 記住我的ID 按鈕 End -->
+
+    <div class="row_single">
+        <!-- 登入 按鈕 Start -->
+        <div class="content_btn_group content_btn_4 flex_row" (click)="pswdLogin()">
+            <button class="btn_primary btn_w100">{{'LOGIN.BTN.LOGIN' | translate}}</button>
+        </div>
+        <!-- 登入 按鈕 End -->
+    </div>
+
+    <div class="row_single" *ngIf="fastLogin;">
+        <!-- 快速登入 按鈕 Start -->
+        <div class="content_btn_group content_btn_5">
+            <button class="btn_third btn_w100 btn_third_flex flex_row" (click)="checkFastLogin()">
+                <div class="i_faceid"></div>
+                <div class="btn_third_txt">{{'LOGIN.BTN.FAST_LOGIN' | translate}}</div>
+            </button>
+        </div>
+        <!-- 快速登入 按鈕 End -->
+    </div>
+</div>
+
+<!-- 版本資訊 -->
+<div class="content_group content_33_2 flex_row">
+        <div class="content_33_txt">{{'VERSION_INFORMATION' | translate}}：{{appversion}}</div>
+    </div>
+</section>

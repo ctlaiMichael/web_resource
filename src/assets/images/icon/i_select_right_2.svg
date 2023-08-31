@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icons/i_select_right_2</title>
+    <g id="Icons/i_select_right_2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M43,24 C43,23.714 42.877,23.46 42.686,23.278 C42.682,23.274 42.68,23.268 42.676,23.264 L25.705,6.293 C25.314,5.902 24.682,5.902 24.291,6.293 C23.9,6.684 23.9,7.316 24.291,7.707 L39.584,23 L6,23 C5.447,23 5,23.448 5,24 C5,24.552 5.447,25 6,25 L39.555,25 L24.291,40.264 C23.9,40.654 23.9,41.287 24.291,41.678 C24.486,41.873 24.742,41.971 24.998,41.971 C25.254,41.971 25.51,41.873 25.705,41.678 L42.61,24.772 C42.842,24.589 43,24.318 43,24" id="Fill-1" fill="#B82B22"></path>
+    </g>
+</svg>

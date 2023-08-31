@@ -1,0 +1,134 @@
+<!-- 登入後首頁 - 信用卡卡片 -->
+<ng-container *ngIf="templateType=='user-home'; else allBox;">
+    <!-- Title -->
+    <div class="sub_title_group sub_title_list4 flex_row">
+        <div class="sub_title_list4_txt">{{ 'HOME.CARDS.TITLE' | translate }}</div>
+    </div>
+    <!-- 登入後首頁 - 信用卡 -->
+    <div class="card_group card_home_group card_home_1 card_home_credit" [ngClass]="{ 'home_error': !showData }">
+        <div class="card_home_bg">
+            <!-- 有資料 -->
+            <ng-container *ngIf="showData; else emptyBox;">
+                <!-- 未出帳消費 -->
+                <div class="card_home_li flex_row_cb">
+                    <div class="flex_row card_home_li_l">
+                        <div class="card_home_li_l_icon {{ mainData.unPaid.icon }}"></div>
+                        <p class="card_home_li_l_txt">{{ 'HOME.CARDS.FIELD1' | translate }}</p>
+                    </div>
+                    <div class="card_home_li_r" *ngIf="mainData.unPaid.show">{{ mainData.unPaid.data | currencyMoney: 'TWD' }}</div>
+                    <div class="card_home_li_r" *ngIf="!mainData.unPaid.show">{{ mainData.unPaid.error | translate }}</div>
+                </div>
+                <!-- 應繳餘額 -->
+                <div class="card_home_li flex_row_cb">
+                    <div class="flex_row card_home_li_l">
+                        <div class="card_home_li_l_icon {{ mainData.pay.icon }}"></div>
+                        <p class="card_home_li_l_txt">{{ 'HOME.CARDS.FIELD2' | translate }}</p>
+                    </div>
+                    <div class="card_home_li_r" *ngIf="mainData.pay.show">{{ mainData.pay.data | currencyMoney: 'TWD' }}</div>
+                    <div class="card_home_li_r" *ngIf="!mainData.pay.show">{{ mainData.pay.error | translate }}</div>
+                </div>
+                <!-- 紅利點數 -->
+                <!-- <div class="card_home_li flex_row_cb">
+                <div class="flex_row card_home_li_l">
+                    <div class="card_home_li_l_icon {{ mainData.bonus.icon }}"></div>
+                    <p class="card_home_li_l_txt">{{ 'HOME.CARDS.FIELD3' | translate }}</p>
+                </div>
+                <div class="card_home_li_r" *ngIf="mainData.bonus.show">{{'HOME.CARDS.BONUS' | translate: {'points': (mainData.pay.data | htMoney: 'TWD')} }}</div>
+                <div class="card_home_li_r" *ngIf="!mainData.bonus.show">{{ mainData.pay.error | translate }}</div>
+            </div> -->
+            </ng-container>
+            <!-- 有資料 End -->
+            <ng-template #emptyBox>
+                <!-- 非卡友 -->
+                <ng-container *ngIf="!haveCard; else errorBox;">
+                    <!-- <div class="card_home_li flex_row_cb">
+                        <p class="">{{ showErrorMsg | translate }}</p>
+                    </div> -->
+                    <div class="content_btn_group content_btn_6 flex_row" (click)="onApply()">
+                        <button class="btn_card_event btn_w100 flex_row row_center">
+                            <div class="btn_card_event_txt">{{ 'HOME.CARDS.APPLY' | translate }}</div>
+                            <div class="i_next_page"></div>
+                        </button>
+                    </div>
+                </ng-container>
+                <!-- 卡友 -->
+                <ng-template #errorBox>
+                    <div class="card_home_li flex_row_cb">
+                        <p class="" [innerHtml]="(showErrorMsg | translate) | safeHtml"></p>
+                    </div>
+                </ng-template>
+            </ng-template>
+        </div>
+    </div>
+</ng-container>
+<!-- 登入後首頁 - 信用卡卡片 End -->
+
+
+
+<!-- 完整資產資料 -->
+<ng-template #allBox>
+
+
+    <div class="card_group card_credit_total_container" [ngClass]="{ 'home_error': !showData }">
+        <div class="card_credit_total_wrapper">
+            <div class="card_home_bg card_credit_total flex_col_cc">
+                <ng-container *ngIf="haveCard; else emptyBox2;">
+
+                    <div class="card_credit_total_detail flex_row row_center">
+                        <!-- 未出帳消費 -->
+                        <p class="total_detail_name">{{ 'CARD_OVERVIEW.MAIN.UNPAID' | translate }}</p>
+                        <!-- icon: 資產遮碼 暫不開放 -->
+                        <!-- <div class="detail_view_btn view" [ngClass]="{'off': hideData}" (click)="onHidden()"></div> -->
+                    </div>
+                    <div class="card_credit_total_amount flex_row row_center">
+                        <div class="show" [ngClass]="{'total_amount_txt_wrapper': !hideData, 'total_amount_pic_wrapper': hideData}">
+                            <!-- 台幣NT$ -->
+                            <p class="account_type">{{ 'HOME.DEPOSIT.FIELD1' | translate }}</p>
+                            <!-- 顯示 -->
+                            <p class="account_amount" [htShow]="!hideData">{{ mainData.unPaid.data | currencyMoney: 'TWD' }}</p>
+                            <!-- 隱碼 -->
+                            <p class="i_money_icon" [htShow]="hideData"></p>
+                        </div>
+                    </div>
+
+                    <!-- 查看明細 -->
+                    <button class="card_credit_total_btn flex_row row_center" (click)="onGoDetail()">
+                        <p>{{ 'CARD_OVERVIEW.MAIN.DETAIL' | translate }}</p>
+                        <div class="i_next_page_w"></div>
+                    </button>
+
+                    <!-- 應繳餘額 -->
+                    <div class="card_credit_date flex_row">
+                        <div class="card_credit_date_p1">{{ 'HOME.CARDS.FIELD2' | translate }}</div>
+                        <div class="card_credit_date_p2" *ngIf="mainData.pay.show">{{ mainData.pay.data | currencyMoney: 'TWD' }}</div>
+                        <div class="card_credit_date_p2" *ngIf="!mainData.pay.show">{{ mainData.pay.error | translate }}</div>
+                    </div>
+                    <!-- 目前可用額度: 暫無資料源 -->
+                    <!-- <div class="card_credit_date flex_row">
+                        <div class="card_credit_date_p1">{{ 'CARD_OVERVIEW.MAIN.NOWRANGE' | translate }}</div>
+                        <div class="card_credit_date_p2">{{ (showData | fieldCheck: ['nowRange',{zero_type:false, empty_str:'--'}]) | htMoney:'TWD' }}</div>
+                    </div> -->
+                </ng-container>
+                <ng-template #emptyBox2>
+
+                    <!-- 非卡友 -->
+                    <ng-container *ngIf="!haveCard; else errorBox2;">
+                        <div class="row_center flex_row mar_btm10" [innerHtml]="(showErrorMsg | translate) | safeHtml"></div>
+                        <!-- 立即申請 -->
+                        <button class="card_credit_total_btn flex_row row_center" (click)="onApply()">
+                            <p>{{ 'HOME.CARDS.APPLY' | translate }}</p>
+                            <div class="i_next_page_w"></div>
+                        </button>
+                    </ng-container>
+                    <!-- 卡友 -->
+                    <ng-template #errorBox2>
+                        <div class="row_center flex_row mar_btm10" [innerHtml]="(showErrorMsg | translate) | safeHtml"></div>
+                    </ng-template>
+                </ng-template>
+
+            </div>
+        </div>
+    </div>
+
+</ng-template>
+<!-- 完整資產資料 End -->

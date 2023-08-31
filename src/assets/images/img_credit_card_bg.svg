@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="279px" height="170px" viewBox="0 0 279 170" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Card/Creditcard/item</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="279" height="170"></rect>
+        <filter x="-4.7%" y="-6.5%" width="109.3%" height="115.3%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="4" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <linearGradient x1="50%" y1="0%" x2="47.7839543%" y2="97.7388822%" id="linearGradient-4">
+            <stop stop-color="#FBECEA" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#FBECEA" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="81.3122424%" y1="51.5356714%" x2="32.5206044%" y2="100%" id="linearGradient-5">
+            <stop stop-color="#FBECEA" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#FBECEA" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="75.8874914%" y1="20.0270433%" x2="131.561212%" y2="65.7967033%" id="linearGradient-6">
+            <stop stop-color="#FBECEA" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#FBECEA" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Card/Creditcard/item" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <g id="bg">
+            <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-1"></use>
+            <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+        </g>
+        <circle id="Oval" fill="url(#linearGradient-4)" mask="url(#mask-2)" cx="367" cy="238" r="182"></circle>
+        <circle id="Oval-Copy" fill="url(#linearGradient-5)" mask="url(#mask-2)" cx="-53" cy="-78" r="182"></circle>
+        <circle id="Oval-Copy-2" fill="url(#linearGradient-6)" mask="url(#mask-2)" cx="129.5" cy="295.5" r="247.5"></circle>
+    </g>
+</svg>

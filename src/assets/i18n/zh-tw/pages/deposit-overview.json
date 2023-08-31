@@ -1,0 +1,40 @@
+{
+    "DEPOSIT_OVERVIEW": {
+        "POSITIVE": "正資產",
+        "NEGATIVE": "負資產",
+        "TITLE": {
+            "MAIN": "資產總覽",
+            "PART_TWD": "台幣帳戶",
+            "PART_FOREIGN": "外幣帳戶",
+            "PART_INVEST": "投資性<br>資產",
+            "PART_INVEST_HEADER": "投資性資產",
+            "PART_NEGATIVE": "負資產",
+            "ITEM_checkingAcct": "支票存款",
+            "ITEM_savingsAcct": "活期存款",
+            "ITEM_timeAcct": "定期存款",
+            "ITEM_otherAcct": "其他帳號",
+            "ITEM_loans": "貸款",
+            "ITEM_cards": "信用卡",
+            "ITEM_fund": "基金/集合",
+            "ITEM_gold": "黃金存摺",
+            "CURRENCY_TWD": "台幣NT$"
+        },
+        "FIELD": {
+            "ACC_AMOUNT": "帳上餘額",
+            "ACC_AVL_AMOUNT": "可用餘額",
+            "NEWBLAMT": "定存金額",
+            "ENDDATE": "到期日",
+            "BALANCE": "餘額",
+            "GOLD_BAL": "",
+            "GOLD_UNIT": "公克",
+            "LOAN_AMOUNT": "貸款餘額",
+            "LOAN_ENDDATE": "貸款結束日"
+        },
+        "ERROR": {
+            "SERVER_BUSINESS_ERROR": "目前資料結算處理中，暫不提供查詢功能"
+        },
+        "BTN": {
+            "FOREIGN_ASSETS": "幣別總覽"
+        }
+    }
+}

@@ -1,0 +1,256 @@
+<ng-container [ngSwitch]="nowPage">
+    <!-- 編輯頁 Start -->
+    <ng-container *ngSwitchCase="'edit'">
+            <!-- 頁籤選單 Start -->
+            <app-bookmark [setData]="bookmarkData" [setKey]="nowBookMark" (backPageEmit)="onBookMarkBack($event)">
+            </app-bookmark>
+            <!-- 頁籤選單 End -->
+
+        <section class="section_area section_hasbtn section_tabL1">
+            <!-- 步驟列 Start -->
+            <app-step-bar [setData]="stepMenuData" [setKey]="nowStep"></app-step-bar>
+            <!-- 步驟列 End -->
+        
+            <!-- 轉出帳號 Start -->
+            <div class="row_single row_bg">
+                <div class="form_group form_group_w100 form_group_border form_select_2">
+                    <div class="select_group flex_col">
+                        <div class="form_label">{{'FOREIGN_TRANSFER.TRANSFER_OUT_ACCOUNT' | translate}}</div>
+                        <div class="select_inner_group" [ngClass]="{'active_error': (!!checkData.errMsgObj['transOutAcc'])}">
+                            <!-- 未選擇帳號顯示 Start -->
+                            <div class="form_select_pop_2 flex_row" (click)="transOutAccPopOpen()"
+                                *ngIf="!chooseTransOutAccountObj.accountId;">
+                                <p class="select_pop_content">{{'FOREIGN_TRANSFER.PLEASE_SELECT' | translate}}</p>
+                                <div class="select_pop_i_down"></div>
+                            </div>
+                            <!-- 未選擇帳號顯示 End -->
+        
+                            <!-- 已選擇帳號顯示 Start -->
+                            <div class="form_select_pop_2 flex_row" (click)="transOutAccPopOpen()"
+                                *ngIf="!!chooseTransOutAccountObj.accountId;">
+                                <p class="select_pop_content">{{chooseTransOutAccountObj.accountId}}</p>
+                                <div class="select_pop_i_down"></div>
+                            </div>
+                            <!-- 已選擇帳號顯示 End -->
+                            <div class="select_pop_info">{{'FOREIGN_TRANSFER.ACC_AVL_AMOUNT' | translate}}
+                                {{chooseTransOutAccountObj['balance'] | currencyMoney: chooseTransOutAccountObj['currencyCode']}}
+                            </div>
+                            <div class="form_error">{{checkData.errMsgObj['transOutAcc'] | translate}}</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 轉出帳號 End -->
+        
+                <!-- 轉入帳號 Start -->
+                <div class="form_group form_group_w100 form_group_border form_select_2">
+                    <div class="select_group flex_col">
+                        <div class="form_label">{{'FOREIGN_TRANSFER.TRANSFER_IN_ACCOUNT' | translate}}</div>
+                        <div class="select_inner_group" [ngClass]="{'active_error': (!!checkData.errMsgObj['transInAcc'])}">
+                            <!-- 未選擇帳號顯示 Start -->
+                            <div class="form_select_pop_2 flex_row" (click)="transInAccPopOpen()"
+                                *ngIf="!chooseTransInAccountObj.accountId;">
+                                <p class="select_pop_content">{{'FOREIGN_TRANSFER.PLEASE_SELECT' | translate}}</p>
+                                <div class="select_pop_i_down"></div>
+                            </div>
+                            <!-- 未選擇帳號顯示 End -->
+        
+                            <!-- 已選擇帳號顯示 Start -->
+                            <div class="form_select_pop_2 flex_row" (click)="transInAccPopOpen()"
+                                *ngIf="!!chooseTransInAccountObj.accountId;">
+                                <p class="select_pop_content">{{chooseTransInAccountObj.accountId}}</p>
+                                <div class="select_pop_i_down"></div>
+                            </div>
+                            <!-- 已選擇帳號顯示 End -->
+                            <div class="form_error">{{checkData.errMsgObj['transInAcc'] | translate}}</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 轉入帳號 End -->
+        
+                <!-- 標題 & 匯率表 按鈕 Start -->
+                <div class="content_group content_27 flex_row">
+                    <div class="content_label">{{'FOREIGN_TRANSFER.TRANSFER_AMOUNT' | translate}}</div>
+                    <button class="btn_transparent"
+                        (click)="onExchangeRateTableBtnClick()">{{'FOREIGN_TRANSFER.EXCHANGE_RATE_TABLE' | translate}}</button>
+                </div>
+                <!-- 標題 & 匯率表 按鈕 End -->
+        
+                <!-- 幣別 & 金額 Start -->
+                <div class="form_group form_foreign flex_col"
+                    [ngClass]="{'active_error': (!!checkData.errMsgObj['transOutAmount'] || !!checkData.errMsgObj['transInAmount'])}">
+                    <div class="flex_row foreign_li">
+                        <div class="flex_col foreign_li_width foreign_li_no_select">
+                            <!-- 兌出幣別 Start -->
+                            <div class="flex_row foreign_li_bg"
+                                [ngClass]="{'active_error_sub': (!!checkData.errMsgObj['sellCurrency'])}"
+                                (click)="currencyPopOpen('sell')">
+                                <div class="national_flag_wrap">
+                                    <div class="national_flag {{chooseSellCurrencyObj['currencyCode'] | iconFlag}}">
+                                    </div>
+                                </div>
+                                <div class="currency_txt_wrap">
+                                    <div class="currency_txt hidden_text">
+                                        {{ nowBookMark == 'buy-foreign' ? 'NT$' : (chooseSellCurrencyObj['currencyCodeShow'] | currencyName: chooseSellCurrencyObj['currencyNameShow']) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 兌出幣別 End -->
+        
+                            <!-- 兌出金額 Start -->
+                            <div class="input_inner_group"
+                                [ngClass]="{'active_error': (!!checkData.errMsgObj['transOutAmount'])}">
+                                <input type="text" class="input_inner txt_bold" pattern="[\d\.\,]"
+                                    placeholder="{{nowBookMark == 'buy-foreign' ? '<500,000' : '0.00'}}"
+                                    [(ngModel)]="transOutAmount" maxlength="16" autocomplete="off" disableautocomplete appAmount
+                                    (uploadSelected)="transOutAmountChange($event)">
+                            </div>
+                            <!-- 兌出金額 End -->
+                        </div>
+                        <div class="i_foreign_trade">
+                        </div>
+                        <div
+                            class="flex_col foreign_li_width {{nowBookMark == 'buy-foreign' ? 'foreign_li_select' : 'foreign_li_no_select'}}">
+                            <!-- 兌入幣別 Start -->
+                            <div class="flex_row foreign_li_bg"
+                                [ngClass]="{'active_error_sub': (!!checkData.errMsgObj['buyCurrency'])}"
+                                (click)="currencyPopOpen('buy')">
+                                <div class="national_flag_wrap">
+                                    <div class="national_flag {{chooseBuyCurrencyObj['currencyCode'] | iconFlag}}">
+                                    </div>
+                                </div>
+                                <!-- 未選擇幣別顯示 Start -->
+                                <div class="currency_txt_wrap" *ngIf="!chooseBuyCurrencyObj['currencyCode'];">
+                                    <div class="currency_txt hidden_text">
+                                        {{ nowBookMark == 'buy-foreign' ? ('FOREIGN_TRANSFER.PLEASE_SELECT' | translate) : 'NT$' }}
+                                    </div>
+                                </div>
+                                <!-- 未選擇幣別顯示 End -->
+                                <!-- 已選擇幣別顯示 Start -->
+                                <div class="currency_txt_wrap" *ngIf="!!chooseBuyCurrencyObj['currencyCode'];">
+                                    <div class="currency_txt hidden_text">
+                                        {{ nowBookMark == 'buy-foreign' ? (chooseBuyCurrencyObj['currencyCodeShow'] | currencyName: chooseBuyCurrencyObj['currencyNameShow']) : 'NT$' }}
+                                    </div>
+                                </div>
+                                <!-- 已選擇幣別顯示 Start -->
+                                <div class="flex_row select_i_down_wrap" *ngIf="nowBookMark == 'buy-foreign';">
+                                    <div class="select_pop_i_down"></div>
+                                </div>
+                            </div>
+                            <!-- 兌入幣別 End -->
+        
+                            <!-- 兌入金額 Start -->
+                            <div class="input_inner_group"
+                                [ngClass]="{'active_error': (!!checkData.errMsgObj['transInAmount'])}">
+                                <input type="text" class="input_inner txt_bold" pattern="[\d\.\,]"
+                                    placeholder="{{nowBookMark == 'buy-foreign' ? '0.00' : '<500,000'}}"
+                                    [(ngModel)]="transInAmount" maxlength="16" autocomplete="off" disableautocomplete appAmount
+                                    (uploadSelected)="transInAmountChange($event)">
+                            </div>
+                            <!-- 兌入金額 End -->
+                        </div>
+                    </div>
+                    <!-- 優惠訊息 Start -->
+                    <div class="form_foreign_info" *ngIf="!!extraAmount;">
+                        {{'FOREIGN_TRANSFER.EXTRA_AMOUNT' | translate}}
+                        <span class="txt_highlight_red">
+                            {{extraAmount | currencyMoney: selectBuyCurrency}}
+                        </span>
+                    </div>
+                    <!-- 優惠訊息 End -->
+                    <div class="form_error" *ngIf="nowBookMark == 'buy-foreign';">
+                        {{checkData.errMsgObj['transOutAmount'] | translate}}</div>
+                    <div class="form_error" *ngIf="nowBookMark == 'sell-foreign';">
+                        {{checkData.errMsgObj['transInAmount'] | translate}}</div>
+                </div>
+        
+                <!-- 參考匯率 Start -->
+                <div class="form_foreign_info_2 flex_row">
+                    <p>{{'FOREIGN_TRANSFER.REFERENCE_EXCHANGE_RATE' | translate}} <span>
+                            {{referenceCurrencyRate | fieldCheck: ['referenceCurrencyRate', {zero_type: false, empty_str: '--'}]}}
+                        </span> </p>
+                
+                    <!-- 倒數秒數 Start -->
+                    <ng-container *ngIf="!!isCounting;">
+                        <ng-container *ngIf="nowBookMark == 'buy-foreign';">
+                            <!-- <app-count-down [countOption]="countDownOption" (timeOutCallBack)="onBackPageTimer($event)">
+                                                </app-count-down> -->
+                            <p class="txt_gray">{{'FOREIGN_TRANSFER.EXPIRED_SECOND_EDIT' | translate}}
+                                <app-count-down [countOption]="countDownOption" (timeOutCallBack)="onBackPageTimer($event)">
+                                </app-count-down>
+                                {{'FOREIGN_TRANSFER.EXPIRED_SECOND_EDIT2' | translate}}
+                            </p>
+                        </ng-container>
+                
+                        <ng-container *ngIf="nowBookMark == 'sell-foreign';">
+                            <!-- <app-count-down [countOption]="countDownOption" (timeOutCallBack)="onBackPageTimer($event)">
+                                                </app-count-down> -->
+                            <p class="txt_gray">{{'FOREIGN_TRANSFER.EXPIRED_SECOND_EDIT' | translate}}
+                                <app-count-down [countOption]="countDownOption" (timeOutCallBack)="onBackPageTimer($event)">
+                                </app-count-down>
+                                {{'FOREIGN_TRANSFER.EXPIRED_SECOND_EDIT2' | translate}}
+                            </p>
+                        </ng-container>
+                    </ng-container>
+                    <!-- 倒數秒數 End -->
+                </div>
+                <!-- 參考匯率 End -->
+                <!-- 幣別 & 金額 End -->
+        
+            </div>
+            <!-- 結匯性質 Start -->
+            <div class="row_single row_bg">
+                <div class="form_group form_group_w100 form_select_2">
+                    <div class="select_group flex_col">
+                        <div class="form_label">{{'FOREIGN_TRANSFER.TRANSFER_TYPE' | translate}}</div>
+                        <div class="select_inner_group" [ngClass]="{'active_error': (!!checkData.errMsgObj['remitNature'])}">
+                            <!-- 未選擇結匯性質顯示 Start -->
+                            <div class="form_select_pop_2 flex_row" (click)="remitNatureDataPopOpen()"
+                                *ngIf="!chooseRemitNatureObj.code;">
+                                <p class="select_pop_content">{{'FOREIGN_TRANSFER.PLEASE_SELECT' | translate}}</p>
+                                <div class="select_pop_i_down"></div>
+                            </div>
+                            <!-- 未選擇結匯性質顯示 End -->
+        
+                            <!-- 已選擇結匯性質顯示 Start -->
+                            <div class="form_select_pop_2 flex_row" (click)="remitNatureDataPopOpen()"
+                                *ngIf="!!chooseRemitNatureObj.code;">
+                                <p class="select_pop_content">{{chooseRemitNatureObj.name}}</p>
+                                <div class="select_pop_i_down"></div>
+                            </div>
+                            <!-- 已選擇結匯性質顯示 End -->
+                            <div class="form_error">{{checkData.errMsgObj['remitNature'] | translate}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 結匯性質 End -->
+        
+            <!-- 注意資訊 Start -->
+            <app-note [options]="notePopupOption"></app-note>
+            <!-- 注意資訊 End -->
+        
+        </section>
+        
+        <!-- 取消 & 下一步 按鈕 Start -->
+        <div class="btn_group flex_row">
+            <button class="btn_l btn_secondary btn_w25"
+                (click)="onCancel()">{{'FOREIGN_TRANSFER.BTN.CANCEL' | translate}}</button>
+            <button class="btn_r btn_primary btn_w70"
+                (click)="onNext()">{{'FOREIGN_TRANSFER.BTN.NEXT_STEP' | translate}}</button>
+        </div>
+        <!-- 取消 & 下一步 按鈕 End -->
+    </ng-container>
+    <!-- 編輯頁 End -->
+
+    <!-- 確認頁 & 結果頁 Start -->
+    <ng-container *ngSwitchCase="'confirm'">
+        <app-foreign-transfer-confirm-result [inputData]="outputData" (backPageEmit)="onBackPage($event)"></app-foreign-transfer-confirm-result>
+    </ng-container>
+    <!-- 確認頁 & 結果頁 End -->
+
+    <!-- 匯率頁 Start -->
+    <ng-container *ngSwitchCase="'exchangeRate'">
+        <app-exchange-rate-main [inputData]="backData" (backPageEmit)="onBackPage($event)"></app-exchange-rate-main>
+    </ng-container>
+    <!-- 匯率頁 End -->
+</ng-container>

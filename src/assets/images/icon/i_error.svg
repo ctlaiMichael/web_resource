@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>i_error</title>
+    <defs>
+        <circle id="path-1" cx="24" cy="24" r="24"></circle>
+        <linearGradient x1="8.59266493%" y1="0%" x2="100%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#E7373C" offset="0%"></stop>
+            <stop stop-color="#D15B9C" offset="36.0800253%"></stop>
+            <stop stop-color="#E95504" offset="69.9403505%"></stop>
+            <stop stop-color="#F9BE00" offset="100%"></stop>
+        </linearGradient>
+        <filter id="filter-4">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="i_error">
+            <g id="bg">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use fill="#B82B22" xlink:href="#path-1"></use>
+                <g id="Group" mask="url(#mask-2)" fill="url(#linearGradient-3)">
+                    <g id="Color/Gradient/Primary">
+                        <rect id="bg" x="0" y="0" width="48" height="48"></rect>
+                    </g>
+                </g>
+            </g>
+            <g filter="url(#filter-4)" id="color">
+                <g transform="translate(12.000000, 12.000000)">
+                    <g id="Group-5" fill="#222222" transform="translate(10.000000, 2.500000)">
+                        <path d="M2,12 C2.552,12 3,11.552 3,11 L3,1 C3,0.448 2.552,0 2,0 C1.448,0 1,0.448 1,1 L1,11 C1,11.552 1.448,12 2,12" id="Fill-1"></path>
+                        <path d="M2,15 C0.8955,15 0,15.8955 0,17 C0,18.1045 0.8955,19 2,19 C3.1045,19 4,18.1045 4,17 C4,15.8955 3.1045,15 2,15" id="Fill-3"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

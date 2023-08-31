@@ -1,0 +1,10 @@
+<!-- <div class="result_line_bg {{showClass}}"></div> -->
+<div class="{{showClass2}}"></div>
+<!-- 交易標題 -->
+<div class="transfer_result_title">{{ title_trans | translate: title_params }}</div>
+<!-- 交易時間 -->
+<div class="transfer_result_time">{{ responseTime }}</div>
+<!-- 交易副標題 -->
+<div class="result_succeed_notice" *ngIf="!!showData['msg'] || !!showData['errCode'];">
+    {{ msg | translate: msg_params }} {{(showData['errCode'] ? errCode : '')}}
+</div>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Flag/i_flag_sa</title>
+    <defs>
+        <circle id="path-1" cx="24" cy="24" r="24"></circle>
+    </defs>
+    <g id="Flag/i_flag_sa" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="Oval" fill="#FFFFFF" xlink:href="#path-1"></use>
+        <g id="Group-7" mask="url(#mask-2)">
+            <g transform="translate(-6.000000, 0.000000)">
+                <polygon id="Fill-2" fill="#E23D28" points="14.42016 -0.000384 38.42016 15.998976 82.28352 15.998976 82.28352 -0.000384"></polygon>
+                <polygon id="Fill-3" fill="#0C1C8C" points="38.420352 32.000448 14.420352 47.999808 82.283712 47.999808 82.283712 32.000448"></polygon>
+                <polygon id="Fill-4" fill="#000000" points="0 38.386272 21.57696 23.999712 0 9.615072"></polygon>
+                <polygon id="Fill-5" fill="#FCB514" points="0 9.615072 21.57696 23.999712 0 38.386272 0 42.230112 27.3456 23.999712 0 5.769312"></polygon>
+                <polygon id="Fill-6" fill="#007C59" points="0 -0.000384 0 5.769216 27.3456 23.999616 0 42.230016 0 47.999616 8.65152 47.999616 37.45248 28.799616 82.28352 28.799616 82.28352 19.202496 37.45248 19.202496 8.65152 -0.000384"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

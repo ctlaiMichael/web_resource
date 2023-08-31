@@ -1,0 +1,91 @@
+{
+    "TWD_TRANSFER": {
+        "QUERY": {
+            "SELECT_BANKCODE": "Search for bankcode",
+            "QUERY_BANKCODE": "Search for bankcode"
+        },
+        "EDIT": {
+            "NOT_AGREED": "Non-Predesignated",
+            "AGREEMENT": "Predesignated/Often used",
+            "OUT_ACCOUNT": "Transfer out of account",
+            "AVL_AMOUNT": "Available Balance",
+            "IN_ACCOUNT": "Transfer into account",
+            "AMOUNT": "Transfer amount",
+            "MEMO_NOTICE": "Fill Reference / Notification",
+            "MYNOTE": "Passbook Reference(Myself)",
+            "FORNOTE": "Transfer Message(Other's)",
+            "TRANS_NOTICE": "Email notification",
+            "MY_EMAIL": "Send to account holder's E-Mail",
+            "OTHER_EMAIL": "Send to other E-Mail",
+            "NOT_REQUIRED": "Not required",
+            "OPEN_CONTACT": "Open connection person",
+            "PLEASE_COMPLETED_EMAIL": "Please completed email",
+            "MYNOTE_MSG": "輸入7中文字或16英數字，禁止輸入符號",
+            "FORNOTE_MSG": "輸入19個中英數字，禁止輸入符號",
+            "SETNOT_SYMBOL": "請勿輸入符號"
+        },
+        "CONFIRM": {
+            "AMOUNT": "Transfer Amount",
+            "IN_ACCOUNT": "Transfer into account",
+            "OUT_ACCOUNT": "Transfer out of account",
+            "FEE": "Transaction fee",
+            "MYNOTE": "Passbook Reference(Myself)",
+            "FORNOTE": "Transfer Message(Other's)",
+            "TRANSDATE": "Date",
+            "MY_EMAIL": "My email",
+            "OTHER_EMAIL": "Additional"
+        },
+        "RESULT": {
+            "AMOUNT": "Transfer amount",
+            "IN_ACCOUNT": "Transfer into account",
+            "OUT_ACCOUNT": "Transfer out of account",
+            "FEE": "Transaction fee",
+            "TRANSNO": "Transno",
+            "MYNOTE": "Passbook Reference(Myself)",
+            "FORNOTE": "Transfer Message(Other's)",
+            "ACTBAL": "Account balance",
+            "AVLBAL": "Available balance",
+            "INACTBAL": "Transfer in Account balance",
+            "INAVLBAL": "Transfer in Available balance",
+            "SHARING_TITLE": "Email notification",
+            "SHARING_MESSAGE": "Hi，我已經轉帳NT$ {{amount}}元 (轉出帳號末五碼{{transoutMask}})到您的 {{bankCode}} {{bankName}}帳號(末五碼{{transInMask}})，請查收。"
+        },
+        "BTN": {
+            "SELECT_BANK": "Please enter bank",
+            "INT_TRANSOUTACCT": "Please select Transfer out of account",
+            "INT_BANKCODE": "Please select Bank code",
+            "INT_TRANSINACCT": "Please Select Transfer into account",
+            "CANCEL": "Cancel",
+            "NEXT": "Next",
+            "COMMIT": "Check",
+            "PLEASE_INT_PHOME": "請輸入手機確認碼，確認此筆轉帳(確認碼已發送至您的手機)。",
+            "NOTICE_TIME_LATER": "提醒您：銀行營業時間已過，此筆將為次一營業日交易。",
+            "REMAKE": "Do again",
+            "NOTICE_PAYEE": "Notify the recipient",
+            "ADD_OFFEN": "Add Often"
+        },
+        "STATUS": {
+            "SUCCESS": "Successful transaction",
+            "FAILED": "Transaction failed",
+            "NOT_NONAL": "Abnormal transaction"
+        },
+        "MSG": {
+            "MAX_AMT_ERROR": "您輸入之轉帳金額，超過金額上限",
+            "JB_ROOT_ERROR": "本行偵測到您的行動裝置疑似已破解原廠限制(JB/Root)！\n\n基於加強網路交易安全，暫不提供此行動裝置進行非約定轉帳服務，請您至本行Web網路銀行進行相關交易",
+            "NON_FLAG_ERROR": "尚未授權非約轉註記,不可進行非約轉交易",
+            "ALL_JB_ROOT_FLAG_ERROR": "jbroot未授權,不可進行非約轉交易<br>尚未授權非約轉註記,不可進行非約轉交易",
+            "NOT_NOTAGREED_LIST": "不可進行非約轉交易,查無「非約定轉出帳號」",
+            "YOUR_EMAIL_ERROR": "您輸入的email：{{emailErrorMsg}} 格式錯誤。若有多組email請使用「;」分隔",
+            "FORMATE_ERROR": "格式錯誤",
+            "PLEASE_SET_EMAIL": "請輸入email資料",
+            "TRANINACCT_NOT_SAME": "使用「約定轉入帳號」時,轉入帳號不可與轉出帳號相同",
+            "TRANSINACCT_EMPTY": "您尚無約定轉入帳號/常用帳號。您亦可透過web網路銀行「其他服務>同戶名交易啟用/註銷」功能，啟用「同戶名交易」服務，辦理您名下各帳戶間的轉帳。",
+            "TRANS_REMIND": "「轉帳前多思考，避免被騙更苦惱」。",
+            "IN_OUT_SAME": "轉出帳號不可與轉入帳號相同",
+            "BALANCE_NOT_ENOUGH": "很抱歉，您的轉出金額大於可用餘額。",
+            "TWENTY_COUNT_ERROR": "不可超過20筆",
+            "NOT_AGREED_ERROR": "很抱歉，您尚未約定任何可辦理非約定轉帳之轉出帳號;請利用Web網路銀行的「非約定帳號轉帳功能啟用/註銷」功能或親洽往來分行進行設定。",
+            "AGREED_OUT_ERROR": "很抱歉，您尚未約定台幣轉出帳號，請親至鄰近分行辦理。"
+        }
+    }
+}

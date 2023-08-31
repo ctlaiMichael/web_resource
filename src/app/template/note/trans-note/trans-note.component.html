@@ -1,0 +1,6 @@
+
+<!-- 提醒您：交易送出後無法修改或刪除 -->
+<div class="confirm_notice" *ngIf="showConfirmInfo">{{ 'FIELD.INFO.TRANS_CONFIRM_REMIND' | translate }}</div>
+<div class="confirm_notice" *ngIf="showBusiness">
+  {{ content | translate: setInfo }}
+</div>

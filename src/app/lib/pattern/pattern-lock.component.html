@@ -1,0 +1,37 @@
+<!-- <div class="cdk-overlay-container"> -->
+    <!-- <div class="cdk-overlay-backdrop dark-backdrop cdk-overlay-backdrop-showing"></div> -->
+    <!-- <div class="cdk-global-overlay-wrapper" dir="ltr" style="justify-content: center; align-items: flex-end;">
+        <div id="cdk-overlay-0" class="cdk-overlay-pane popup_content" style="pointer-events: auto; position: static;"> -->
+            <div class="popup_content_area_patternlock_wth">
+                <div class="popup_content_area_patternlock">
+                    <div class="popup_content_wrap_patternlock">
+                        <div class="pop_group pop_title pop_title_1 flex_row">
+                            <div class="simple_title">{{ title | translate}}</div>
+                        </div>
+                        <div class="popup_inner_content popup_inner_patternlock flex_col">
+                            <div class="pop_group pop_patternlock flex_row">
+                                <div class="pop_patternlock_wrap flex_col active_error">
+                                    <div class="pop_patternlock_txt">{{ content | translate: {LENGTH:set_obj.min} }}</div>
+                                    <div class="pop_patternlock_error">{{ errMsg | translate: {range:range} }}</div>
+                                </div>
+                            </div>
+                            <div id="patternLock" style="width: 310px; height: 280px; position: relative;"></div>
+
+                            <ng-container *ngIf="!resetFlag; else resetBtn">
+                                <div class="pop_group pop_patternlock_2 flex_row">
+                                    <div class="pop_patternlock_txt_2" (click)="cancel()">{{ 'BTN.CANCEL' | translate }}</div>
+                                </div>
+                            </ng-container>
+                            <ng-template #resetBtn>
+                                <div class="pop_group pop_patternlock_2 flex_row">
+                                        <div class="pop_patternlock_txt_2" (click)="resetClick()">{{ 'BTN.RESET' | translate }}</div>
+                                </div>
+                            </ng-template>
+                        </div>
+                    </div>
+                </div>
+            <!-- </div>
+        </div> -->
+    <!-- </div> -->
+<!-- </div> -->
+

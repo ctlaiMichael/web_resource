@@ -1,0 +1,39 @@
+{
+    "BTN": {
+        "LOGIN": "登入",
+        "LOGOUT": "登出",
+        "CHECK": "確認",
+        "CANCEL": "取消",
+        "CLOSE": "關閉",
+        "CLEAR": "清除",
+        "NEXT": "下一步",
+        "PREVIOUS": "上一步",
+        "BACK": "返回",
+        "MORE": "看更多",
+        "RESET": "重新設定",
+        "SEARCH": "查詢",
+        "RETURN_HOME": "返回首頁",
+        "RESEARCH": "重新查詢",
+        "UNFOLD": "全部展開",
+        "COLLAPSE": "全部收合",
+        "UNFOLD_ONE": "展開",
+        "COLLAPSE_ONE": "收合",
+        "ORDER": "排序",
+        "AGREE": {
+            "AGREE": "同意",
+            "AGREE_CONTENT": "瞭解並同意",
+            "DISAGREE": "不同意"
+        },
+        "APPLY": {
+            "NOW": "立即申請",
+            "WAIT": "稍後申請"
+        },
+        "LOAN": {
+            "SELECT_BRANCH": "選擇此分行"
+        },
+        "HAVE_READ": "我知道了",
+        "EDIT": "編輯",
+        "FINISH": "完成",
+        "OTHER":"其他"
+    }
+}

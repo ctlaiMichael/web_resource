@@ -1,0 +1,125 @@
+
+
+<ng-container *ngIf="currentModeId == ''">
+    <div class="confirm_group confirm_list_bg confirm_2">
+        <div class="row_single mar_btm0">
+            <div class="form_group_title form_group_title_nosecurity">
+        <!--交易機制： 手機確認碼認證-->
+                <div class="form_gorup_title_txt">{{ "SECURITY.TRANSFERMODE" | translate }}：{{"SECURITY.NOSECURITY" | translate}}</div>
+            </div>
+        </div>
+    </div>
+</ng-container>
+<ng-container *ngIf="currentModeId != ''">
+        <div class="confirm_group confirm_list_bg confirm_2">
+            <!--快速認證 currentMode=='3' || 4 -->
+            <div class="row_single mar_btm0">
+                <ng-container *ngIf="currentModeId == '3' || currentModeId == '4'">
+                    <div class="form_group_title form_group_title_fast flex_row">
+                        <!--交易機制： 手機確認碼認證-->
+                    <div class="form_gorup_title_txt">{{ "SECURITY.TRANSFERMODE" | translate }}：{{"SECURITY.FAST" | translate}}</div>
+                    <!--變更認證方式-->
+                    <button *ngIf="canUseSecurityList.length > 1" class="btn_transparent"  (click)="changeTransMode()" >{{'SECURITY.CHANGEMODE' | translate }}</button>
+                    </div>
+                </ng-container>
+                <!--- OTP currentMode=='2' -->
+                <ng-container *ngIf="currentModeId == '2' || currentModeId == '5'">
+                    <!-- form_group_title_2 -->
+                    <div class="form_group_title form_group_title_2 flex_row">
+                        <!--交易機制： 手機確認碼認證-->
+                    <div class="form_gorup_title_txt">{{ "SECURITY.TRANSFERMODE" | translate }}：{{ "SECURITY.OTP" | translate }}</div>
+                    <!--變更認證方式-->
+                    <button *ngIf="canUseSecurityList.length > 1" class="btn_transparent"  (click)="changeTransMode()" >{{'SECURITY.CHANGEMODE' | translate }}</button>
+                    </div>
+                    <!-- form_group_title_2 //End-->
+                    <div class="confirm_2_info"> 
+                    <div class="confirm_2_txt2">
+                        <!-- {{"SECURITY.OTPCHECKCODE" | translate }}:{{finalSecurityobj.otpCheckCode}}
+                        <br> -->
+                        <!--輸入手機確認碼，以確認此筆轉帳(確認碼已發送至您的手機)-->
+                        {{"SECURITY.INPUTCHECKCODE" | translate}}</div>
+                    <div *ngIf="resend==false" class="confirm_2_txt3">{{ "SECURITY.STILLAVAILABLETIME" | translate }}  <!--有效時間-->
+                        <span class="confirm_2_txt3_span">
+                            <app-countdown [leftTime]="leftTime" [stopCountDown]="stopCountDown" (countdownFinsh)="getTimeStatus($event)"></app-countdown>
+                        </span>{{"SECURITY.SECOND" | translate }}
+                    </div>
+                    <div *ngIf="resend==true">
+                        <button  class="btn_transparent btn_resend" (click)="doSecurity(currentMode)">{{"SECURITY.RESEND" | translate}}</button>
+                    </div>
+                    </div>
+            
+                    <!-- input 2 -->
+                    <div class="form_group form_group_w100 form_input_2">
+                    <div class="input_group flex_col">
+                        <div class="input_inner_group" [ngClass]="{ active_error: errorMsg == '' ? false : true }">
+                        <div class="input_login flex_row">
+                            <!-- 此區塊註解為不加上眼睛內容-->
+                            <!-- <input 
+                            [(ngModel)]="inputValue"
+                            maxlength="6"
+                            pattern="[A-Za-z0-9]{6}"
+                            type="text"
+                            class="input_inner"
+                            placeholder="{{'SECURITY.PLEASEINPUTCHECKCODE' |translate }}"
+                            [disabled] = "resend"
+                            disableautocomplete
+                            >  -->
+                            <!-- 此區塊為加上眼睛-->
+                            <input 
+                            [(ngModel)]="inputValue_model"
+                            [value]="inputValue"
+                            maxlength="6"
+                            pattern="[A-Za-z0-9]{6}"
+                            type="text"
+                            class="input_inner"
+                            placeholder="{{'SECURITY.PLEASEINPUTCHECKCODE' |translate }}"
+                            [disabled] = "resend"
+                            disableautocomplete
+                            appMaskTool [isMask]="!seeStatus" (outputMethod)="inputChange($event)"
+                            > 
+                            <div class="{{seeStatus?'i_view':'i_view_off'}}" (click)="switchSee()"></div>
+                            <!-- 此區塊為加上眼睛-->
+                        </div>
+                        <div class="form_error">{{ errorMsg | translate }}</div>
+                        </div>
+                    </div>
+                    </div>
+                          <!-- input 2 //End-->
+                </ng-container>
+                <!--- last 4 numer SSL currentMode=='1'-->
+                <!-- <ng-container *ngIf="currentModeId == '1' || currentModeId == '4' || currentModeId == '3'"> -->
+                <ng-container *ngIf="currentModeId == '1'">
+                    <div class="form_group_title form_group_title_2 flex_row">
+                        <!--交易機制： 手機確認碼認證-->
+                    <div class="form_gorup_title_txt">{{ "SECURITY.TRANSFERMODE" | translate }}：{{ "SECURITY.SSL" | translate }}</div>
+                    <!--變更認證方式-->
+                    <button *ngIf="canUseSecurityList.length > 1" class="btn_transparent"  (click)="changeTransMode()" >{{'SECURITY.CHANGEMODE' | translate }}</button>
+                    </div>
+                    <!-- input 2 -->
+                    <div class="form_group form_group_w100 form_input_2">
+                        <div class="input_group flex_col">
+
+                            <div class="input_inner_group" [ngClass]="{ active_error: errorMsg == '' ? false : true }">
+                                <div class="input_login flex_row">
+                                    <input
+                                    [(ngModel)]="inputValue_model"
+                                    [value]="inputValue"
+                                    type="text"
+                                    maxlength="4"
+                                    pattern="[A-Za-z0-9]{4}"
+                                    class="input_inner"
+                                    placeholder="{{'SECURITY.PLEASEINPUTLAST4' | translate}}"
+                                    disableautocomplete
+                                    appMaskTool [isMask]="!seeStatus"
+                                    (outputMethod)="inputChange($event)"
+                                    />
+                                    <div class="{{seeStatus?'i_view':'i_view_off'}}" (click)="switchSee()"></div>
+                                </div>
+                             <div class="form_error">{{ errorMsg | translate }}</div>
+                             </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+</ng-container>

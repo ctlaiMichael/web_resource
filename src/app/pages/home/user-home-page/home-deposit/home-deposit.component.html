@@ -1,0 +1,39 @@
+<div class="card_group card_home_total_container">
+    <div class="card_home_total_wrapper">
+        <div class="card_home_bg card_home_total flex_col_cc">
+
+            <div class="card_home_total_detail flex_row row_center">
+                <p class="total_detail_name">{{ 'HOME.DEPOSIT.TITLE' | translate }}</p>
+                <!-- icon-->
+                <div class="detail_view_btn view" [ngClass]="{'off': hideData}" (click)="onHidden()"></div>
+            </div>
+
+            <ng-container *ngIf="haveAcct; else emptyBox;">
+                <div class="card_home_total_amount flex_row row_center">
+
+                    <div class="show" [ngClass]="{'total_amount_txt_wrapper': !hideData, 'total_amount_pic_wrapper': hideData}">
+                        <!-- 台幣NT$ -->
+                        <p class="account_type">{{ 'HOME.DEPOSIT.FIELD1' | translate }}</p>
+                        <!-- 顯示 -->
+                        <p class="account_amount" [htShow]="!hideData">{{ mainData.data | htMoney: 'TWD' }}</p>
+                        <!-- 隱碼 -->
+                        <p class="i_money_icon" [htShow]="hideData"></p>
+                    </div>
+                </div>
+                <!-- 查看帳戶總覽 -->
+                <button class="card_home_total_btn flex_row row_center" (click)="onMore()">
+                    <p>{{ 'HOME.DEPOSIT.MORE' | translate }}</p>
+                    <div class="i_next_page_w"></div>
+                </button>
+            </ng-container>
+            <ng-template #emptyBox>
+                <!-- 線上開戶 -->
+                <button class="card_home_total_btn flex_row row_center" (click)="onApply()">
+                    <p>{{ 'HOME.DEPOSIT.APPLY' | translate }}</p>
+                    <div class="i_next_page_w"></div>
+                </button>
+            </ng-template>
+
+        </div>
+    </div>
+</div>

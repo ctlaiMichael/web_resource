@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Flag/i_flag_tha</title>
+    <defs>
+        <circle id="path-1" cx="24" cy="24" r="24"></circle>
+    </defs>
+    <g id="Flag/i_flag_tha" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="Oval" fill="#FFFFFF" xlink:href="#path-1"></use>
+        <g id="Group-4" mask="url(#mask-2)">
+            <g transform="translate(-17.000000, 0.000000)">
+                <polygon id="Fill-1" fill="#ED1C24" points="0 48 82.28352 48 82.28352 0 0 0"></polygon>
+                <polygon id="Fill-2" fill="#FFFFFF" points="0 39.99936 82.28352 39.99936 82.28352 7.99872 0 7.99872"></polygon>
+                <polygon id="Fill-3" fill="#241D4F" points="0 31.99872 82.28352 31.99872 82.28352 15.99936 0 15.99936"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

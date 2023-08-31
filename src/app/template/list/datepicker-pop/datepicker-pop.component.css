@@ -1,0 +1,301 @@
+.date_select .select_area .day div {
+    flex-basis: 14% !important;    
+}
+   
+/* .date_select .select_area .day div{font-size: 20px !important;} */
+.date_select .select_area .day div{
+    font-size: 4vw !important;
+}
+.date_select .control .date_month {
+    font-size: 4.5vw !important;
+    font-weight: 600;
+    text-shadow: 0px 0px black;
+}
+.date_select .control {
+    height: 13vw;
+}
+
+/* .date_select .select_area .day div{line-height: 10vw !important;} */
+/* .date_select .select_area .day div{line-height: 13vw !important;}  */
+
+.date_select .date_header{
+    /* background:#D15B9C; */
+    background-color: #FFF9E6;
+    /* background-image: linear-gradient(137deg, #E7373C 0%, #D15B9C 36%, #E95504 70%, #F9BE00 100%); */
+}
+
+.date_select{
+    position:relative;
+    background: #F9F9F9;
+    color:#000;
+    width: 100vw;
+    /* margin: 0px 0px; */
+}
+.date_select .date_header{
+    /* 日期區塊縮小，避免熱點資訊出現時按鈕消失 */
+    /* padding:20px; */
+    padding: 10px 20px;
+}
+.date_select span{color:#000;}
+
+.date_select .year_part{
+    font-size: 4.5vw;
+    font-weight: 500;
+    margin-right: 1.2vw;
+}
+
+.date_select .year_block{
+    display: flex;
+    align-items: center;
+
+}
+
+
+.date_select .year_arrow{
+    border-style: solid;
+    border-width: 1.3vw 1.2vw 0 1.2vw;
+    border-color: #7F7F7F transparent transparent transparent;
+}
+
+.date_select h1{
+    color:#B82B22;
+    margin:0.5vh 0;
+    /* font-weight:lighter;
+    font-size:10vw  */
+    font-size: 6.8vw;
+    font-weight: 500;
+}
+.bottom_area>div{
+    color:#B82B22;
+}
+.date_select .control{
+    display: -webkit-box; 
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -WEBKIT-flex; 
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+.date_select .control .pre,
+.date_select .control .next {
+    -WEBKIT-box-flex: none;    
+       -moz-box-flex: none;
+        -WEBKIT-flex: none;     
+            -ms-flex: none;  
+                flex: none; 
+                width: 13.3vw;
+                height: 13.3vw;
+}
+.date_select .control .pre.disable .arrow_link,
+.date_select .control .next.disable .arrow_link {
+    /* opacity: 0.4; */
+}
+
+.date_select .control .date_month{
+    -WEBKIT-box-flex: 1;    
+       -moz-box-flex: 1;
+        -WEBKIT-flex: 1;     
+            -ms-flex: 1;  
+                flex: 1;   
+}
+.date_select .select_area{
+    /* 日期區塊縮小，避免熱點資訊出現時按鈕消失 */
+    /* padding:0 10px 10px 10px; */
+    padding:0 2vw 0px 2vw;
+    height: 90vw;
+}
+.date_select .select_area .week{
+    display: -webkit-box; 
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -WEBKIT-flex; 
+    display: flex;
+    background-color: #f2f2f2;
+    border-radius: 2vw;
+    height: 6vw;
+    margin-bottom: 3vw;
+    
+}
+.date_select .select_area .week span{
+    -WEBKIT-box-flex: 1;    
+       -moz-box-flex: 1;
+        -WEBKIT-flex: 1;     
+            -ms-flex: 1;  
+                flex: 1;   
+    -WEBKIT-align-items: center;
+            align-items: center;
+    color:#7F7F7F;
+    font-size:14px;
+    font-weight: 600;
+    line-height: 6vw;
+    text-align: center;
+}
+.date_select .select_area .week span:before {
+    content:'';
+    float:left;
+    padding-top:100%;
+}
+.date_select .select_area .day{
+    display: -webkit-box; 
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -WEBKIT-flex; 
+    display: flex;
+	-WEBKIT-flex-flow: wrap;
+	    -ms-flex-flow: wrap;
+	        flex-flow: wrap;
+}
+.date_select .select_area .day div{
+    font-size:14px;
+	-WEBKIT-flex-basis: 14%;
+	    -ms-flex-basis: 14%;
+	        flex-basis: 14%;
+    text-align:center;
+	-WEBKIT-flex-grow: 1;
+	    -ms-flex-grow: 1;
+	        flex-grow: 1;
+    line-height:13vw
+}
+.date_select .select_area .day div span{
+    /* 顏色色系統一 */
+    color:#000;
+    display:block;
+    font-weight: 600;
+}
+.date_select .select_area .day div:before {
+    content:'';
+    float:left;
+    padding-top:100%;
+}
+.date_select .select_area .day div span.selected{
+    background:#B82B22;
+    border-radius: 50%;
+    color:#fff;
+    display:block;
+    height : 13vw;
+    width : 13vw;
+}
+.date_select .select_area .day div span.disable{
+    /* 顏色色系統一 */
+    color:#9C9C9C;
+    /* color:#e0e0e0; */
+    display:block;
+}
+.date_select .bottom_area{
+    padding:15px;
+    text-align:right;
+}
+.date_select .bottom_area div{
+    display:inline-block;
+    font-size:21px;
+    font-weight:normal;
+    text-align:center; 
+    padding: 0 10px;
+}
+.date_select  .yearSelect{
+    height:103vw;
+    overflow:scroll;
+    overflow-x: hidden;
+    padding: 4.6vw 0px;
+    font-size: 16px;
+    text-align: center;
+}
+.date_select .yearSelect div{
+    padding:2.5vw 0px;
+    font-size: 4.3vw;
+}
+.date_select .yearSelect div.selected{
+    font-size: 6vw;
+    color:#B82B22;
+    padding:2.5vw 0px;
+    font-weight:bold}
+
+/* .date_select .arrow_link.arrow_left {
+	-webkit-transform: rotate(-225deg);
+	   -moz-transform: rotate(-225deg);
+	    -ms-transform: rotate(-225deg);
+	     -o-transform: rotate(-225deg);
+	        transform: rotate(-225deg);
+} */
+
+@media only screen and (max-height: 1367px) and (min-width: 767px){
+    .date_select .bottom_area div{font-size:24px;}
+    .date_select .select_area .week span{font-size:24px;}
+    
+}    
+/* iPhone 5 */
+@media only screen and (max-height: 580px) {
+
+}    
+/* 20201006 */
+
+.popup_content_area {
+    top:60px;
+}
+
+
+.content_btn_group {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    
+    padding: 16px 20px 10px 20px;
+}
+
+.date_select .arrow_link {
+    width: 3.8vw;
+    height: 3.8vw;
+}
+
+.arrow_right{
+
+    display: block;
+    transform: rotate(-45deg);
+    box-shadow: 0.3vw 0.3vw 0px 0 #B82B22;
+    position: relative;
+    top: 4.8vw;
+    left: 3.8vw;
+
+}
+.arrow_right_2{
+
+    display: block;
+    transform: rotate(-45deg);
+    box-shadow: 0.3vw 0.3vw 0px 0 #B82B22;
+    position: relative;
+    top: 1vw;
+    left: 1.5vw;
+
+}
+
+
+.arrow_left{
+
+    display: block;
+    transform: rotate(-225deg);
+    box-shadow: 0.3vw 0.3vw 0px 0 #B82B22;
+    position: relative;
+    top: 4.8vw;
+    left: 5.8vw;
+
+}
+.arrow_left_2{
+
+    display: block;
+    transform: rotate(-225deg);
+    box-shadow: 0.3vw 0.3vw 0px 0 #B82B22;
+    position: relative;
+    top: 1vw;
+    left: 8.1vw;
+
+}
+.date_select .control .pre.disable .arrow_link,
+.date_select .control .next.disable .arrow_link {
+    /* opacity: 0.4; */
+    box-shadow: 0.3vw 0.3vw 0px 0 #9C9C9C;
+}
+
+.simple_title{
+    font-size:4.8vw;
+}

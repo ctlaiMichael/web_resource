@@ -1,0 +1,22 @@
+<!-- 第一層頁籤 -->
+<ng-container *ngIf="menuData">
+    <div class="tab_group_L1 flex_row tab_group_set2" [htShow]="showTag">
+      <ng-container *ngFor="let menu of menuData">
+        <div class="tab_btn_L1" (click)="onGoEvent(menu)" [ngClass]="{'active' : (showType==menu['id']) }">{{
+          (menu | fieldCheck: 'name') | translate }}</div>
+      </ng-container>
+    </div>
+</ng-container>
+<!-- 第一層頁籤 End -->
+
+<!-- 第二層頁籤 -->
+<ng-container *ngFor="let submenu of subMenuData">
+  <ng-container *ngIf="showType==submenu['id']">
+      <div class="tab_group_L2_2 flex_row tab_group_set2" [htShow]="showTag">
+        <ng-container *ngFor="let item of submenu['data']">
+          <div class="tab_btn_L2_2" (click)="onSubGoEvent(item)" [ngClass]="{'active' : (showSubType==item['id']) }">{{
+            (item | fieldCheck: 'name') | translate }}</div>
+        </ng-container>
+      </div>
+  </ng-container>
+</ng-container>

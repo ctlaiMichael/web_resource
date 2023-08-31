@@ -1,0 +1,46 @@
+<section class="section_area section_area_beforeLogin" [ngClass]="{'home_noad': !haveAd}">
+    <!-- logo -->
+    <div class="header_logo_dark"></div>
+    <!-- logo End- -->
+    <!-- 上方情境區塊 -->
+    <div class="beforeLogin_ad_container">
+
+        <!-- 上方情境圖 -->
+        <div class="beforeLogin_ad_wrapper">
+            <div class="beforeLogin_ad login_ad_1 animated"></div>
+            <div class="beforeLogin_ad login_ad_2 animated"></div>
+            <div class="beforeLogin_ad login_ad_3 animated"></div>
+            <div class="beforeLogin_ad login_ad_4 animated"></div>
+        </div>
+        <!-- 上方情境圖  End-->
+
+        <!-- 雙按鈕 -->
+        <div class="btn_group_beforeLogin flex_row">
+            <!-- 我要開戶 -->
+            <button class="btn_l btn_secondary btn_w50" (click)="onGoEvent(mainData['left'])">
+                {{ mainData["left"]["name"] | translate }}
+            </button>
+            <!-- 登入按鈕 -->
+            <button class="btn_r btn_primary btn_w50 log_btn" (click)="onGoEvent(mainData['right'])">
+                {{ mainData["right"]["name"] | translate }}
+            </button>
+        </div>
+        <!-- 雙按鈕 End -->
+
+        <!-- 四快捷功能按鈕 -->
+        <div class="shortcut_btn_group flex_row_cb">
+            <div
+                class="shortcut_btn"
+                *ngFor="let menu of menuData"
+                (click)="onGoEvent(menu)"
+            >
+                <div class="{{ menu.icon_class }}"></div>
+                <div class="shortcut_btn_txt">{{ menu.name | translate }}</div>
+            </div>
+        </div>
+        <!-- 四快捷功能按鈕 End -->
+    </div>
+    <!-- 上方情境區塊 End -->
+    <!-- 廣告 -->
+    <app-start-home-ad (backPageEmit)="onAdBack($event)"></app-start-home-ad>
+</section>

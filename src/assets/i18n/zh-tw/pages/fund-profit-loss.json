@@ -1,0 +1,14 @@
+{
+    "FUND_PROFIT_LOSS": {
+        "TRUSTNO": "憑證號碼",
+        "REMUMRATE": "報酬率",
+        "TOTAMT": "信託金額",
+        "APPLYDATE": "投資日期",
+        "BUYDATE": "贖回日期",
+        "REMUMRATE": "含息參考報酬率",
+        "ACCTAMT": "已實現損益",
+        "ADDINT": "累積配息",
+        "MEMO": "備註",
+        "REMUMRATE2": "報酬率"
+    }
+}

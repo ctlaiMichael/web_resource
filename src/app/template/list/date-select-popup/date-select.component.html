@@ -1,0 +1,31 @@
+<div class="popup_content_area zIndex_level_6">
+    <div class="popup_content_wrap">
+
+        <div class="pop_group pop_title pop_title_1 flex_row">
+            <div class="simple_title">{{title | translate}}</div>
+            <div class="i_close" (click)="onCancleEvent()"></div>
+        </div>
+
+        <div class="popup_inner_content">
+            <div class="pop_group pop_content pop_content_2">
+                <div class="pop_content_2_txt">已選擇 <span class="txt_bold">{{ numberData.chose }}</span> 天，最多可選 <span
+                        class="txt_bold">{{ numberData.total }}</span> 天</div>
+                <div class="pop_content_2_wrap">
+                    <ng-container *ngFor="let row_item of rowData.data; let row_key = index; let row_last = last;">
+                        <div class="pop_content_2_row flex_row">
+                            <ng-container *ngFor="let item of row_item; let item_key = index;">
+                                <div class="pop_content_2_date" [ngClass]="{ 'chosen_date': !!item.ch }"
+                                    (click)="onItemClickEvent(item)">
+                                    {{ item.name | translate }}</div>
+                            </ng-container>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+        <div class="btn_group flex_row">
+            <button class="btn_l btn_secondary btn_w25" (click)="onCancleEvent()">取消</button>
+            <button class="btn_r btn_primary btn_w70" (click)="setFinish()">下一步</button>
+        </div>
+    </div>
+</div>

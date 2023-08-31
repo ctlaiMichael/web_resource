@@ -1,0 +1,87 @@
+<div class="container_home">
+    <section class="section_area section_hasbtn section_area_invest_overview">
+
+        <!-- 投資總覽 卡片 -->
+        <app-home-fund></app-home-fund>
+        <!-- 投資總覽 卡片 End-->
+        <div class="white_bk_container">
+
+            <!-- 按鈕區塊 -->
+            <div class="row_single">
+                <div class="content_btn_group flex_row content_btn3">
+                    <button *ngFor="let menu1 of menuList.quick" class="{{menu1.class}} content_btn btn_w33" (click)="onGoEvent(menu1)" [innerHtml]="menu1.name | translate"></button>
+                </div>
+            </div>
+            <!-- 我的基金: 有資料才顯示 -->
+            <ng-container *ngIf="hasData">
+                <div class="sub_title_group sub_title_list4 flex_row">
+                    <div class="sub_title_list4_txt">{{ 'FUND_OVERVIEW.MY_FUND' | translate }}</div>
+                </div>
+
+                <div class="card_group card_home_group card_invest_1">
+                    <div class="card_home_bg">
+
+                        <!-- card_invest_1 細項 -->
+                        <ng-container *ngFor="let item of sumupInfo">
+                            <div class="card_invest_li_wrap flex_row">
+                                <!-- icon -->
+                                <div class="card_invest_li_l invest_li_flag">
+                                    <div class="card_national_flag_wrap">
+                                        <div class="national_flag  {{item.totEngCcy | iconFlag}}"></div>
+                                    </div>
+                                </div>
+                                <div class="card_invest_li_r">
+                                    <!-- 金額 -->
+                                    <div class="card_invest_li">
+                                        <div class="card_national_flag_p"> {{ (item | objectField: ['totEngCcy', 'currency' , item.totEngCcy] ) }}
+                                            {{ (item | objectField: ['totChiCcy'])}}</div>
+                                        <div class="invest_li_flag_w2">{{ (item | fieldCheck: ['totsAmt',{zero_type:false, empty_str:'--'}]) | htMoney:
+                                            item.totEngCcy }}
+                                        </div>
+                                    </div>
+
+                                    <div class="card_invest_li invest_li_tag_wrap flex_row">
+                                        <!-- 報酬率 -->
+                                        <div class="invest_li_tag">
+                                            <div class="">{{ 'FUND_OVERVIEW.BAOCHOU' | translate }}</div>
+                                            <div class="card_invest_1_txt" fundProfit [data]="item" [type]="'baoChou'"></div>
+                                        </div>
+                                        <!-- 含息報酬率 -->
+                                        <div class="invest_li_tag">
+                                            <div class="">{{ 'FUND_OVERVIEW.INTRETN' | translate }}</div>
+                                            <div class="card_invest_1_txt" fundProfit [data]="item" [type]="'intretn'"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-container>
+                        <!-- card_invest_1 細項 End -->
+                    </div>
+                </div>
+            </ng-container>
+            <!-- 我的基金 End -->
+
+            <!-- 其他按鈕 -->
+            <ng-container *ngFor="let menu2 of menuList.menu">
+                <div class="card_group card_credit_4" (click)="onGoEvent(menu2)">
+                    <div class="card_credit_bg flex_row">
+                        <div class="card_credit_ul">
+                            <div class="card_credit_li flex_row">
+                                <div class="card_credit_4_p1">{{ menu2.name | translate }}</div>
+                            </div>
+                        </div>
+                        <div class="i_next"></div>
+                    </div>
+                </div>
+            </ng-container>
+            <!-- 其他按鈕 End -->
+
+        </div>
+
+    </section>
+</div>
+<!-- 查無資料 or 查詢錯誤 START-->
+<!-- <ng-container *ngIf="errorMsg != ''">
+    <app-error-box [errorMsg]="errorMsg"></app-error-box>
+</ng-container> -->
+<!-- 查無資料 or 查詢錯誤 END-->

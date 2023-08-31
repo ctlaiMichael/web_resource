@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icons/i_credit_card</title>
+    <g id="Icons/i_credit_card" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-5" transform="translate(2.000000, 8.000000)" fill="#B82B22">
+            <path d="M39,30 L5,30 C3.346,30 2,28.654 2,27 L2,14 L42,14 L42,27 C42,28.654 40.654,30 39,30 L39,30 Z M2,12 L42,12 L42,8 L2,8 L2,12 Z M5,2 L39,2 C40.654,2 42,3.346 42,5 L42,6 L2,6 L2,5 C2,3.346 3.346,2 5,2 L5,2 Z M39,0 L5,0 C2.243,0 0,2.243 0,5 L0,27 C0,29.757 2.243,32 5,32 L39,32 C41.757,32 44,29.757 44,27 L44,5 C44,2.243 41.757,0 39,0 L39,0 Z" id="Fill-1"></path>
+            <path d="M19,24 L7,24 C6.447,24 6,24.447 6,25 C6,25.553 6.447,26 7,26 L19,26 C19.553,26 20,25.553 20,25 C20,24.447 19.553,24 19,24" id="Fill-3"></path>
+        </g>
+    </g>
+</svg>

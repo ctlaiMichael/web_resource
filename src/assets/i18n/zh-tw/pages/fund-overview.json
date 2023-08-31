@@ -1,0 +1,26 @@
+{
+    "FUND_OVERVIEW": {
+        "MY_FUND": "我的基金",
+        "CURRENCY": "幣別",
+        "TOTSAMT": "信託金額",
+        "BAOCHOU": "報酬率",
+        "INTRETN": "含息報酬率",
+        "BTN": {
+            "INVEST": "基金<br/>申購",
+            "AUTO_REDEEM": "理財<br>妙管家",
+            "INVEST_HEALTHY": "我的<br>投資合計",
+            "FUND_ACCOUNT_BALANCE": "投資現值查詢",
+            "FUND_INQUIRY_MODIFY": "定期定額查詢",
+            "INVEST_INFORMATION": "基金情報",
+            "ONLINE_SERVICE": "線上客服"
+        },
+        "TOTAL_INFO": {
+            "OSAMT": "信託金額",
+            "NOWPRICE": "參考現值",
+            "NOPROC": "未實現損益",
+            "APDINT": "累積配息",
+            "TOTALBAOCHOU": "報酬率",
+            "INTRETN_STRING": "含息報酬率"
+        }
+    }
+}

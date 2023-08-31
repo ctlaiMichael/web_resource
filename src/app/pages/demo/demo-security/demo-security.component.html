@@ -1,0 +1,52 @@
+<p>demo-security</p>
+<style>
+    .security_btn {
+        width: 100%;
+        z-index: 300;
+        position: absolute;
+        top: 58vh;
+        left: 0px;
+        padding: 10px;
+    }
+    .btnn1 {
+        margin: 10px;
+        flex-grow: 1;
+        text-align: center;
+        border: solid 1px;
+        border-color: cornsilk;
+        border-radius: 8px;
+        padding: 14px;
+        box-shadow: 3px 0 5px 0 rgba(92, 92, 92, 0.05),
+            0 3px 6px 0 rgba(92, 92, 92, 0.15);
+        background-color: #ffffff;
+    }
+</style>
+
+<app-security-interface 
+    [securityAction] = "securityAction"  
+    [setSecurity] = "setSecurity" 
+    (currentType)="getCurrentTypeObj($event)">
+</app-security-interface>
+
+<div class="security_btn flex_row_cc" *ngIf="currentSecurityObj['inputValue']==true"> 
+    <div class="btnn1">取消</div>
+    <div class="btnn1" (click)="submitSecurity()">確認</div>
+</div>
+<div>
+<p (click)="identifyByBiometric()">identifyByBiometric</p>
+<br>
+<br>
+<p (click)="registerBiometric()">registerBiometric</p>
+<br>
+<br>
+<p (click)="queryBioService()">queryBioService</p>
+<br>
+<br>
+<p (click)="requestBioService(oobject)">requestBioService</p>
+<br>
+<br>
+<p (click)="disableBioService()">disableBioService</p>
+<br>
+<br>
+<p (click)="enableBioService()">enableBioService</p>
+</div>

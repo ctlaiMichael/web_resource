@@ -1,0 +1,37 @@
+<section [htShow]="!godetail" paginatorCtrl class="section_area section_hasbtn" [nowPage]="pageCounter" [totalPages]="totalPages" (scrollEvent)="onScrollEvent($event)">
+    <!-- 查詢區間(全部) START -->
+    <div class="info_group flex_col info_time_range">
+            <!-- <div class="info_time_range_li li_border">
+            <p>
+                <span></span>
+            </p>
+        </div> -->
+        <div class="info_time_range_btn_group flex_row">
+            <button class="btn_transparent_icon btn_turn" [ngClass]="{ 'btn_turn_reverse':(sort === 'ASC') }" (click)="onSort()" sortBtn
+                [sort]="sort">{{ 'BTN.ORDER' | translate }}</button>
+        </div>
+    </div>
+    <!-- 查詢區間區塊 END -->
+
+    <!-- 第二層列表 -->
+    <ng-container *ngIf="!!hasInit">
+        <app-auto-fund-redeem-detail [setData]="reqData" [sort]="sort" [page]="'1'" (backPageEmit)="onPageBackEvent($event)" (errorPageEmit)="onErrorBackEvent($event)">
+        </app-auto-fund-redeem-detail>
+        <ng-container #pageBox></ng-container>
+    </ng-container>
+    <!-- 查詢區間(全部) END -->
+    <!-- 顯示錯誤白箱 START -->
+    <ng-container *ngIf="!!errorboxFlag">
+        <app-error-box [errorMsg]="errorMsg"></app-error-box>
+    </ng-container>
+    <!-- 顯示錯誤白箱 END -->
+</section>
+
+<ng-container *ngIf="godetail">
+    <app-auto-fund-redeem-content [setData]="contentData" [outData]="infoData" (backPageEmit)="onPageBackEvent($event)">
+    </app-auto-fund-redeem-content>
+</ng-container>
+
+<!-- <ng-container *ngIf="!!goModify">
+    <app-auto-fund-redeem-modify [setData]="modifyData"></app-auto-fund-redeem-modify>
+</ng-container> -->

@@ -1,0 +1,53 @@
+<!-- Title -->
+<div class="info_group flex_row info_time_range info_10 card_home_exchange">
+    <div class="info_time_range_li">
+        <p class="card_home_exchange_title">{{ 'HOME.FINANCIAL.TITLE' | translate }}</p>
+        <!-- 時間 -->
+        <p *ngIf="showData">{{ 'HOME.FINANCIAL.DATATIME' | translate }}：{{ dataTime | htDate }}</p>
+    </div>
+    <!-- 看更多 -->
+    <div class="info_time_range_btn_group flex_row" (click)="onMore()">
+        <button class="btn_transparent_icon i_next_page">{{ 'BTN.MORE' | translate }}</button>
+    </div>
+</div>
+
+<!-- 登入後首頁 - 匯率卡片 -->
+<div class="card_group card_home_group card_home_rate" [ngClass]="{ 'home_error': !showData }">
+    <div class="card_home_bg card_home_rate_bg">
+
+        <!-- 標題-->
+        <div class="table_group table_title table_title_3set_1">
+            <div class="flex_row table_title_3set_li">
+                <!-- 幣別/買入/賣出 -->
+                <p class="table_3set_1_p1">{{ 'HOME.FINANCIAL.FIELD1' | translate }}</p>
+                <p class="table_3set_1_p2">{{ 'HOME.FINANCIAL.FIELD2' | translate }}</p>
+                <p class="table_3set_1_p3">{{ 'HOME.FINANCIAL.FIELD3' | translate }}</p>
+            </div>
+        </div>
+        <ng-container *ngIf="showData; else emptyBox;">
+            <!-- 內容-->
+            <div class="table_group table_list table_list_3set_1" *ngFor="let item of mainData">
+                <div class="flex_row table_list_3set_li">
+                    <div class="table_3set_1_p1 table_3flag_wrap_2 flex_row ">
+                        <div class="national_3flag_wrap">
+                            <div class="national_flag  {{item.currencyCode | iconFlag}}"></div>
+                        </div>
+                        <div class="national_3flag_p_wrap">
+                            <p class="national_3flag_p1">{{ item.currencyNameShow }}</p>
+                            <p class="national_3flag_p1 currency_tag">{{ item.currencyCodeShow }}</p>
+                        </div>
+                    </div>
+                    <p class="table_3set_1_p2">{{ item.buyRate | htFinancial }}</p>
+                    <p class="table_3set_1_p3">{{ item.sellRate | htFinancial }}</p>
+                </div>
+            </div>
+        </ng-container>
+        <ng-template #emptyBox>
+            <div class="table_group table_list table_list_3set_1">
+                <div class="flex_row table_list_3set_li">
+                    <p class="" [innerHtml]="(showErrorMsg | translate) | safeHtml"></p>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+<ng-container *ngIf="showData">
+    <ng-container *ngFor="let item of listData">
+        <!-- 日期區塊 -->
+        <app-detail-show-year [setData]="item"></app-detail-show-year>
+
+        <div class="list_group list_group_1">
+            <div class="list_data">
+                <div class="list_data_li list_data_li_2 flex_row sub_open" expandList [openFlag]="expandFlag">
+                    <div class="list_data_li_2_wrap">
+                        <div class="flex_row list_data_li_p_wrap">
+                            <p class="txt_gray">{{ item | objectField: ['txDate', 'htDate' ,'MM-dd'] }}</p>
+                            <!-- 支出,存入 -->
+                            <p depositAmount [data]="item" [setCurrency]="setData.currencyCode"></p>
+                        </div>
+                        <div class="list_data_li_txt_2">{{ item | objectField: ['memo'] }}</div>
+                    </div>
+                    <div class="list_icon"></div>
+                </div>
+                <!-- 細項 -->
+                <div class="list_data_inner sub_open_info_frame">
+                    <div class="flex_row list_data_inner_li">
+                        <p>{{ 'DEPOSIT_DETAIL.TRADING_SUMMARY' | translate }}</p>
+                        <p>{{ item | objectField: ['memo'] }}</p>
+                    </div>
+                    <div class="flex_row list_data_inner_li">
+                        <p>{{ 'DEPOSIT_DETAIL.DATE' | translate }}</p>
+                        <p>{{ item | objectField: ['txDate', 'htDate' ,'yyyy-MM-dd'] }}</p>
+                    </div>
+                    <div class="flex_row list_data_inner_li">
+                        <p>{{ 'DEPOSIT_DETAIL.BALANCE' | translate }}</p>
+                        <p>{{ item | objectField: ['balAmt', 'currencyMoney' , setData.currencyCode] }}</p>
+                    </div>
+                    <div class="flex_row list_data_inner_li">
+                        <p>{{ 'DEPOSIT_DETAIL.REMARK' | translate }}</p>
+                        <p>{{ item | objectField: ['remark'] }}</p>
+                    </div>
+                    <div class="flex_row list_data_inner_li info_time_range txt_highlight_red" *ngIf="!!item.warningMsg">{{ item | objectField: ['warningMsg'] }}</div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</ng-container>

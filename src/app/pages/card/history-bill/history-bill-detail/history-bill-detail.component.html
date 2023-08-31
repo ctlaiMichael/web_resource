@@ -1,0 +1,106 @@
+<ng-container *ngIf="!!haveData; else errorBox;">
+    <!-- 交易明細 START -->
+    <!-- 信用卡 Swiper -->
+    <div class="swiper-container swiper-container_credit">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="content_group flex_col_cc">
+                    <div class="credit_wrap credit_wrap_2 flex_col_cc">
+                        <div class="credit_card_img2 flex_row">
+                            <!-- <img src="assets/images/img_credit_card_2.png"> -->
+                        </div>
+                        <!-- <div class="credit_txt">{{ 'HISTORY_BILL.DETAIL.ALL_BILL' | translate }}</div> -->
+                        <div>
+                            <div class="credit_txt">{{ 'HISTORY_BILL.DETAIL.ALL_BILL' | translate }}</div>
+                            <!-- <div class="credit_txt_2">共 3 張</div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ng-container *ngFor="let item of cardData; let lastItem = last">
+                <div class="swiper-slide">
+                    <div class="content_group flex_col_cc">
+                        <div class="credit_wrap credit_wrap_2 flex_col_cc">
+                            <div class="credit_card_img2 flex_row">
+                                <!-- <img src="assets/images/img_credit_card_2.png"> -->
+                            </div>
+                            <div>
+                                <div class="credit_txt">{{ item | objectField: ['cardName'] }}</div>
+                                <div class="credit_txt_2">{{ 'HISTORY_BILL.DETAIL.CARDLST' | translate }} {{item.cardLst | cardMask}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <ng-template swiperCtrl [lastFlag]="lastItem" (backPageEmit)="onSwiperBackEvent($event)">
+                </ng-template>
+            </ng-container>
+        </div>
+        <div class="swiper-pagination swiper-pagination_credit"></div>
+    </div>
+    <!-- 信用卡 Swiper End -->
+
+    <!-- 展開收合,排序 START -->
+    <div class="info_group flex_col info_time_range">
+        <div class="info_time_range_btn_group flex_row">
+            <button class="btn_transparent_icon btn_transparent_l btn_transparent_txt" (click)="onOpen()" [ngClass]="{'btn_all_open': !expandFlag, 'btn_all_close': expandFlag}">{{ expandStr | translate }}</button>
+            <button class="btn_transparent_icon btn_turn" [ngClass]="{ 'btn_turn_reverse':(sort === 'ASC') }" (click)="onSort()" sortBtn
+                [sort]="sort">{{ 'BTN.ORDER' | translate }}</button>
+        </div>
+    </div>
+    <!-- </div> -->
+    <!-- 展開收合,排序 END -->
+
+    <!-- Detail START-->
+    <ng-container *ngFor="let item of showData">
+        <!-- 明細月份列表(灰色部分) START-->
+        <app-card-detail-show-year [setData]="item"></app-card-detail-show-year>
+        <!-- 明細月份列表(灰色部分) END-->
+        <div class="list_group list_group_2 detail{{item.cardLst}}">
+            <div class="list_data">
+                <div class="list_data_li list_data_li_2 sub_open flex_row" expandList [openFlag]="expandFlag">
+                    <div class="list_data_li_2_wrap">
+                        <div class="flex_row list_data_li_p_wrap">
+                            <!-- 交易日期 -->
+                            <!-- <p>{{ (item | fieldCheck: ['transDate',{zero_type:false, empty_str:'--'}]) | htDate:'MM-dd' }}</p>  -->
+                            <p>{{ item | objectField: ['transDate', 'htDate' ,'MM-dd'] }}</p>
+                            <!-- 台幣入帳金額 -->
+                            <p cardsAmount [data]="item" [amtField]="'transAmt'"></p>
+                        </div>
+                        <div class="list_data_li_txt_2">{{ item | objectField: ['memo'] }}</div>
+                        <!-- 交易摘要 -->
+                    </div>
+                    <div class="list_icon"></div>
+                </div>
+                <!-- 細項 -->
+                <div class="list_data_inner sub_open_info_frame">
+                    <div class="flex_row list_data_inner_li">
+                        <p>{{ 'HISTORY_BILL.DETAIL.POSTDATE' | translate }}</p>
+                        <p>{{ item | objectField: ['postDate', 'htDate' ,'MM-dd'] }}</p>
+                    </div>
+                    <!-- 原幣消費金額 -->
+                    <div class="flex_row list_data_inner_li" *ngIf="!!item.foreignAmt">
+                        <p>{{ 'HISTORY_BILL.DETAIL.FOREIGN_AMOUND' | translate }}</p>
+                        <p>{{ item | objectField: ['foreignAmt', 'currencyMoney' , item.foreignCurr] }}</p>
+                    </div>
+                    <div class="flex_row list_data_inner_li">
+                        <p>{{ 'HISTORY_BILL.DETAIL.MEMO' | translate }}</p>
+                        <p>{{ item | objectField: ['memo'] }}</p>
+                    </div>
+                    <div class="flex_row list_data_inner_li">
+                        <p>{{ 'HISTORY_BILL.DETAIL.CARDNO' | translate }}/{{ 'HISTORY_BILL.DETAIL.CARDLST' | translate }} ({{
+                            'HISTORY_BILL.DETAIL.FOUR_NO' | translate }})</p>
+                        <p>{{ item | objectField: ['cardLst'] }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    <!-- Detail END-->
+    <!-- 交易明細 END -->
+</ng-container>
+
+<ng-template #errorBox>
+    <!-- 顯示錯誤白箱 START -->
+    <app-error-box [errorMsg]="errorMsg"></app-error-box>
+    <!-- 顯示錯誤白箱 END -->
+</ng-template>

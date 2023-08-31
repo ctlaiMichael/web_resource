@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="150" height="150" viewBox="0 0 150 150">
+  <defs>
+    <clipPath id="clip-link_arrow">
+      <rect width="150" height="150"/>
+    </clipPath>
+  </defs>
+  <g id="link_arrow" clip-path="url(#clip-link_arrow)">
+    <g id="icon_daypicker_year_next" data-name="icon/daypicker_year_next">
+      <rect id="矩形_13" data-name="矩形 13" width="150" height="150" fill="#fff" opacity="0"/>
+      <g id="Group">
+        <g id="_001-arrow-point-to-right-copy-2" data-name="001-arrow-point-to-right-copy-2">
+          <rect id="Rectangle-11" width="150" height="150" fill="none"/>
+          <g id="Group-2" transform="translate(0 6.25)">
+            <path id="Shape" d="M139.491,78.438l-65.1,61.375a11.057,11.057,0,0,1-14.994,0,9.6,9.6,0,0,1,0-14.135L117,71.37,59.4,17.064a9.6,9.6,0,0,1,0-14.136,11.061,11.061,0,0,1,14.994,0l65.1,61.376a9.6,9.6,0,0,1,0,14.133Z" fill="#a9a9a9"/>
+            <path id="Shape-2" data-name="Shape" d="M84.352,78.3l-66,61.271a11.339,11.339,0,0,1-15.2,0,9.481,9.481,0,0,1,0-14.111l58.4-54.215L3.149,17.035a9.483,9.483,0,0,1,0-14.112,11.344,11.344,0,0,1,15.2,0l66,61.272a9.48,9.48,0,0,1,0,14.109Z" fill="#a9a9a9"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

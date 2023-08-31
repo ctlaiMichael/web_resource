@@ -1,0 +1,17 @@
+{
+    "LOGIN": {
+        "BTN": {
+            "LOGIN": "Login",
+            "FAST_LOGIN": "Fast Login"
+        },
+        "CUSTOMER_ID": "Customer ID",
+        "USER_ID": "User ID",
+        "USER_ID_HINT": "User ID[6-12]",
+        "LOGIN_PSWD": "Password",
+        "LOGIN_PSWD_HINT": "Password[8-12]",
+        "REMEMBER_MY_ID": "Remember my ID",
+        "ERROR": "Invalid",
+        "LOGIN_MSG": "使用者代號請留意英文字母大小寫。",
+        "LOGIN_MSG_PA": "登入密碼請留意英文字母大小寫，並定期更換您的密碼。"
+    }
+}

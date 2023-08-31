@@ -1,0 +1,187 @@
+<ng-container *ngIf="!showEditPage">
+    <section class="section_area section_hasbtn">
+        <!-- 信箱 & 設定按鈕 Start -->
+        <div class="info_group flex_col info_time_range">
+            <div class="info_time_range_li li_border">{{'FINANCIAL.EMAIL' | translate}}: {{email}}</div>
+            <!-- 不提供編輯e-mail -->
+            <!-- <div class="info_time_range_btn_group flex_row"><button class="btn_transparent_icon btn_setting"
+                    (click)="onEmailSettingBtnClick()">{{'BTN.EDIT' | translate}}</button></div> -->
+        </div>
+        <!-- 信箱 & 設定按鈕 End -->
+
+        <ng-container *ngIf="haveData; else noDataBox">
+            <ng-container *ngIf="workingData.length > 0;">
+                <!-- 標題 Start -->
+                <div class="sub_title_group sub_title_list6">
+                    {{'FINANCIAL.NOTICING' | translate}}
+                </div>
+                <!-- 標題 End -->
+
+                <!-- 明細 Start -->
+                <div class="content_group flex_row content_25" *ngFor="let item of workingData;">
+                    <div class="content_bg_2">
+                        <div class="content25_info">
+                            <div class="content25_national_flag flex_row content25_info_title">
+                                <div class="content25_national_flag_ul flex_row">
+                                    <div class="content25_national_flag_wrap">
+                                        <div class="national_flag {{item.sellCurrencyObj['currencyCode'] | iconFlag}}"></div>
+                                    </div>
+                                    <div class="content25_flag_txt">{{item.sellCurrencyObj['currencyCode'] | currencyName: item.sellCurrencyObj['currencyName']}}</div>
+                                </div>
+                    
+                                <div class="i_foreign_trade"></div>
+                    
+                                <div class="content25_national_flag_ul flex_row">
+                                    <div class="content25_national_flag_wrap">
+                                        <div class="national_flag {{item.buyCurrencyObj['currencyCode'] | iconFlag}}"></div>
+                                    </div>
+                                    <div class="content25_flag_txt">{{item.buyCurrencyObj['currencyCode'] | currencyName: item.buyCurrencyObj['currencyName']}}</div>
+                                </div>
+                            </div>
+                    
+                            <div class="content25_info_li flex_row">
+                                <div class="content25_info_l">
+                                    <div class="content25_title">{{'FINANCIAL.TARGET_EXCHANGE_RATE' | translate}}：<span class="txt_highlight_red">{{item.expectedRate}}</span></div>
+                                    <div class="content25_txt">{{'FINANCIAL.END_DATE' | translate}}：{{item.endDate}}</div>
+                    
+                                </div>
+                    
+                                <div class="flex_row content25_info_r">
+                                    <div class="i_delete" [ngClass]="{'active_edit': (isEditing)}" (click)="onDeleteBtnClick(item)"></div>
+                                    <div class="i_edit" [ngClass]="{'active_edit': (isEditing)}" (click)="onModifyBtnClick(item)"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 明細 End -->
+            </ng-container>
+
+            <ng-container *ngIf="notYetData.length > 0;">
+                <!-- 標題 Start -->
+                <div class="sub_title_group sub_title_list6">
+                    {{'FINANCIAL.NOT_NOTICING' | translate}}
+                </div>
+                <!-- 標題 End -->
+
+                <!-- 明細 Start -->
+                <div class="content_group flex_row content_25 mar_btm15" *ngFor="let item of notYetData;">
+                    <div class="content_bg_2">
+                        <div class="content25_info">
+                            <div class="content25_national_flag flex_row content25_info_title">
+                                <div class="content25_national_flag_ul flex_row">
+                                    <div class="content25_national_flag_wrap">
+                                        <div class="national_flag {{item.sellCurrencyObj['currencyCode'] | iconFlag}}"></div>
+                                    </div>
+                                    <div class="content25_flag_txt">{{item.sellCurrencyObj['currencyCode'] | currencyName: item.sellCurrencyObj['currencyName']}}</div>
+                                </div>
+                    
+                                <div class="i_foreign_trade"></div>
+                    
+                                <div class="content25_national_flag_ul flex_row">
+                                    <div class="content25_national_flag_wrap">
+                                        <div class="national_flag {{item.buyCurrencyObj['currencyCode'] | iconFlag}}"></div>
+                                    </div>
+                                    <div class="content25_flag_txt">{{item.buyCurrencyObj['currencyCode'] | currencyName: item.buyCurrencyObj['currencyName']}}</div>
+                                </div>
+                            </div>
+                    
+                            <div class="content25_info_li flex_row">
+                                <div class="content25_info_l">
+                                    <div class="content25_title">{{'FINANCIAL.TARGET_EXCHANGE_RATE' | translate}}：<span class="txt_highlight_red">{{item.expectedRate}}</span></div>
+                                    <div class="content25_txt">{{'FINANCIAL.END_DATE' | translate}}：{{item.endDate}}</div>
+                    
+                                </div>
+                    
+                                <div class="flex_row content25_info_r">
+                                    <div class="i_delete" [ngClass]="{'active_edit': (isEditing)}" (click)="onDeleteBtnClick(item)"></div>
+                                    <div class="i_edit" [ngClass]="{'active_edit': (isEditing)}" (click)="onModifyBtnClick(item)"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 明細 Start -->
+            </ng-container>
+
+            <ng-container *ngIf="expiredData.length > 0;">
+                <!-- 標題 Start -->
+                <div class="sub_title_group sub_title_list6">
+                    {{'FINANCIAL.EXPIRED' | translate}}
+                </div>
+                <!-- 標題 End -->
+
+                <!-- 明細 Start -->
+                <div class="content_group flex_row content_25 mar_btm15" *ngFor="let item of expiredData;">
+                    <div class="content_bg_2">
+                        <div class="content25_info">
+                            <div class="content25_national_flag flex_row content25_info_title title_bk_gray">
+                                <div class="content25_national_flag_ul flex_row">
+                                    <div class="content25_national_flag_wrap">
+                                        <div class="national_flag {{item.sellCurrencyObj['currencyCode'] | iconFlag}}"></div>
+                                    </div>
+                                    <div class="content25_flag_txt">
+                                        {{item.sellCurrencyObj['currencyCode'] | currencyName: item.sellCurrencyObj['currencyName']}}
+                                    </div>
+                                </div>
+                
+                                <div class="i_foreign_trade"></div>
+                
+                                <div class="content25_national_flag_ul flex_row">
+                                    <div class="content25_national_flag_wrap">
+                                        <div class="national_flag {{item.buyCurrencyObj['currencyCode'] | iconFlag}}"></div>
+                                    </div>
+                                    <div class="content25_flag_txt">
+                                        {{item.buyCurrencyObj['currencyCode'] | currencyName: item.buyCurrencyObj['currencyName']}}
+                                    </div>
+                                </div>
+                            </div>
+                
+                            <div class="content25_info_li flex_row">
+                                <div class="content25_info_l">
+                                    <div class="content25_title">{{'FINANCIAL.TARGET_EXCHANGE_RATE' | translate}}：<span
+                                            class="txt_highlight_red">{{item.expectedRate}}</span></div>
+                                    <div class="content25_txt">{{'FINANCIAL.END_DATE' | translate}}：{{item.endDate}}</div>
+                
+                                </div>
+                
+                                <div class="flex_row content25_info_r">
+                                    <div class="i_delete" [ngClass]="{'active_edit': (isEditing)}" (click)="onDeleteBtnClick(item)">
+                                    </div>
+                                    <div class="i_edit" [ngClass]="{'active_edit': (isEditing)}" (click)="onModifyBtnClick(item)"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 明細 Start -->
+            </ng-container>
+
+            <!-- 注意資訊 Start -->
+            <app-note [options]="notePopupOption"></app-note>
+            <!-- 注意資訊 End -->
+        </ng-container>
+
+        <!-- 無資料畫面 Start -->
+        <ng-template #noDataBox>
+            <!-- 顯示錯誤白箱 START -->
+            <app-error-box [errorMsg]="errorMsg"></app-error-box>
+            <!-- 顯示錯誤白箱 END -->
+        </ng-template>
+        <!-- 無資料畫面 End -->
+    </section>
+
+    <!-- 新增到價通知按鈕 Start -->
+    <div class="btn_group flex_row" bottomBtn>
+        <button class="btn_primary btn_w100" (click)="onAddNewNoticeBtnClick()"
+            *ngIf="!isEditing;">{{'FINANCIAL.ADD_EXCHANGE_RATE_NOTICE' | translate}}</button>
+    </div>
+    <!-- 新增到價通知按鈕 End -->
+</ng-container>
+
+<!-- 編輯頁 Start -->
+<ng-container *ngIf="showEditPage">
+    <app-exchange-rate-notice-setting [inputData]="outputData" (backPageEmit)="onBackPage($event)">
+    </app-exchange-rate-notice-setting>
+</ng-container>
+<!-- 編輯頁 End -->

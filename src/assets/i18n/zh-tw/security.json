@@ -1,0 +1,60 @@
+{
+  "SECURITY" : {
+    "EMPTVALUE" : "必填欄位，請輸入",
+    "TYPENUMOREN" : "請輸入英數字",
+    "MAXLENGTHERROR" : "超過欄位最大長度",
+    "MINLENGTHERROR" : "輸入長度不可小於{{LENGTH}}碼",
+    "TRANSFERMODE" : "交易機制",
+    "FAST" : "快速認證",
+    "OTP" : "手機確認碼認證",
+    "NOSECURITY" : "無可用安控機制",
+    "OTPCHECKCODE" : "交易驗證碼",
+    "SSL" : "輸入認證",
+    "RESEND" : "重新發送",
+    "PLEASEINPUTLAST4": "輸入身分證字號/統一編號後4碼",
+    "PLEASEINPUTCHECKCODE":"輸入驗證(不分大小寫)",
+    "PLEASETENTERFINGERPRINT":"請將您的指紋置於感應區域上",
+    "PLEASETSCEANFACE":"請您執行臉部辨識",
+    "CHANGEMODE" : "變更認證方式",
+    "STILLAVAILABLETIME" : "有效時間仍有",
+    "SECOND":"秒",
+    "INPUTCHECKCODE" : "輸入手機確認碼，以確認此筆轉帳(確認碼已發送至您的手機)",
+    "PATTERN": {
+      "DRAWPATTERN":"繪製圖形鎖",
+      "ATLEASTDOT":"請輸入至少{{LENGTH}}個點",
+      "RANGEDOT":"輸入的的圖形密碼須為{{range}}個點",
+      "CHECKPATTERN":"請再次確認圖形密碼",
+      "NOTSAME":"您輸入的圖形密碼與第一次不相同，請重新輸入"
+    },
+    "CHECK_ERROR": {
+      "SECURITY_CHECK_ERROR": "驗證失敗，請您重新輸入",
+      "SECURITY_CHECK_ERROR_1": "您輸入的「身分證字號/統一編號」後4碼有誤，請核對後再重新輸入。",
+      "SECURITY_CHECK_ERROR_2": "您輸入的「OTP驗證碼」有誤，請您重新輸入",
+      "SECURITY_CHECK_ERROR_3": "快速交易驗證失敗，請您重新執行"
+    }
+  },
+  "BIOMETRICAUTHRESULT" : {    
+    "SUCCESS":"成功",
+    "NOT_AVAILABLE":"目前設備不支援Touch ID/Face ID，請至手機設定頁面開啟權限",
+    "SCREEN_LOCK_ERROR":"目前設備不支援Touch ID/Face ID，請至手機設定頁面開啟權限",
+    "HAS_ENROLLED_ERROR":"尚未設定生物辨識",
+    "NO_TOKEN":"綁定資訊已遺失，請重新進行快速設定",
+    "SERVCICE_DISABLE":"尚未啟用驗證服務",
+    "SERVICE_ENABLE":"已啟用驗證服務",
+    "USER_CANCELED":"使用者取消",
+    "AUTH_WARNING":"生物辨識錯誤已達3次，請確認後再試", 
+    "AUTH_ERROR":"生物辨識錯誤已達5次，請重新輸入螢幕鎖密碼進行解鎖",  
+    "AUTH_LOCKED":"生物辨識驗證功能被鎖住無法執行",
+    "SYSTEM_ERROR":"系統錯誤{{ERRORCODE}}",
+    "SYSTEM_DEFAULT_ERROR":"系統錯誤({{ERRORCODE}})"
+  },
+  "BIOMETRICSTATUS" : { 
+    "UNACTIVE":"生物辨識未啟用",
+    "ACTIVE":"生物辨識已啟用",
+    "WAITEACTIVE":"生物辨識待啟用",
+    "MODIFYBIOLIB":"偵測到您的生物辨識有異動，為了安全性已停用，請重新進行快速設定",
+    "DISABLE":"生物辨識已停用",
+    "NOTSUPPORT":"目前設備不支援Touch ID/Face ID，請至手機設定頁面開啟權限"
+  }
+
+}

@@ -1,0 +1,28 @@
+{
+    "DEPOSIT": {
+        "SEARCH":{
+            "TODAY": "Today",
+            "WEEK": "Week",
+            "MONTH": "Month",
+            "CUSTOM": "Custom",
+            "SEARCH_RANGE": "Search Range",
+            "START_DATE": "Start Date",
+            "END_DATE": "End Date",
+            "3MONTH": "Last 3 Months"
+        },
+        "LIST":{
+            "CURRENCY": "Currency",
+            "REM_AMOUNT": "Rem Amount",
+            "PAID_DATE": "Paid Date",
+            "IRNO": "Irno"
+        },
+        "DETAIL":{
+            "ADVDT": "Advdt(Vids)",
+            "BKN": "Remittance Bank",
+            "RTBKN": "Foreign Exchange Remittance Bank",
+            "RTMG1": "Postscript",
+            "RT_IRNO": "International Remittance Number",
+            "REMITTER_NAME": "Remitter Name"
+        }
+    }
+}

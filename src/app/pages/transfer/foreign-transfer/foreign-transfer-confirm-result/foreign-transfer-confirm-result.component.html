@@ -1,0 +1,280 @@
+<ng-container [ngSwitch]="nowPage">
+    <!-- 確認頁 Start -->
+    <ng-container *ngSwitchCase="'check'">
+        <section class="section_area section_hasbtn">
+            <!-- 步驟列 Start -->
+            <app-step-bar [setData]="stepMenuData" [setKey]="nowStep"></app-step-bar>
+            <!-- 步驟列 End -->
+            <!-- 倒數秒數 Start -->
+            <!-- <app-count-down [countOption]="countDownOption" (timeOutCallBack)="onBackPage($event)"></app-count-down> -->
+            <div class="transfer_list_info_1">{{'FOREIGN_TRANSFER.EXPIRED_SECOND_CHECK' | translate}} 
+                <app-count-down [countOption]="countDownOption" (timeOutCallBack)="onBackPage($event)"></app-count-down> {{'FOREIGN_TRANSFER.EXPIRED_SECOND_CHECK2' | translate}}
+            </div>
+            <!-- 倒數秒數 End -->
+            <div class="confirm_group confirm_list_bg">
+                <!-- 幣別 & 金額 Start -->
+                <div class="card_inner_list_group card_inner_list_foreign inner_list_bk_yellow">
+                    <div class="list_foreign_txt">{{'FOREIGN_TRANSFER.TRANSFER_AMOUNT' | translate}}</div>
+                    <div class="flex_row list_foreign_li">
+                        <div class="list_foreign_li_width">
+                            <!-- 兌出幣別 Start -->
+                            <div class="flex_row list_foreign_li_bg">
+                                <div class="national_flag_wrap">
+                                    <div class="national_flag {{inputData.chooseSellCurrencyObj['currencyCode'] | iconFlag}}"></div>
+                                </div>
+                                <div class="list_currency_txt_wrap">
+                                    <div class="list_currency_txt">{{inputData.chooseSellCurrencyObj['currencyCodeShow']}}</div>
+                                    <div class="list_currency_txt">{{inputData.chooseSellCurrencyObj['currencyNameShow']}}</div>
+                                </div>
+                            </div>
+                            <!-- 兌出幣別 End -->
+
+                            <!-- 兌出金額 Start -->
+                            <div class="list_money_txt">{{(inputData | fieldCheck: ['transOutAmount', {zero_type: false, empty_str: '--'}]) | htMoney: inputData.chooseSellCurrencyObj['currencyCode']}}</div>
+                            <!-- 兌出金額 End -->
+                        </div>
+                        <div class="i_foreign_trade">
+                        </div>
+                        <div class="list_foreign_li_width">
+                            <!-- 兌入幣別 Start -->
+                            <div class="flex_row list_foreign_li_bg">
+                                <div class="national_flag_wrap">
+                                    <div class="national_flag {{inputData.chooseBuyCurrencyObj['currencyCode'] | iconFlag}}"></div>
+                                </div>
+                                <div class="list_currency_txt_wrap">
+                                    <div class="list_currency_txt">{{inputData.chooseBuyCurrencyObj['currencyCodeShow']}}</div>
+                                    <div class="list_currency_txt">{{inputData.chooseBuyCurrencyObj['currencyNameShow']}}</div>
+                                </div>
+                            </div>
+                            <!-- 兌入幣別 End -->
+
+                            <!-- 兌入金額 Start -->
+                            <div class="list_money_txt">{{(inputData | fieldCheck: ['transInAmount', {zero_type: false, empty_str: '--'}]) | htMoney: inputData.chooseBuyCurrencyObj['currencyCode']}}</div>
+                            <!-- 兌入金額 End -->
+                        </div>
+                    </div>
+                </div>
+                <!-- 幣別 & 金額 End -->
+
+                <!-- 匯率 Start -->
+                <div class="card_inner_list_group">
+                    <div class="flex_row card_inner_list_li">
+                        <p>{{'FOREIGN_TRANSFER.EXCHANGE_RATE' | translate}}</p>
+                        <p>{{inputData | fieldCheck: ['referenceRate', {zero_type: false, empty_str: '--'}]}}</p>
+                    </div>
+                    <!-- 優惠訊息 Start -->
+                    <div class="transfer_list_info_2">{{'FOREIGN_TRANSFER.EXTRA_AMOUNT' | translate}} <span>{{inputData['extraAmount'] | currencyMoney: inputData.chooseBuyCurrencyObj['currencyCode']}}</span></div>
+                    <!-- 優惠訊息 End -->
+                </div>
+                <!-- 匯率 End -->
+
+                <!-- 轉出帳號 Start -->
+                <div class="card_inner_list_group">
+                    <div class="flex_row card_inner_list_li">
+                        <p>{{'FOREIGN_TRANSFER.TRANSFER_OUT_ACCOUNT' | translate}}</p>
+                        <p>{{inputData.transOutAccountObj | fieldCheck: ['accountId', {zero_type: false, empty_str: '--'}]}}</p>
+                    </div>
+                </div>
+                <!-- 轉出帳號 End -->
+
+                <!-- 轉入帳號 Start -->
+                <div class="card_inner_list_group">
+                    <div class="flex_row card_inner_list_li">
+                        <p>{{'FOREIGN_TRANSFER.TRANSFER_IN_ACCOUNT' | translate}}</p>
+                        <p>{{inputData.transInAccountObj | fieldCheck: ['accountId', {zero_type: false, empty_str: '--'}]}}</p>
+                    </div>
+                </div>
+                <!-- 轉入帳號 End -->
+
+                <!-- 結匯性質 Start -->
+                <div class="card_inner_list_group">
+                    <div class="flex_row card_inner_list_li">
+                        <p>{{'FOREIGN_TRANSFER.TRANSFER_TYPE' | translate}}</p>
+                        <p>{{inputData.chooseRemitNatureObj | fieldCheck: ['name', {zero_type: false, empty_str: '--'}]}}</p>
+                    </div>
+                </div>
+                <!-- 結匯性質 End -->
+            </div>
+
+            <!-- 安控 Start -->
+            <app-security-interface [setSecurity]="setSecurity" [securityAction]="securityAction" [setErrorObj]="setSecurityError"
+             (currentType)="currentType($event)" (bakSecurityObj)="bakSecurityObj($event)"></app-security-interface>
+            <!-- 安控 End -->
+        </section>
+
+        <!-- 取消 & 確認 按鈕 Start -->
+        <div class="btn_group flex_row">
+            <button class="btn_l btn_secondary btn_w25" (click)="onCancelBtnClick()">{{'FOREIGN_TRANSFER.BTN.CANCEL' | translate}}</button>
+            <button class="btn_r btn_primary btn_w70" (click)="onSecurityClick()">{{'FOREIGN_TRANSFER.BTN.CONFIRM' | translate}}</button>
+        </div>
+        <!-- 取消 & 確認 按鈕 End -->
+    </ng-container>
+    <!-- 確認頁 End -->
+
+    <!-- 結果頁 Start -->
+    <ng-container *ngSwitchCase="'result'">
+        <section class="section_area">
+            <!-- 結果頁(交易成功) Start -->
+            <div class="result_list_bg result_group">
+
+                <app-result-status-temp [setData]="statusObj"></app-result-status-temp>
+
+                <ng-container *ngIf="resStatus;">
+                    <!-- 幣別 & 金額 Start -->
+                    <div class="card_inner_list_group card_inner_list_foreign inner_list_bk_yellow">
+                        <div class="list_foreign_txt">{{'FOREIGN_TRANSFER.TRANSFER_AMOUNT' | translate}}</div>
+                        <div class="flex_row list_foreign_li">
+                            <div class="list_foreign_li_width">
+                                <!-- 兌出幣別 Start -->
+                                <div class="flex_row list_foreign_li_bg">
+                                    <div class="national_flag_wrap">
+                                        <div class="national_flag {{resData.transOutAccount['currencyCode'] | iconFlag}}"></div>
+                                    </div>
+                                    <div class="list_currency_txt_wrap">
+                                        <div class="list_currency_txt">{{resData.transOutAccount['currencyCode']}}</div>
+                                        <div class="list_currency_txt">{{resData.transOutAccount['currencyName'] | translate}}</div>
+                                    </div>
+                                </div>
+                                <!-- 兌出幣別 End -->
+                
+                                <!-- 兌出金額 Start -->
+                                <div class="list_money_txt">
+                                    {{(resData | fieldCheck: ['transOutAmt', {zero_type: false, empty_str: '--'}]) | htMoney: resData.transOutAccount['currencyCode']}}
+                                </div>
+                                <!-- 兌出金額 End -->
+                            </div>
+                            <div class="i_foreign_trade">
+                            </div>
+                            <div class="list_foreign_li_width">
+                                <!-- 兌入幣別 Start -->
+                                <div class="flex_row list_foreign_li_bg">
+                                    <div class="national_flag_wrap">
+                                        <div class="national_flag {{resData.transInAccount['currencyCode'] | iconFlag}}"></div>
+                                    </div>
+                                    <div class="list_currency_txt_wrap">
+                                        <div class="list_currency_txt">{{resData.transInAccount['currencyCode']}}</div>
+                                        <div class="list_currency_txt">{{resData.transInAccount['currencyName'] | translate}}</div>
+                                    </div>
+                                </div>
+                                <!-- 兌入幣別 End -->
+                
+                                <!-- 兌入金額 Start -->
+                                <div class="list_money_txt">
+                                    {{(resData | fieldCheck: ['transInAmt', {zero_type: false, empty_str: '--'}]) | htMoney: resData.transInAccount['currencyCode']}}
+                                </div>
+                                <!-- 兌入金額 End -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 幣別 & 金額 End -->
+                
+                    <!-- 匯率 Start -->
+                    <div class="card_inner_list_group">
+                        <div class="flex_row card_inner_list_li">
+                            <p>{{'FOREIGN_TRANSFER.EXCHANGE_RATE' | translate}}</p>
+                            <p>{{resData | fieldCheck: ['exchangeRate', {zero_type: false, empty_str: '--'}]}}</p>
+                        </div>
+                    </div>
+                    <!-- 匯率 End -->
+                
+                    <!-- 轉出帳號 Start -->
+                    <div class="card_inner_list_group">
+                        <div class="flex_row card_inner_list_li">
+                            <p>{{'FOREIGN_TRANSFER.TRANSFER_OUT_ACCOUNT' | translate}}</p>
+                            <p>{{resData.transOutAccount | fieldCheck: ['accountId', {zero_type: false, empty_str: '--'}]}}</p>
+                        </div>
+                    </div>
+                    <!-- 轉出帳號 End -->
+
+                    <ng-container *ngIf="resData.transOutAccount['currencyCode'] == 'TWD';">
+                        <!-- 帳上餘額 & 閉眼icon Start -->
+                        <div class="card_inner_list_group">
+                            <app-amount-mask [title]="'FOREIGN_TRANSFER.ACC_AMOUNT'" [currency]="resData.transOutAccount['currencyCode']"
+                                [amount]="resData.transOutAccount['bookBalance']"></app-amount-mask>
+                        </div>
+                        <!-- 帳上餘額 & 閉眼icon End -->
+                    
+                        <!-- 可用餘額 & 閉眼icon Start -->
+                        <div class="card_inner_list_group">
+                            <app-amount-mask [title]="'FOREIGN_TRANSFER.ACC_AVL_AMOUNT'"
+                                [currency]="resData.transOutAccount['currencyCode']" [amount]="resData.transOutAccount['balance']">
+                            </app-amount-mask>
+                        </div>
+                        <!-- 可用餘額 & 閉眼icon End -->
+                    </ng-container>
+
+                    <ng-container *ngIf="resData.transOutAccount['currencyCode'] != 'TWD';">
+                        <!-- 帳戶餘額 & 閉眼icon Start -->
+                        <div class="card_inner_list_group">
+                            <app-amount-mask [title]="'FOREIGN_TRANSFER.ACC_BALANCE'" [currency]="resData.transOutAccount['currencyCode']"
+                                [amount]="resData.transOutAccount['balance']"></app-amount-mask>
+                        </div>
+                        <!-- 帳戶餘額 & 閉眼icon End -->
+                    </ng-container>
+                
+                
+                    <!-- 轉入帳號 Start -->
+                    <div class="card_inner_list_group">
+                        <div class="flex_row card_inner_list_li">
+                            <p>{{'FOREIGN_TRANSFER.TRANSFER_IN_ACCOUNT' | translate}}</p>
+                            <p>{{resData.transInAccount | fieldCheck: ['accountId', {zero_type: false, empty_str: '--'}]}}</p>
+                        </div>
+                    </div>
+                    <!-- 轉入帳號 End -->
+
+                    <ng-container *ngIf="resData.transInAccount['currencyCode'] == 'TWD';">
+                        <!-- 帳上餘額 & 閉眼icon Start -->
+                        <div class="card_inner_list_group">
+                            <app-amount-mask [title]="'FOREIGN_TRANSFER.ACC_AMOUNT'" [currency]="resData.transInAccount['currencyCode']"
+                                [amount]="resData.transInAccount['bookBalance']"></app-amount-mask>
+                        </div>
+                        <!-- 帳上餘額 & 閉眼icon End -->
+                    
+                        <!-- 可用餘額 & 閉眼icon Start -->
+                        <div class="card_inner_list_group">
+                            <app-amount-mask [title]="'FOREIGN_TRANSFER.ACC_AVL_AMOUNT'"
+                                [currency]="resData.transInAccount['currencyCode']" [amount]="resData.transInAccount['balance']">
+                            </app-amount-mask>
+                        </div>
+                        <!-- 可用餘額 & 閉眼icon End -->
+                    </ng-container>
+                
+                    <ng-container *ngIf="resData.transInAccount['currencyCode'] != 'TWD';">
+                        <!-- 帳戶餘額 & 閉眼icon Start -->
+                        <div class="card_inner_list_group">
+                            <app-amount-mask [title]="'FOREIGN_TRANSFER.ACC_BALANCE'" [currency]="resData.transInAccount['currencyCode']"
+                                [amount]="resData.transInAccount['balance']"></app-amount-mask>
+                        </div>
+                        <!-- 帳戶餘額 & 閉眼icon End -->
+                    </ng-container>
+                
+                    <!-- 結匯性質 Start -->
+                    <div class="card_inner_list_group">
+                        <div class="flex_row card_inner_list_li">
+                            <p>{{'FOREIGN_TRANSFER.TRANSFER_TYPE' | translate}}</p>
+                            <p>{{resData.remitNature | fieldCheck: ['name', {zero_type: false, empty_str: '--'}]}}</p>
+                        </div>
+                    </div>
+                    <!-- 結匯性質 End -->
+                </ng-container>
+            </div>
+            
+            <!-- <ng-container *ngIf="resStatus;"> -->
+                <!-- 再做一筆按鈕 Start -->
+                <div class="result_function_group">
+                    <div class="result_function_wrap">
+                        <div class="result_btn_group flex_row">
+                            <div class="result_btn" (click)="onAgainBtnClick()">
+                                <div class="i_transfer"></div>
+                                <p>{{'FOREIGN_TRANSFER.DO_ANOTHER_ONE' | translate}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 再做一筆按鈕 End -->
+            <!-- </ng-container> -->
+            <!-- 結果頁(交易成功) End -->  
+        </section>
+    </ng-container>
+    <!-- 結果頁 End -->
+</ng-container>

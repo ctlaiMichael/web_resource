@@ -1,0 +1,35 @@
+<!-- img -->
+<ng-container *ngIf="!onlyImgPage; else onlyImgBox;" >
+    <div class="login_event_img login_event_img_1" *ngIf="imgSrc" [imageCtrl]="imgSrc" [imageType]="'background-image'" (click)="onGoEvent()"></div>
+    <div class="login_event_content" *ngIf="!!showText" [ngClass]="{'have_hide_content': (contentType != 'normal') }">
+        <p class="login_event_content_h1" [innerHtml]=" (title | safeHtml)" (click)="onGoEvent()"></p>
+
+        <ng-container [ngSwitch]="contentType">
+            <!-- 展開狀態 -->
+            <ng-container *ngSwitchCase="'open'">
+                <p class="login_event_content_h2" [innerHtml]=" (content | safeHtml)" (click)="onGoEvent()"></p>
+                <label class="read-more-trigger" (click)="onOpenEvent()">{{ 'BTN.COLLAPSE_ONE' | translate }}</label>
+            </ng-container>
+            <!-- 收合狀態 -->
+            <ng-container *ngSwitchCase="'close'">
+                <p class="login_event_content_h2 hide_content" [innerHtml]=" (content | safeHtml)" (click)="onOpenEvent()"></p>
+                <label class="read-more-trigger" (click)="onOpenEvent()">{{ 'BTN.UNFOLD_ONE' | translate }}</label>
+            </ng-container>
+            <!-- 字少模式 -->
+            <ng-container *ngSwitchDefault>
+                <p class="login_event_content_h2" [innerHtml]=" (content | safeHtml)"></p>
+            </ng-container>
+        </ng-container>
+    </div>
+    <!-- Btn -->
+    <div class="content_btn_group content_btn_6 flex_row" *ngIf="!!showLink" (click)="onGoEvent()">
+        <button class="btn_card_event btn_w100 flex_row row_center">
+            <div class="btn_card_event_txt">{{ btnTitle | translate }}</div>
+            <div class="i_next_page"></div>
+        </button>
+    </div>
+</ng-container>
+<ng-template #onlyImgBox>
+    <div class="card_11_advertising credit_banner_01" [imageCtrl]="imgSrc" [imageType]="'background-image'" ></div>
+</ng-template>
+

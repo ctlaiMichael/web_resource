@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Flag/i_flag_eng</title>
+    <defs>
+        <circle id="path-1" cx="24" cy="24" r="24"></circle>
+    </defs>
+    <g id="Flag/i_flag_eng" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="Oval" fill="#FFFFFF" xlink:href="#path-1"></use>
+        <g id="Group-15" mask="url(#mask-2)">
+            <g transform="translate(-17.000000, 0.000000)">
+                <polygon id="Fill-1" fill="#FFFFFF" points="0 48 82.2864 48 82.2864 0.00096 0 0.00096"></polygon>
+                <polygon id="Fill-2" fill="#00247D" points="47.845728 0.00048 47.845728 16.13808 76.658208 0.00048"></polygon>
+                <polygon id="Fill-3" fill="#00247D" points="6.42816 0.00048 35.12352 16.13808 35.12352 0.00048"></polygon>
+                <polygon id="Fill-4" fill="#00247D" points="62.74368 17.355648 82.2864 17.355648 82.2864 6.343488"></polygon>
+                <polygon id="Fill-5" fill="#00247D" points="62.74368 31.612512 82.2864 42.501792 82.2864 31.612512"></polygon>
+                <polygon id="Fill-6" fill="#00247D" points="8.0568 48 35.12304 48 35.12304 32.83008"></polygon>
+                <polygon id="Fill-7" fill="#00247D" points="47.845728 48 74.997408 48 47.845728 32.83008"></polygon>
+                <polygon id="Fill-8" fill="#00247D" points="0 31.612512 0 42.994272 20.22528 31.612512"></polygon>
+                <polygon id="Fill-9" fill="#00247D" points="0 17.355648 20.22528 17.355648 0 5.953728"></polygon>
+                <polygon id="Fill-10" fill="#CF142B" points="80.409024 0.00048 49.408704 17.35536 55.098624 17.35536 82.286784 2.13744 82.286784 0.00048"></polygon>
+                <polygon id="Fill-11" fill="#CF142B" points="53.812512 31.612512 82.286112 47.542752 82.286112 44.355552 59.501472 31.612512"></polygon>
+                <polygon id="Fill-12" fill="#CF142B" points="0 3.657792 24.35616 17.356032 30.04704 17.356032 0 0.465792"></polygon>
+                <polygon id="Fill-13" fill="#CF142B" points="28.760832 31.612512 0.000192 47.722272 0.000192 47.999712 5.193792 47.999712 34.450752 31.612512"></polygon>
+                <polygon id="Fill-14" fill="#CF142B" points="37.667808 0.00048 37.667808 20.20656 0.000288 20.20656 0.000288 28.76016 37.667808 28.76016 37.667808 47.99952 45.301728 47.99952 45.301728 28.76016 82.286688 28.76016 82.286688 20.20656 45.301728 20.20656 45.301728 0.00048"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

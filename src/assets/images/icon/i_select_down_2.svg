@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icons/i_arrow_down2</title>
+    <g id="Icons/i_arrow_down2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M42.707,14.293 C42.316,13.902 41.684,13.902 41.293,14.293 L24,31.601 L6.707,14.293 C6.316,13.902 5.684,13.902 5.293,14.293 C4.902,14.683 4.902,15.316 5.293,15.707 L23.278,33.707 C23.474,33.902 23.729,34 23.985,34 C23.99,34 23.995,33.997 24,33.997 C24.006,33.997 24.011,34 24.016,34 C24.271,34 24.527,33.902 24.723,33.707 L42.707,15.707 C43.098,15.316 43.098,14.683 42.707,14.293" id="Fill-1" fill="#B82B22"></path>
+    </g>
+</svg>

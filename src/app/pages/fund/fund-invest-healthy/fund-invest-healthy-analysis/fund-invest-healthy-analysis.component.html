@@ -1,0 +1,126 @@
+    <!-- 風險屬性區塊 START -->
+    <div class="list_group list_group_3 list_group_3_first">
+        <div class="list_data_3">
+            <div class="list_data_li_3 sub_open flex_row" expandList [openFlag]="expandFlag">
+                <div class="list_data_li_3_title">{{ 'FUND_HEALTHY.ANALYSIS.RISK_TYPE' | translate }}</div>
+                <div class="list_icon"></div>
+            </div>
+
+            <div class="sub_open_info_frame">
+                <div class="list_data_inner_3 flex_col">
+                    <div class="list_inner_img_wrap">
+                        <app-chart-doughnut [chartType]="'myFundRisk'" [setData]="chartData.riskData" [width]="350" [height]="250" (backPageEmit)="onPageBackEvent($event)"></app-chart-doughnut>
+                        <!-- chart圖中間文字 -->
+                         <div class="pie_content_info" style="pointer-events: none;">
+                            <ng-container *ngIf="checkData.riskData">
+                                <p>{{ 'FUND_HEALTHY.ANALYSIS.RISK_TYPE' | translate }}</p>
+                                <!-- 風險屬性 -->
+                            </ng-container>
+                            <ng-container *ngIf="!checkData.riskData">
+                                <p>{{ 'ERROR.EMPTY' | translate }}</p>
+                                <!-- 查無資料 -->
+                            </ng-container>
+                        </div>
+                        <!-- chart圖中間文字 End -->
+                    </div>
+
+                    <div class="list_data_inner_w">
+                        <ng-container *ngFor="let item of riskData;index as i">
+                            <div class="list_data_inner_li_3 flex_row">
+                                <div class="list_dot_wrap">
+                                    <!-- <div class="list_dot {{'chart_color_'+(i+1)}}"></div> -->
+                                    <div class="list_dot {{ item | fieldCheck: 'color' }}"></div>
+                                </div>
+                                <div class="list_inner_li_p1">{{ item | fieldCheck: 'chiName' }}</div>
+                                <div class="list_inner_li_p2">{{ item | fieldCheck: 'value' }}%</div>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 風險屬性區塊 END -->
+
+    <!-- 產品類型區塊 START -->
+    <div class="list_group list_group_3 list_group_3_first">
+        <div class="list_data_3">
+            <div class="list_data_li_3 sub_open flex_row" expandList [openFlag]="expandFlag">
+                <div class="list_data_li_3_title">{{ 'FUND_HEALTHY.ANALYSIS.REGION_TYPE' | translate }}</div>
+                <div class="list_icon"></div>
+            </div>
+
+            <div class="sub_open_info_frame">
+                <div class="list_data_inner_3 flex_col">
+                    <div class="list_inner_img_wrap">
+                        <app-chart-doughnut [chartType]="'myFundProd'" [setData]="chartData.regionData" [width]="350" [height]="250" (backPageEmit)="onPageBackEvent($event)"></app-chart-doughnut>
+                        <!-- chart圖中間文字 -->
+                         <div class="pie_content_info" style="pointer-events: none;">
+                            <ng-container *ngIf="checkData.regionData">
+                                <p>{{ 'FUND_HEALTHY.ANALYSIS.REGION_TYPE' | translate }}</p>
+                                <!-- 產品類型 -->
+                            </ng-container>
+                            <ng-container *ngIf="!checkData.regionData">
+                                <p>{{ 'ERROR.EMPTY' | translate }}</p>
+                                <!-- 查無資料 -->
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="list_data_inner_w">
+                        <ng-container *ngFor="let item of regionData;index as i">
+                            <div class="list_data_inner_li_3 flex_row">
+                                <div class="list_dot_wrap">
+                                    <!-- <div class="list_dot {{'chart_color_'+(i+1)}}"></div> -->
+                                    <div class="list_dot {{ item | fieldCheck: 'color' }}"></div>
+                                </div>
+                                <div class="list_inner_li_p1">{{ item | fieldCheck: 'chiName' }}</div>
+                                <div class="list_inner_li_p2">{{ item | fieldCheck: 'value' }}%</div>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 產品類型區塊 END -->
+
+    <!-- 幣別類型區塊 START -->
+    <div class="list_group list_group_3 list_group_3_first">
+        <div class="list_data_3">
+            <div class="list_data_li_3 sub_open flex_row" expandList [openFlag]="expandFlag">
+                <div class="list_data_li_3_title">{{ 'FUND_HEALTHY.ANALYSIS.CURRENCY_TYPE' | translate }}</div>
+                <div class="list_icon"></div>
+            </div>
+
+            <div class="sub_open_info_frame">
+                <div class="list_data_inner_3 flex_col">
+                    <div class="list_inner_img_wrap">
+                        <app-chart-doughnut [chartType]="'myFundCcy'" [setData]="chartData.currencyData" [width]="350" [height]="250" (backPageEmit)="onPageBackEvent($event)"></app-chart-doughnut>
+                        <!-- chart圖中間文字 -->
+                         <div class="pie_content_info" style="pointer-events: none;">
+                            <ng-container *ngIf="checkData.currencyData">
+                                <p>{{ 'FUND_HEALTHY.ANALYSIS.CURRENCY_TYPE' | translate }}</p>
+                            </ng-container>
+                            <ng-container *ngIf="!checkData.currencyData">
+                                <p>{{ 'ERROR.EMPTY' | translate }}</p>
+                                <!-- 查無資料 -->
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="list_data_inner_w">
+                        <ng-container *ngFor="let item of currencyData;index as i">
+                            <div class="list_data_inner_li_3 flex_row">
+                                <div class="list_dot_wrap">
+                                    <!-- <div class="list_dot {{'chart_color_'+(i+1)}}"></div> -->
+                                    <div class="list_dot {{ item | fieldCheck: 'color' }}"></div>
+                                </div>
+                                <div class="list_inner_li_p1">{{ item | fieldCheck: 'chiName' }}</div>
+                                <div class="list_inner_li_p2">{{ item | fieldCheck: 'value' }}%</div>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 幣別類型區塊 END -->

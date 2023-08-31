@@ -1,0 +1,58 @@
+<div class="popup_content_area zIndex_level_6">
+    <div class="popup_content_wrap">
+
+        <div class="pop_group pop_title pop_title_1 flex_row">
+            <div class="simple_title">{{title | translate}}</div>
+            <div class="i_close" (click)="cancleClick()"></div>
+        </div>
+
+        <div class="popup_inner_content">
+            <!-- 有帳號 START -->
+            <ng-container *ngIf="data.length != 0; else emptyBox">
+                <ng-container *ngFor="let item of data">
+                    <div class="content_group content_4 flex_row" (click)="chooseOver(item)">
+                        <div class="flex_row content_4_wrap">
+
+                            <!-- 其他版型 START -->
+                            <ng-container *ngIf="type != 'loan'">
+                                <div class="content_4_txt_wrap">
+                                    <div class="content_4_txt_1">{{item.accountId}}
+                                        ({{ item | objectField: ['currencyCode'] }})</div>
+                                    <ng-container *ngIf="item.nickName != ''">
+                                        <div class="content_4_txt_2">{{ item | objectField: ['nickName'] }}</div>
+                                    </ng-container>
+                                </div>
+                                <div class="i_check_wrap flex_row" [ngClass]="{ 'active_i_check':(checkSelect(item)) }">
+                                    <div class="i_check"></div>
+                                </div>
+                            </ng-container>
+                            <!-- 其他版型 END -->
+
+                            <!-- 貸款版型 START -->
+                            <ng-container *ngIf="type == 'loan'">
+                                <div class="content_4_txt_wrap">
+                                    <div class="content_4_txt_1">{{item.accountId}}
+                                        {{ item | objectField: ['nickName'] }}
+                                    </div>
+                                    <div class="content_4_txt_2">
+                                        {{ item | objectField: ['amount', 'currencyMoney' , 'TWD'] }}</div>
+                                </div>
+                                <div class="i_check_wrap flex_row" [ngClass]="{ 'active_i_check': item.accountId == select }">
+                                    <div class="i_check"></div>
+                                </div>
+                            </ng-container>
+                            <!-- 貸款版型 END -->
+                        </div>
+                    </div>
+                </ng-container>
+            </ng-container>
+            <!-- 有帳號 END -->
+
+            <!-- 無帳號 START -->
+            <ng-template #emptyBox>
+                <app-error-box [errorMsg]="'ERROR.ACCOUNT_EMPTY'"></app-error-box>
+            </ng-template>
+            <!-- 無帳號 END -->
+        </div>
+    </div>
+</div>

@@ -1,0 +1,262 @@
+<ng-container [ngSwitch]="nowPage">
+    <!-- 快速登入/交易設定 頁面 Start -->
+    <ng-container *ngSwitchCase="'main'">
+        <section class="section_area">
+            <!-- 快速登入/交易設定 標題 Start -->
+            <div class="sub_title_group sub_title_list6">
+                {{'SETTING.FAST_SETTING.SUB_TITLE1' | translate}}
+            </div>
+            <!-- 快速登入/交易設定 標題 End -->
+        
+            <!-- 快速登入/交易設定 Start -->
+            <div class="content_group content_22 flex_row">
+                <div class="content_22_txt">{{'SETTING.FAST_SETTING.SUB_TITLE1' | translate}}</div>
+                <div class="switch_opne_close">
+                    <input type="checkbox" name="toggle" [checked]="fastSettingObj.fastNormal === '1'"
+                        (click)="onClickNormal()">
+                    <label for="toggle">
+                        <i></i>
+                    </label>
+                </div>
+            </div>
+            <!-- 快速登入/交易設定 End -->
+        
+            <!-- 使用模式 Start -->
+            <div class="content_group content_2 content_2_4 flex_row" *ngIf="fastSettingObj.fastNormal == '1';">
+                <div class="flex_row content_2_wrap">
+                    <div class="content_2_txt">{{'SETTING.FAST_SETTING.USE_TYPE' | translate}}</div>
+                    <div class="content_2_tag_wrap flex_row">
+                    <!-- <div class="content_2_tag_wrap flex_row" (click)="onClickUseType()"> -->
+                        <div class="content_2_4_txt">
+                            {{useTypeName | translate | fieldCheck: ['useTypeName', {zero_type: false, empty_str: '--'}]}}</div>
+                        <!-- <div class="select_i_right"></div> -->
+                    </div>
+                </div>
+            </div>
+            <!-- 使用模式 End -->
+
+            <!-- 圖形碼變更 按鈕 Start -->
+            <div class="content_group content_2 content_2_4 flex_row" *ngIf="fastSettingObj.fastNormal == '1' && fastSettingObj.fastType == '1';">
+                <div class="flex_row content_2_wrap">
+                    <div class="content_2_txt">{{'SETTING.FAST_SETTING.BTN.CHANGE_GRAPHIC_CODE' | translate}}</div>
+                    <div class="content_2_tag_wrap flex_row" (click)="onClickGraphChange()">
+                        <div class="select_i_right"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- 圖形碼變更 按鈕 End -->
+
+            <!-- 快速登入/約轉交易文字說明 Start -->
+            <div class="content_group content_2 content_2_4 flex_row" *ngIf="!!fastSettingObj.fastStatus;">
+                <div class="flex_row content_2_wrap">
+                    <div class="content_2_txt">{{'SETTING.FAST_SETTING.FAST_SETTING_NORMAL' | translate}}</div>
+                    <div class="content_2_tag_wrap flex_row">
+                        <div class="content_2_4_txt">
+                            {{(fastSettingObj.fastNormal == '1' ? 'SETTING.FAST_SETTING.ENABLE' : 'SETTING.FAST_SETTING.DISABLE') | translate}}</div>
+                    </div>
+                </div>
+            </div>
+            <!-- 快速登入/約轉交易文字說明 End -->
+
+            <!-- 快速登入/非約轉交易文字說明 Start -->
+            <div class="content_group content_2 content_2_4 flex_row" *ngIf="!!fastSettingObj.fastStatus;">
+                <div class="flex_row content_2_wrap">
+                    <div class="content_2_txt">{{'SETTING.FAST_SETTING.FAST_SETTING_NON_AGREE' | translate}}</div>
+                    <div class="content_2_tag_wrap flex_row">
+                        <div class="content_2_4_txt">
+                            {{(fastSettingObj.fastNonAgree == '1' ? 'SETTING.FAST_SETTING.ENABLE' : 'SETTING.FAST_SETTING.DISABLE') | translate}}</div>
+                    </div>
+                </div>
+            </div>
+            <!-- 快速登入/非約轉交易文字說明 End -->
+
+            <div class="mar_btm15"></div>
+        
+            <!-- 非約定快速交易設定 標題 Start -->
+            <div class="sub_title_group sub_title_list6" *ngIf="showNonAgreeBtn;">
+                {{'SETTING.FAST_SETTING.SUB_TITLE2' | translate}}
+            </div>
+            <!-- 非約定快速交易設定 標題 End -->
+        
+            <!-- 非約定快速交易設定 Start -->
+            <div class="content_group content_22 flex_row mar_btm15" *ngIf="showNonAgreeBtn;">
+                <div class="content_22_txt">{{'SETTING.FAST_SETTING.FAST_SETTING_NON_AGREE' | translate}}</div>
+                <div class="switch_opne_close">
+                    <input type="checkbox" name="toggle" [checked]="fastSettingObj.fastNonAgree === '1'"
+                        (click)="onClickNonAgree()">
+                    <label for="toggle">
+                        <i></i>
+                    </label>
+                </div>
+            </div>
+            <!-- 非約定快速交易設定 End -->
+        
+            <!-- 已綁定裝置清單 標題 Start -->
+            <div class="sub_title_group sub_title_list6">
+                {{'SETTING.FAST_SETTING.SUB_TITLE3' | translate}}
+            </div>
+            <!-- 已綁定裝置清單 標題 End -->
+        
+            <!-- 設備綁定數量 Start -->
+            <div class="content_group content_2 content_2_4 flex_row mar_btm15">
+                <div class="flex_row content_2_wrap">
+                    <div class="content_2_txt">{{'SETTING.FAST_SETTING.DEVICE_BIND_NUMBER' | translate}}</div>
+                    <div class="content_2_tag_wrap flex_row" (click)="onClickDeviceList()">
+                        <div class="content_2_4_txt" *ngIf="!!haveList;">{{number}}</div>
+                        <div class="content_2_4_txt" *ngIf="!haveList;">--</div>
+                        <div class="select_i_right" *ngIf="number > 0;"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- 設備綁定數量 End -->
+        
+            <!-- 快速交易設定使用須知 Start -->
+            <div class="row_single">
+                <div class="memo_info">
+                    {{'SETTING.FAST_SETTING.FAST_SETTING_README' | translate}}『<span class="txt_bold txt_u"
+                        (click)="onClickFastSettingReadme()">快速交易設定使用須知</span>』。
+                </div>
+            </div>
+            <!-- 快速交易設定使用須知 End -->
+        
+            <!-- 注意資訊 Start -->
+            <!-- <app-note [options]="notePopupOption"></app-note> -->
+            <!-- 注意資訊 End-->
+        </section>
+    </ng-container>
+    <!-- 快速登入/交易設定 頁面 End -->
+
+    <!-- 使用模式設定 頁面 Start -->
+    <ng-container *ngSwitchCase="'useTypeSet'">
+        <section class="section_area">
+            <!-- 使用模式設定 標題 Start -->
+            <div class="sub_title_group sub_title_list6">
+                {{'SETTING.FAST_SETTING.USE_TYPE_SETTING' | translate}}
+            </div>
+            <!-- 使用模式設定 標題 End -->
+    
+            <!-- 臉部/指紋 按鈕 Start -->
+            <div class="content_group content_22 flex_row">
+                <div class="content_22_txt">{{'SETTING.FAST_SETTING.FACE_FINGER_PRINT' | translate}}</div>
+                <div class="switch_opne_close">
+                    <input type="checkbox" name="toggle" [checked]="biometrics === '1'"
+                        (click)="onClickBiometrics()">
+                    <label for="toggle">
+                        <i></i>
+                    </label>
+                </div>
+            </div>
+            <!-- 臉部/指紋 按鈕 End -->
+    
+            <!-- 圖形碼 按鈕 Start -->
+            <!-- <div class="content_group content_22 flex_row">
+                <div class="content_22_txt">{{'SETTING.FAST_SETTING.PATTERN' | translate}}</div>
+                <div class="switch_opne_close">
+                    <input type="checkbox" name="toggle" [checked]="pattern === '1'"
+                        (click)="onClickPattern()">
+                    <label for="toggle">
+                        <i></i>
+                    </label>
+                </div>
+            </div> -->
+            <!-- 圖形碼 按鈕 End -->
+        </section>
+    </ng-container>
+    <!-- 使用模式設定 頁面 End -->
+
+    <!-- 已綁定裝置清單 頁面 Start -->
+    <ng-container *ngSwitchCase="'device-list'">
+        <app-device-list [inputData]="deviceListObj" (backPageEmit)="onPageBackEvent($event)"></app-device-list>
+    </ng-container>
+    <!-- 已綁定裝置清單 頁面 End -->
+
+    <!-- 設備綁定條款 頁面 Start -->
+    <ng-container *ngSwitchCase="'agree-content'">
+        <section class="section_area section_hasbtn">
+            <!-- 步驟列 Start -->
+            <app-step-bar [setData]="stepMenuData" [setKey]="nowStep"></app-step-bar>
+            <!-- 步驟列 End -->
+
+            <!-- 同意條款 Start -->
+            <div class="row_single">
+                <div class="agreement_content">
+                    <p class="txt_bold">裝置綁定服務條款：</p>
+                    <p style="font-size: xx-small; text-align: right;">版本：1091130</p>
+                    <p>本人為與上海商業儲蓄銀行(簡稱「貴行」)約定以本裝置作為綁定設備，並以本裝置內建之指紋辨識(Touch ID)/臉部辨識(Face ID)/約定之圖形密碼(簡稱圖形密碼」)，用於本人使用貴行行動銀行APP之快速登入及快速確認交易時之身分確認(簡稱「本服務」)，茲與貴行約定如下，並同意嗣後使用本服務，願依照以下條款辦理：</p>
+                    <p>1.本人確認<span class="txt_bold">本裝置僅綁定本人指紋、臉部等生物特徵，並同意以本裝置最近一次綁定之指紋辨識(Touch ID)/臉部辨識(Face ID)/圖形密碼進行快速登入或快速確認交易。</span></p>
+                    <p>2.本人<span class="txt_bold">最多可綁定三個裝置，若要取消快速登入及快速確認交易或解除已綁定之裝置時，可自行利用貴行行動銀行APP辦理。</span>取消快速登入及快速確認交易或解除裝置綁定後，將無法使用指紋辨識(Touch ID)/臉部辨識(Face ID)/圖形密碼進行快速登入或快速確認交易，如欲恢復使用須重新進行裝置綁定。</p>
+                    <p>3.進行本裝置綁定時，貴行將綁定驗證碼發送至本人留存於貴行之行動電話號碼，若本人欲同時開啟非約定轉帳交易之快速交易服務時，貴行將綁定驗證碼發送至本人申請非約定轉帳之行動電話號碼。</p>
+                    <p>4.快速登入/交易身分確認方式<span class="txt_bold">僅限單選一種指紋辨識(Touch ID)/臉部辨識(Face ID)/圖形密碼。</span></p>
+                    <p class="txt_bold">5.本人應妥善保管裝置，並使用相關裝置安全措施，不將圖形密碼出示他人或令他人知悉，亦不儲存他人之指紋/臉部於本裝置，且不得以任何方式將本裝置供他人使用。如有違反、或因第三人冒用或盜用所致損害，本人自行負責，倘致貴行受有損害時，本人亦應負賠償之責。</p>
+                    <p>6.本人同意<span class="txt_bold">凡依本人設定之圖形密碼、或以裝置內建之指紋辨識(Touch ID)或臉部辨識(Face ID)進行快速登入或快速確認交易，均視同本人親為，與以使用者代號及密碼登入具有同一效力(即一般登入方式)，</span>並知悉貴行未儲存指紋及臉部資料，亦非裝置內建辨識功能之製造者或提供者，如裝置辨識功能發生任何問題者，須自行洽裝置廠商處理。</p>
+                    <p class="txt_bold">7.使用圖形密碼錯誤連續累計達5次，系統將自動關閉快速登入功能，請以一般登入方式登入，如需繼續使用快速登入，請重新開通啟用本服務。</p>
+                    <p>8.使用指紋辨識(Touch ID)/臉部辨識(Face ID)功能若錯誤次數達裝置設定之上限時，系統將自動關閉使用指紋/臉部辦理快速登入或快速確認交易，待本裝置之指紋辨識(Touch ID)/臉部辨識(Face ID)功能解鎖後，須請再自行啟用本服務。</p>
+                    <p class="txt_bold">9.使用指紋辨識(Touch ID)/臉部辨識(Face ID)快速確認交易之設定，僅適用於行動銀行APP開放之交易。</p>
+                    <p>10.如裝置遺失或被盜，本人同意立即利用貴行行動銀行APP取消快速登入及快速確認交易或解除已綁定之裝置。</p>
+                    <p>11.本條款為個人電子銀行服務約定條款之一部分，本條款未約定事宜，悉依貴行「個人電子銀行服務約定條款」辦理。</p>
+                    <p>12.本條款及因本條款所生之爭議，以中華民國法律為準據法；如因本條款涉訟時，以臺灣臺北地方法院為第一審管轄法院。但不得排除消費者保護法第四十七條或民事訴訟法第四百三十六條之九小額訴訟管轄法院之適用。</p>
+                </div>
+            </div>
+            <!-- 同意條款 End -->
+
+            <!-- 同意 checkbox Start -->
+            <div class="row_single mar_btm0">
+                <div class="inner_checkbox">
+                    <input type="checkbox" id="inner_checkbox01" name="inner_checkbox" [checked]="agreeContent === '1'"
+                        (click)="onAgreeClick()">
+                    <label for="inner_checkbox01">
+                        <span>
+                            <i></i>
+                        </span>
+                        <b class="inner_checkbox_txt">{{'SETTING.FAST_SETTING.AGREE' | translate}}</b>
+                    </label>
+                </div>
+            </div>
+            <!-- 同意 checkbox End -->
+        </section>
+
+        <!-- 取消 & 確認 按鈕 Start -->
+        <div class="btn_group flex_row">
+            <button class="btn_l btn_secondary btn_w25"
+                (click)="onCancelBtnClick()">{{'SETTING.FAST_SETTING.BTN.CANCEL' | translate}}</button>
+            <button class="btn_r btn_primary btn_w70"
+                (click)="onAgreeConfirmClick()">{{'SETTING.FAST_SETTING.BTN.CHECK' | translate}}</button>
+        </div>
+        <!-- 取消 & 確認 按鈕 End -->
+    </ng-container>
+    <!-- 設備綁定條款 頁面 End -->
+
+    <!-- 設備綁定 頁面 Start -->
+    <ng-container *ngSwitchCase="'device-bind'">
+        <app-device-bind [inputData]="outputData" (backPageEmit)="onPageBackEvent($event)"></app-device-bind>
+    </ng-container>
+    <!-- 設備綁定 頁面 End -->
+
+    <!-- 快速交易設定使用須知 頁面 Start -->
+    <ng-container *ngSwitchCase="'readme'">
+        <section class="section_area">
+            <!-- 使用須知 Start -->
+            <div class="row_single" style="margin-top: 50px;">
+                <div class="agreement_content">
+                    <p class="txt_bold">裝置綁定服務條款：</p>
+                    <p style="font-size: xx-small; text-align: right;">版本：1091130</p>
+                    <p>本人為與上海商業儲蓄銀行(簡稱「貴行」)約定以本裝置作為綁定設備，並以本裝置內建之指紋辨識(Touch ID)/臉部辨識(Face ID)/約定之圖形密碼(簡稱圖形密碼」)，用於本人使用貴行行動銀行APP之快速登入及快速確認交易時之身分確認(簡稱「本服務」)，茲與貴行約定如下，並同意嗣後使用本服務，願依照以下條款辦理：</p>
+                    <p>1.本人確認<span class="txt_bold">本裝置僅綁定本人指紋、臉部等生物特徵，並同意以本裝置最近一次綁定之指紋辨識(Touch ID)/臉部辨識(Face ID)/圖形密碼進行快速登入或快速確認交易。</span></p>
+                    <p>2.本人<span class="txt_bold">最多可綁定三個裝置，若要取消快速登入及快速確認交易或解除已綁定之裝置時，可自行利用貴行行動銀行APP辦理。</span>取消快速登入及快速確認交易或解除裝置綁定後，將無法使用指紋辨識(Touch ID)/臉部辨識(Face ID)/圖形密碼進行快速登入或快速確認交易，如欲恢復使用須重新進行裝置綁定。</p>
+                    <p>3.進行本裝置綁定時，貴行將綁定驗證碼發送至本人留存於貴行之行動電話號碼，若本人欲同時開啟非約定轉帳交易之快速交易服務時，貴行將綁定驗證碼發送至本人申請非約定轉帳之行動電話號碼。</p>
+                    <p>4.快速登入/交易身分確認方式<span class="txt_bold">僅限單選一種指紋辨識(Touch ID)/臉部辨識(Face ID)/圖形密碼。</span></p>
+                    <p class="txt_bold">5.本人應妥善保管裝置，並使用相關裝置安全措施，不將圖形密碼出示他人或令他人知悉，亦不儲存他人之指紋/臉部於本裝置，且不得以任何方式將本裝置供他人使用。如有違反、或因第三人冒用或盜用所致損害，本人自行負責，倘致貴行受有損害時，本人亦應負賠償之責。</p>
+                    <p>6.本人同意<span class="txt_bold">凡依本人設定之圖形密碼、或以裝置內建之指紋辨識(Touch ID)或臉部辨識(Face ID)進行快速登入或快速確認交易，均視同本人親為，與以使用者代號及密碼登入具有同一效力(即一般登入方式)，</span>並知悉貴行未儲存指紋及臉部資料，亦非裝置內建辨識功能之製造者或提供者，如裝置辨識功能發生任何問題者，須自行洽裝置廠商處理。</p>
+                    <p class="txt_bold">7.使用圖形密碼錯誤連續累計達5次，系統將自動關閉快速登入功能，請以一般登入方式登入，如需繼續使用快速登入，請重新開通啟用本服務。</p>
+                    <p>8.使用指紋辨識(Touch ID)/臉部辨識(Face ID)功能若錯誤次數達裝置設定之上限時，系統將自動關閉使用指紋/臉部辦理快速登入或快速確認交易，待本裝置之指紋辨識(Touch ID)/臉部辨識(Face ID)功能解鎖後，須請再自行啟用本服務。</p>
+                    <p class="txt_bold">9.使用指紋辨識(Touch ID)/臉部辨識(Face ID)快速確認交易之設定，僅適用於行動銀行APP開放之交易。</p>
+                    <p>10.如裝置遺失或被盜，本人同意立即利用貴行行動銀行APP取消快速登入及快速確認交易或解除已綁定之裝置。</p>
+                    <p>11.本條款為個人電子銀行服務約定條款之一部分，本條款未約定事宜，悉依貴行「個人電子銀行服務約定條款」辦理。</p>
+                    <p>12.本條款及因本條款所生之爭議，以中華民國法律為準據法；如因本條款涉訟時，以臺灣臺北地方法院為第一審管轄法院。但不得排除消費者保護法第四十七條或民事訴訟法第四百三十六條之九小額訴訟管轄法院之適用。</p>
+                </div>
+            </div>
+            <!-- 使用須知 End -->
+        </section>
+    </ng-container>
+    <!-- 快速交易設定使用須知 頁面 End -->
+</ng-container>

@@ -1,0 +1,88 @@
+<ng-container [ngSwitch]="nowPage">
+    <div class="popup_content_area">
+        <div class="popup_content_wrap">
+            <div class="pop_group pop_title pop_title_1 flex_row">
+                <div class="i_select_left" (click)="backClick()"></div>
+                <div class="simple_title">{{ 'FUND_INVEST.CODE_POPUP.SELECT_FUND_CODE' | translate }}</div>
+                <div class="i_close" (click)="cancelClick()"></div>
+            </div>
+            <div class="popup_inner_content">
+                <div class="form_group form_group_w100 form_input_13">
+                    <div class="input_group flex_col">
+                        <div class="input_inner_group_13 flex_row">
+                            <div class="i_search" (click)="onSearch()"></div>
+                            <input type="text" class="input_inner"
+                                placeholder="{{ 'FUND_INVEST.CODE_POPUP.SELECT_PLACEHOLDER' | translate }}" [(ngModel)]="searchText"
+                                searchFundCode [searchData]="searchText" (searchBack)="searchEventBack($event)">
+                        </div>
+                        <div class="form_error">{{ 'FUND_INVEST.CODE_POPUP.MUST_INPUT' | translate }}</div>
+                    </div>
+                </div>
+
+                <!-- 公司 START -->
+                <ng-container *ngSwitchCase="'comp'">
+                    <div class="sub_title_group sub_title_list4 flex_row">
+                        <div class="sub_title_line_wrap">
+                            <div class="sub_title_line"></div>
+                        </div>
+                        <div class="sub_title_list4_txt">{{ 'FUND_INVEST.CODE_POPUP.FUND_COMP' | translate }}</div>
+                    </div>
+                    <ng-container *ngIf="!!hasDetail">
+                        <ng-container *ngFor="let item of data">
+                            <div class="content_group content_2 flex_row mar-btm20" (click)="chooseOver(item,'comp')">
+                                <div class="flex_row content_2_wrap">
+                                    <div class="content_2_txt">{{ item | objectField: ['fundCompName'] }}</div>
+                                    <div class="content_2_tag_wrap flex_row">
+                                        <div class="info_tag tag_hasbg flex_row"
+                                            [ngClass]="{ 'active_tag_hasbg': item.fundCompId == selectComp }">
+                                            <ng-container *ngIf="item.fundCompId == selectComp">
+                                                {{ 'FUND_INVEST.CODE_POPUP.HAS_SELECT' | translate }}</ng-container>
+                                        </div>
+                                        <div class="select_i_right"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </ng-container>
+                </ng-container>
+                <!-- 公司 END -->
+
+                <!-- 基金標的 START -->
+                <ng-container *ngSwitchCase="'fund'">
+                    <ng-container *ngIf="searchText == '' || hasSearch == false">
+                        <div class="sub_title_group sub_title_list7_2">
+                            {{ fundData.fundCompName }}
+                        </div>
+                    </ng-container>
+                    <ng-container *ngFor="let fundItem of fundData['data']">
+                        <div class="content_group content_3_2 flex_row"
+                            [ngClass]="{ 'status_disabled': fundItem.disabled }"
+                            (click)="chooseOver(fundItem,'fund')">
+                            <div class="flex_row content_3_2_wrap">
+                                <div class="content_3_2_txt_wrap flex_row">
+                                    <div class="content_3_2_txt">{{ fundItem.fundEngCcy }}{{ fundItem.fundId }}
+                                        {{ fundItem.fundName }}</div>
+                                    <div class="info_tag tag_outline flex_row">{{ fundItem.riskName | translate }}</div>
+                                </div>
+                                <div class="i_check_wrap flex_row"
+                                    [ngClass]="{ 'active_i_check': fundItem.fundId == selectFund && fundItem.riskNumber <= custIdRisk }">
+                                    <div class="i_check"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                </ng-container>
+                <!-- 基金標的 END -->
+
+                <!-- 錯誤頁面 START -->
+                <ng-container *ngSwitchCase="'errorBox'">
+                    <div class="popup_inner_content">
+                        <app-error-box [errorMsg]="errorBoxMsg"></app-error-box>
+                    </div>
+                </ng-container>
+                <!-- 錯誤頁面 END -->
+
+            </div>
+        </div>
+    </div>
+</ng-container>

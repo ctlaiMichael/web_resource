@@ -1,0 +1,71 @@
+<div class="popup_content_area zIndex_level_6">
+    <div class="popup_content_wrap">
+        <ng-container *ngIf="data.length > 0;">
+            <!-- 第一層選單 Start-->
+            <ng-container *ngIf="nowPage == 'menu';">
+                <!-- 標題 Start -->
+                <div class="pop_group pop_title pop_title_1 flex_row">
+                    <div class="simple_title">{{title | translate}}</div>
+                    <div class="i_close" (click)="cancleClick()"></div>
+                </div>
+                <!-- 標題 End -->
+        
+                <!-- 選單 Start -->
+                <div class="popup_inner_content">
+                    <!-- 在info_tag後加入「active_tag_hasbg」後可顯示「tag_hasbg」 -->
+                    <div class="content_group content_2 flex_row" *ngFor="let mainItem of data">
+                        <div class="flex_row content_2_wrap" (click)="toSubClick(mainItem)">
+                            <div class="content_2_txt">{{mainItem.groupName}}</div>
+                            <div class="content_2_tag_wrap flex_row">
+                                <div class="info_tag tag_hasbg flex_row"
+                                    [ngClass]="{ 'active_tag_hasbg':(mainItem.groupId === select.groupId) }">
+                                    {{'POPUP.MENU.SELECTED' | translate}}</div>
+                                <div class="select_i_right"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 選單 End -->
+            </ng-container>
+            <!-- 第一層選單 End-->
+        
+            <!-- 第二層選單 Start-->
+            <ng-container *ngIf="nowPage == 'sub-menu';">
+                <!-- 標題 Start -->
+                <div class="pop_group pop_title pop_title_2 flex_row">
+                    <div class="i_select_left" (click)="backClick()"></div>
+                    <div class="simple_title">{{title | translate}}</div>
+                    <div class="i_close" (click)="cancleClick()"></div>
+                </div>
+                <!-- 標題 End -->
+        
+                <!-- 子選單 Start -->
+                <div class="popup_inner_content">
+                    <!-- 在i_check_wrap後加入「active_i_check」後可顯示「i_check_wrap」 -->
+                    <div class="content_group content_3 flex_row" *ngFor="let subItem of subData">
+                        <div class="flex_row content_3_wrap" (click)="chooseOver(subItem)">
+                            <div class="content_3_txt">{{subItem.name}}</div>
+                            <div class="i_check_wrap flex_row" [ngClass]="{ 'active_i_check':(subItem.code === select.code) }">
+                                <div class="i_check"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 子選單 End -->
+            </ng-container>
+            <!-- 第二層選單 End-->
+        </ng-container>
+
+    <ng-container *ngIf="data.length < 1;">
+        <!-- 標題 Start -->
+        <div class="pop_group pop_title pop_title_1 flex_row">
+            <div class="simple_title">{{title | translate}}</div>
+            <div class="i_close" (click)="cancleClick()"></div>
+        </div>
+        <!-- 標題 End -->
+
+        <!-- 顯示錯誤白箱 START -->
+        <app-error-box [errorMsg]="'ERROR.EMPTY'"></app-error-box>
+        <!-- 顯示錯誤白箱 END -->
+    </ng-container>
+</div>

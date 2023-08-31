@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="352" height="236.4" viewBox="0 0 352 236.4">
+  <defs>
+    <filter id="Shape" x="50.284" y="37.809" width="302.944" height="89" filterUnits="userSpaceOnUse">
+      <feOffset dy="2" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feFlood flood-opacity="0.502"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Shape_Copy_10" x="50.284" y="58.809" width="302.944" height="89" filterUnits="userSpaceOnUse">
+      <feOffset dy="2" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2" result="blur-2"/>
+      <feFlood flood-opacity="0.502"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-rate_table">
+      <rect width="352" height="236.4"/>
+    </clipPath>
+  </defs>
+  <g id="rate_table" clip-path="url(#clip-rate_table)">
+    <g id="走勢圖" transform="translate(0 -0.191)">
+      <g id="Group_8" data-name="Group 8" transform="translate(53 6)">
+        <path id="Shape-2" data-name="Shape" d="M0,0H4" fill="none" stroke="#878787" stroke-miterlimit="10" stroke-width="1"/>
+        <path id="Shape-3" data-name="Shape" d="M0,0H4" transform="translate(0 37)" fill="none" stroke="#878787" stroke-miterlimit="10" stroke-width="1"/>
+        <path id="Shape-4" data-name="Shape" d="M0,0H4" transform="translate(0 75)" fill="none" stroke="#878787" stroke-miterlimit="10" stroke-width="1"/>
+        <path id="Shape-5" data-name="Shape" d="M0,0H295" transform="translate(4)" fill="none" stroke="#e0e0e0" stroke-miterlimit="10" stroke-width="1"/>
+        <path id="Shape-6" data-name="Shape" d="M0,0H295" transform="translate(4 37)" fill="none" stroke="#e0e0e0" stroke-miterlimit="10" stroke-width="1"/>
+        <path id="Shape-7" data-name="Shape" d="M0,0H295" transform="translate(4 75)" fill="none" stroke="#e0e0e0" stroke-miterlimit="10" stroke-width="1"/>
+        <path id="Shape-8" data-name="Shape" d="M0,0H295" transform="translate(4 113)" fill="none" stroke="#e0e0e0" stroke-miterlimit="10" stroke-width="1"/>
+        <g transform="matrix(1, 0, 0, 1, -53, -5.81)" filter="url(#Shape)">
+          <path id="Shape-9" data-name="Shape" d="M0,43.487l3.131,5.7L7.98,53.548l4.864-5.033H19.11l2.5,5.033L28.192,38.67l4.7,1.465,1.881,3.019,6.262-1.01,3.136-5.366L48.24,38.67l2.193-1.893,4.7,1.893,2.5,6.493h5.639L66.1,38.67l2.82-1.893,3.131,4.362,3.136-2.469L78.313,51.2l9.713.338,3.131,4.7L94.6,52.877l2.82,12.409L100.555,73H111.2l2.83-15.761,2.82-2.348,1.876-13.752,3.763-6.038h6.578L132.3,21.688l3.136-4.7h3.338L141.279,0l3.55,27.277,8.77-4.917,5.012,2.9,1.669,7.159,3.55-14.09,9.61-.222,3.131,5.589,2.716-6.26,3.965,3.13,2.923-7.154,9.4-.894L205.6,17.887l2.509,5.366,2.711,26.161H217.5l3.338-5.594,3.551-.894,3.136,3.13,3.131,6.487,2.3-13.874h6.894l2.089-9.607,4.178-2.459,3.338-3.579,2.3,10.061,4.592-6.482,8.35-.222,4.39-1.343,3.551,1.565,6.054-1.787L286,23.924" transform="translate(59 43.81)" fill="none" stroke="#3e3e3e" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="4"/>
+        </g>
+        <g transform="matrix(1, 0, 0, 1, -53, -5.81)" filter="url(#Shape_Copy_10)">
+          <path id="Shape_Copy_10-2" data-name="Shape Copy 10" d="M0,43.487l3.131,5.7L7.98,53.548l4.864-5.033H19.11l2.5,5.033L28.192,38.67l4.7,1.465,1.881,3.019,6.262-1.01,3.136-5.366L48.24,38.67l2.193-1.893,4.7,1.893,2.5,6.493h5.639L66.1,38.67l2.82-1.893,3.131,4.362,3.136-2.469L78.313,51.2l9.713.338,3.131,4.7L94.6,52.877l2.82,12.409L100.555,73H111.2l2.83-15.761,2.82-2.348,1.876-13.752,3.763-6.038h6.578L132.3,21.688l3.136-4.7h3.338L141.279,0l3.55,27.277,8.77-4.917,5.012,2.9,1.669,7.159,3.55-14.09,9.61-.222,3.131,5.589,2.716-6.26,3.965,3.13,2.923-7.154,9.4-.894L205.6,17.887l2.509,5.366,2.711,26.161H217.5l3.338-5.594,3.551-.894,3.136,3.13,3.131,6.487,2.3-13.874h6.894l2.089-9.607,4.178-2.459,3.338-3.579,2.3,10.061,4.592-6.482,8.35-.222,4.39-1.343,3.551,1.565,6.054-1.787L286,23.924" transform="translate(59 64.81)" fill="none" stroke="#888" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="4"/>
+        </g>
+        <path id="Shape-10" data-name="Shape" d="M0,0H3V191" transform="translate(1)" fill="none" stroke="#878787" stroke-miterlimit="10" stroke-width="1"/>
+        <path id="Shape-11" data-name="Shape" d="M0,0H295" transform="translate(4 150)" fill="none" stroke="#e0e0e0" stroke-miterlimit="10" stroke-width="1"/>
+        <path id="Shape_Copy" data-name="Shape Copy" d="M0,0H295" transform="translate(4 186.5)" fill="none" stroke="#e0e0e0" stroke-miterlimit="10" stroke-width="1"/>
+        <path id="Shape-12" data-name="Shape" d="M0,0H4" transform="translate(0 113)" fill="none" stroke="#878787" stroke-miterlimit="10" stroke-width="1"/>
+        <path id="Shape_Copy_2" data-name="Shape Copy 2" d="M0,0H4" transform="translate(0 150.5)" fill="none" stroke="#878787" stroke-miterlimit="10" stroke-width="1"/>
+        <path id="Shape-13" data-name="Shape" d="M0,0H3V295H0" transform="translate(299 184) rotate(90)" fill="none" stroke="#878787" stroke-miterlimit="10" stroke-width="1"/>
+        <g id="Group_2" data-name="Group 2" transform="translate(41.5 183)">
+          <path id="Shape_Copy_4" data-name="Shape Copy 4" d="M.5,0V8" transform="translate(70)" fill="none" stroke="#878787" stroke-miterlimit="10" stroke-width="1"/>
+          <path id="Shape_Copy_3" data-name="Shape Copy 3" d="M.5,0V8" transform="translate(35)" fill="none" stroke="#878787" stroke-miterlimit="10" stroke-width="1"/>
+          <path id="Shape_Copy_2-2" data-name="Shape Copy 2" d="M.5,0V8" transform="translate(0.5)" fill="none" stroke="#878787" stroke-miterlimit="10" stroke-width="1"/>
+          <path id="Shape_Copy_5" data-name="Shape Copy 5" d="M.5,0V8" transform="translate(105)" fill="none" stroke="#878787" stroke-miterlimit="10" stroke-width="1"/>
+          <path id="Shape_Copy_6" data-name="Shape Copy 6" d="M.5,0V8" transform="translate(140)" fill="none" stroke="#878787" stroke-miterlimit="10" stroke-width="1"/>
+          <path id="Shape_Copy_7" data-name="Shape Copy 7" d="M.5,0V8" transform="translate(175)" fill="none" stroke="#878787" stroke-miterlimit="10" stroke-width="1"/>
+          <path id="Shape_Copy_8" data-name="Shape Copy 8" d="M.5,0V8" transform="translate(210)" fill="none" stroke="#878787" stroke-miterlimit="10" stroke-width="1"/>
+          <path id="Shape_Copy_9" data-name="Shape Copy 9" d="M.5,0V8" transform="translate(245)" fill="none" stroke="#878787" stroke-miterlimit="10" stroke-width="1"/>
+        </g>
+      </g>
+      <text id="_30.003" data-name="30.003" transform="translate(0 148.144)" fill="#727272" font-size="13" font-family="MicrosoftJhengHeiBold, Microsoft JhengHei"><tspan x="0.972" y="14">30.003</tspan></text>
+      <text id="_30.414" data-name="30.414" transform="translate(0 124)" fill="#727272" font-size="13" font-family="MicrosoftJhengHeiBold, Microsoft JhengHei"><tspan x="0" y="0">30.414</tspan></text>
+      <g id="Group" transform="translate(31 198)">
+        <text id="_04-15" data-name="04-15" transform="translate(10.308 36.471) rotate(-45)" fill="#727272" font-size="13" font-family="MicrosoftJhengHeiBold, Microsoft JhengHei"><tspan x="0" y="0">04-15</tspan></text>
+        <text id="_05-28" data-name="05-28" transform="translate(44.899 36.062) rotate(-45)" fill="#727272" font-size="13" font-family="MicrosoftJhengHeiBold, Microsoft JhengHei"><tspan x="0" y="0">05-28</tspan></text>
+        <text id="_05-28_copy" data-name="05-28 copy" transform="translate(182.899 36.062) rotate(-45)" fill="#727272" font-size="13" font-family="MicrosoftJhengHeiBold, Microsoft JhengHei"><tspan x="0" y="0">05-28</tspan></text>
+        <text id="_07-10" data-name="07-10" transform="translate(79.899 36.062) rotate(-45)" fill="#727272" font-size="13" font-family="MicrosoftJhengHeiBold, Microsoft JhengHei"><tspan x="0" y="0">07-10</tspan></text>
+        <text id="_07-10_copy" data-name="07-10 copy" transform="translate(215.899 36.062) rotate(-45)" fill="#727272" font-size="13" font-family="MicrosoftJhengHeiBold, Microsoft JhengHei"><tspan x="0" y="0">07-10</tspan></text>
+        <text id="_08-22" data-name="08-22" transform="translate(112.899 36.062) rotate(-45)" fill="#727272" font-size="13" font-family="MicrosoftJhengHeiBold, Microsoft JhengHei"><tspan x="0" y="0">08-22</tspan></text>
+        <text id="_08-22_copy" data-name="08-22 copy" transform="translate(250.083 36.062) rotate(-45)" fill="#727272" font-size="13" font-family="MicrosoftJhengHeiBold, Microsoft JhengHei"><tspan x="0" y="0">08-22</tspan></text>
+        <text id="_10-05" data-name="10-05" transform="translate(150.899 36.062) rotate(-45)" fill="#727272" font-size="13" font-family="MicrosoftJhengHeiBold, Microsoft JhengHei"><tspan x="0" y="0">10-05</tspan></text>
+        <text id="_10-05_copy" data-name="10-05 copy" transform="translate(285.9 36.062) rotate(-45)" fill="#727272" font-size="13" font-family="MicrosoftJhengHeiBold, Microsoft JhengHei"><tspan x="0" y="0">10-05</tspan></text>
+      </g>
+      <text id="_30.825" data-name="30.825" transform="translate(0 85.968)" fill="#727272" font-size="13" font-family="MicrosoftJhengHeiBold, Microsoft JhengHei"><tspan x="0" y="0">30.825</tspan></text>
+      <text id="_31.236" data-name="31.236" transform="translate(0.335 48.239)" fill="#727272" font-size="13" font-family="MicrosoftJhengHeiBold, Microsoft JhengHei"><tspan x="0" y="0">31.236</tspan></text>
+      <text id="_31.647" data-name="31.647" transform="translate(0.335 14.191)" fill="#727272" font-size="13" font-family="MicrosoftJhengHeiBold, Microsoft JhengHei"><tspan x="0" y="0">31.647</tspan></text>
+    </g>
+  </g>
+</svg>

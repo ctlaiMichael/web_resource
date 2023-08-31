@@ -1,0 +1,26 @@
+{
+    "FUND_OVERVIEW": {
+        "MY_FUND": "My Investment",
+        "CURRENCY": "Currency",
+        "TOTSAMT": "Amount",
+        "BAOCHOU": "Rate of Return",
+        "INTRETN": "Reference Rate",
+        "BTN": {
+            "INVEST": "Buy Funds",
+            "AUTO_REDEEM": "Smart Wealth<br/> Manager",
+            "INVEST_HEALTHY": "My Investment<br/> Summary",
+            "FUND_ACCOUNT_BALANCE": "Asset Account Inquiry",
+            "FUND_INQUIRY_MODIFY": "Fixed/non-fixed Amount Investments",
+            "INVEST_INFORMATION": "Fund Web",
+            "ONLINE_SERVICE": "Customer Service"
+        },
+        "TOTAL_INFO": {
+            "OSAMT": "Investment Amount",
+            "NOWPRICE": "Current Value",
+            "NOPROC": "Unrealized Profit/Loss",
+            "APDINT": "Accumulated Dividend",
+            "TOTALBAOCHOU": "Rate",
+            "INTRETN_STRING": "Reference Rate"
+        }
+    }
+}

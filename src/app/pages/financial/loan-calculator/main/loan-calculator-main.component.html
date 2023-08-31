@@ -1,0 +1,178 @@
+<ng-container *ngIf="!showResultPage">
+    <section class="section_area section_hasbtn">
+        <!-- 步驟列 Start -->
+        <app-step-bar [setData]="stepMenuData" [setKey]="nowStep"></app-step-bar>
+        <!-- 步驟列 End -->
+
+        <!-- 僅供參考文案 Start -->
+        <div class="info_group info_8_3">
+            <p>{{'FINANCIAL.INTEREST_RATE_INFO' | translate}}</p>
+        </div>
+        <!-- 僅供參考文案 End -->
+
+        <div class="row_single row_bg">
+            <!-- 兩個還款方式 按鈕 Start -->
+            <div class="form_group form_radio_1">
+                <div class="radio_group flex_col">
+                    <div class="form_label">{{'FINANCIAL.REPAYMENT_METHOD' | translate}}</div>
+                    <div class="radio_inner_group flex_row radio_inner_group_set2">
+                        <div class="radio_btn flex_row" [ngClass]="{'active': (returnAmtType == '1')}"
+                            (click)="onSelectMethodClick('1')">{{'FINANCIAL.EQUAL_PAYMENTS' | translate}}
+                        </div>
+                        <div class="radio_btn flex_row" [ngClass]="{'active': (returnAmtType == '2')}"
+                            (click)="onSelectMethodClick('2')">{{'FINANCIAL.EQUAL_AMORTIZATION' | translate}}</div>
+                    </div>
+                </div>
+            </div>
+            <!-- 兩個還款方式 按鈕 End -->
+
+            <!-- 貸款金額 Start -->
+            <div class="form_group form_group_w100 form_input_5">
+                <div class="input_group flex_col">
+                    <div class="form_label">{{'FINANCIAL.LOAN_AMOUNT' | translate}}</div>
+                    <div class="input_inner_group" [ngClass]="{'active_error': (!!checkData.errMsgObj['capitalAmt'])}">
+                        <input type="tel" class="input_inner" [(ngModel)]="capitalAmt" placeholder="<=9,999,999,999" maxlength="10" appTwdAmt (outputMethod)="capitalAmtChange($event)">
+                        <div class="form_error">{{checkData.errMsgObj['capitalAmt'] | translate}}</div>
+                    </div>
+                </div>
+            </div>
+            <!-- 貸款金額 End -->
+        </div>
+
+        <div class="row_single row_bg">
+            <!-- 三段期間 按鈕 Start -->
+            <div class="form_group form_radio_2">
+                <div class="radio_group flex_col">
+                    <div class="form_label">{{'FINANCIAL.RATE_DURATION' | translate}}</div>
+                    <div class="radio_inner_group flex_row radio_inner_group_set3">
+                        <div class="radio_btn flex_row" [ngClass]="{'active': (duration == '1')}"
+                            (click)="onSelectDurationClick('1')">{{'FINANCIAL.ONE_DURATION' | translate}}</div>
+                        <div class="radio_btn flex_row" [ngClass]="{'active': (duration == '2')}"
+                            (click)="onSelectDurationClick('2')">{{'FINANCIAL.TWO_DURATION' | translate}}</div>
+                        <div class="radio_btn flex_row" [ngClass]="{'active': (duration == '3')}"
+                            (click)="onSelectDurationClick('3')">{{'FINANCIAL.THREE_DURATION' | translate}}</div>
+                    </div>
+                </div>
+            </div>
+            <!-- 三段期間 按鈕 End -->
+
+            <!-- 第一段 Start -->
+            <div class="form_group form_group_w100 form_input_11">
+                <div class="input_group flex_col">
+                    <div class="form_label">{{'FINANCIAL.FIRST_DURATION' | translate}}</div>
+                    <div class="form_input_11_wrap flex_row">
+                        <div class="input_inner_group_11_1" [ngClass]="{'active_error': (!!checkData.errMsgObj['rate1'])}">
+                            <div class="input_inner_set_11 flex_row">
+                                <input type="text" class="input_inner" pattern="[\d\.\,]" [(ngModel)]="rate1"
+                                    placeholder="{{'FINANCIAL.ENTER_RATE' | translate}}" maxlength="6" appRateOnly (outputMethod)="rate1Change($event)">
+                                <div class="input_i_percent flex_row">
+                                </div>
+                            </div>
+                            <div class="form_error">{{checkData.errMsgObj['rate1'] | translate}}</div>
+                        </div>
+                        <div class="input_inner_group_11_2" [ngClass]="{'active_error': (!!checkData.errMsgObj['month1'])}">
+                            <div class="input_inner_set_11_2 flex_row">
+                                <div class="input_i_less flex_row" (click)="onMinusBtnClick('1')">
+                                </div>
+                                <div class="input_inner_11_2_txt flex_row">{{month1}} {{'FINANCIAL.MONTH' | translate}}
+                                </div>
+                                <div class="input_i_plus flex_row" (click)="onPlusBtnClick('1')">
+                                </div>
+                            </div>
+                            <div class="form_error">{{checkData.errMsgObj['month1'] | translate}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 第一段 End -->
+
+            <ng-container *ngIf="duration == '2' || duration == '3';">
+                <!-- 第二段 Start -->
+                <div class="form_group form_group_w100 form_input_11">
+                    <div class="input_group flex_col">
+                        <div class="form_label">{{'FINANCIAL.SECOND_DURATION' | translate}}</div>
+                        <div class="form_input_11_wrap flex_row">
+                            <div class="input_inner_group_11_1" [ngClass]="{'active_error': (!!checkData.errMsgObj['rate2'])}">
+                                <div class="input_inner_set_11 flex_row">
+                                    <input type="text" class="input_inner" pattern="[\d\.\,]" [(ngModel)]="rate2"
+                                        placeholder="{{'FINANCIAL.ENTER_RATE' | translate}}" maxlength="6" appRateOnly (outputMethod)="rate2Change($event)">
+                                    <div class="input_i_percent flex_row">
+                                    </div>
+                                </div>
+                                <div class="form_error">{{checkData.errMsgObj['rate2'] | translate}}</div>
+                            </div>
+                            <div class="input_inner_group_11_2" [ngClass]="{'active_error': (!!checkData.errMsgObj['month2'])}">
+                                <div class="input_inner_set_11_2 flex_row">
+                                    <div class="input_i_less flex_row" (click)="onMinusBtnClick('2')">
+                                    </div>
+                                    <div class="input_inner_11_2_txt flex_row">{{month2}}
+                                        {{'FINANCIAL.MONTH' | translate}}</div>
+                                    <div class="input_i_plus flex_row" (click)="onPlusBtnClick('2')">
+                                    </div>
+                                </div>
+                                <div class="form_error">{{checkData.errMsgObj['month2'] | translate}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 第二段 End -->
+            </ng-container>
+
+            <ng-container *ngIf="duration == '3';">
+                <!-- 第三段 Start -->
+                <div class="form_group form_group_w100 form_input_11">
+                    <div class="input_group flex_col">
+                        <div class="form_label">{{'FINANCIAL.THIRD_DURATION' | translate}}</div>
+                        <div class="form_input_11_wrap flex_row">
+                            <div class="input_inner_group_11_1" [ngClass]="{'active_error': (!!checkData.errMsgObj['rate3'])}">
+                                <div class="input_inner_set_11 flex_row">
+                                    <input type="text" class="input_inner" pattern="[\d\.\,]" [(ngModel)]="rate3"
+                                        placeholder="{{'FINANCIAL.ENTER_RATE' | translate}}" maxlength="6" appRateOnly (outputMethod)="rate3Change($event)">
+                                    <div class="input_i_percent flex_row">
+                                    </div>
+                                </div>
+                                <div class="form_error">{{checkData.errMsgObj['rate3'] | translate}}</div>
+                            </div>
+                            <div class="input_inner_group_11_2" [ngClass]="{'active_error': (!!checkData.errMsgObj['month3'])}">
+                                <div class="input_inner_set_11_2 flex_row">
+                                    <div class="input_i_less flex_row" (click)="onMinusBtnClick('3')">
+                                    </div>
+                                    <div class="input_inner_11_2_txt flex_row">{{month3}}
+                                        {{'FINANCIAL.MONTH' | translate}}</div>
+                                    <div class="input_i_plus flex_row" (click)="onPlusBtnClick('3')">
+                                    </div>
+                                </div>
+                                <div class="form_error">{{checkData.errMsgObj['month3'] | translate}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 第三段 End -->
+            </ng-container>
+
+            <!-- 貸款總期數 Start -->
+            <div class="form_group form_notice form_notice_5">
+                <div class="notice_5_txt">
+                    {{'FINANCIAL.TOTAL_LOAN_TERM' | translate}}：{{years == '0' ? '' : years + ' '}}{{(years == '0' ? '' : 'FINANCIAL.YEARS') | translate}} {{months}} {{'FINANCIAL.MONTHS' | translate}}</div>
+            </div>
+            <!-- 貸款總期數 End -->
+
+        </div>
+
+        <!-- 注意資訊 Start -->
+        <app-note [options]="notePopupOption"></app-note>
+        <!-- 注意資訊 End -->
+    </section>
+
+    <!-- 送出試算 按鈕 Start -->
+    <div class="btn_group flex_row">
+        <button class="btn_primary btn_w100" (click)="onSendBtnClick()">{{'FINANCIAL.BTN.CALCULATE' | translate}}</button>
+    </div>
+    <!-- 送出試算 按鈕 End -->
+</ng-container>
+
+<!-- 結果頁 Start -->
+<ng-container *ngIf="showResultPage">
+    <app-loan-calculator-result [inputData]="resObj" (backPageEmit)="onBackPage($event)"></app-loan-calculator-result>
+</ng-container>
+<!-- 結果頁 End -->

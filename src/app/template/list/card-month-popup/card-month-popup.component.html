@@ -1,0 +1,30 @@
+<div class="popup_content_area zIndex_level_6">
+    <div class="popup_content_wrap">
+
+        <div class="pop_group pop_title pop_title_1 flex_row">
+            <div class="simple_title">{{title | translate}}</div>
+            <div class="i_close" (click)="cancleClick()"></div>
+        </div>
+
+        <div class="popup_inner_content">
+            <ng-container *ngFor="let item of data">
+                <div class="content_group content_4 flex_row" (click)="chooseOver(item)">
+                    <div class="flex_row content_4_wrap">
+                        <div class="content_4_txt_wrap">
+                            <ng-container *ngIf="item.selectedMonth == 'unPaid'; else monthBox">
+                                <div class="content_4_txt_1">未出帳消費</div>
+                            </ng-container>
+                            <ng-template #monthBox>
+                                <div class="content_4_txt_1">{{item.selectedMonth}}</div>
+                            </ng-template>
+                        </div>
+                        <div class="i_check_wrap flex_row"
+                            [ngClass]="{ 'active_i_check':(item.selectedMonth === select) }">
+                            <div class="i_check"></div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>

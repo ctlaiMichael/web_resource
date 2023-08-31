@@ -1,0 +1,73 @@
+<!-- 頁籤選單 Start -->
+<app-bookmark [setData]="bookmarkData" [setKey]="nowBookMark" (backPageEmit)="onBookMarkBack($event)">
+</app-bookmark>
+<!-- 頁籤選單 End -->
+
+<section class="section_area section_tabL1 section_hasbtn">
+    <div class="row_single mar_btm0 mar_top10">
+        <!-- 3個按鈕 Start -->
+        <div class="content_btn_group flex_row content_btn3">
+            <button class="btn3_l content_btn btn_w33" (click)="onForeignTransferBtnClick()">{{'FINANCIAL.FOREIGN_TRANSFER' | translate}}</button>
+            <button class="btn3_c content_btn btn_w33" (click)="onExchangeRateNoticeBtnClick()">{{'FINANCIAL.SET_EXCHANGE_RATE_NOTICE' | translate}}</button>
+            <button class="content_btn btn_w33" (click)="onCurrencyConverterBtnClick()">{{'FINANCIAL.CURRENCY_CONVERTER' | translate}}</button>
+        </div>
+        <!-- 3個按鈕 End -->
+    </div>
+    
+    <!-- 僅供參考文案、Refresh按鈕 Start -->
+    <div class="info_group flex_row info_time_range info_10">
+        <div class="info_time_range_li">
+            <p>{{'FINANCIAL.EXCHANGE_RATE_INFO' | translate}}</p>
+            <p>{{'FINANCIAL.DATATIME' | translate}}：{{ (dataTime ? dataTime : '--') }}</p>
+        </div>
+        <div class="info_time_range_btn_group flex_row info_time_width">
+            <button class="btn_transparent_icon btn_refresh" (click)="onRefresh()">{{'FINANCIAL.BTN.REFRESH_RATE' | translate}}</button>
+        </div>
+    </div>
+    <!-- 僅供參考文案、Refresh按鈕 End -->
+
+    <div class="rate_table mar_btm10 rate_table_width">
+        <ng-container *ngIf="haveData; else noDataBox">
+            <!-- 標題 Start -->
+            <div class="table_group table_title table_title_3set_5flag">
+                <div class="flex_row table_title_3set_5flag_li">
+                    <p class="table_3set_5flag_p1">{{'FINANCIAL.CURRENCY' | translate}}</p>
+                    <p class="table_3set_5flag_p2">{{'FINANCIAL.BUY_RATE' | translate}}</p>
+                    <p class="table_3set_5flag_p3">{{'FINANCIAL.SELL_RATE' | translate}}</p>
+                    <div class="table_3set_5flag_p4"></div>
+                </div>
+            </div>
+            <!-- 標題 End -->
+
+            <!-- 明細 Start -->
+            <div class="table_group table_list table_list_3set_5flag" (click)="onHistory(item)" *ngFor="let item of (nowBookMark == 'spot-rate') ? nonCashData : cashData;">
+                <div class="flex_row table_list_3set_5flag_li">
+                    <div class="flex_row table_3set_5flag_p1">
+                        <div class="national_5flag_wrap">
+                            <div class="national_flag {{item.currencyCode | iconFlag}}"></div>
+                        </div>
+                        <div class="">
+                            <p class="national_5flag_p">{{ item.currencyName }}</p>
+                            <p class="national_5flag_p currency_tag">{{ item.currencyCodeShow }}</p>
+                        </div>
+                        <!-- <p class="national_5flag_p">{{item.currencyCode | currencyName: item.currencyName}}</p> -->
+                    </div>
+                    <p class="table_3set_5flag_p2">{{ item | objectField: ['buyRate', 'htFinancial'] }}</p>
+                    <p class="table_3set_5flag_p3">{{ item | objectField: ['sellRate', 'htFinancial'] }}</p>
+                    <div class="flex_row table_3set_5flag_p4">
+                        <div class="select_i_right"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- 明細 End -->
+        </ng-container>
+
+        <!-- 無資料畫面 Start -->
+        <ng-template #noDataBox>
+            <!-- 顯示錯誤白箱 START -->
+            <app-error-box [errorMsg]="errorMsg"></app-error-box>
+            <!-- 顯示錯誤白箱 END -->
+        </ng-template>
+        <!-- 無資料畫面 End -->
+    </div>
+</section>

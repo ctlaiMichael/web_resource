@@ -1,0 +1,23 @@
+{
+    "FUND_HISTORY": {
+        "DETAIL": {
+            "TRUSTNO": "Certificate Number",
+            "TXTYPE": "Transaction Type",
+            "AMT": "Amount",
+            "TXDATE": "Transaction Date"
+        },
+        "CONTENT": {
+            "TRUSTNO": "Certificate Number",
+            "TXDATE": "Transaction Date",
+            "TXTYPE": "Transaction Type",
+            "AMT": "Amount",
+            "APPLY_RATE": "Transaction Rate",
+            "FEE": "Transaction Fee",
+            "ACCT_DATE": "Date Received",
+            "ACCT_AMT": "Received Amount",
+            "UNIT": "Number Of Units",
+            "VALUE": "Final price",
+            "MEMO": "Note"
+        }
+    }
+}

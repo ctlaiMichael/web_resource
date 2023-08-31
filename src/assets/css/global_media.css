@@ -1,0 +1,492 @@
+/* @group [iphone5] ----------------------------------------------------------------------------------------*/
+@media only screen and (max-width: 320px) {
+  /* @group [Guildeline] ----------------------------------------------------------------------------------------*/
+  /* Title 1 font => 18, line 22 */
+  /* Title 2 font => 16, line 20 */
+  /* Body 1 font => 16, line 20 */
+  /* Body 2 font => 16, line 24 */
+  /* Body 3 font => 14, line 18 */
+  /* Body 4 font => 12, line 14 */
+  /* Body 5 font => 10, line 12 */
+  /* Accent 1 font => 28, line 30 */
+  /* Accent 2 font => 22, line 26 */
+
+  /* @group [font-size] ----------------------------------------------------------------------------------------*/
+  /* @group sub [Default = Body 3] -----------------------------------------------------------------------------*/
+  body {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .radio_btn {
+    line-height: normal;
+  }
+  /* @group sub [Title 1 font => 18, line 22] --------------------------------------------------------------------*/
+  .login_event_content_h1
+  {
+    font-size: 18px;
+  }
+  .header_title
+  {
+    font-size: 18px;
+    line-height: 22px;
+  }
+  /* @group sub [Title 2 font => 16, line 20] --------------------------------------------------------------------*/
+  .side_menu_greeting p,
+  .simple_title,
+  .card_home_total_detail p
+  {
+    font-size: 16px;
+  }
+  /* @group sub [Body 1 font => 16, line 20] --------------------------------------------------------------------*/
+  /* @group sub [Body 2 font => 16, line 24] --------------------------------------------------------------------*/
+  .btn_secondary,
+  .side_menu_L1_txt,
+  .side_menu_L3_txt,
+  .tab_btn_L1,
+  .pop_content_txt,
+  .content_accont_title,
+  .content_11_txt,
+  .content_3_txt,
+  .sub_title_list4_txt,
+  .sub_title_list4 .sub_title_list2_txt1,
+  .bodyLang_en p.content_p1
+  {
+    font-size: 16px;
+  }
+  /* form */
+  .input_inner_group .input_inner,
+  .step_bar_title,
+  .list_4_txt1,
+  .form_gorup_title_txt
+  {
+    font-size: 16px;
+  }
+  /* btn */
+  .btn_primary,
+  .tab_btn_L2_2
+  {
+    font-size: 16px;
+  }
+  /* @group sub [Body 3 font => 14, line 18] --------------------------------------------------------------------*/
+  .table_title p, 
+  .table_title_2 p,
+  .content_service_1_txt,
+  .side_menu_L2_txt,
+  .card_list_li p,
+  .notice_title,
+  .content_txt,
+  .home_greeting_txt
+  {
+    font-size: 14px;
+  }
+  /* form */
+  .form_label,
+  b.inner_checkbox_txt,
+  .select_accont_info .select_accont_info_name,
+  .form_select_2 .select_pop_content,
+  .content_label
+  {
+    font-size: 14px;
+  }
+  /* btn */
+  .btn_card_home,
+  .btn_card_event,
+  .content_btn
+  {
+    font-size: 14px;
+  }
+  /* @group sub [Body 4 font => 12, line 14] --------------------------------------------------------------------*/
+  .shortcut_btn_txt,
+  .content_33_txt,
+  .footer_btn_txt,
+  .sub_title_list4 .sub_title_list2_txt2,
+  .card_home_rate .currency_tag,
+  .national_5flag_p.currency_tag
+  {
+    font-size: 12px;
+  }
+  /* form */
+  .form_error,
+  .select_pop_info,
+  .form_foreign_info
+  {
+    font-size: 12px;
+  }
+  /* @group sub [Body 5 font => 10, line 12] --------------------------------------------------------------------*/
+  /* @group sub [Accent 1 font => 28, line 30] --------------------------------------------------------------------*/
+  /* @group sub [Accent 2 font => 22, line 26] --------------------------------------------------------------------*/
+  /* End [font-size] ----------------------------------------------------------------------------------------*/
+
+
+
+  /* @group [form] ----------------------------------------------------------------------------------------*/
+  /*----------------------- foreign -----------------------------*/
+  .foreign_li_bg {
+    padding: 10px 5px 10px 10px;
+  }
+
+  .foreign_li_no_select .national_flag_wrap {
+    width: 20%;
+  }
+
+  /* 國旗圖示 */
+  .national_flag_wrap {
+    width: 20%;
+    margin-right: 5px;
+  }
+
+  .national_flag {
+    width: 20px;
+    height: 20px;
+  }
+
+  .currency_txt {
+    font-size: 13px;
+  }
+
+  .select_i_down_wrap {
+    width: 20%;
+  }
+
+  /* End [form] ---------------------------------------------------------------------------------------- */
+
+
+  /* @group [list_group] ----------------------------------------------------------------------------------------*/
+  /* 列表 border 設定，調小margin-left */
+  .list_data {
+    /* margin-left: 15px; */
+  }
+
+  /* 列表p 文字設定 */
+  .list_data_li p {
+    font-size: 13px;
+  }
+
+  /* 列表p 第1欄文字設定(三者為連動) */
+  .list_data_li p:first-child {
+    width: 16%;
+  }
+
+  /* 列表p 第2欄文字設定(三者為連動) */
+  .list_data_li p:nth-child(2) {
+    width: 23%;
+  }
+
+  /* 列表p 第3欄文字設定(三者為連動) */
+  .list_data_li p:nth-child(3) {
+    width: 57%;
+  }
+
+  /* 列表2 表單縮起時 的第二行文字 設定 */
+  .list_data_li_txt_2 {
+    font-size: 15px;
+  }
+
+  /* 列表2 p 第1欄文字設定(2者為連動) */
+  .list_data_li.list_data_li_2 p:first-child {
+    width: 20%;
+    font-size: 12px;
+  }
+
+  /* 列表2 p 第2欄文字設定(2者為連動) */
+  .list_data_li.list_data_li_2 p:nth-child(2) {
+    width: 60%;
+    font-size: 14px;
+  }
+
+  /* 細項文字p設定 */
+  .list_data .list_data_inner_li p {
+    font-size: 14px;
+  }
+
+  /* list_group_3 -------- */
+
+  .list_inner_img_wrap {
+    width: 36%;
+  }
+
+  .list_inner_img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .list_data_inner_w {
+    /* width: 62%; */
+  }
+
+  /* list_group_4 ------------- */
+  /* 文字3*/
+  .list_inner_4_txt_p3 {
+    width: 24%;
+  }
+
+  /* 文字4*/
+  .list_inner_4_txt_p4 {
+    width: 76%;
+  }
+
+  /* End [list_group] ---------------------------------------------------------------------------------------- */
+
+
+  /* @group [card] ----------------------------------------------------------------------------------------*/
+
+  /* card_credit_1 信用卡 卡片*/
+  .card_credit_1_bg {
+    min-height: 150px;
+  }
+
+  .card_credit_1_wrap {
+    min-height: 150px;
+  }
+
+  /* 信用卡 按鈕寬度 */
+  .content_credit_li .content_invest_li_p1{
+    width: 60%;
+  }
+
+  /* 信用卡現況查詢 title*/
+  .card_list_li p:first-child{
+    width: 50%;
+  }
+
+  /* End [card] ---------------------------------------------------------------------------------------- */
+
+  /* @group [card_inner_list]----------------------------------------------------------------------------------------*/
+
+  /* 列表細項 p 第1欄文字設定 */
+  .card_inner_list_li p:first-child {
+    width: 24%;
+  }
+
+  /* 列表細項p 第2欄文字設定 */
+  .card_inner_list_li p:nth-child(2) {
+    width: 76%;
+  }
+
+  /*card_inner_list_2 列表細項 p 第1欄文字設定 */
+  .card_inner_list_2 .card_inner_list_li p:first-child {
+    width: 24%;
+  }
+
+  /*card_inner_list_2 列表細項p 第2欄文字設定 */
+  .card_inner_list_2 .card_inner_list_li p:nth-child(2) {
+    width: 76%;
+  }
+
+  .card_inner_list_6 .l_card_list {
+    width: 24%;
+  }
+
+  .card_inner_list_6 p.r_card_list {
+    width: 76%;
+  }
+
+  /* End [card_inner_list] ---------------------------------------------------------------------------------------- */
+
+
+  /* @group [button] ----------------------------------------------------------------------------------------*/
+  /*外框線按鈕(展開、排序)------------ */
+  .btn_outline {
+    width: 50px;
+  }
+
+  .btn_outline_l {
+    margin-right: 5px;
+  }
+
+  /* content按鈕--------------------- */
+  .content_btn {
+    font-size: 13px;
+  }
+
+
+  /*透明背景按鈕(展開、排序)------------ */
+  .btn_transparent {
+    width: 50px;
+  }
+
+  .content_27_btn_group .btn_transparent{
+    width: 60px;
+  }
+
+
+  .btn_transparent_l {
+    margin-right: 5px;
+  }
+
+
+  /* End [button] ---------------------------------------------------------------------------------------- */
+
+
+  /* @group [table_group] ----------------------------------------------------------------------------------------*/
+  /* table_list_set 文字設定 */
+  .table_list_set_li p {
+    font-size: 14px;
+  }
+
+  .table_2set_p1 {
+    width: 60%;
+  }
+
+  .table_2set_p2 {
+    width: 40%;
+  }
+
+  /* End [table_group] ---------------------------------------------------------------------------------------- */
+
+
+  /* @ [checkbox] --------------------------------------------------------------------------------------*/
+  /* 同意條款 */
+  .agreement_content {
+    height: 55vh;
+  }
+
+  /* End [checkbox] ---------------------------------------------------------------------------------------- */
+
+  /* @ [content_new_group] ------------------------------------------------------------------------------------------*/
+
+  /* content_new_2 ------------ */
+  /* content_new_2 背景最小高度 */
+  .content_new_2 .content_new_bg {
+    min-height: 70vh;
+  }
+
+  /* End [content_new_group] ---------------------------------------------------------------------------------------- */
+
+  /* @group [content_group] ----------------------------------------------------------------------------------------*/
+
+  /* content_11 ----------*/
+  .national_flag_content_11_wrap .national_flag {
+    width: 25px;
+    height: 25px;
+  }
+
+  /* 標題寬度 */
+  .content_invest_li_p1 {
+    width: 25%;
+  }
+
+  .content_invest_li .content_invest_li_p1{
+    width: 80%;
+  }
+
+  .content_invest_li .content_invest_li_p2_bold_tag{
+    width: 80%;
+  }
+
+  /* 內文寬度 */
+  .content_invest_li_p2 {
+    width: 75%;
+  }
+
+  /* 內文寬度 粗體 */
+  .content_invest_li_p2_bold {
+    width: 75%;
+  }
+
+  /* content_12 ----------*/
+  p.content_p2 {
+    font-size: 21px;
+  }
+
+  /* content_31 ------------ */
+  /* 服務據點文字寬度 */
+  .content_txt_wrap {
+    width: 65%;
+  }
+
+  /* 服務據點 前往按鈕寬度 */
+  .content_btn_group.content_btn1_3_wrap {
+    width: 34%;
+  }
+  /* content_31_4 ------------ */
+  /* tag寬度 */
+  .info_tag.tag_content_wth {
+    min-width: 38px;
+    width: 38px;
+    margin-right: 4px;
+  }
+
+  /* End [content] ---------------------------------------------------------------------------------------- */
+
+  /* @group [pop_group] ----------------------------------------------------------------------------------------*/
+  /* 圖形鎖 i5 padding調整 (因圖形鎖寬度style 設定310px，會跑版)  */
+  .popup_content_area_patternlock_wth {
+    padding: 0px;
+  }
+
+  /* End [pop_group] ---------------------------------------------------------------------------------------- */
+
+  /* @group [啟動首頁] ----------------------------------------------------------------------------------------*/
+  .beforeLogin_event_container.mini {
+    top: 85vh;
+  }
+  .section_area_beforeLogin .btn_group_beforeLogin {
+    top: 71vh;
+  }
+  .section_area_beforeLogin .shortcut_btn_group {
+    top: 82vh;
+  }
+  .section_area_beforeLogin .beforeLogin_event_container.mini {
+    top: 92vh;
+  }
+  /* End [啟動首頁] ----------------------------------------------------------------------------------------*/
+
+  /* @group [登入後首頁] ----------------------------------------------------------------------------------------*/
+  /* @ [登入後首頁 - 台幣帳戶總覽卡片] ------------- */
+
+  .card_home_total_amount .account_amount{
+    font-size:22px;
+  }
+
+  /* End [登入後首頁] ----------------------------------------------------------------------------------------*/
+  
+  /* @group [利匯率] -------*/
+  /* End [利匯率] -------*/
+}
+/* End [iphone5] ----------------------------------------------------------------------------------------*/
+
+/* @group [長度控制 max-height: 736px] (iphone 5,6,7,8,6~8plus) ----------------------------------------------------------------------------------------*/
+@media only screen and (max-height: 736px) {
+  /* @group [啟動首頁] ----------------------------------------------------------------------------------------*/
+  .beforeLogin_event_container.mini {
+    top: 85vh;
+  }
+  .section_area_beforeLogin .btn_group_beforeLogin {
+    top: 71vh;
+  }
+  .section_area_beforeLogin .shortcut_btn_group {
+    top: 80vh;
+  }
+  .section_area_beforeLogin .beforeLogin_event_container.mini {
+    top: 90vh;
+  }
+  /* 無下方廣告狀態 */
+  .section_area_beforeLogin.home_noad .btn_group_beforeLogin {
+    top: 71vh;
+  }
+  .section_area_beforeLogin.home_noad .shortcut_btn_group {
+    top: 82vh;
+  }
+  .section_area_beforeLogin.home_noad .shadow, 
+  .section_area_beforeLogin.home_noad .beforeLogin_event_container {
+    top: 100vh;
+  }
+  /* End [啟動首頁] ----------------------------------------------------------------------------------------*/
+}
+/* End [長度控制 max-height: 736px] ----------------------------------------------------------------------------------------*/
+
+/* @group [大版面] ----------------------------------------------------------------------------------------*/
+@media only screen and (min-height: 812px) {
+  /* @group [Guildeline] ----------------------------------------------------------------------------------------*/
+  /* Title 1 font => 22, line 26 */
+  /* Title 2 font => 20, line 24 */
+  /* Body 1 font => 20, line 24 */
+  /* Body 2 font => 20, line 30 */
+  /* Body 3 font => 18, line 22 */
+  /* Body 4 font => 16, line 20 */
+  /* Body 5 font => 14, line 18 */
+  /* Accent 1 font => 32, line 34 */
+  /* Accent 2 font => 26, line 32 */
+}
+/* End [大版面] ----------------------------------------------------------------------------------------*/

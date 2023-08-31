@@ -1,0 +1,235 @@
+<ng-container [ngSwitch]="nowPage">
+    <ng-container *ngSwitchCase="'autoCompositToTime'">
+        <!-- section -->
+        <ng-container *ngIf="!changemodify">
+            <section class="section_area section_hasbtn">
+    
+                <!-- 步驟列 Start -->
+                <app-step-bar [setData]="stepMenuData" [setKey]="nowStep"></app-step-bar>
+                <!-- 步驟列 End -->
+    
+                <!-- 在select_inner_group後加入「active_error」後可顯示「form_error」 -->
+                <!-- 存款帳號 Start -->
+                <div class="row_single row_bg">
+                    <div class="form_group form_group_w100 form_select_2" (click)="onSelectAcct()">
+                        <div class="select_group flex_col">
+                            <div class="form_label">{{ 'COMPOSIT_TO_TIME.ACCOUNTID' | translate }}</div>
+                            <div class="select_inner_group">
+                                <div class="form_select_pop_2 flex_row">
+                                    <p class="select_pop_content" *ngIf="showAcct.accountId != ''; else acctEmpty">
+                                        {{ showAcct.accountId }}</p>
+                                    <ng-template #acctEmpty>
+                                        <p class="select_pop_content" style="color:#D8D8D8;">
+                                            {{ 'ERROR.PLEASE_SELECT_ACCT' | translate }}
+                                        </p>
+                                    </ng-template>
+                                    <div class="select_pop_i_down"></div>
+                                </div>
+                                <div class="select_pop_info">{{ 'COMPOSIT_TO_TIME.AVLAMOUNT' | translate }}
+                                    {{ showAcct.avlAmount | currencyMoney: 'TWD' }}</div>
+                                <div class="form_error">{{ 'COMPOSIT_TO_TIME.FORM_ERROR' | translate }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 存款帳號 End-->
+    
+                <ng-container *ngIf="getListData && !emptyAcc">
+                    <ng-container *ngIf="changpage">
+                        <div class="row_single row_bg">
+                            <!-- 在input_inner_group後 加入「active_error」後可顯示「form_error」 -->
+                            <!-- input 5 -->
+                            <div class="form_group form_group_w100 form_input_5">
+                                <div class="input_group flex_col">
+                                    <div class="form_label">
+                                        {{ 'COMPOSIT_TO_TIME.AUTO_COMPOSIT_TO_TIME.TRANSDEPOSITAMT' | translate }}</div>
+                                    <div class="input_inner_group"
+                                        [ngClass]="{ 'active_error': errorMsg.transDepositAmt != '' }">
+                                        <input type="tel" class="input_inner" placeholder=">10,000"
+                                            [(ngModel)]="showTransDepositAmt" autocomplete="off" disableautocomplete
+                                            appTwdAmt (outputMethod)="showTransDepositAmtChange($event)">
+                                        <div class="form_error">{{ errorMsg.transDepositAmt | translate }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- input 5 //End-->
+    
+                            <!-- input 6 -->
+                            <div class="form_group form_group_w100 form_input_6">
+                                <div class="input_group flex_col">
+                                    <div class="form_label">{{ 'COMPOSIT_TO_TIME.PAGEFLOWSAVETYPE' | translate }}</div>
+                                    <div class="form_input_6_wrap flex_row">
+                                        <div class="input_inner_group"
+                                            [ngClass]="{ 'active_error': errorMsg.savingsRange != '' }">
+                                            <input type="tel" class="input_inner" placeholder="請輸入1-36"
+                                                [(ngModel)]="savingsRange" maxlength="2" autocomplete="off"
+                                                disableautocomplete appTwdAmt (outputMethod)="savingsRangeChange($event)">
+                                            <div class="form_error">{{ errorMsg.savingsRange | translate }}</div>
+                                        </div>
+                                        <!-- <div class="btn_form_input_6_wrap" (click)="goTwRate()">
+                                             <button
+                                                 class="form_btn btn_form_input_6">{{ 'COMPOSIT_TO_TIME.INTEREST_RATE' | translate }}</button>
+                                         </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- input 6 //End-->
+    
+                            <!-- form_radio_1 -->
+                            <div class="form_group form_radio_1">
+                                <div class="radio_group flex_col">
+                                    <div class="form_label">{{ 'COMPOSIT_TO_TIME.RATE' | translate }}</div>
+                                    <div class="radio_inner_group flex_row radio_inner_group_set2">
+                                        <div class="radio_btn flex_row" [ngClass]="{ 'active': rate == '1' }"
+                                            (click)="onSelectRate('1')">{{ 'COMPOSIT_TO_TIME.RATE1' | translate }}</div>
+                                        <div class="radio_btn flex_row" [ngClass]="{ 'active': rate == '2' }"
+                                            (click)="onSelectRate('2')">{{ 'COMPOSIT_TO_TIME.RATE2' | translate }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- form_radio_1 //End -->
+                            <!-- form_radio_1 -->
+                            <div class="form_group form_radio_1">
+                                <div class="radio_group flex_col">
+                                    <div class="form_label">{{ 'COMPOSIT_TO_TIME.CYCLE' | translate }}</div>
+                                    <div class="radio_inner_group flex_row radio_inner_group_set2">
+                                        <div class="radio_btn flex_row" [ngClass]="{ 'active': cycle == 'cycle1' }"
+                                            (click)="onSelectCycle('cycle1')">{{ 'COMPOSIT_TO_TIME.CYCLE1' | translate }}
+                                        </div>
+                                        <div class="radio_btn flex_row" [ngClass]="{ 'active': cycle == 'cycle2' }"
+                                            (click)="onSelectCycle('cycle2')">{{ 'COMPOSIT_TO_TIME.CYCLE2' | translate }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- form_radio_1 //End -->
+                            <!-- 在input_inner_group後 加入「active_error」後可顯示「form_error」 -->
+                            <!-- input 5 -->
+    
+    
+                        </div>
+    
+                        <!-- 注意資訊 Start -->
+                        <app-note [options]="noteInfo"></app-note>
+                        <!-- 注意資訊 End -->
+    
+                    </ng-container>
+                    <!-- form_notice 2 //End-->
+                    <ng-container *ngIf="showpage">
+                        <!-- memo_info -->
+                        <div class="row_single">
+                            <div class="memo_info">
+                                {{ 'COMPOSIT_TO_TIME.QUALITY_WORLD' | translate }}
+                            </div>
+                        </div>
+                        <!-- memo_info //End-->
+                        <!-- section //End -->
+                    </ng-container>
+                    <!-- 解除 Start -->
+                    <ng-container *ngIf="showlift">
+                        <div class="content_row mar_btm20">
+                            <div class="card_list_group card_list_1">
+                                <div class="flex_row card_list_li">
+                                    <p>{{ 'COMPOSIT_TO_TIME.AUTO_COMPOSIT_TO_TIME.TRANSDEPOSITAMT' | translate }}</p>
+                                    <p>{{ showTransDepositAmt }}NT$</p>
+                                </div>
+                            </div>
+
+                            <div class="card_list_group card_list_1">
+                                <div class="flex_row card_list_li">
+                                    <p>{{ 'COMPOSIT_TO_TIME.TRANSSAVEDATA' | translate }}</p>
+                                    <p>{{ outPutData.transSaveData }}</p>
+                                </div>
+                            </div>
+    
+                            <div class="card_list_group card_list_1">
+                                <div class="flex_row card_list_li">
+                                    <p>{{ 'COMPOSIT_TO_TIME.PAGEFLOWSAVETYPE' | translate }}</p>
+                                    <p>{{ savingsRange }}個月</p>
+                                </div>
+                            </div>
+    
+                            <div class="card_list_group card_list_1">
+                                <div class="flex_row card_list_li">
+                                    <p>{{ 'COMPOSIT_TO_TIME.RATE' | translate }}</p>
+                                    <p>{{ rate | translate }}</p>
+                                </div>
+                            </div>
+                            <div class="card_list_group card_list_1">
+                                <div class="flex_row card_list_li">
+                                    <p>{{ 'COMPOSIT_TO_TIME.CYCLE' | translate }}</p>
+                                    <p>{{ cycle | translate }}</p>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <!-- 注意資訊 Start -->
+                        <app-note [options]="noteInfo"></app-note>
+                        <!-- 注意資訊 End -->
+                    </ng-container>
+                    <!-- 解除 End -->
+                </ng-container>
+    
+                <!-- 無資料畫面 Start -->
+                <ng-container *ngIf="!getListData || emptyAcc">
+                    <!-- 顯示錯誤白箱 START -->
+                    <app-error-box [errorMsg]="errorContent"></app-error-box>
+                    <!-- 顯示錯誤白箱 END -->
+                </ng-container>
+                <!-- 無資料畫面 End -->
+            </section>
+            <!-- section //End -->
+    
+            <ng-container *ngIf="getListData && !emptyAcc">
+                <ng-container *ngIf="showpage">
+                    <!-- 雙按鈕 -->
+                    <div class="btn_group flex_row" bottomBtn>
+                        <button class="btn_l btn_secondary btn_w25"
+                            (click)="onCancelBtnClick()">{{ 'COMPOSIT_TO_TIME.SHOWPAGE_NO' | translate }}</button>
+                        <button class="btn_r btn_primary btn_w70"
+                            (click)="openAccount()">{{ 'COMPOSIT_TO_TIME.SHOWPAGE_YES' | translate }}</button>
+                    </div>
+                </ng-container>
+                <!-- 雙按鈕 //End -->
+    
+                <ng-container *ngIf="changpage">
+                    <!-- 雙按鈕 -->
+                    <div class="btn_group flex_row" bottomBtn>
+                        <button class="btn_l btn_secondary btn_w25"
+                            (click)="onCancelBtnClick()">{{ 'COMPOSIT_TO_TIME.CHANGPAGE_NO' | translate }}</button>
+                        <button class="btn_r btn_primary btn_w70"
+                            (click)="onNext()">{{ 'COMPOSIT_TO_TIME.CHANGPAGE_YES' | translate }}</button>
+                    </div>
+                    <!-- 雙按鈕 //End -->
+                </ng-container>
+    
+                <ng-container *ngIf="changlift">
+                    <!-- 雙按鈕 -->
+                    <div class="btn_group flex_row" bottomBtn>
+                        <button class="btn_l btn_secondary btn_w25"
+                            (click)="onCancelBtnClick()">{{ 'COMPOSIT_TO_TIME.CHANGPAGE_NO' | translate }}</button>
+                        <button class="btn_r btn_primary btn_w70"
+                            (click)="onNextlift()">{{ 'COMPOSIT_TO_TIME.SHOWMODIFY_NOLIFT' | translate }}</button>
+                    </div>
+                    <!-- 雙按鈕 //End -->
+                </ng-container>
+            </ng-container>
+        </ng-container>
+    
+        <ng-container *ngIf="changemodify">
+            <app-auto-composit-to-time-modify [setData]="outPutData" (backPageEmit)="onPageBackEvent($event)">
+            </app-auto-composit-to-time-modify>
+        </ng-container>
+    
+        <ng-container *ngIf="liftmodify">
+            <app-auto-composit-to-time-modify [setData]="outPutData" (backPageEmit)="onPageBackEventLift($event)">
+            </app-auto-composit-to-time-modify>
+        </ng-container>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'openAccount'">
+        <app-composit-deposit-agree [setData]="openAccData" (backPageEmit)="onPageBackEvent($event)">
+        </app-composit-deposit-agree>
+    </ng-container>
+
+</ng-container>

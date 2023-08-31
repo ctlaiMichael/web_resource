@@ -1,0 +1,16 @@
+{
+    "STEP_BAR": {
+        "EDIT": "輸入資料",
+        "TERM": "確認條款",
+        "CONFIRM": "資料確認",
+        "RESULT": "確認結果"
+    },
+    "EDIT": {
+        "ALL_CONVERT": "全部轉換",
+        "PART_CONVERT": "部分轉換"
+    },
+    "MSG": {
+        "PLEASE_SET_ACCT": "請選擇扣款帳號",
+        "PLEASE_SELECT": "請選擇"
+    }
+}

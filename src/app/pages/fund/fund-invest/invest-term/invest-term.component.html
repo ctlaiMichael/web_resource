@@ -1,0 +1,388 @@
+<ng-container [ngSwitch]="nowPage">
+    <!-- 條款頁面 START -->
+    <ng-container *ngSwitchCase="'term'">
+        <ng-container *ngIf="!!hasTerm">
+              <!-- section -->
+  <section class="section_area section_hasbtn">
+
+    <!-- step_bar 5項 -->
+<app-step-bar [setData]="stepMenuData" [setKey]="nowStep"></app-step-bar>
+    <!-- step_bar 5項 //End-->
+
+<!-- test START -->
+    <div class="row_single row_bg agreement_list">
+
+        <div class="memo_info_2">
+          {{ 'FUND_INVEST.TERM.MSG.REMIND' | translate }}
+        </div>
+  
+        <!-- [Terms01] 基金公開說明書 -->
+        <!-- <div class="inner_checkbox inner_checkbox_group form_group_border">
+          <div class="row_single">
+            <b class="inner_checkbox_txt">「公開說明書中譯本」及「投資人須知」之交付，請委託人擇一勾選： </b>
+          </div>
+          <div class="inner_radio radio_left row_single">
+            <input type="radio" name="inner_radio" id="inner_radio01">
+            <label for="inner_radio01">
+              <span>
+                <i></i>
+              </span>
+              <b class="inner_radio_txt">委託人已取得</b>
+            </label>
+          </div>
+          <div class="inner_radio radio_left">
+            <input type="radio" name="inner_radio" id="inner_radio02">
+            <label for="inner_radio02">
+              <span>
+                <i></i>
+              </span>
+              <b class="inner_radio_txt">委託人自行至受託人網站(fund.scsb.com.tw)或境外基金資訊觀測站(www.fundclear.com.tw)下載。</b>
+            </label>
+          </div>
+        </div> -->
+        <!-- [Terms01] End -->
+  
+        <!-- [Terms01] 基金公開說明書 -->
+        <div class="inner_checkbox inner_checkbox_group">
+          <input type="checkbox" [(ngModel)]="checkedData.self">
+          <label for="inner_checkbox01">
+            <span (click)="onCheckedTerm('1')">
+              <i></i>
+            </span>
+            <b class="inner_checkbox_txt txt_u txt_bold" (click)="onShowContent('1')" [innerHtml]="contentData.self | translate | safeHtml"></b>
+          </label>
+        </div>
+        <!-- [Terms01] End -->
+  
+        <!-- [Terms06] 銷售基金通路報酬揭露表 -->
+        <div class="inner_checkbox mar_btm15">
+          <input type="checkbox" [(ngModel)]="checkedData.fee">
+          <label for="inner_checkbox02">
+            <span (click)="onCheckedTerm('6')">
+              <i></i>
+            </span>
+            <b class="inner_checkbox_txt txt_u txt_bold" (click)="onShowContent('6')" [innerHtml]="contentData.fee | translate | safeHtml"></b>
+          </label>
+        </div>
+        <!-- [Terms06] End -->
+  
+  
+        <!-- [Terms02] 基金各級別近五年費用率及報酬率揭露聲明書 -->
+        <div class="inner_checkbox mar_btm15">
+          <input type="checkbox" [(ngModel)]="checkedData.signAgr">
+          <label for="inner_checkbox03">
+            <span (click)="onCheckedTerm('2')">
+              <i></i>
+            </span>
+            <b class="inner_checkbox_txt txt_u txt_bold" (click)="onShowContent('2')" [innerHtml]="contentData.signAgr | translate | safeHtml"></b>
+          </label>
+        </div>
+        <!-- [Terms02] End -->
+  
+  
+        <!-- [Terms04] 高收益配息風險預告書 -->
+        <ng-container *ngIf="!!sortedTerm.term4">
+        <div class="inner_checkbox mar_btm15">
+          <input type="checkbox" [(ngModel)]="checkedData.term4">
+          <label for="inner_checkbox04">
+            <span (click)="onCheckedTerm('4')"> 
+              <i></i>
+            </span>
+            <b class="inner_checkbox_txt txt_u txt_bold" (click)="onShowContent('4')" [innerHtml]="contentData.term4 | translate | safeHtml"></b>
+          </label>
+        </div>
+       </ng-container>
+        <!-- [Terms04] End -->
+  
+  
+        <!-- [Terms09] 後收型基金風險預告書 -->
+        <ng-container *ngIf="!!sortedTerm.bShare">
+        <div class="inner_checkbox mar_btm15">
+          <input type="checkbox" [(ngModel)]="checkedData.bShare">
+          <label for="inner_checkbox06">
+            <span (click)="onCheckedTerm('9')">
+              <i></i>
+            </span>
+            <b class="inner_checkbox_txt txt_u txt_bold" (click)="onShowContent('9')" [innerHtml]="contentData.bShare | translate | safeHtml"></b>
+          </label>
+        </div>
+      </ng-container>
+        <!-- [Terms09] End -->
+  
+  
+        <!-- [Terms10] 境外基金手續費後收集別費用說明書 -->
+        <ng-container *ngIf="!!sortedTerm.term10">
+        <div class="inner_checkbox mar_btm15">
+          <input type="checkbox" [(ngModel)]="checkedData.term10">
+          <label for="inner_checkbox07">
+            <span (click)="onCheckedTerm('10')">
+              <i></i>
+            </span>
+            <b class="inner_checkbox_txt txt_u txt_bold" (click)="onShowContent('10')" [innerHtml]="contentData.term10 | translate | safeHtml"></b>
+          </label>
+        </div>
+      </ng-container>
+        <!-- [Terms10] End -->
+
+        <!-- [Terms13] 金錢信託開戶及各項務務約定書 -->
+        <ng-container *ngIf="!!sortedTerm.term13">
+        <div class="inner_checkbox mar_btm15">
+          <input type="checkbox" [(ngModel)]="checkedData.term13">
+          <label for="inner_checkbox07">
+            <span (click)="onCheckedTerm('13')">
+              <i></i>
+            </span>
+            <b class="inner_checkbox_txt txt_u txt_bold" (click)="onShowContent('13')" [innerHtml]="contentData.term13 | translate | safeHtml"></b>
+          </label>
+        </div>
+      </ng-container>
+        <!-- [Terms13] End -->
+  
+        <!-- [Terms11] 信託資金集合管理運用帳戶稅負說明書(分自然人/法人兩種） -->
+        <ng-container *ngIf="!!sortedTerm.term11">
+        <div class="inner_checkbox mar_btm15">
+          <input type="checkbox" [(ngModel)]="checkedData.term11">
+          <label for="inner_checkbox08">
+            <span (click)="onCheckedTerm('11')">
+              <i></i>
+            </span>
+            <b class="inner_checkbox_txt txt_u txt_bold" (click)="onShowContent('11')" [innerHtml]="contentData.term11 | translate | safeHtml"></b>
+          </label>
+        </div>
+      </ng-container>
+        <!-- [Terms11] End -->
+  
+        <!-- [Terms12] 信託資金集合管理運用帳戶信託管理說明書 -->
+        <ng-container *ngIf="!!sortedTerm.term12">
+        <div class="inner_checkbox mar_btm15">
+          <input type="checkbox" [(ngModel)]="checkedData.term12">
+          <label for="inner_checkbox09">
+            <span (click)="onCheckedTerm('12')">
+              <i></i>
+            </span>
+            <b class="inner_checkbox_txt txt_u txt_bold" (click)="onShowContent('12')" [innerHtml]="contentData.term12 | translate | safeHtml"></b>
+          </label>
+        </div>
+      </ng-container>
+        <!-- [Terms12] End -->
+  
+  
+        <!-- [Terms07] 美國註冊基金注意事項 -->
+        <ng-container *ngIf="!!sortedTerm.usaSignNote">
+        <div class="inner_checkbox mar_btm15">
+          <input type="checkbox" [(ngModel)]="checkedData.usaSignNote">
+          <label>
+            <span (click)="onCheckedTerm('7')">
+              <i></i>
+            </span>
+            <b class="inner_checkbox_txt txt_u txt_bold" (click)="onShowContent('7')"
+             [innerHtml]="contentData.usaSignNote | translate | safeHtml"></b>
+          </label>
+        </div>
+       </ng-container>
+        <!-- [Terms07] End -->
+  
+        <!-- 全部已讀 -->
+        <div class="inner_checkbox mar_btm15">
+          <input type="checkbox" [(ngModel)]="allChecked">
+          <label for="inner_checkboxAll">
+            <span (click)="onCheckedTerm('all')">
+              <i></i>
+            </span>
+            <b class="inner_checkbox_txt txt_bold">{{ 'FUND_INVEST.TERM.TITLE.ALL_CHECKED' | translate }}</b>
+          </label>
+        </div>
+        <!-- 全部已讀 End -->
+  
+        <!-- OLD -->
+        <!-- <div class="inner_checkbox inner_checkbox_group form_group_border">
+          <input type="checkbox" id="inner_checkbox02" name="inner_checkbox" checked="checked">
+          <label for="inner_checkbox02">
+            <span>
+              <i></i>
+            </span>
+            <b class="inner_checkbox_txt">本人已詳閱並充分暸解及評估本次申購 貴行上架之基金各級別近五年度之費用率及報酬率資訊，且確認本次申購之基金級別符合本人投資需求，並同意 貴行留存此次評估結果。
+            </b>
+          </label>
+        </div>
+  
+        <div class="inner_checkbox inner_checkbox_group form_group_border">
+          <input type="checkbox" id="inner_checkbox03" name="inner_checkbox" checked="checked">
+          <label for="inner_checkbox03">
+            <span>
+              <i></i>
+            </span>
+            <b class="inner_checkbox_txt">已詳閱「
+              <u class="txt_bold">通路服務費</u>」。</b>
+          </label>
+        </div>
+  
+        <div class="inner_checkbox inner_checkbox_group form_group_border">
+          <input type="checkbox" id="inner_checkbox04" name="inner_checkbox" checked="checked">
+          <label for="inner_checkbox04">
+            <span>
+              <i></i>
+            </span>
+            <b class="inner_checkbox_txt">茲同意就本人所申購於美國註冊之境外基金，於遇本人所為相關交易（含申購、買回、轉換等各式交易型態）經該境外基金之境外基金機構或總代理人要求時，貴行得提供本人之姓名/名稱、身分證字號/統一編號及交易明細等相關資料予其境外基金機構或總代理人。</b>
+          </label>
+        </div>
+  
+        <div class="inner_checkbox inner_checkbox_group">
+          <input type="checkbox" id="inner_checkbox05" name="inner_checkbox" checked="checked">
+          <label for="inner_checkbox05">
+            <span>
+              <i></i>
+            </span>
+            <b class="inner_checkbox_txt">已詳閱「
+              <u class="txt_bold">瀚亞注意資訊</u>」。</b>
+          </label>
+        </div> -->
+        <!-- OLD End -->
+  
+      </div>
+      <!-- test END-->
+
+
+    <!-- <br><br><br><br><br>
+
+
+    <div class="row_single row_bg">
+
+      <div class="memo_info_2">
+        {{ 'FUND_INVEST.NOTE.AGREE_REMIND' | translate }}
+      </div>
+
+      <div class="memo_info_2">
+          {{ 'FUND_INVEST.NOTE.RADIO_SELECT_ONE' | translate }}
+     </div>
+
+      <div class="inner_radio inner_radio_group2">
+        <input type="radio" name="inner_radio" [checked]="checkedData.self">
+        <label for="inner_radio01">
+          <span (click)="onCheckedTerm('1')">
+            <i></i>
+          </span>
+          <b class="inner_radio_txt" [innerHtml]="contentData.self | translate | safeHtml"></b>
+        </label>
+      </div>
+	  
+      <div class="inner_radio inner_radio_group form_group_border">
+        <input type="radio" name="inner_radio" [checked]="!checkedData.self">
+        <label for="inner_radio02">
+          <span (click)="onCheckedTerm('1')">
+            <i></i>
+          </span>
+          <b class="inner_radio_txt" [innerHtml]="contentData.netWork | translate | safeHtml"></b>
+        </label>
+      </div>
+
+      <div class="inner_checkbox inner_checkbox_group form_group_border" [ngClass]="{ 'active_error': errorMsg.signAgr != '' }">
+        <input type="checkbox" [(ngModel)]="checkedData.signAgr">
+        <label for="inner_checkbox02">
+          <span (click)="onCheckedTerm('2')">
+            <i></i>
+          </span>
+          <b class="inner_checkbox_txt" (click)="onShowContent('2')" [innerHtml]="contentData.signAgr | translate | safeHtml">{{ errorMsg.signAgr | translate }}</b>
+        </label>
+      </div>
+	  
+	  <ng-container *ngIf="!!sortedTerm.A">
+	        <div class="inner_checkbox inner_checkbox_group form_group_border" [ngClass]="{ 'active_error': errorMsg.termA != '' }">
+        <input type="checkbox" [(ngModel)]="checkedData.termA">
+        <label for="inner_checkbox02">
+          <span (click)="onCheckedTerm('3')">
+            <i></i>
+          </span>
+          <b class="inner_checkbox_txt" (click)="onShowContent('3')" [innerHtml]="contentData.termA | translate | safeHtml">{{ errorMsg.termA | translate }}</b>
+        </label>
+      </div>
+	  </ng-container>
+	  
+	  	  <ng-container *ngIf="!!sortedTerm.B">
+	        <div class="inner_checkbox inner_checkbox_group form_group_border" [ngClass]="{ 'active_error': errorMsg.termB != '' }">
+        <input type="checkbox" [(ngModel)]="checkedData.termB">
+        <label for="inner_checkbox02">
+          <span (click)="onCheckedTerm('4')">
+            <i></i>
+          </span>
+          <b class="inner_checkbox_txt" (click)="onShowContent('4')" [innerHtml]="contentData.termB | translate | safeHtml">{{ errorMsg.termB | translate }}</b>
+        </label>
+      </div>
+	  </ng-container>
+	  
+	  	  	  <ng-container *ngIf="!!sortedTerm.C">
+	        <div class="inner_checkbox inner_checkbox_group form_group_border" [ngClass]="{ 'active_error': errorMsg.termC != '' }">
+        <input type="checkbox" [(ngModel)]="checkedData.termC">
+        <label for="inner_checkbox02">
+          <span (click)="onCheckedTerm('5')">
+            <i></i>
+          </span>
+          <b class="inner_checkbox_txt" (click)="onShowContent('5')" [innerHtml]="contentData.termC | translate | safeHtml">{{ errorMsg.termC | translate }}</b>
+        </label>
+      </div>
+	  </ng-container>
+	  
+
+      <div class="inner_checkbox inner_checkbox_group form_group_border" [ngClass]="{ 'active_error': errorMsg.fee != '' }">
+        <input type="checkbox" [(ngModel)]="checkedData.fee">
+        <label for="inner_checkbox03">
+          <span (click)="onCheckedTerm('6')">
+            <i></i>
+          </span>
+          <b class="inner_checkbox_txt" (click)="onShowContent('6')" [innerHtml]="contentData.fee | translate | safeHtml">{{ errorMsg.fee | translate }}</b>
+        </label>
+      </div>
+
+<ng-container *ngIf="!!sortedTerm.usaSignNote">
+      <div class="inner_checkbox inner_checkbox_group form_group_border" [ngClass]="{ 'active_error': errorMsg.usaSignNote != '' }">
+        <input type="checkbox" [(ngModel)]="checkedData.usaSignNote">
+        <label for="inner_checkbox04">
+          <span (click)="onCheckedTerm('7')">
+            <i></i>
+          </span>
+          <b
+            class="inner_checkbox_txt" (click)="onShowContent('7')"
+            [innerHtml]="contentData.usaSignNote | translate | safeHtml">
+				{{ errorMsg.usaSignNote | translate }}
+			</b>
+        </label>
+      </div>
+	  </ng-container>
+
+ <ng-container *ngIf="!!sortedTerm.showNotifiCation">
+      <div class="inner_checkbox inner_checkbox_group form_group_border" [ngClass]="{ 'active_error': errorMsg.hanYa != '' }">
+        <input type="checkbox" [(ngModel)]="checkedData.hanYa">
+        <label for="inner_checkbox05">
+          <span (click)="onCheckedTerm('8')">
+            <i></i>
+          </span>
+          <b class="inner_checkbox_txt" (click)="onShowContent('8')"
+                                    [innerHtml]="contentData.hanYa | translate | safeHtml"> {{ errorMsg.hanYa | translate }}</b>
+        </label>
+      </div>
+ </ng-container>
+    </div> -->
+
+
+
+  </section>
+  <!-- section //End -->
+
+  <!-- 雙按鈕 -->
+  <div class="btn_group flex_row">
+    <button class="btn_l btn_secondary btn_w25" (click)="onCancel()">{{ 'FUND_INVEST.TERM.BTN.CANCEL' | translate }}</button>
+    <button class="btn_r btn_primary btn_w70" (click)="onNext()">{{ 'FUND_INVEST.TERM.BTN.NEXT' | translate }}</button>
+  </div>
+  <!-- 雙按鈕 //End -->
+        </ng-container>
+    </ng-container>
+    <!-- 條款頁面 END -->
+
+    <!-- 錯誤頁面 START -->
+    <ng-container *ngSwitchCase="'errorBox'">
+        <section class="section_area section_hasbtn">
+            <app-error-box [errorMsg]="errorBoxMsg"></app-error-box>
+        </section>
+    </ng-container>
+    <!-- 錯誤頁面 END -->
+</ng-container>

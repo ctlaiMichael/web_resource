@@ -1,0 +1,87 @@
+<section class="section_area section_hasbtn ">
+    <div class="content_group content_account_1_2">
+        <div class="content_account_1_bg" [ngClass]="{'account_overview_1': (!mainChart || !mainChart.status)}">
+            <ng-container *ngIf="!!mainChart && !!mainChart.status">
+                <app-chart-doughnut [chartType]="'depositOverviewDetail'" [setData]="mainChart" [width]="350" [height]="320" (backPageEmit)="onChartBackEvent($event)"></app-chart-doughnut>
+            </ng-container>
+            <div class="account_pie_content_info">
+                <!-- 資產總額 -->
+                <p class="pie_info_currency">{{ titleName | translate }}</p>
+                <p class="">{{ mainData | objectField: ['totalBalance', 'htMoney', 'TWD'] }}</p>
+            </div>
+        </div>
+        
+        <!-- 項目 -->
+        <div class="info_group flex_row info_acoount_view_2">
+            <ng-container *ngFor="let chartItem of mainChartItem;let itemNum=index">
+                <div class="info_chart_dot_wrap flex_row_cc" *ngIf="itemNum < mainChartMaxItem">
+                    <div class="list_dot_wrap">
+                        <div class="list_dot" [ngClass]="chartItem | fieldCheck: ['color']"></div>
+                    </div>
+                    <p>{{ chartItem.title }}&nbsp;
+                        <span>{{ chartItem.percent }}%</span>
+                    </p>
+                </div>
+            </ng-container>
+        </div>
+
+        <div>
+            <button class="pie_btn flex_row row_center" (click)="showCurrency()" *ngIf="assetsType == 'partForeign'">
+                <div class="pie_btn_content">
+                    {{ "DEPOSIT_OVERVIEW.BTN.FOREIGN_ASSETS" | translate }}
+                </div>
+                <div class="i_next_page"></div>
+            </button>
+        </div>
+    </div>
+
+    <ng-container *ngIf="(!haveLoad || showData); else errorBox">
+        <!-- 列表 -->
+        <div class="content_row content_row_account">
+
+            <ng-container *ngFor="let item of mainList;">
+                <!-- 有帳號版 -->
+                <ng-container *ngIf="item.showAccount; else oneLineBox">
+                    <div class="list_group list_group_4">
+                        <div class="list_data2">
+                            <div class="flex_row list_data_li sub_open" expandList>
+                                <div class="list_4_line chart_color_1" *ngIf="showSubItemInfo.showChartColor"></div>
+                                <div class="list_4_txt1">{{ item.title | translate }}</div>
+                                <div class="list_4_txt2" *ngIf="showSubItemInfo.showItemAmount">{{ item.typeTotalBalance }}</div>
+                                <div class="list_icon"></div>
+                            </div>
+                            <!-- 細項 -->
+                            <div class="list_data_inner list_data_inner_4 sub_open_info_frame">
+                                <ng-container *ngFor="let subitem of item.account;">
+                                    <app-deposit-overview-account [assetsType]="assetsType" [itemType]="item.id" [setData]="subitem"></app-deposit-overview-account>
+                                </ng-container>
+                            </div>
+                            <!-- 細項 End -->
+
+                        </div>
+                    </div>
+                </ng-container>
+                <!-- 單列版 -->
+                <ng-template #oneLineBox>
+                    <div class="card_list_group card_list_account_1" (click)="onMore(item)">
+                        <div class="flex_row card_list_li">
+                            <div class="account_card_list_l">{{ item.title | translate }}</div>
+                            <div class="account_card_list_r flex_row">
+                                <div class="account_list_r_txt">{{ item.typeTotalBalance }}</div>
+                                <div class="select_i_right"></div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </ng-container>
+        </div>
+    </ng-container>
+    <ng-template #errorBox>
+        <app-error-box [errorMsg]="showErrorMsg"></app-error-box>
+    </ng-template>
+    <!-- Memo -->
+    <div class="row_single" *ngIf="noteInfo != ''">
+        <div class="memo_info memo_info_3" [innerHtml]="(noteInfo | translate) | safeHtml"></div>
+    </div>
+
+</section>

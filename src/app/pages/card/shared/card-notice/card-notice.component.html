@@ -1,0 +1,17 @@
+<div class="row_single">
+    <div class="memo_info">
+
+        <ng-container [ngSwitch]="nowLang">
+            <ng-container *ngSwitchCase="'en-us'">
+                <!-- 英文版 -->
+                <p class="txt_highlight_big">謹慎理財、信用至上</p>
+                本行信用卡循環利率為年息5.46%~15%(由電腦評分決定)｜預借現金手續費為每筆NT$150+(預借現金金額×3%)｜其他相關費用係依本行網站公告www.scsb.com.tw | 信用卡客服專線 (02)2552-3111
+            </ng-container>
+            <ng-container *ngSwitchDefault>
+                <!-- 中文版 -->
+                <p class="txt_highlight_big">謹慎理財、信用至上</p>
+                本行信用卡循環利率為年息5.46%~15%(由電腦評分決定)｜預借現金手續費為每筆NT$150+(預借現金金額×3%)｜其他相關費用係依本行網站公告www.scsb.com.tw | 信用卡客服專線 (02)2552-3111
+            </ng-container>
+        </ng-container>
+    </div>
+</div>

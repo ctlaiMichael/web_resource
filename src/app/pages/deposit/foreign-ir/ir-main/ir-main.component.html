@@ -1,0 +1,97 @@
+<!-- 頁籤 Start -->
+<app-bookmark [setData]="bookmarkData" [defaultKey]="'today'" (backPageEmit)="onBookMarkBack($event)">
+</app-bookmark>
+<!-- 頁籤 End -->
+
+<!-- 顯示查詢結果 START -->
+<ng-container [ngSwitch]="reqData.show">
+    <!-- 查詢區間(全部) START -->
+    <ng-container *ngSwitchCase="'resultBox'">
+        <section class="section_area section_hasbtn section_tabL1">
+            <!-- 查詢區間(全部) START -->
+            <div class="info_group flex_col info_time_range">
+                <div class="info_time_range_li li_border">
+                    <p>{{ 'FIELD.SEARCH_RANGE' | translate }}&nbsp;:&nbsp;
+                        <span>{{ 'FIELD.SEARCH_RANGE_DATA' | translate:reqData }}</span>
+                    </p>
+                </div>
+                <!-- 查詢按鈕區塊 -->
+                <div class="info_time_range_btn_group flex_row">
+                    <button class="btn_transparent_icon btn_turn" [ngClass]="{ 'btn_turn_reverse':(sort === 'ASC') }" (click)="onSort()" sortBtn
+                        [sort]="sort">{{ 'BTN.ORDER' | translate }}</button>
+                </div>
+            </div>
+            <!-- 查詢區間區塊 END -->
+
+            <div class="row_table row_table_striped row_table_shadow">
+                <!-- 欄位標題區塊 -->
+                <div class="table_group table_title_2 table_title_4set_1">
+                    <div class="flex_row table_title_4set_li">
+                        <!-- 幣別 -->
+                        <p class="table_title_4set_li_p1">{{'DEPOSIT.LIST.CURRENCY' | translate}}</p>
+                        <!-- 匯入金額 -->
+                        <p class="table_title_4set_li_p2">{{'DEPOSIT.LIST.REM_AMOUNT' | translate}}</p>
+                    </div>
+                    <div class="flex_row table_title_4set_li">
+                        <!-- 入帳日 -->
+                        <p class="table_title_4set_li_p1">{{'DEPOSIT.LIST.PAID_DATE' | translate}}</p>
+                        <!-- 匯款編號 -->
+                        <p class="table_title_4set_li_p2">{{'DEPOSIT.LIST.IRNO' | translate}}</p>
+                    </div>
+                </div>
+
+                <!-- 查詢結果區塊 START-->
+                <ng-container [ngSwitch]="nowPageType">
+                    <!-- 今天 -->
+                    <ng-container *ngSwitchCase="'today'">
+                        <app-ir-detail [setData]="reqData" [sort]="sort" (backPageEmit)="onPageBackEvent($event)" (errorPageEmit)="onErrorBackEvent($event)"></app-ir-detail>
+                    </ng-container>
+                    <!-- 一週 -->
+                    <ng-container *ngSwitchCase="'7D'">
+                        <app-ir-detail [setData]="reqData" [sort]="sort" (backPageEmit)="onPageBackEvent($event)" (errorPageEmit)="onErrorBackEvent($event)"></app-ir-detail>
+                    </ng-container>
+                    <!-- 一個月 -->
+                    <ng-container *ngSwitchCase="'1M'">
+                        <app-ir-detail [setData]="reqData" [sort]="sort" (backPageEmit)="onPageBackEvent($event)" (errorPageEmit)="onErrorBackEvent($event)"></app-ir-detail>
+                    </ng-container>
+                    <!-- 自訂 -->
+                    <ng-container *ngSwitchCase="'custom'">
+                        <app-ir-detail [setData]="reqData" [sort]="sort" (backPageEmit)="onPageBackEvent($event)" (errorPageEmit)="onErrorBackEvent($event)"></app-ir-detail>
+                    </ng-container>
+                </ng-container>
+                <!-- 查詢結果區塊 END-->
+            </div>
+        </section>
+
+        <!-- 重新查詢(自訂) START 放至section外 -->
+        <ng-container *ngIf="nowPageType=='custom'">
+            <div class="btn_group flex_row" bottomBtn>
+                <button class="btn_primary btn_w100" (click)="onReStartQuery()">{{ 'BTN.RESEARCH' | translate }}</button>
+            </div>
+        </ng-container>
+        <!-- 重新查詢(自訂) END 放至section外 -->
+    </ng-container>
+    <!-- 查詢區間(全部) END -->
+
+    <!-- 自訂搜尋 START-->
+    <ng-container *ngSwitchCase="'customBox'">
+        <app-date-range-search [show]="showSearchBox" [dateObj]="searchBoxRule" [infoData]="searchInfoData" [doubleTag]="'0'" [noteData]="noteData"
+            (backPageEmit)="onSearchBack($event)" (errorPageEmit)="onSearchErrorBack($event)">
+        </app-date-range-search>
+    </ng-container>
+    <!-- 自訂搜尋 END-->
+
+    <!-- 顯示錯誤白箱 START -->
+    <ng-container *ngSwitchCase="'errorBox'">
+        <app-error-box [errorMsg]="errorMsg"></app-error-box>
+        <!-- 查詢錯誤且為自訂查詢(重新查詢) START -->
+        <ng-container *ngIf="nowPageType=='custom'">
+            <div class="btn_group flex_row" bottomBtn>
+                <button class="btn_primary btn_w100" (click)="onReStartQuery()">{{ 'BTN.RESEARCH' | translate }}</button>
+            </div>
+        </ng-container>
+        <!-- 查詢錯誤且為自訂查詢(重新查詢) END -->
+    </ng-container>
+    <!-- 顯示錯誤白箱 END -->
+</ng-container>
+<!-- 顯示查詢結果 END -->

@@ -1,0 +1,111 @@
+{
+    "POPUP": {
+        "CURRENCY": "Currency",
+        "BALANCE": "Balance",
+        "NOTE": {
+            "TITLE": "Note Information",
+            "FOREIGN_DATE": "Information is available for inquiry for the most recent month. The start-to-end range of each inquiry cannot exceed 1 month.",
+            "LOAN_CALCULATOR": "This service helps you calculate the total cost of a loan based on the repayment method. You can enter up to three loan periods with different interest rate and duration. Use the + and - at the bottom of the screen to add or remove periods.\n\nAre you interested in loans or mortgages? Contact SCSB for more information about our offers.",
+            "LOAN_AND_TIME_NOTICE": "Currently provides inquiries for yearly principal and interest details. If you wish to inquire about other date ranges, please use the Online Banking platform instead. ",
+            "DEPOSIT_ACCT_NOTICE": "Information is available for inquiry for the past one year period. The start-to-end range of each inquiry cannot exceed 2 months.",
+            "FUND_HISTORY_NOTICE": "Inquiry periods must not exceed one year. If you wish to inquire for longer periods, please make multiple inquiries.",
+            "FUND_PROFIT_LOSS_NOTICE": "Realized gains and losses = (current value of redemption - trust management fee - trust amount)+ accrued dividends.\n Rate of return = realized gains and losses divided by trust amount.\n 1. Realized gain or loss is calculated using the net realized gains and losses on investment products that you have 'sold'. \n 2. Inquiry periods cannot exceed one year; if you would like to inquire for a longer period, please make multiple inquiries.",
+            "PAY_CREDIT_PAYABLE": "已辦理自動扣繳之客戶，請勿使用本功能。欲繳交他人正卡或他行信用卡款者，請改使用本行「網路ATM」轉帳繳款。",
+            "TWD_TRANS_PAYABLE": "「轉帳附言」用於網銀轉帳紀錄查詢、Email通知及跨行交易通知收款行訊息內容。(此欄位最多不得超過19個字)"
+        },
+        "ALERT": {
+            "TITLE": "Warning",
+            "OK_BTN": "Check"
+        },
+        "CONFIRM": {
+            "TITLE": "Warning",
+            "OK_BTN": "Check",
+            "GO_BTN": "Visit",
+            "CANCEL_BTN": "Cancel"
+        },
+        "NOTICE": {
+            "TITLE": "Attention",
+            "VER_REMIND": "本行已提供新版手機APP，請直接至APP Store或Play商店更新APP(請勿移除手機裡的舊版APP，若移除APP，須回營業單位重新申請憑證)。",
+            "UPDATE_BTN": "Update"
+        },
+        "TELPHONE": {
+            "TEL_TITEL": "外撥提醒",
+            "TEL_NOTICE": "您要撥給{{telName}}嗎?\n{{telnumber}}",
+            "BTNYESTITLE": "Call Now"
+        },
+        "WEB_OPEN": {
+            "TITLE": "Attention",
+            "GO_BTN": "Visit",
+            "CONTENT_SCSB": "You are about to leave the SCSB app and open「{{web_title}}」webpage.<br>If you would like to proceed to the webpage, please click 「Visit」. If you would like to stay in the app, please click 「Cancel」.",
+            "CONTENT_OTHER": "You are about to leave the SCSB app and open「{{web_title}}」webpage。<br>If you would like to proceed to the webpage, please click 「Visit」. If you would like to stay in the app, please click 「Cancel」.",
+            "robot": "You are about to leave the SCSB app and open「上海商銀智能客服系統」webpage。<br>If you would like to proceed to the webpage, please click 「Visit」. If you would like to stay in the app, please click 「Cancel」.",
+            "applycard": "You are about to leave the SCSB app and open「海商銀線上申請信用卡」webpage。<br>If you would like to proceed to the webpage, please click 「Visit」. If you would like to stay in the app, please click 「Cancel」.",
+            "acocountonline": "You are about to leave the SCSB app and open「海商銀線上開立數位存款帳戶」webpage。<br>If you would like to proceed to the webpage, please click 「Visit」. If you would like to stay in the app, please click 「Cancel」.",
+            "onlinebank": "You are about to leave the SCSB app and open「Web網路銀行」webpage。<br>If you would like to proceed to the webpage, please click 「Visit」. If you would like to stay in the app, please click 「Cancel」.",
+            "marketingactivitylogin": "You are about to leave the SCSB app and open「Web網路銀行行銷活動登錄」webpage。<br>If you would like to proceed to the webpage, please click 「Visit」. If you would like to stay in the app, please click 「Cancel」.",
+            "creditcardoffers": "You are about to leave the SCSB app and open「Web網路銀行信用卡優惠」webpage。<br>If you would like to proceed to the webpage, please click 「Visit」. If you would like to stay in the app, please click 「Cancel」.",
+            "fundApplyOpen": "You are about to leave the SCSB app and open「Web網路銀行」webpage。<br>If you would like to proceed to the webpage, please click 「Visit」. If you would like to stay in the app, please click 「Cancel」.",
+            "fundKyc": "You are about to leave the SCSB app and open「Web網路銀行」webpage。<br>If you would like to proceed to the webpage, please click 「Visit」. If you would like to stay in the app, please click 「Cancel」.",
+            "fundFinance": "You are about to leave the SCSB app and open 「得獎基金」 webpage.<br> If you would like to proceed to the webpage, please click 「Visit」. If you would like to stay in the app, please click 「Cancel」.",
+            "fundWeb": "You are about to leave the SCSB app and open 「基金情報」 webpage.<br> If you would like to proceed to the webpage, please click 「Visit」. If you would like to stay in the app, please click 「Cancel」.",
+            "fundclear": "You are about to leave the SCSB app and open 「基金資訊觀測站」 webpage.<br>If you would like to proceed to the webpage, please click 「Visit」. If you would like to stay in the app, please click 「Cancel」.",
+            "homepageagree": "您即將離開上海商銀行動銀行APP，前往「個人資料告知書」網站。<br>若您同意前往該網站請選擇「立即前往」，不同意請點選取消，謝謝您!!",
+            "newmops": "You are about to leave the SCSB app and open「公開資訊觀測站」webpage。<br>If you would like to proceed to the webpage, please click 「Visit」. If you would like to stay in the app, please click 「Cancel」.",
+            "loanapply": "You are about to leave the SCSB app and open「上海商銀個人信用貸款」webpage。<br>If you would like to proceed to the webpage, please click 「Visit」. If you would like to stay in the app, please click 「Cancel」.",
+            "EBILL": "You are about to leave the SCSB app and open「全國繳費網」webpage。<br>If you would like to proceed to the webpage, please click 「Visit」. If you would like to stay in the app, please click 「Cancel」."
+        },
+        "GPS": {
+            "GPS_TITEL": "轉至手機導航",
+            "GPS_NOTICE": "您是否要前往{{Name}}?",
+            "ALERT_TITLE": "Reminder",
+            "ALERT_NOTICE": "將離開應用程式，是否確定？"
+        },
+        "LOCATION": {
+            "NO_HIGH_ACCURACY": "目前系統定位服務對於「{{APP_NAME}}」程式是處於不允許狀態，請至「設定->一般->定位服務」中進行允許定位服務!",
+            "NO_HIGH_ACCURACY_TITLE": "定位服務提醒",
+            "NO_POSTION": "GPS定位逾時，無法取得目前位置之經緯度！請檢查手機定位是否有開高精準",
+            "CALL_PHONE": "請打電話",
+            "NO_INFO": "無符合之據點資料\n請更換查詢條件！",
+            "NOT_FOUND": "查無符合資料"
+        },
+        "RETURN": {
+            "UPDATE_NOW": "立即變更",
+            "REMIND_LATER": "下次提醒",
+            "EXIT_APP_TITLE": "離開程式",
+            "EXIT_APP": "您要離開程式嗎?",
+            "LOGOUT_TITLE": "Logout",
+            "LOGOUT": "您要登出嗎?"
+        },
+        "CANCEL_EDIT": {
+            "TITLE": "Attention",
+            "CONTENT": "您是否放棄此次編輯？"
+        },
+        "CANCEL_ALERT": {
+            "CONTENT": "Are you sure you want to cancel the transaction?"
+        },
+        "CURRENCY_SELECT": {
+            "TITLE": "Select Currency"
+        },
+         "ACCOUNT": {
+            "SELECT": "select account"
+        },
+        "AUTO_LOGOUT": {
+            "TITLE": "Auto Logout Warning",
+            "LOGOUT_BTN": "Logout",
+            "KEEP_LOGIN_BTN": "Keep Login",
+            "AUTO_LOGOUT_WARNING": "Auto Logout in {{second}} Second.\nKeep Login?",
+            "AUTOLOGOUT": "Already Auto Logout"
+        },
+        "INFORMATION": {
+            "TITLE": "Information"
+        },
+        "MENU": {
+            "TITLE": "please Select",
+            "SELECTED": "Selected"
+        },
+        "FUNDPROFITLOSS": {
+            "TITLE": "Important Information",
+            "FUNDPROFITLOSS_NOTE": "Realized gains and losses = (current value of redemption - trust management fee - trust amount)+ accrued dividends<br>Rate of return = realized gains and losses divided by trust amount. <br>1. 1. Realized gain or loss is calculated using the net realized gains and losses on investment products that you have 「「sold」.<br>2. Inquiry periods cannot exceed one year; if you would like to inquire for a longer period, please make multiple inquiries."
+        }
+    }
+}

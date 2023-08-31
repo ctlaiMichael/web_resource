@@ -1,0 +1,214 @@
+<ng-container [ngSwitch]="nowPage">
+    <!-- 確認頁 START -->
+    <ng-container *ngSwitchCase="'confirm'">
+        <section class="section_area section_hasbtn">
+
+            <app-step-bar [setData]="'default'" [setKey]="'check'"></app-step-bar>
+
+            <!-- <div class="pop_group pop_content pop_content_3 flex_row">
+                <div class="pop_content_txt" style="font-size: 14px">
+                  轉帳前多思考，避免被騙更苦惱。
+                </div>
+              </div> -->
+
+            <div class="confirm_group confirm_list_bg">
+                <div class="card_inner_list_group inner_list_bk_yellow">
+                    <div class="flex_row card_inner_list_li">
+                        <p>{{ 'TWD_TRANSFER.CONFIRM.AMOUNT' | translate }}</p>
+                        <p>{{ setData | objectField: ['amount', 'currencyMoney' , 'TWD'] }}</p>
+                    </div>
+                </div>
+
+                <div class="card_inner_list_group mar_btm10">
+                    <div class="flex_row card_inner_list_li">
+                        <p>{{ 'TWD_TRANSFER.CONFIRM.IN_ACCOUNT' | translate }}</p>
+                        <p>{{ setData | objectField: ['inAccount'] }}</p>
+                    </div>
+                </div>
+
+
+                <div class="card_inner_list_group">
+                    <div class="flex_row card_inner_list_li">
+                        <p>{{ 'TWD_TRANSFER.CONFIRM.OUT_ACCOUNT' | translate }}</p>
+                        <p>{{ setData | objectField: ['outAccount'] }}</p>
+                    </div>
+                </div>
+
+                <!-- 2020-10-27 確認頁api res無手續費欄位 -->
+                <!-- <div class="card_inner_list_group">
+                    <div class="flex_row card_inner_list_li">
+                        <p>{{ 'TWD_TRANSFER.CONFIRM.FEE' | translate }}</p>
+                        <p>{{ setData.fee | htMoney:'TWD' }}</p>
+                    </div>
+                </div> -->
+
+                <div class="card_inner_list_group">
+                    <div class="flex_row card_inner_list_li">
+                        <p>{{ 'TWD_TRANSFER.CONFIRM.MYNOTE' | translate }}</p>
+                        <p>{{ setData | objectField: ['remark'] }}</p>
+                    </div>
+                </div>
+
+                <div class="card_inner_list_group">
+                    <div class="flex_row card_inner_list_li">
+                        <p>{{ 'TWD_TRANSFER.CONFIRM.FORNOTE' | translate }}</p>
+                        <p>{{ setData | objectField: ['comment'] }}</p>
+                    </div>
+                </div>
+
+                <div class="card_inner_list_group">
+                    <div class="flex_row card_inner_list_li">
+                        <p>{{ 'TWD_TRANSFER.CONFIRM.TRANSDATE' | translate }}</p>
+                        <p>{{ setData | objectField: ['transferDate', 'htDate' ,'yyyy-MM-dd'] }}</p>
+                    </div>
+                </div>
+
+                <div class="card_inner_list_group">
+                    <div class="flex_row card_inner_list_li">
+                        <p>{{ 'TWD_TRANSFER.CONFIRM.MY_EMAIL' | translate }}</p>
+                        <p>{{ setData | objectField: ['email'] }}</p>
+                    </div>
+                </div>
+
+                <div class="card_inner_list_group">
+                    <div class="flex_row card_inner_list_li">
+                        <p>{{ 'TWD_TRANSFER.CONFIRM.OTHER_EMAIL' | translate }}</p>
+                        <p>{{ setData | objectField: ['otherEmail'] }}</p>
+                    </div>
+                </div>
+                <div class="result_notice_down txt_higher">{{ 'TWD_TRANSFER.MSG.TRANS_REMIND' | translate }}</div>
+                <ng-container *ngIf="setData.memoInfo != ''">
+                    <div style="border-bottom: 1px solid #D8D8D8;"></div>
+                    <div class="result_notice_down txt_higher">{{ setData | objectField: ['memoInfo'] }}</div>
+                </ng-container>
+            </div>
+
+            <app-security-interface [securityAction]="securityAction" [setSecurity]="setSecurity"
+                [setErrorObj]="setSecurityError" (bakSecurityObj)="submitSecurity($event)">
+            </app-security-interface>
+
+        </section>
+
+        <div class="btn_group flex_row" bottomBtn>
+            <button class="btn_l btn_secondary btn_w25"
+                (click)="onCancel()">{{ 'TWD_TRANSFER.BTN.CANCEL' | translate }}</button>
+            <button class="btn_r btn_primary btn_w70"
+                (click)="submitSecurity()">{{ 'TWD_TRANSFER.BTN.COMMIT' | translate }}</button>
+        </div>
+    </ng-container>
+    <!-- 確認頁 START -->
+
+    <!-- 結果頁 START -->
+    <ng-container *ngSwitchCase="'result'">
+        <section class="section_area">
+            <div class="result_list_bg result_group">
+
+                <!-- 成功失敗標題 Start -->
+                <app-result-status-temp [setData]="statusObj"></app-result-status-temp>
+                <!-- 成功失敗標題 End -->
+
+                <ng-container *ngIf="resStatus;">
+
+                    <div class="card_inner_list_group inner_list_bk_yellow">
+                        <div class="card_inner_list_li_5">
+                            <p>{{ 'TWD_TRANSFER.RESULT.AMOUNT' | translate }}</p>
+                            <p>{{ resultData | objectField: ['amount', 'currencyMoney' , 'TWD'] }}</p>
+                        </div>
+                    </div>
+
+                    <div class="card_inner_list_group">
+                        <div class="flex_row card_inner_list_li">
+                            <p>{{ 'TWD_TRANSFER.RESULT.IN_ACCOUNT' | translate }}</p>
+                            <p>{{ resultData | objectField: ['inAccount'] }}</p>
+                        </div>
+                    </div>
+                    <div class="card_inner_list_group">
+                        <div class="flex_row card_inner_list_li">
+                            <p>{{ 'TWD_TRANSFER.RESULT.OUT_ACCOUNT' | translate }}</p>
+                            <p>{{ resultData | objectField: ['outAccount'] }}</p>
+                        </div>
+                    </div>
+
+                    <div class="card_inner_list_group">
+                        <div class="flex_row card_inner_list_li">
+                            <p>{{ 'TWD_TRANSFER.RESULT.FEE' | translate }}</p>
+                            <p>{{ resultData.fee | htMoney:'TWD' }}</p>
+                        </div>
+                    </div>
+
+                    <div class="card_inner_list_group">
+                        <div class="flex_row card_inner_list_li">
+                            <p>{{ 'TWD_TRANSFER.RESULT.TRANSNO' | translate }}</p>
+                            <ng-container *ngIf="!isMainBank; else mainBankBox">
+                                <p>{{ resultData | objectField: ['transNo'] }}</p> <!-- 非本行 -->
+                            </ng-container>
+                            <ng-template #mainBankBox>
+                                <p></p> <!-- 本行 -->
+                            </ng-template>
+                        </div>
+                    </div>
+
+                    <div class="card_inner_list_group">
+                        <div class="flex_row card_inner_list_li">
+                            <p>{{ 'TWD_TRANSFER.RESULT.MYNOTE' | translate }}</p>
+                            <p>{{ resultData | objectField: ['remark'] }}</p> <!-- 結果api中台無回 -->
+                        </div>
+                    </div>
+
+                    <div class="card_inner_list_group">
+                        <div class="flex_row card_inner_list_li">
+                            <p>{{ 'TWD_TRANSFER.RESULT.FORNOTE' | translate }}</p>
+                            <p>{{ resultData | objectField: ['comment'] }}</p>
+                        </div>
+                    </div>
+
+                    <div class="card_inner_list_group">
+                        <app-amount-mask [title]="'TWD_TRANSFER.RESULT.ACTBAL'" [currency]="'TWD'"
+                            [amount]="resultData.actBal" [showSign]="'Y'"></app-amount-mask>
+                    </div>
+
+                    <div class="card_inner_list_group">
+                        <app-amount-mask [title]="'TWD_TRANSFER.RESULT.AVLBAL'" [currency]="'TWD'"
+                            [amount]="resultData.avlBal" [showSign]="'Y'"></app-amount-mask>
+                    </div>
+
+                    <!-- idFlag: 'Y', 顯示轉入帳號 帳上餘額,可用餘額 -->
+                    <ng-container *ngIf="idFlag == 'Y'">
+                        <div class="card_inner_list_group">
+                            <app-amount-mask [title]="'TWD_TRANSFER.RESULT.INACTBAL'" [currency]="'TWD'"
+                                [amount]="resultData.inActBal" [showSign]="'Y'"></app-amount-mask>
+                        </div>
+
+                        <div class="card_inner_list_group">
+                            <app-amount-mask [title]="'TWD_TRANSFER.RESULT.INAVLBAL'" [currency]="'TWD'"
+                                [amount]="resultData.inAvlBal" [showSign]="'Y'"></app-amount-mask>
+                        </div>
+                    </ng-container>
+
+                    <ng-container *ngIf="resultData.memoInfo != ''">
+                        <div class="result_notice_down txt_higher">{{ resultData | objectField: ['memoInfo'] }}</div>
+                        <!-- <div style="border-bottom: 1px solid #D8D8D8;"></div> -->
+                    </ng-container>
+                </ng-container>
+            </div>
+
+            <div class="result_function_group">
+                <div class="result_function_wrap">
+                    <div class="result_btn_group flex_row">
+                        <div class="result_btn btn_w33" (click)="ondoMore()">
+                            <p>{{ 'TWD_TRANSFER.BTN.REMAKE' | translate }}</p>
+                        </div>
+                        <div class="result_btn btn_w33" (click)="onNoticePay()" *ngIf="resStatus">
+                            <p>{{ 'TWD_TRANSFER.BTN.NOTICE_PAYEE' | translate }}</p>
+                        </div>
+                        <!-- 加入常用先註解 -->
+                        <!-- <div class="result_btn btn_w33" (click)="onAddOffen()">
+                            <p>{{ 'TWD_TRANSFER.BTN.ADD_OFFEN' | translate }}</p>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </ng-container>
+    <!-- 結果頁 END -->
+</ng-container>

@@ -1,0 +1,68 @@
+{
+    "FUND_REDEEM": {
+        "EDIT": {
+            "FUNDCODE": "Investment Targets",
+            "LICENSE": "Document Number",
+            "FUNDAMT": "Trust Amount",
+            "OSAMT": "Investment Amount",
+            "REDEEM_TYPE": "Redemption Way",
+            "REDEEM_ALL": "Redeem all",
+            "REDEEM_PART": "Partial Redemption",
+            "REDEEM_AMT": "Redemption Amount",
+            "NOW_REDEEM_RANGE": "This redeemable amount:",
+            "HIGH_REDEEM": "Highest",
+            "LOWEST_REDEEM": "Lowest",
+            "ACCOUNTID": "Credit Account",
+            "FUNGFLAG_TITLE": "全部贖回憑證處理方式：",
+            "LICENSE_BACK": "憑證將寄回",
+            "LICENSE_BACK_CONTENT": "(憑證須繳回本行後贖回款項方可入帳;憑證請繳回原開戶分行或以限時掛號寄至:台北市中正區仁愛路二段16號二樓上海銀行信託部收)",
+            "LICENSE_LOSS": "憑證掛失",
+            "LICENSE_LOSS_CONTENT": "(待本行收訖掛失止付申請書後，贖回款項方可入帳，請洽800-003-111客服中心索取<信託憑證掛失止付申請書>)"
+        },
+        "CONFIRM": {
+            "FUNDAMT": "Trust Amount",
+            "LICENSE": "Document Number",
+            "FUNDCODE": "Investment Targets",
+            "REDEEM_TYPE": "Redemption Way",
+            "REDEEM_ALL": "Redeem All",
+            "REDEEM_PART": "Partial Redemption",
+            "REDEEM_AMT": "Redemption Amount",
+            "ACCOUNTID": "Credit Account"
+        },
+        "RESULT": {
+            "FUNDAMT": "Trust Amount",
+            "OSAMT": "Investment Amount",
+            "FUNDCODE": "Investment Targets",
+            "REDEEM_AMT": "Redemption Amount",
+            "ACCOUNTID": "Credit Account",
+            "LINCESE": "憑證號碼"
+        },
+        "BTN": {
+            "CANCEL": "CANCEL",
+            "NEXT": "NEXT",
+            "COMMIT": "Check",
+            "RETRY": "RETRY",
+            "AGREE": "Agree",
+            "NOT_AGREE": "Disagree"
+        },
+        "MSG": {
+            "REMIND": "Reminder: After the transaction is sent, it cannot be modified or deleted",
+            "REMIND_NOTICE": "In line with the FSC requires banks to build「Internet banking fund trading instant confirmation or notification mechanism」,the transaction notification to E-mail:ritachen@scsb.com.tw",
+            "REMIND_SHARTRADE": "台端本筆交易已構成該基金公開說明書所認定之短線交易，請確認是否同意並接受該基金短線交易之範圍 (包括但不限於支付額外之短線交易手續費及相關費用) ，交易確認後，本行將依該基金最新版公開說明書規定辦理。<br><br>基金公開說明書請至本行網站<br>(http://fund.scsb.com.tw)、各該基金公司網站或公開資訊觀測站<br>(http://newmops.tse.com.tw)參閱、下載。<br><br>本人同意並接受本筆交易基金短線交易之規範 (包括但不限於支付額外之短線交易手續費及相關費用)。<br><br>基金公司如有收取短線交易費用者，本行將依基金公司之最新公開說明書規定辦理，{{tradeDate}}起交易將不視為短線交易。",
+            "SHARTRADE_TITLE": "Check ShartTrade"
+        },
+        "CHECK": {
+            "DEFAULT_MSG": "Please enter the correct information",
+            "HAS_NOT_PART": "No「Partial Redemption」",
+            "FUNDAMOUNT_LESS_TO_DOUBLE": "Less than your investment in each currency more than 2 times the minimum purchase amount, the non-application 「Partial Redemption」",
+            "INPUT_INTEGER": "Please enter a positive integer.",
+            "FUNDAMOUNT_LESS_TO_LOWEAMOUNT": "Your 「investment」 below the 「minimum investment」 and can not be redeemed action.",
+            "BALANCE_LESS_TO_LOWEAMOUNT": "Your balance is below the 「minimum investment」and can not be redeemed action",
+            "AMOUNT_LESS_TO_LOWEAMOUNT": "「Redemption amount」 not less than 「 Minimum Investment Amount」",
+            "AMOUNT_HIGHER_TO_HIGHAMOUNT": "「Redemption Amount」can not be higher than the「Maximum Investment Amount」",
+            "AMOUNT_RANGE": "輸入金額須符合{{range}}的倍數",
+            "AMOUNT_MINSS": "您的「投資金額」-「贖回金額」，低於「最低投資金額」，無法進行贖回動作",
+            "REDEEM_ONLY_ALL_MSG": "此筆基金僅可做全部贖回"
+        }
+    }
+}

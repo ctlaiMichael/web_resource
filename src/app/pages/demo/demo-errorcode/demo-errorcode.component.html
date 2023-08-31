@@ -1,0 +1,60 @@
+<section class="section_area">
+    <ng-container *ngFor="let data of mainData;">
+        <div class="sub_title_group sub_title_list4 flex_row" *ngIf="data.group_name">
+            <div class="sub_title_list4_txt">{{ data.group_id }}-{{ data.group_name }}</div>
+        </div>
+        <div class="content_group content_invest_1 flex_row">
+            <div class="content_invest_1_w1">
+                <div class="content_invest_li content_invest_title">錯誤編號: {{data.app_error_code }}</div>
+                <div class="content_invest_li flex_row">
+                    <div class="content_invest_li_p1">錯誤碼代碼
+                        <br>(唯一編號)</div>
+                    <div class="content_invest_li_p2">{{data.id}}</div>
+                </div>
+                <div class="content_invest_li flex_row">
+                    <div class="content_invest_li_p1">標題</div>
+                    <div class="content_invest_li_p2">{{data.title | translate }}</div>
+                </div>
+                <div class="content_invest_li invest_li_tag flex_row">
+                    <div class="content_invest_li_p1">內容</div>
+                    <div class="content_invest_li_p2">{{data.content | translate }}({{data.app_error_code}})</div>
+                </div>
+                <div class="content_invest_li invest_li_tag flex_row pad_btm0">
+                    <div class="content_invest_li_p1">備註</div>
+                    <div class="content_invest_li_p2">{{data.help }}</div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</section>
+
+<table>
+    <tr>
+        <th>群組</th>
+        <th>錯誤編號</th>
+        <th>錯誤碼代碼(唯一編號)</th>
+        <th>標題</th>
+        <th>內容</th>
+        <th>備註</th>
+    </tr>
+    <ng-container *ngFor="let data of mainData;">
+        <ng-container *ngIf="data.group_name">
+            <tr>
+                <th>{{ data.group_id }}-{{ data.group_name }}</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </ng-container>
+        <tr>
+            <td></td>
+            <td>&nbsp;{{data.app_error_code}}</td>
+            <td>{{data.id}}</td>
+            <td>{{data.title | translate }}</td>
+            <td>{{data.content | translate }}({{data.app_error_code}})</td>
+            <td>{{data.help}}</td>
+        </tr>
+    </ng-container>
+</table>

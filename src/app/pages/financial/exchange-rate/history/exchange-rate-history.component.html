@@ -1,0 +1,75 @@
+<!-- 幣別選單 Start -->
+<div class="form_group form_group_w100 form_select_1_2">
+    <div class="select_group flex_col">
+        <div class="select_inner_group flex_col">
+            <!-- 未選擇幣別顯示 Start -->
+            <div class="form_select_pop_1_2 flex_row" (click)="popOpen()" *ngIf="!chooseCurrencyObj['currencyCode'];">
+                <p class="select_pop_content">{{'FINANCIAL.PLEASE_SELECT_CURRENCY' | translate}}</p>
+                <div class="select_pop_i_down"></div>
+            </div>
+            <!-- 未選擇幣別顯示 End -->
+
+            <!-- 已選擇幣別顯示 Start -->
+            <div class="form_select_pop_1_2 flex_row" (click)="popOpen()" *ngIf="!!chooseCurrencyObj['currencyCode'];">
+                <div class="select_national_flag_wrap">
+                    <div class="national_flag {{chooseCurrencyObj['currencyCode'] | iconFlag}}"></div>
+                </div>
+                <p class="select_pop_content">
+                    {{chooseCurrencyObj['currencyCodeShow'] | currencyName: chooseCurrencyObj['currencyNameShow']}}</p>
+                <div class="select_pop_i_down"></div>
+            </div>
+            <!-- 已選擇幣別顯示 End -->
+
+            <!-- 錯誤提示 Start -->
+            <div class="form_error">{{'FINANCIAL.ERROR' | translate}}</div>
+            <!-- 錯誤提示 End -->
+        </div>
+    </div>
+</div>
+<!-- 幣別選單 End -->
+
+<!-- 頁籤選單 Start -->
+<app-bookmark [setData]="bookmarkData" [setKey]="nowBookMark" (backPageEmit)="onBookMarkBack($event)">
+</app-bookmark>
+<!-- 頁籤選單 End -->
+
+<section class="section_area section_tabL1_select1 section_hasbtn">
+    <!-- 僅供參考文案 Start -->
+    <div class="info_group flex_row info_time_range">
+        <div class="info_time_range_li">
+            <p>{{'FINANCIAL.EXCHANGE_RATE_INFO' | translate}}</p>
+            <p *ngIf="searchTime.start && searchTime.end;">
+                {{'FINANCIAL.SEARCHTIME' | translate}}：{{searchTime.start}}~{{searchTime.end}}</p>
+            <p *ngIf="!(searchTime.start && searchTime.end);">{{'FINANCIAL.SEARCHTIME' | translate}}：--</p>
+        </div>
+    </div>
+    <!-- 僅供參考文案 End -->
+
+    <ng-container [ngSwitch]="nowPage">
+        <ng-container *ngSwitchCase="'chart'">
+            <!-- 標題 Start -->
+            <!-- <div class="sub_title_group sub_title_list4 flex_row">
+                <div class="sub_title_line_wrap">
+                    <div class="sub_title_line"></div>
+                </div>
+                <div class="sub_title_list4_txt">
+                    {{chooseCurrencyObj['currencyCode'] | currencyName: chooseCurrencyObj['currencyName']}}</div>
+            </div> -->
+            <!-- 標題 End -->
+    
+            <!-- 走勢圖 Start -->
+            <!-- <ng-container *ngIf="haveData"> -->
+                <app-chart-line [setData]="rateData" (errorPageEmit)="onChartErrorBack($event)"></app-chart-line>
+            <!-- </ng-container> -->
+            <!-- 走勢圖 End -->
+        </ng-container>
+    
+        <!-- 無資料畫面 Start -->
+        <ng-container *ngSwitchCase="'emptyBox'">
+            <!-- 顯示錯誤白箱 START -->
+            <app-error-box [errorMsg]="errorMsg"></app-error-box>
+            <!-- 顯示錯誤白箱 END -->
+        </ng-container>
+        <!-- 無資料畫面 End -->
+    </ng-container>
+</section>

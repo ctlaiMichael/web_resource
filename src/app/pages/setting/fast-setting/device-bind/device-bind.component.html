@@ -1,0 +1,91 @@
+<ng-container [ngSwitch]="nowPage">
+    <!-- 認證設備綁定 頁面 Start -->
+    <ng-container *ngSwitchCase="'edit'">
+        <section class="section_area section_hasbtn">
+            <!-- 步驟列 Start -->
+            <app-step-bar [setData]="stepMenuData" [setKey]="nowStep"></app-step-bar>
+            <!-- 步驟列 End -->
+
+            <div class="row_single row_bg">
+                <!-- 在input_inner_group後 加入「active_error」後可顯示「form_error」 -->
+                <!-- 裝置名稱設定 Start -->
+                <div class="form_group form_group_w100 form_input_5">
+                    <div class="input_group flex_col">
+                        <div class="form_label">{{'SETTING.FAST_SETTING.DEVICE_NAME_SETTING' | translate}}</div>
+                        <div class="input_inner_group"
+                            [ngClass]="{'active_error': (!!checkData.errMsgObj['deviceName'])}">
+                            <input type="text" class="input_inner" maxlength="10" placeholder="請輸入裝置名稱，限10字"
+                                [(ngModel)]="deviceName">
+                            <div class="form_error">{{checkData.errMsgObj['deviceName'] | translate}}</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 裝置名稱設定 End -->
+            </div>
+
+            <!-- 提醒訊息 Start -->
+            <div class="row_single">
+                <div class="memo_info">
+                    {{'SETTING.FAST_SETTING.INFORMATION2' | translate}}
+                </div>
+            </div>
+            <!-- 提醒訊息 End -->
+
+            <!-- 非約定快速交易設定 Start -->
+            <div class="content_group content_22 flex_row">
+                <div class="content_22_txt">{{'SETTING.FAST_SETTING.FAST_SETTING_NON_AGREE' | translate}}</div>
+                <div class="switch_opne_close">
+                    <input type="checkbox" name="toggle" [checked]="fastNonAgree === '1'"
+                        (click)="onClickNonAgree()">
+                    <label for="toggle">
+                        <i></i>
+                    </label>
+                </div>
+            </div>
+            <!-- 非約定快速交易設定 End -->
+
+            <!-- OTP電話號碼 Start -->
+            <div class="content_group content_22 flex_row mar_btm15">
+                <div class="flex_row content_2_wrap">
+                    <div class="content_22_txt">{{'SETTING.FAST_SETTING.OTP_PHONE_NUMBER' | translate}}</div>
+                    <div class="content_2_4_txt">{{phoneNumber}}</div>
+                </div>
+            </div>
+            <!-- OTP電話號碼 End -->
+
+            <div class="confirm_group confirm_list_bg confirm_2" *ngIf="!!isOTPing;">
+                <!-- 安控 Start -->
+                <app-security-interface [setSecurity]="setSecurity" [securityAction]="securityAction" [setErrorObj]="setSecurityError"
+                    (currentType)="currentType($event)" (bakSecurityObj)="bakSecurityObj($event)"></app-security-interface>
+                <!-- 安控 End -->
+            </div>
+            
+        </section>
+
+        <!-- 取消 & 確認 按鈕 Start -->
+        <div class="btn_group flex_row">
+            <button class="btn_l btn_secondary btn_w25"
+                (click)="onCancelBtnClick()">{{'SETTING.FAST_SETTING.BTN.CANCEL' | translate}}</button>
+            <button class="btn_r btn_primary btn_w70" *ngIf="!isOTPing;"
+                (click)="onSendOTPClick()">{{'SETTING.FAST_SETTING.BTN.SEND_OTP' | translate}}</button>
+            <button class="btn_r btn_primary btn_w70" *ngIf="!!isOTPing;"
+                (click)="onSecurityClick()">{{'SETTING.FAST_SETTING.BTN.CHECK' | translate}}</button>
+        </div>
+        <!-- 取消 & 確認 按鈕 End -->
+    </ng-container>
+    <!-- 認證設備綁定 頁面 End -->
+
+    <!-- 結果頁面 Start -->
+    <ng-container *ngSwitchCase="'result'">
+        <section class="section_area">
+            <!-- 結果頁(設定成功) Start -->
+            <div class="result_list_bg result_group">
+                <!-- 標題 Start -->
+                <app-result-status-temp [setData]="statusObj" [ctrlHeader]="'0'"></app-result-status-temp>
+                <!-- 標題 End -->
+            </div>
+            <!-- 結果頁(設定成功) End -->
+        </section>
+    </ng-container>
+    <!-- 結果頁面 End -->
+</ng-container>

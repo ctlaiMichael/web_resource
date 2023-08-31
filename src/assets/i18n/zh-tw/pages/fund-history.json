@@ -1,0 +1,23 @@
+{
+    "FUND_HISTORY": {
+        "DETAIL": {
+            "TRUSTNO": "憑證號碼",
+            "TXTYPE": "交易別",
+            "AMT": "信託金額",
+            "TXDATE": "交易日期"
+        },
+        "CONTENT": {
+            "TRUSTNO": "憑證號碼",
+            "TXDATE": "交易日期",
+            "TXTYPE": "交易別",
+            "AMT": "信託金額",
+            "APPLY_RATE": "手續費率",
+            "FEE": "手續費",
+            "ACCT_DATE": "入帳日期",
+            "ACCT_AMT": "入帳金額",
+            "UNIT": "配發單位數",
+            "VALUE": "成交價格",
+            "MEMO": "備註"
+        }
+    }
+}

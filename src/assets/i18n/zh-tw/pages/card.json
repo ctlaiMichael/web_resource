@@ -1,0 +1,92 @@
+{
+    "HISTORY_BILL": {
+        "MAIN": {
+            "HAVETOPAID": "{{monthStr}}月份 應繳總金額",
+            "CURBAL": "應繳總金額",
+            "MONTH": "月份",
+            "DUEDATE": "本期繳款截止日",
+            "STMTDATE": "帳單結帳日",
+            "HAS_PAID": "已繳",
+            "DETAIL": "交易明細",
+            "BILLINFO": "帳單資訊"
+        },
+        "STATUS": {
+            "HAS_PAID": "已繳",
+            "OVER_PAID": "溢繳",
+            "PART_PAID": "繳部分",
+            "NOT_ENOUGH": "未繳足",
+            "LATE_PAID": "逾期",
+            "NO_PAID": "未繳"
+        },
+        "DETAIL": {
+            "ALL_BILL": "全部信用卡",
+            "CARDLST": "卡號",
+            "POSTDATE": "入帳日",
+            "MEMO": "交易摘要",
+            "CARDNO": "消費卡別",
+            "FOUR_NO": "末四碼",
+            "FOREIGN_AMOUND": "原幣消費金額"
+        },
+        "INFO": {
+            "AP_PER": "自動扣繳比率",
+            "AP_AMT": "自動扣繳金額",
+            "AP_DAY": "自動扣款日期",
+            "AP_ACCOUNT": "自動扣款帳號",
+            "BEGBAL": "上期應繳總額",
+            "PREVPAY": "上期已繳金額",
+            "CURAMT": "本期新增總額",
+            "CURBAL": "本期應繳總額"
+        }
+    },
+    "PROFILE": {
+        "STMTDATE": "本期帳單結帳日",
+        "DUEDATE": "本期繳款截止日",
+        "STMAMT": "本期應繳總額",
+        "MINAMT": "最低應繳金額",
+        "TOTALAMT": "本期累計繳款金額",
+        "AVALLABLE_BALANCE": "信用額度",
+        "OWNER_PERCENT": "帳單循環利率",
+        "AUTO_PAYAMT": "自動扣繳金額",
+        "AUTOPAY_ACCTACCOUNT": "自動扣繳帳號",
+        "AUTOPAY_RATE": "自動扣繳款",
+        "CARD_PAY": "繳卡費",
+        "BILL_QUERY": "帳單查詢"
+    },
+    "PAYABLE": {
+        "PAGE": {
+            "ENTERDATA": "輸入資料",
+            "CONFIRMDATA": "付款資訊",
+            "RESULT": "結果"
+        },
+        "EDIT": {
+            "MONTH": "月份",
+            "CURBAL": "本期應繳款餘額",
+            "MINPAY": "最低應繳餘額",
+            "PREPAY": "本期已繳總金額",
+            "DUEDATE": "本期繳款截止日",
+            "ACCOUNTID": "轉出帳號",
+            "BALANCE": "可用餘額",
+            "INPUT_AMOUNT": "輸入繳款金額",
+            "TYPE_ALL": "全額",
+            "TYPE_LOWEST": "最低",
+            "TYPE_CUSTOM": "自訂",
+            "EBILL_PAY": "全國繳費網",
+            "BTN_CANCEL": "取消",
+            "BTN_NEXT": "下一步"
+        },
+        "CONFIRM": {
+           "PAYAMOUNT": "繳款金額",
+           "ACCOUNTID": "轉出帳號",
+           "ARREARS": "待繳金額",
+           "BTN_CANCEL": "取消",
+           "BTN_NEXT": "下一步"
+        },
+        "RESULT": {
+            "MSG": "提醒您：如果您要查詢信用卡最新應繳總額，請於入帳後之次一營業日查詢。",
+            "PAYAMOUNT": "繳款金額",
+            "ACCOUNTID": "轉出帳號",
+            "CUSTID": "正卡持卡人身份證號",
+            "ARREARS": "待繳金額"
+        }
+    }
+}

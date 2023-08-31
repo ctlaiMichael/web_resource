@@ -1,0 +1,48 @@
+{
+
+    "AUTO_FUND_REDEEM": {
+        "LICENNO1": "憑證號碼",
+        "NOWPRICE": "參考現值",
+        "SHOWSTOPBENE": "停利標準",
+        "SHOWSTOPLOSS": "停損標準",
+
+        "PRICEDATE": "報價日期",
+        "APPOINTDATE": "設定日期",
+        "OSAMT": "信託餘額",
+        "ACCTPRICE": "參考報價",
+        "INTRETN": "參考報酬率",
+        "APDINT": "累計配息金額",
+        "REFPROC": "參考損益",
+        "HAS_NOTSET": "尚未設定"
+    },
+    "AUTO_REDEEM_MODIFY": {
+        "MODIFY": {
+            "LICENSE": "憑證號碼",
+            "AMOUNT": "信託金額",
+            "BENE": "停利標準",
+            "MUST_DO": "必填欄位，請輸入",
+            "HAS_NOT_SET": "尚未設定",
+            "LOSS": "停損標準",
+            "INACCT": "入帳帳號",
+            "CANCEL": "取消",
+            "NEXT": "下一步",
+            "NOT_SET": "不設定"
+        },
+        "CONFIRM_RESULT": {
+            "FUNDNAME": "投資標的",
+            "LICENSE": "憑證號碼",
+            "AMOUNT": "信託金額",
+            "BENE": "停利標準",
+            "LOSS": "停損標準",
+            "INACCT": "入帳帳號",
+            "REMINE_TITLE": "只要您在基金投資時事先設定停利標準或停損標準，當您該筆投資報酬率，達到您事先設定的停利標準或停損標準時;此時電腦系統將自動贖回該筆投資款項，匯至您的存款帳戶中!!!",
+            "CANCEL": "取消",
+            "CONFIRM": "確認"
+        },
+        "CHECK": {
+            "LOSS_RANGE": "停損點必須為5 ~ 30之整數",
+            "BENE_RANGE": "停利點必須為5 ~ 30之整數"
+        }
+    }
+
+}

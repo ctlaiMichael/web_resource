@@ -1,0 +1,28 @@
+<div class="popup_content_area_alert_wth zIndex_level_2_2">
+  <div class="popup_content_area_alert">
+    <div class="popup_content_wrap_alert">
+      <!-- 標題 Start -->
+      <div class="pop_group pop_title_4 flex_row">
+        <div class="simple_title">{{'POPUP.AUTO_LOGOUT.TITLE'|translate}}</div>
+      </div>
+      <!-- 標題 End -->
+      <!-- 內容 Start -->
+      <div class="popup_inner_content">
+        <div class="pop_group pop_content pop_content_3_alert flex_row">
+          <div class="pop_content_txt">
+            {{'POPUP.AUTO_LOGOUT.AUTO_LOGOUT_WARNING'|translate:param}}
+          </div>
+        </div>
+      </div>
+      <!-- 內容 End -->
+      <!-- 按鈕 Start -->
+      <div class="btn_group btn_popup flex_row">
+        <button class="btn_l btn_secondary btn_w50"
+          (click)="no('click')">{{'POPUP.AUTO_LOGOUT.LOGOUT_BTN'|translate}}</button>
+        <button class="btn_r btn_primary btn_w50"
+          (click)="yes()">{{'POPUP.AUTO_LOGOUT.KEEP_LOGIN_BTN'|translate}}</button>
+      </div>
+      <!-- 按鈕 End -->
+    </div>
+  </div>
+</div>

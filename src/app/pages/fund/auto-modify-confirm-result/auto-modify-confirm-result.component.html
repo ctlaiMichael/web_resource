@@ -1,0 +1,156 @@
+  <ng-container [ngSwitch]="nowPage">
+      <!-- 確認頁 START -->
+      <ng-container *ngSwitchCase="'confirm'">
+          <section class="section_area section_hasbtn">
+              <!-- 步驟列 Start -->
+              <app-step-bar [setData]="'default'" [setKey]="'check'"></app-step-bar>
+              <!-- 步驟列 End -->
+
+              <div class="confirm_group confirm_list_bg">
+                  <div class="card_inner_list_group inner_list_bk_yellow">
+                      <div class="flex_row card_inner_list_li">
+                          <p>{{ 'AUTO_REDEEM_MODIFY.CONFIRM_RESULT.FUNDNAME' | translate }}</p>
+                          <p>{{ confirmShow | objectField: ['showFundName'] }}</p>
+                      </div>
+                  </div>
+
+                  <div class="card_inner_list_group">
+                      <div class="flex_row card_inner_list_li">
+                          <p>{{ 'AUTO_REDEEM_MODIFY.CONFIRM_RESULT.LICENSE' | translate }}</p>
+                          <p>{{ confirmShow | objectField: ['license'] }}</p>
+                      </div>
+                  </div>
+
+                  <div class="card_inner_list_group">
+                      <div class="flex_row card_inner_list_li">
+                          <p>{{ 'AUTO_REDEEM_MODIFY.CONFIRM_RESULT.AMOUNT' | translate }}</p>
+                          <p>{{ confirmShow | objectField: ['amount', 'currencyMoney' , confirmShow.currency] }}</p>
+                      </div>
+                  </div>
+
+                  <div class="card_inner_list_group">
+                      <div class="flex_row card_inner_list_li">
+                          <p>{{ 'AUTO_REDEEM_MODIFY.CONFIRM_RESULT.BENE' | translate }}</p>
+                        <ng-container *ngIf="showBalanceStatus.inputBene == 'normal'">
+                          <p>+ {{ confirmShow | objectField: ['inputBene'] }}%</p> <!-- 顯示設定的值 -->
+                        </ng-container>
+                        <ng-container *ngIf="showBalanceStatus.inputBene == 'notSet'">
+                            <p>{{ 'AUTO_REDEEM_MODIFY.MODIFY.NOT_SET' | translate }}</p> <!-- 不設定 -->
+                        </ng-container>
+                        <ng-container *ngIf="showBalanceStatus.inputBene == 'notUse'">
+                            <p>不適用</p> <!-- 不適用 -->
+                        </ng-container>
+                      </div>
+                  </div>
+
+                  <div class="card_inner_list_group">
+                      <div class="flex_row card_inner_list_li">
+                          <p>{{ 'AUTO_REDEEM_MODIFY.CONFIRM_RESULT.LOSS' | translate }}</p>
+                        <ng-container *ngIf="showBalanceStatus.inputLoss == 'normal'">
+                          <p>- {{ confirmShow | objectField: ['inputLoss'] }}%</p> <!-- 顯示設定的值 -->
+                        </ng-container>
+                        <ng-container *ngIf="showBalanceStatus.inputLoss == 'notSet'">
+                            <p>{{ 'AUTO_REDEEM_MODIFY.MODIFY.NOT_SET' | translate }}</p> <!-- 不設定 -->
+                        </ng-container>
+                        <ng-container *ngIf="showBalanceStatus.inputLoss == 'notUse'">
+                            <p>不適用</p> <!-- 不適用 -->
+                        </ng-container>
+                      </div>
+                  </div>
+
+                  <div class="card_inner_list_group">
+                      <div class="flex_row card_inner_list_li">
+                          <p>{{ 'AUTO_REDEEM_MODIFY.CONFIRM_RESULT.INACCT' | translate }}</p>
+                          <p>{{ confirmShow | objectField: ['accountID'] }}</p>
+                      </div>
+                  </div>
+              </div>
+
+              <app-security-interface [securityAction]="securityAction" [setSecurity]="setSecurity"
+                  (bakSecurityObj)="submitSecurity($event)">
+              </app-security-interface>
+
+              <div class="row_single">
+                  <div class="memo_info">
+                      {{ 'AUTO_REDEEM_MODIFY.CONFIRM_RESULT.REMINE_TITLE' | translate }}
+                  </div>
+              </div>
+          </section>
+
+          <div class="btn_group flex_row" bottomBtn>
+              <button class="btn_l btn_secondary btn_w25" (click)="onCancel()">{{ 'AUTO_REDEEM_MODIFY.CONFIRM_RESULT.CANCEL' | translate }}</button>
+              <button class="btn_r btn_primary btn_w70" (click)="submitSecurity()">{{ 'AUTO_REDEEM_MODIFY.CONFIRM_RESULT.CONFIRM' | translate }}</button>
+          </div>
+      </ng-container>
+      <!-- 確認頁 END -->
+
+      <!-- 結果頁 START -->
+      <ng-container *ngSwitchCase="'result'">
+          <section class="section_area">
+              <div class="result_list_bg result_group">
+
+                  <!-- 成功失敗標題 Start -->
+                  <app-result-status-temp [setData]="statusObj"></app-result-status-temp>
+                  <!-- 成功失敗標題 End -->
+
+                  <!-- 結果頁(交易成功) Start -->
+                  <ng-container *ngIf="resStatus;">
+                      <div class="card_inner_list_group">
+                          <div class="flex_row card_inner_list_li">
+                              <p>{{ 'AUTO_REDEEM_MODIFY.CONFIRM_RESULT.FUNDNAME' | translate }}</p>
+                              <p>{{ confirmShow | objectField: ['showFundName'] }}</p>
+                          </div>
+                      </div>
+                      <div class="card_inner_list_group">
+                          <div class="flex_row card_inner_list_li">
+                              <p>{{ 'AUTO_REDEEM_MODIFY.CONFIRM_RESULT.LICENSE' | translate }}</p>
+                              <p>{{ confirmShow | objectField: ['license'] }}</p>
+                          </div>
+                      </div>
+                      <div class="card_inner_list_group">
+                          <div class="flex_row card_inner_list_li">
+                              <p>{{ 'AUTO_REDEEM_MODIFY.CONFIRM_RESULT.AMOUNT' | translate }}</p>
+                              <p>{{ confirmShow | objectField: ['amount', 'currencyMoney' , confirmShow.currency] }}</p>
+                          </div>
+                      </div>
+                      <div class="card_inner_list_group">
+                          <div class="flex_row card_inner_list_li">
+                              <p>{{ 'AUTO_REDEEM_MODIFY.CONFIRM_RESULT.BENE' | translate }}</p>
+                            <ng-container *ngIf="showBalanceStatus.inputBene == 'normal'">
+                              <p>+ {{ confirmShow | objectField: ['inputBene'] }}%</p> <!-- 顯示設定的值 -->
+                            </ng-container>
+                            <ng-container *ngIf="showBalanceStatus.inputBene == 'notSet'">
+                                <p>{{ 'AUTO_REDEEM_MODIFY.MODIFY.NOT_SET' | translate }}</p> <!-- 不設定 -->
+                            </ng-container>
+                            <ng-container *ngIf="showBalanceStatus.inputBene =='notUse'">
+                                <p>不適用</p> <!-- 不適用 -->
+                            </ng-container>
+                          </div>
+                      </div>
+                      <div class="card_inner_list_group">
+                          <div class="flex_row card_inner_list_li">
+                              <p>{{ 'AUTO_REDEEM_MODIFY.CONFIRM_RESULT.LOSS' | translate }}</p>
+                            <ng-container *ngIf="showBalanceStatus.inputLoss == 'normal'">
+                              <p>- {{ confirmShow | objectField: ['inputLoss'] }}%</p> <!-- 顯示設定的值 -->
+                            </ng-container>
+                            <ng-container *ngIf="showBalanceStatus.inputLoss == 'notSet'">
+                                <p>{{ 'AUTO_REDEEM_MODIFY.MODIFY.NOT_SET' | translate }}</p> <!-- 不設定 -->
+                            </ng-container>
+                            <ng-container *ngIf="showBalanceStatus.inputLoss == 'notUse'">
+                                <p>不適用</p> <!-- 不適用 -->
+                            </ng-container>
+                          </div>
+                      </div>
+                      <div class="card_inner_list_group">
+                          <div class="flex_row card_inner_list_li">
+                              <p>{{ 'AUTO_REDEEM_MODIFY.CONFIRM_RESULT.INACCT' | translate }}</p>
+                              <p>{{ confirmShow | objectField: ['accountID'] }}</p>
+                          </div>
+                      </div>
+                  </ng-container>
+                  <!-- 結果頁(交易成功) END -->
+              </div>
+          </section>
+      </ng-container>
+      <!-- 結果頁 END -->
+  </ng-container>

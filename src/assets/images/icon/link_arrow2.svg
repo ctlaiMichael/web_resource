@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="150" height="150" viewBox="0 0 150 150">
+  <defs>
+    <clipPath id="clip-link_arrow2">
+      <rect width="150" height="150"/>
+    </clipPath>
+  </defs>
+  <g id="link_arrow2" clip-path="url(#clip-link_arrow2)">
+    <g id="icon_daypicker_m_next" data-name="icon/daypicker_m_next">
+      <rect id="矩形_12" data-name="矩形 12" width="150" height="150" fill="#fff" opacity="0"/>
+      <g id="_001-arrow-point-to-right" data-name="001-arrow-point-to-right">
+        <rect id="Rectangle-11" width="150" height="150" fill="none"/>
+        <path id="Shape" d="M115.834,81.832,49.455,141.168a11.734,11.734,0,0,1-15.289,0,8.957,8.957,0,0,1,0-13.666L92.9,75,34.167,22.5a8.958,8.958,0,0,1,0-13.667,11.737,11.737,0,0,1,15.289,0l66.38,59.337a8.956,8.956,0,0,1,0,13.664Z" fill="#a9a9a9"/>
+      </g>
+    </g>
+  </g>
+</svg>

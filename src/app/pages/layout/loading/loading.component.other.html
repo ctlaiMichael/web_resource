@@ -1,0 +1,29 @@
+<!-- zIndex_level_5: Loading -->
+<!-- V1 -->
+<!-- <div class="ht-c-spinner ht-c-center zIndex_level_5" #spinnerContainer [ngClass]="{'ht-c-visible': showSpinner, 'ht-c-hidden': !showSpinner}">
+    <div class="ht-c-background zIndex_level_5"></div>
+    <div class="ht-c-lds-roller zIndex_level_5">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<div id="loading-spinner-text" class="ht-c-loading-spinner-text  ht-c-loading-text zIndex_level_5_1" [ngClass]="{'ht-c-visible': showSpinner, 'ht-c-hidden': !showSpinner}">
+    {{loadingText}}
+</div> -->
+<!-- V2 -->
+<div class="ht-c-spinner ht-c-center zIndex_level_5" #spinnerContainer [ngClass]="{'ht-c-visible': showSpinner, 'ht-c-hidden': !showSpinner}">
+    <div class="ht-c-background zIndex_level_5"></div>
+    <div class="ht-c-wrapper zIndex_level_5">
+        <div class="ht-c-circle-point">S</div>
+        <div class="ht-c-circle-point">C</div>
+        <div class="ht-c-circle-point">S</div>
+        <div class="ht-c-circle-point">B</div>
+        <span id="loading-spinner-text" class="zIndex_level_5_1">{{loadingText}}</span>
+    </div>
+</div>

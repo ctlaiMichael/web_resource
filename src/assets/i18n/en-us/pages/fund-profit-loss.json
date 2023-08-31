@@ -1,0 +1,14 @@
+{
+    "FUND_PROFIT_LOSS": {
+        "TRUSTNO": "Certificate Number",
+        "REMUMRATE": "Rate",
+        "TOTAMT": "Investment Amount",
+        "APPLYDATE": "Investment Date",
+        "BUYDATE": "Transaction Date",
+        "REMUMRATE": "Reference Rate of Return with Dividend Included",
+        "ACCTAMT": "Amount",
+        "ADDINT": "Accumulated Dividend",
+        "MEMO": "Note",
+        "REMUMRATE2": "Rate"
+    }
+}

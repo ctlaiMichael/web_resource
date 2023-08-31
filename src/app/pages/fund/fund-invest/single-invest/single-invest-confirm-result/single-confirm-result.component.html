@@ -1,0 +1,183 @@
+  <ng-container [ngSwitch]="nowPage">
+      <!-- 確認頁 START -->
+      <ng-container *ngSwitchCase="'confirm'">
+          <section class="section_area section_hasbtn">
+              <!-- 步驟列 Start -->
+              <app-step-bar [setData]="stepMenuData" [setKey]="nowStep"></app-step-bar>
+              <!-- 步驟列 End -->
+              <trans-note [showType]="'confirm'"></trans-note>
+
+              <!-- <div class="confirm_notice">{{ 'FUND_INVEST.CONFIRM.REMIND' | translate }}</div> -->
+              <div class="confirm_group confirm_list_bg">
+                  <div class="card_inner_list_group inner_list_bk_yellow">
+                      <div class="card_inner_list_li_5">
+                          <p>{{ 'FUND_INVEST.CONFIRM.BALANCE' | translate }}</p>
+                          <ng-container *ngIf="nextData.investCcyType == '1'; else foreignBox">
+                              <p>{{ nextData | objectField: ['investMoney', 'currencyMoney' , 'TWD'] }}</p>
+                          </ng-container>
+                          <ng-template #foreignBox>
+                              <p>{{ nextData | objectField: ['investMoney', 'currencyMoney' , nextData.fundCcy] }}</p>
+                          </ng-template>
+                      </div>
+                  </div>
+                  <div class="card_inner_list_group mar_btm10">
+                      <div class="flex_row card_inner_list_li">
+                          <p>{{ 'FUND_INVEST.CONFIRM.FUND' | translate }}</p>
+                          <p>{{ showData | objectField: ['fundCodeShow'] }}</p>
+                      </div>
+                  </div>
+                  <div class="card_inner_list_group">
+                      <div class="flex_row card_inner_list_li">
+                          <p>{{ 'FUND_INVEST.CONFIRM.FEED' | translate }}</p>
+                          <p>{{ confirmData | objectField: ['discountFee'] }}%</p>
+                      </div>
+                  </div>
+                  <div class="card_inner_list_group">
+                      <div class="flex_row card_inner_list_li">
+                          <p>{{ 'FUND_INVEST.CONFIRM.INVEST_MONEY' | translate }}</p>
+                          <ng-container *ngIf="nextData.investCcyType == '1'; else totalForeignConfirm">
+                              <p>{{ confirmData | objectField: ['investTotalMoney', 'currencyMoney' , 'TWD'] }}</p>
+                          </ng-container>
+                          <ng-template #totalForeignConfirm>
+                              <p>{{ confirmData | objectField: ['investTotalMoney', 'currencyMoney' , confirmData.ccyEng] }}
+                              </p>
+                          </ng-template>
+                      </div>
+                  </div>
+                  <div class="card_inner_list_group">
+                      <div class="flex_row card_inner_list_li">
+                          <p>{{ 'FUND_INVEST.CONFIRM.INVEST_ACCT' | translate }}</p>
+                          <p>{{ nextData | objectField: ['investAccount'] }}</p>
+                      </div>
+                  </div>
+              </div>
+              <ng-container *ngIf="!!showProfitAccount">
+                  <div class="row_single row_bg">
+                      <div class="form_group form_group_w100 form_select_2">
+                          <div class="select_group flex_col">
+                              <div class="form_label">{{ 'FUND_INVEST.CONFIRM.PROFIT_ACCT' | translate }}</div>
+                              <div class="select_inner_group">
+                                  <div class="form_select_pop_2 flex_row">
+                                      <p class="select_pop_content">{{ nextData | objectField: ['profitAccountID'] }}
+                                      </p>
+                                      <div class="select_pop_i_down"></div>
+                                  </div>
+                                  <div class="form_error">必填欄位，請輸入</div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </ng-container>
+              <app-security-interface [securityAction]="securityAction" [setSecurity]="setSecurity"
+                  (bakSecurityObj)="submitSecurity($event)">
+              </app-security-interface>
+          </section>
+
+          <div class="btn_group flex_row">
+              <button class="btn_l btn_secondary btn_w25"
+                  (click)="onCancel()">{{ 'FUND_INVEST.CONFIRM.BTN.CANCEL' | translate }}</button>
+              <button class="btn_r btn_primary btn_w70"
+                  (click)="submitSecurity()">{{ 'FUND_INVEST.CONFIRM.BTN.CONFIRM' | translate }}</button>
+          </div>
+      </ng-container>
+      <!-- 確認頁 END -->
+
+      <!-- 結果頁 START -->
+      <ng-container *ngSwitchCase="'result'">
+          <section class="section_area">
+              <div class="result_list_bg result_group">
+
+                  <!-- 成功失敗標題 Start -->
+                  <app-result-status-temp [setData]="statusObj"></app-result-status-temp>
+                  <!-- 成功失敗標題 End -->
+                  <trans-note [showType]="'result'"></trans-note>
+
+                  <!-- 結果頁(交易成功) Start -->
+                  <ng-container *ngIf="resStatus;">
+                      <div class="card_inner_list_group inner_list_bk_yellow">
+                          <div class="card_inner_list_li_5">
+                              <p>{{ 'FUND_INVEST.RESULT.BALANCE' | translate }}</p>
+                              <ng-container *ngIf="nextData.investCcyType == '1'; else investForeignResult">
+                                  <p>{{ nextData | objectField: ['investMoney', 'currencyMoney' , 'TWD'] }}</p>
+                              </ng-container>
+                              <ng-template #investForeignResult>
+                                  <p>{{ nextData | objectField: ['investMoney', 'currencyMoney' , nextData.fundCcy] }}
+                                  </p>
+                              </ng-template>
+                          </div>
+                      </div>
+                      <div class="card_inner_list_group">
+                          <div class="flex_row card_inner_list_li">
+                              <p>{{ 'FUND_INVEST.RESULT.FUND' | translate }}</p>
+                              <p>{{ showData | objectField: ['fundCodeShowResult'] }}</p>
+                          </div>
+                      </div>
+                      <div class="card_inner_list_group">
+                          <div class="flex_row card_inner_list_li">
+                              <p>{{ 'FUND_INVEST.RESULT.LICENSE' | translate }}</p>
+                              <p>{{ resultData | objectField: ['license'] }}</p>
+                          </div>
+                      </div>
+                      <div class="card_inner_list_group">
+                          <div class="flex_row card_inner_list_li">
+                              <p>{{ 'FUND_INVEST.RESULT.FEED' | translate }}</p>
+                              <p>{{ resultData | objectField: ['discountFee'] }}%</p>
+                          </div>
+                      </div>
+                      <div class="card_inner_list_group">
+                          <div class="flex_row card_inner_list_li">
+                              <p>{{ 'FUND_INVEST.RESULT.INVEST_MONEY' | translate }}</p>
+                              <ng-container *ngIf="nextData.investCcyType == '1'; else totalForeignResult">
+                                  <p>{{ resultData | objectField: ['investTotalMoney', 'currencyMoney' , 'TWD'] }}
+                                  </p>
+                              </ng-container>
+                              <ng-template #totalForeignResult>
+                                  <p>{{ resultData | objectField: ['investTotalMoney', 'currencyMoney' , resultData.fundCcy] }}
+                                  </p>
+                              </ng-template>
+                          </div>
+                      </div>
+                      <div class="card_inner_list_group">
+                          <div class="flex_row card_inner_list_li">
+                              <p>{{ 'FUND_INVEST.RESULT.INVEST_ACCT' | translate }}</p>
+                              <p>{{ resultData | objectField: ['investAccount'] }}</p>
+                          </div>
+                      </div>
+                      <div class="card_inner_list_group">
+                          <div class="flex_row card_inner_list_li">
+                              <p>{{ 'FUND_INVEST.RESULT.PROFIT_ACCT' | translate }}</p>
+                              <p>{{ resultData | objectField: ['profitAccount'] }}</p>
+                          </div>
+                      </div>
+                      <!-- 交易通知注意資訊 -->
+                      <after-trans-note></after-trans-note>
+                  </ng-container>
+                  <!-- 結果頁(交易成功) End -->
+              </div>
+
+              <!-- 結果頁(交易成功) Start -->
+              <ng-container *ngIf="resStatus">
+                  <div class="result_function_group">
+                      <div class="result_function_wrap">
+                          <div class="result_btn_group flex_row">
+                              <div class="result_btn" (click)="onDoMore()">
+                                  <div class="i_transfer"></div>
+                                  <p>{{ 'FUND_INVEST.RESULT.BTN.RETRY' | translate }}</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </ng-container>
+              <!-- 結果頁(交易成功) End -->
+          </section>
+      </ng-container>
+      <!-- 結果頁 START -->
+
+      <!-- 顯示錯誤白箱 START -->
+      <ng-container *ngSwitchCase="'errorBox'">
+          <section class="section_area section_hasbtn">
+              <app-error-box [errorMsg]="errorBoxMsg"></app-error-box>
+          </section>
+      </ng-container>
+      <!-- 顯示錯誤白箱 END -->
+  </ng-container>

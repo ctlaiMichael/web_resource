@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="375px" height="240px" viewBox="0 0 375 240" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Artboard</title>
+    <defs>
+        <circle id="path-1" cx="140" cy="140" r="100"></circle>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="200" height="200" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <circle id="path-3" cx="140" cy="140" r="100"></circle>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="200" height="200" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+    </defs>
+    <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#FFFFFF" opacity="0" x="0" y="0" width="375" height="240"></rect>
+        <g id="pie-chart" transform="translate(48.000000, -20.000000)">
+            <use id="Oval" stroke="#B82B22" mask="url(#mask-2)" stroke-width="32" stroke-dasharray="376,252" transform="translate(140.000000, 140.000000) rotate(36.000000) translate(-140.000000, -140.000000) " xlink:href="#path-1"></use>
+            <use id="Oval-Copy" stroke="#D15B9C" mask="url(#mask-4)" stroke-width="32" stroke-dasharray="250,378" transform="translate(140.000000, 140.000000) rotate(180.000000) translate(-140.000000, -140.000000) " xlink:href="#path-3"></use>
+            <rect id="Rectangle-Copy-4" fill="#F2F2F2" transform="translate(87.000000, 212.500000) rotate(-142.000000) translate(-87.000000, -212.500000) " x="86" y="202" width="2" height="21"></rect>
+            <rect id="Rectangle" fill="#F2F2F2" x="140" y="40" width="2" height="21"></rect>
+            <text id="60%" font-family="Arial-BoldMT, Arial" font-size="12" font-weight="bold" fill="#B82B22">
+                <tspan x="244" y="149">60%</tspan>
+            </text>
+            <text id="40%" font-family="Arial-BoldMT, Arial" font-size="12" font-weight="bold" fill="#D15B9C">
+                <tspan x="11" y="113">40%</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

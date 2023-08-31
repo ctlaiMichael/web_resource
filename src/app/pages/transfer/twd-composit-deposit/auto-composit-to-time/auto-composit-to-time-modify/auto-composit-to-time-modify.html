@@ -1,0 +1,223 @@
+<ng-container *ngIf="changemodify">
+    <section class="section_area section_hasbtn">
+        <!-- 步驟列 Start -->
+        <app-step-bar [setData]="stepMenuData" [setKey]="nowStep"></app-step-bar>
+        <!-- 步驟列 End -->
+
+        <!-- 確認頁 -->
+        <div class="confirm_group confirm_list_bg">
+            <!-- card_inner_list_5 -->
+            <div class="card_inner_list_group inner_list_bk_yellow">
+                <div class="card_inner_list_li_5">
+                    <p>{{ 'COMPOSIT_TO_TIME.AUTO_COMPOSIT_TO_TIME.TRANSDEPOSITAMT' | translate }}</p>
+                    <p>{{ setData.transDepositAmt | currencyMoney: 'TWD' }}</p>
+                </div>
+            </div>
+            <!-- card_inner_list_5 //End -->
+
+            <!-- 虛線 -->
+            <div class="dashed"></div>
+            <!-- 虛線 //End -->
+
+            <!-- card_inner_list_1 -->
+            <div class="card_inner_list_group">
+                <div class="flex_row card_inner_list_li">
+                    <p>{{ 'COMPOSIT_TO_TIME.PAGEFLOWSAVETYPE' | translate }}</p>
+                    <p>{{ setData.savingsRange }} {{ 'COMPOSIT_TO_TIME.MONTHS' | translate }}</p>
+                </div>
+            </div>
+            <!-- card_inner_list_1 //End -->
+
+            <!-- card_inner_list_1 -->
+            <div class="card_inner_list_group">
+                <div class="flex_row card_inner_list_li">
+                    <p>{{ 'COMPOSIT_TO_TIME.RATE' | translate }}</p>
+                    <p>{{ setData | fieldCheck: ['rateFunction',{zero_type:false, empty_str:'--'}] | translate}}</p>
+                </div>
+            </div>
+            <!-- card_inner_list_1 //End -->
+
+            <!-- card_inner_list_1 -->
+            <div class="card_inner_list_group">
+                <div class="flex_row card_inner_list_li">
+                    <p>{{ 'COMPOSIT_TO_TIME.CYCLE' | translate }}</p>
+                    <p>{{ setData | fieldCheck: ['payCycle',{zero_type:false, empty_str:'--'}] | translate}}</p>
+                </div>
+            </div>
+            <!-- card_inner_list_1 //End -->
+
+        </div>
+        <!-- 確認頁 //End-->
+
+        <!-- 安控 Start -->
+        <app-security-interface [setSecurity]="setSecurity" [securityAction]="securityAction" [setErrorObj]="setSecurityError"
+            (currentType)="currentType($event)" (bakSecurityObj)="bakSecurityObj($event)"></app-security-interface>
+        <!-- 安控 End -->
+    </section>
+</ng-container>
+
+<ng-container *ngIf="liftmodify">
+    <section class="section_area section_hasbtn">
+        <!-- 步驟列 Start -->
+        <app-step-bar [setData]="stepMenuData" [setKey]="nowStep"></app-step-bar>
+        <!-- 步驟列 End -->
+        <!-- 定存帳號 Start -->
+        <div class="card_inner_list_group inner_list_bk_yellow">
+            <div class="flex_row card_inner_list_li">
+                <p>{{ 'COMPOSIT_TO_TIME.ACCOUNTID' | translate }}</p>
+                <p>{{setData.acno}}</p>
+            </div>
+        </div>
+        
+        <!-- 定存帳號 End -->
+        <!-- 確認頁 -->
+        <div class="confirm_group confirm_list_bg">
+            <!-- card_inner_list_1 -->
+            <div class="card_inner_list_group">
+                <div class="flex_row card_inner_list_li">
+                    <p>{{ 'COMPOSIT_TO_TIME.PAGEFLOWSAVETYPE' | translate }}</p>
+                    <p>{{ setData.savingsRange }} {{ 'COMPOSIT_TO_TIME.MONTHS' | translate }}</p>
+                </div>
+            </div>
+
+            <div class="card_inner_list_group">
+                <div class="flex_row card_inner_list_li">
+                    <p>{{ 'COMPOSIT_TO_TIME.TRANSSAVEDATA' | translate }}</p>
+                    <p>{{ setData | fieldCheck: ['transSaveData',{zero_type:false, empty_str:'--'}] | translate}}</p>
+                </div>
+            </div>
+
+            <!-- card_inner_list_1 //End -->
+
+            <!-- card_inner_list_1 -->
+            <div class="card_inner_list_group">
+                <div class="flex_row card_inner_list_li">
+                    <p>{{ 'COMPOSIT_TO_TIME.RATE' | translate }}</p>
+                    <p>{{ setData | fieldCheck: ['rateFunction',{zero_type:false, empty_str:'--'}] | translate}}</p>
+                </div>
+            </div>
+            <!-- card_inner_list_1 //End -->
+
+            <!-- card_inner_list_1 -->
+            <div class="card_inner_list_group">
+                <div class="flex_row card_inner_list_li">
+                    <p>{{ 'COMPOSIT_TO_TIME.CYCLE' | translate }}</p>
+                    <p>{{ setData | fieldCheck: ['payCycle',{zero_type:false, empty_str:'--'}] | translate}}</p>
+                </div>
+            </div>
+            <!-- card_inner_list_1 //End -->
+
+        </div>
+        <!-- 確認頁 //End-->
+
+        <!-- 安控 Start -->
+        <app-security-interface [setSecurity]="setSecurity" [securityAction]="securityAction" [setErrorObj]="setSecurityError"
+            (currentType)="currentType($event)" (bakSecurityObj)="bakSecurityObj($event)"></app-security-interface>
+        <!-- 安控 End -->
+    </section>
+
+</ng-container>
+<ng-container *ngIf="changresult">
+    <section class="section_area">
+        <!-- 交易標題區塊 -->
+        <!-- <div class="i_succeed"></div>
+    <div class="transfer_result_title">交易成功</div>
+    <div class="transfer_result_time">2020-02-24 16:15:47</div>
+    <div class="result_succeed_notice">提醒您：銀行營業時間已過，此筆將為次一營業日交易。</div> -->
+        <!-- 結果頁(交易成功) -->
+        <app-result-status-temp [setData]="statusObj"></app-result-status-temp>
+
+        <div class="result_list_bg result_group" *ngIf="resStatus">
+
+            <!-- card_inner_list_5 -->
+            <div class="card_inner_list_group inner_list_bk_yellow">
+                <div class="card_inner_list_li_5">
+                    <p>{{ 'COMPOSIT_TO_TIME.AUTO_COMPOSIT_TO_TIME.TRANSDEPOSITAMT' | translate }}</p>
+                    <p>{{ resultData.transDepositAmt | currencyMoney: 'TWD' }}</p>
+                </div>
+            </div>
+            <!-- card_inner_list_5 //End -->
+
+
+            <!-- card_inner_list_1 -->
+            <div class="card_inner_list_group">
+                <div class="flex_row card_inner_list_li">
+                    <p>{{ 'COMPOSIT_TO_TIME.AUTO_COMPOSIT_TO_TIME.ACCOUNTID' | translate }}</p>
+                    <p>{{ resultData.accountId }}</p>
+                </div>
+            </div>
+            <!-- card_inner_list_1 //End -->
+
+            <!-- card_inner_list_1 -->
+            <div class="card_inner_list_group">
+                <div class="flex_row card_inner_list_li">
+                    <p>{{ 'COMPOSIT_TO_TIME.TRANSSAVEDATA' | translate }}</p>
+                    <p>{{ reqChData | fieldCheck: ['ChadespoitType',{zero_type:false, empty_str:'--'}] | translate}}</p>
+                </div>
+            </div>
+            <!-- card_inner_list_1 //End -->
+
+            <!-- card_inner_list_1 -->
+            <div class="card_inner_list_group">
+                <div class="flex_row card_inner_list_li">
+                    <p>{{ 'COMPOSIT_TO_TIME.PAGEFLOWSAVETYPE' | translate }}</p>
+                    <p>{{ resultData.savingSrange }} {{ 'COMPOSIT_TO_TIME.MONTHS' | translate }}</p>
+                </div>
+            </div>
+            <!-- card_inner_list_1 //End -->
+
+            <!-- card_inner_list_1 -->
+            <div class="card_inner_list_group">
+                <div class="flex_row card_inner_list_li">
+                    <p>{{ 'COMPOSIT_TO_TIME.AUTO_COMPOSIT_TO_TIME.RATEFUNCTION' | translate }}</p>
+                    <p>{{ reqChData | fieldCheck: ['CharateFunction',{zero_type:false, empty_str:'--'}] | translate}}
+                    </p>
+                </div>
+            </div>
+            <!-- card_inner_list_1 //End -->
+
+            <!-- card_inner_list_1 -->
+            <div class="card_inner_list_group">
+                <div class="flex_row card_inner_list_li">
+                    <p>{{ 'COMPOSIT_TO_TIME.AUTO_COMPOSIT_TO_TIME.PAYRATERANGE' | translate }}</p>
+                    <p>{{ reqChData | fieldCheck: ['ChapayRateRange',{zero_type:false, empty_str:'--'}] | translate}}
+                    </p>
+                </div>
+            </div>
+            <!-- card_inner_list_1 //End -->
+
+        </div>
+    </section>
+</ng-container>
+<ng-container *ngIf="liftresult">
+    <section class="section_area">
+        <app-result-status-temp [setData]="statusObj"></app-result-status-temp>
+        <div class="card_inner_list_group inner_list_bk_yellow">
+            <div class="flex_row card_inner_list_li">
+                <p>{{'COMPOSIT_TO_TIME.TIME_ACN' | translate}}</p>
+                <p>{{setData.acno}}</p>
+            </div>
+        </div>
+
+    </section>
+</ng-container>
+<ng-container *ngIf="showmodify">
+    <!-- 雙按鈕 -->
+    <div class="btn_group flex_row" bottomBtn>
+        <button class="btn_l btn_secondary btn_w25"
+            (click)="onCancelBtnClick()">{{ 'COMPOSIT_TO_TIME.SHOWMODIFY_NO' | translate }}</button>
+        <button class="btn_r btn_primary btn_w70"
+            (click)="onSecurityClick()">{{ 'COMPOSIT_TO_TIME.SHOWMODIFY_YES' | translate }}</button>
+    </div>
+    <!-- 雙按鈕 //End -->
+</ng-container>
+
+<ng-container *ngIf="showliftmodify">
+    <!-- 雙按鈕 -->
+    <div class="btn_group flex_row" bottomBtn>
+        <button class="btn_l btn_secondary btn_w25"
+            (click)="onCancelBtnClick()">{{ 'COMPOSIT_TO_TIME.SHOWMODIFY_NO' | translate }}</button>
+        <button class="btn_r btn_primary btn_w70" (click)="onSecurityClick()">{{ 'COMPOSIT_TO_TIME.SHOWMODIFY_NOLIFT' | translate }}</button>
+    </div>
+    <!-- 雙按鈕 //End -->
+</ng-container>

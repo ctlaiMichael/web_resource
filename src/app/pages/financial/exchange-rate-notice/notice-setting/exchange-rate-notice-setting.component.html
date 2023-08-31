@@ -1,0 +1,161 @@
+<ng-container *ngIf="!showConfirmPage">
+    <section class="section_area section_hasbtn">
+        <!-- 步驟列 Start -->
+        <app-step-bar [setData]="stepMenuData" [setKey]="nowStep"></app-step-bar>
+        <!-- 步驟列 End -->
+        
+        <!-- 兌出幣別 & 兌入幣別 選單 Start -->
+        <div class="row_single row_bg">
+            <div class="form_group form_foreign form_foreign_7 flex_col" [ngClass]="{'active_error': (!!checkObj.errMsgObj['currency'])}">
+                <div class="flex_row foreign_li">
+                    <div class="form_label foreign_li_width">{{'FINANCIAL.SELL_CURRENCY' | translate}}</div>
+                    <div class=""></div>
+                    <div class="form_label foreign_li_width">{{'FINANCIAL.BUY_CURRENCY' | translate}}</div>
+                </div>
+                <div class="flex_row foreign_li">
+                    <div class="flex_col foreign_li_width foreign_li_select">
+                        <!-- 未選擇幣別顯示 Start -->
+                        <div class="flex_row foreign_li_bg" [ngClass]="{'active_error_sub': (!!checkObj.errMsgObj['sellCurrency'])}" (click)="currencyPopOpen('sell')"
+                            *ngIf="!chooseSellCurrencyObj['currencyCode'];">
+                            <div class="national_flag_wrap">
+                                <div class="national_flag"></div>
+                            </div>
+                            <div class="currency_txt_wrap">
+                                <div class="currency_txt hidden_text">{{'FINANCIAL.PLEASE_SELECT' | translate}}</div>
+                            </div>
+                            <div class="flex_row select_i_down_wrap">
+                                <div class="select_pop_i_down"></div>
+                            </div>
+                        </div>
+                        <!-- 未選擇幣別顯示 End -->
+
+                        <!-- 已選擇幣別顯示 Start -->
+                        <div class="flex_row foreign_li_bg" [ngClass]="{'active_error_sub': (!!checkObj.errMsgObj['sellCurrency'])}" (click)="currencyPopOpen('sell')"
+                            *ngIf="!!chooseSellCurrencyObj['currencyCode'];">
+                            <div class="national_flag_wrap">
+                                <div class="national_flag {{chooseSellCurrencyObj['currencyCode'] | iconFlag}}"></div>
+                            </div>
+                            <div class="currency_txt_wrap">
+                                <div class="currency_txt hidden_text">
+                                    {{chooseSellCurrencyObj['currencyCodeShow'] | currencyName: chooseSellCurrencyObj['currencyNameShow']}}
+                                </div>
+                            </div>
+                            <div class="flex_row select_i_down_wrap">
+                                <div class="select_pop_i_down"></div>
+                            </div>
+                        </div>
+                        <!-- 已選擇幣別顯示 End -->
+                    </div>
+                    <div class="i_foreign_trade"></div>
+                    <div class="flex_col foreign_li_width foreign_li_select">
+                        <!-- 未選擇幣別顯示 Start -->
+                        <div class="flex_row foreign_li_bg" [ngClass]="{'active_error_sub': (!!checkObj.errMsgObj['buyCurrency'])}" (click)="currencyPopOpen('buy')"
+                            *ngIf="!chooseBuyCurrencyObj['currencyCode'];">
+                            <div class="national_flag_wrap">
+                                <div class="national_flag"></div>
+                            </div>
+                            <div class="currency_txt_wrap">
+                                <div class="currency_txt hidden_text">{{'FINANCIAL.PLEASE_SELECT' | translate}}</div>
+                            </div>
+                            <div class="flex_row select_i_down_wrap">
+                                <div class="select_pop_i_down"></div>
+                            </div>
+                        </div>
+                        <!-- 未選擇幣別顯示 End -->
+
+                        <!-- 已選擇幣別顯示 Start -->
+                        <div class="flex_row foreign_li_bg" [ngClass]="{'active_error_sub': (!!checkObj.errMsgObj['buyCurrency'])}" (click)="currencyPopOpen('buy')"
+                            *ngIf="!!chooseBuyCurrencyObj['currencyCode'];">
+                            <div class="national_flag_wrap">
+                                <div class="national_flag {{chooseBuyCurrencyObj['currencyCode'] | iconFlag}}"></div>
+                            </div>
+                            <div class="currency_txt_wrap">
+                                <div class="currency_txt hidden_text">
+                                    {{chooseBuyCurrencyObj['currencyCodeShow'] | currencyName: chooseBuyCurrencyObj['currencyNameShow']}}
+                                </div>
+                            </div>
+                            <div class="flex_row select_i_down_wrap">
+                                <div class="select_pop_i_down"></div>
+                            </div>
+                        </div>
+                        <!-- 已選擇幣別顯示 End -->
+                    </div>
+                </div>
+                <div class="form_error">{{checkObj.errMsgObj['currency'] | translate}}</div>
+            </div>
+        </div>
+        <!-- 兌出幣別 & 兌入幣別 選單 End -->
+
+        <!-- 輸入表單 Start -->
+        <div class="row_single row_bg">
+            <!-- 匯率輸入欄位 Start -->
+            <div class="form_group form_group_w100 form_input_4">
+                <div class="input_group flex_col">
+                    <div class="form_label">{{'FINANCIAL.TARGET_EXCHANGE_RATE' | translate}}</div>
+                    <div class="select_pop_info_top">{{'FINANCIAL.REFERENCE_EXCHANGE_RATE' | translate}}
+                        {{referenceRate}}</div>
+                    <div class="input_inner_group" [ngClass]="{'active_error': (!!checkObj.errMsgObj['expectedRate'])}">
+                        <input type="text" class="input_inner" pattern="[\d\.\,]" [(ngModel)]="expectedRate"
+                            placeholder="{{'FINANCIAL.PLEASE_ENTER' | translate}}" maxlength="18" appRateOnly (outputMethod)="expectedRateChange($event)">
+                        <div class="form_error">{{checkObj.errMsgObj['expectedRate'] | translate}}</div>
+                    </div>
+                </div>
+            </div>
+            <!-- 匯率輸入欄位 End -->
+
+            <!-- 開始日期選單 Start -->
+            <div class="form_group form_group_w100 form_date">
+                <div class="select_group flex_col">
+                    <div class="form_label">{{'FINANCIAL.START_DATE' | translate}}</div>
+                    <div class="select_inner_group" (click)="datePickerPopOpen('start')" [ngClass]="{'active_error': (!!checkObj.errMsgObj['selectStartDate'])}">
+                        <div class="form_date_pop flex_row">
+                            <p class="select_pop_content" *ngIf="!selectStartDate;">
+                                {{'FINANCIAL.PLEASE_SELECT' | translate}}</p>
+                            <p class="select_pop_content" *ngIf="!!selectStartDate;">{{selectStartDate}}</p>
+                            <div class="select_pop_i_calendar"></div>
+                        </div>
+                        <div class="form_error">{{checkObj.errMsgObj['selectStartDate'] | translate}}</div>
+                    </div>
+                </div>
+            </div>
+            <!-- 開始日期選單 End -->
+
+            <!-- 結束日期選單 Start -->
+            <div class="form_group form_group_w100 form_date">
+                <div class="select_group flex_col">
+                    <div class="form_label">{{'FINANCIAL.END_DATE' | translate}}</div>
+                    <div class="select_inner_group" (click)="datePickerPopOpen('end')" [ngClass]="{'active_error': (!!checkObj.errMsgObj['selectEndDate'])}">
+                        <div class="form_date_pop flex_row">
+                            <p class="select_pop_content" *ngIf="!selectEndDate;">
+                                {{'FINANCIAL.PLEASE_SELECT' | translate}}</p>
+                            <p class="select_pop_content" *ngIf="!!selectEndDate;">{{selectEndDate}}</p>
+                            <div class="select_pop_i_calendar"></div>
+                        </div>
+                        <div class="form_error">{{checkObj.errMsgObj['selectEndDate'] | translate}}</div>
+                    </div>
+                </div>
+            </div>
+            <!-- 結束日期選單 End -->
+        </div>
+        <!-- 輸入表單 End -->
+
+        <!-- 注意資訊 Start -->
+        <app-note [options]="notePopupOption"></app-note>
+        <!-- 注意資訊 End -->
+    </section>
+
+    <!-- 清除 & 確認 按鈕 Start -->
+    <div class="btn_group flex_row" bottomBtn>
+        <button class="btn_l btn_secondary btn_w25"
+            (click)="onClearBtnClick()">{{'FINANCIAL.BTN.CLEAR' | translate}}</button>
+        <button class="btn_r btn_primary btn_w70"
+            (click)="onNextStepBtnClick()">{{'FINANCIAL.BTN.NEXT_STEP' | translate}}</button>
+    </div>
+    <!-- 清除 & 確認 按鈕 End -->
+</ng-container>
+
+<!-- 確認頁 & 結果頁 Start -->
+<ng-container *ngIf="showConfirmPage">
+    <app-notice-confirm-result [inputData]="outputData" (backPageEmit)="onBackPage($event)"></app-notice-confirm-result>
+</ng-container>
+<!-- 確認頁 & 結果頁 End -->

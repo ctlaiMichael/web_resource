@@ -1,0 +1,40 @@
+<div class="row_table row_table_striped row_table_shadow table_fund_invest">
+    <!-- 子標題 START-->
+    <div class="table_group table_title table_title_4set_1">
+        <div class="flex_row table_title_4set_li">
+            <p class="table_title_4set_li_p1">{{ 'FUND_HEALTHY.TOTAL.CURRENCY' | translate }}</p>
+            <p class="table_title_4set_li_p2">{{ 'FUND_HEALTHY.TOTAL.TOTAL_TOTOSAMT' | translate }}</p>
+        </div>
+        <div class="flex_row table_title_4set_li">
+            <p class="table_title_4set_li_p1">{{ 'FUND_HEALTHY.TOTAL.INTRETN' | translate }}</p>
+            <p class="table_title_4set_li_p2">{{ 'FUND_HEALTHY.TOTAL.BAOCHOU' | translate }}</p>
+        </div>
+    </div>
+    <!-- 子標題 END-->
+
+    <!-- 明細 START-->
+    <ng-container *ngFor="let item of showData">
+        <div class="table_group table_list_4set_2">
+            <div class="table_list_set">
+                <div class="table_list_set_wrap">
+                    <div class="flex_row table_list_set_li table_list_4set_3flag_li">
+                        <div class="flex_row table_3flag_wrap table_3set_p1">
+                            <div class="national_3flag_wrap">
+                              <div class="national_flag {{item.totEngCcy | iconFlag}}"></div>
+                            </div>
+                            <p class="national_3flag_p">
+                                {{ (item | objectField: ['totEngCcy', 'currency' , item.totEngCcy] ) }}
+                                 {{ (item | objectField: ['totChiCcy'])}}</p>
+                          </div>
+                        <p>{{ (item | objectField: ['totsAmt', 'currencyMoney' , item.totEngCcy] ) }}</p>
+                    </div>
+                    <div class="flex_row table_list_set_li table_list_4set_li">
+                        <p fundProfit [data]="item" [type]="'intretn'">{{ item | fieldCheck: ['intretn',{zero_type:false, empty_str:'--'}] }}</p>
+                        <p fundProfit [data]="item" [type]="'baoChou'">{{ item | fieldCheck: ['baoChou',{zero_type:false, empty_str:'--'}] }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    <!-- 明細 End-->
+</div>

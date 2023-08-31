@@ -1,0 +1,93 @@
+<!-- 細項 -->
+<div class="content_group content_account_2 flex_row" (click)="onMore()">
+    <div class="content_account_2_w1">
+        <div class="content_account_li content_account_title">
+            <div class="content_account_title_l">
+                <p class="account_title_l_name">{{ showNickName }}</p>
+                <p class="account_title_l_number">{{ showAccount }}</p>
+            </div>
+            <div class="i_more_2" *ngIf="showMenu"></div>
+        </div>
+
+        <ng-container [ngSwitch]="itemType">
+            <!-- 支存帳號 -->
+            <ng-container *ngSwitchCase="'checkingAcctInfoData'">
+                <!-- 帳上餘額 -->
+                <div class="content_account_li flex_row">
+                    <div class="content_account_li_p1">{{ 'DEPOSIT_OVERVIEW.FIELD.ACC_AMOUNT' | translate }}</div>
+                    <div class="content_account_li_p2_bold">{{ mainData | objectField: ['accountBalance', 'currencyMoney', currencyCode] }}</div>
+                </div>
+                <!-- 可用餘額 -->
+                <div class="content_account_li flex_row">
+                    <div class="content_account_li_p1">{{ 'DEPOSIT_OVERVIEW.FIELD.ACC_AVL_AMOUNT' | translate }}</div>
+                    <div class="content_account_li_p2_bold">{{ mainData | objectField: ['availableBalance', 'currencyMoney', currencyCode] }}</div>
+                </div>
+            </ng-container>
+            <!-- 活存帳號 -->
+            <ng-container *ngSwitchCase="'savingsAcctInfoData'">
+                <!-- 帳上餘額 -->
+                <div class="content_account_li flex_row">
+                    <div class="content_account_li_p1">{{ 'DEPOSIT_OVERVIEW.FIELD.ACC_AMOUNT' | translate }}</div>
+                    <div class="content_account_li_p2_bold">{{ mainData | objectField: ['accountBalance', 'currencyMoney', currencyCode] }}</div>
+                </div>
+                <!-- 可用餘額 -->
+                <div class="content_account_li flex_row">
+                    <div class="content_account_li_p1">{{ 'DEPOSIT_OVERVIEW.FIELD.ACC_AVL_AMOUNT' | translate }}</div>
+                    <div class="content_account_li_p2_bold">{{ mainData | objectField: ['availableBalance', 'currencyMoney', currencyCode] }}</div>
+                </div>
+            </ng-container>
+            <!-- 定存帳號 -->
+            <ng-container *ngSwitchCase="'timeAcctInfoData'">
+                <!-- 定存金額 -->
+                <div class="content_account_li flex_row">
+                    <div class="content_account_li_p1">{{ 'DEPOSIT_OVERVIEW.FIELD.NEWBLAMT' | translate }}</div>
+                    <div class="content_account_li_p2_bold">{{ mainData | objectField: ['balance', 'currencyMoney', currencyCode] }}</div>
+                </div>
+                <!-- 到期日 -->
+                <div class="content_account_li flex_row">
+                    <div class="content_account_li_p1">{{ 'DEPOSIT_OVERVIEW.FIELD.ENDDATE' | translate }}</div>
+                    <div class="content_account_li_p2_bold">{{ mainData | objectField: ['endDate', 'htDate', 'date'] }}</div>
+                </div>
+            </ng-container>
+            <!-- 其他帳號 -->
+            <ng-container *ngSwitchCase="'otherAcctInfoData'">
+                <!-- 餘額 -->
+                <div class="content_account_li flex_row">
+                    <div class="content_account_li_p1">{{ 'DEPOSIT_OVERVIEW.FIELD.BALANCE' | translate }}</div>
+                    <div class="content_account_li_p2_bold">{{ mainData | objectField: ['balance', 'currencyMoney', currencyCode] }}</div>
+                </div>
+            </ng-container>
+            <!-- 黃金 -->
+            <ng-container *ngSwitchCase="'goldInfoData'">
+                <!-- 公克 -->
+                <div class="content_account_li flex_row">
+                    <div class="content_account_txt">
+                        {{ mainData | objectField: ['balance', 'htMoney', ''] }}
+                        &nbsp;{{ 'DEPOSIT_OVERVIEW.FIELD.GOLD_UNIT' | translate }}
+                    </div>
+                </div>
+            </ng-container>
+            <!-- 貸款 -->
+            <ng-container *ngSwitchCase="'loansInfoData'">
+                <!-- 貸款餘額 -->
+                <div class="content_account_li flex_row">
+                    <div class="content_account_li_p1">{{ 'DEPOSIT_OVERVIEW.FIELD.LOAN_AMOUNT' | translate }}</div>
+                    <div class="content_account_li_p2_bold">{{ mainData | objectField: ['balance', 'currencyMoney', currencyCode] }}</div>
+                </div>
+                <!-- 貸款結束日 -->
+                <div class="content_account_li flex_row">
+                    <div class="content_account_li_p1">{{ 'DEPOSIT_OVERVIEW.FIELD.LOAN_ENDDATE' | translate }}</div>
+                    <div class="content_account_li_p2_bold">{{ mainData | objectField: ['endDate', 'htDate', 'date'] }}</div>
+                </div>
+            </ng-container>
+            <!-- 基金 -->
+            <!-- <ng-container *ngSwitchCase="'fundInfoData'">
+            </ng-container> -->
+            <!-- 信用卡 -->
+            <!-- <ng-container *ngSwitchCase="'cardsInfoData'">
+            </ng-container> -->
+        </ng-container>
+    </div>
+
+</div>
+<!-- 細項 End -->

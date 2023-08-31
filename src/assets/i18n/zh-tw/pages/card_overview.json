@@ -1,0 +1,20 @@
+{
+    "CARD_OVERVIEW": {
+        "MAIN": {
+            "SCSB": "上海商銀",
+            "NOWRANGE": "目前可用額度",
+            "UNPAID": "未出帳消費",
+            "DETAIL": "查看明細",
+            "CARD_PROFILE": "信用卡現況",
+            "CARD_PAY": "繳卡費",
+            "CARD_APPLY": "申請信用卡",
+            "HAVETOPAID": "{{monthStr}}月份 <span>| 應繳總金額</span>",
+            "MINPAY": "最低應繳金額",
+            "DUEDATE": "本期繳款截止日",
+            "HISTORY_BILL": "各期帳單查詢",
+            "BONUS_COUNT": "紅利點數",
+            "ALL_COUNT": "總點數",
+            "COUNT": "點"
+        }
+    }
+}
